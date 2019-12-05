@@ -1,0 +1,3 @@
+* Rebuilt URL to: ftp://ftp.appareldownload.comAllDBDiscoALP_4.txt/
+* Could not resolve host: ftp.appareldownload.comAllDBDiscoALP_4.txt
+* Closing connection 0

@@ -1,0 +1,26 @@
+.nth_clear_4:nth-child(4n+1){
+    clear:both;
+}
+.custom_row_1 {
+    /*height: 36px;*/
+    background: #e1e1e1;
+    color: #fff;
+    margin: 0 auto;
+    padding-left: 4%;
+    padding-right: 4%;
+    vertical-align: middle;
+    font-weight: 700;
+}
+.top_nav span {
+    color: #25ad60;
+    font-size: 20px;
+    vertical-align: middle;
+}
+.custom_row_1 .table th, .table td {
+    padding: 5px 0px 0px 10% !important;
+    vertical-align: middle !important;
+    font-size: 15px !important;
+}
+.custom_row_1 .table p {
+    color: #000 !important;
+} 
