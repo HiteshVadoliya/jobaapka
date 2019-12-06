@@ -78,7 +78,7 @@
             <div class="col-lg-3 col-md-6">
                <div class="single-footer-widget footer-contact">
                   <h3>Contact Info</h3>
-                  <p><i class="fa fa-map-marker"></i> <?= $site_address ?> </p>
+                  <p><i class="fa fa-map-marker"></i> <?= nl2br($site_address) ?> </p>
                   <p><i class="fa fa-phone"></i> <?= $site_phone ?></p>
                   <p><i class="fa fa-envelope-o"></i> <?= $site_email ?></p>
                </div>
@@ -107,7 +107,7 @@
          <div class="row">
             <div class="col-lg-12">
                <div class="copyright-left">
-                  <p>2020 TRADEMARK LOGO ALL RIGHTS RESERVED <img src="<?= FRONT_IMG."logo/".$site_logo; ?>">
+                  <p>2020 <i class="fa fa-trademark"></i> LOGO ALL RIGHTS RESERVED <img src="<?= FRONT_IMG."logo/".$site_logo; ?>">
 
                      <!-- Copyright &copy; <?= date('Y'); ?> <?= $site_title ?>. All Rights Reserved</p> -->
                </div>

@@ -19,6 +19,7 @@
             <div class="col-md-12">
                <div class="banner-search">
                   <h2>Search Job.</h2>
+
                   <h4>We have 1542 job offers for you! </h4>
                   <form>
                      <div class="banner-form-box">
@@ -52,13 +53,17 @@
 </section>
 <!-- Banner Area End -->
  
+ 
+
+
+
  <!-- Happy Freelancer Start -->
  <section class="jobguru-happy-freelancer-area section_70">
     <div class="container">
        <div class="row">
           <div class="col-md-12">
              <div class="site-heading">
-                <h4>Job Aapka</h4>
+                <h4>Job Aapka </h4>
                 <!-- <p>A better career is out there. We'll help you find it. We're your first step to becoming everything you want to be.</p> -->
              </div>
           </div>

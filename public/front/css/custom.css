@@ -24,3 +24,16 @@
 .custom_row_1 .table p {
     color: #000 !important;
 } 
+#signup {
+    box-shadow: 0px 4px 20px 18px #82c19d;
+}
+#signup input {
+    border-radius: 15px;
+    box-shadow: 1px 1px 3px 0px #ccc;
+    padding-bottom: 10px;
+}
+/**
+ * Demo styles
+ * Not needed for tooltips to work
+ */
+

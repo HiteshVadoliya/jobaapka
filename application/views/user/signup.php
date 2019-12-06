@@ -5,7 +5,7 @@
                <div class="row">
                   <div class="col-md-12">
                      <div class="breadcromb-box">
-                        <h3>Register</h3>
+                        <h3>SIGN UP</h3>
                      </div>
                   </div>
                </div>
@@ -18,7 +18,7 @@
                      <div class="breadcromb-box-pagin">
                         <ul>
                            <li><a href="<?= base_url(); ?>">home</a></li>
-                           <li class="active-breadcromb"><a href="javascript:;">Register</a></li>
+                           <li class="active-breadcromb"><a href="javascript:;">SIGN UP</a></li>
                         </ul>
                      </div>
                   </div>
@@ -34,13 +34,13 @@
          <div class="container">
             <div class="row">
                <div class="col-md-12">
-                  <div class="login-box">
+                  <div class="login-box" id="signup">
                      <div class="login-title">
                         <h3>Sign up</h3>
                      </div>
                      <form>
                         <div class="single-login-field">
-                           <input type="text" placeholder="Full Name">
+                           <input type="text" placeholder="Name">
                         </div>
                         <div class="single-login-field">
                            <input type="email" placeholder="Email Addresss">
@@ -48,18 +48,6 @@
                         <div class="single-login-field">
                            <input type="password" placeholder="Choose Password">
                         </div>
-                        <div class="single-login-field">
-                           <input type="password" placeholder="Confirm Password">
-                        </div>
-                        <div class="single-login-field">
-                           <select class="form-control">
-                              <option>Select Type</option>
-                              <option>Employer</option>
-                              <option>Jobseeker</option>
-                           </select>
-                        </div>
-
-                        
                         <div class="remember-row single-login-field clearfix">
                            <p class="checkbox remember">
                               <input class="checkbox-spin" type="checkbox" id="Freelance">
@@ -71,7 +59,7 @@
                         </div>
                      </form>
                      <div class="dont_have">
-                        <a href="login.html">Already have an account?</a>
+                        <a href="<?= base_url('login') ?>">Already have an account? Sign in</a>
                      </div>
                   </div>
                </div>

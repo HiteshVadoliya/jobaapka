@@ -3,8 +3,8 @@
    <div class="row">
       <table class="table ">
          <tr>
-            <td><p><i class="fa fa-phone"></i> Mo : +91 8866005130</p></td>
-            <td><p><i class="fa fa-map-marker"></i> JobAapka - Mumbai (West)</p></td>
+            <td><p><a href="tel:+918657430699" ><i class="fa fa-phone"></i> Mo : +91 8657430699</p></a></td>
+            <td><p title="<?= $site_address ?>"> <i class="fa fa-map-marker"></i> Thane (West), Maharashtra Pin – 400601</p></td>
             <td class="top_nav" >
                <span><i class="fa fa-facebook"></i></span>
                <span><i class="fa fa-twitter"></i></span>

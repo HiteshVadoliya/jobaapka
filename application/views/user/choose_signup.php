@@ -5,7 +5,7 @@
                <div class="row">
                   <div class="col-md-12">
                      <div class="breadcromb-box">
-                        <h3>Signup As a...</h3>
+                        <h3>Join Us</h3>
                      </div>
                   </div>
                </div>
@@ -18,7 +18,7 @@
                      <div class="breadcromb-box-pagin">
                         <ul>
                            <li><a href="<?= base_url(); ?>">home</a></li>
-                           <li class="active-breadcromb"><a href="javascript:;">Signup As a...</a></li>
+                           <li class="active-breadcromb"><a href="javascript:;">Join Us</a></li>
                         </ul>
                      </div>
                   </div>
@@ -37,10 +37,7 @@
                   <div class="tab-content" id="myTabContent">
                      <div class="tab-pane fade show active" id="company_a" role="tabpanel" aria-labelledby="company_a_tab">
                         <div class="row">
-                           <div class="col-lg-4 col-md-12" style="display: block;">
-                              <img src="<?= FRONT_IMG ?>plan.png" alt="company a" style="height: 300px;">
-                           </div>
-                           <div class="col-lg-4 col-md-12 companyBox moreBox" style="display: block;min-height: 270px;
+                           <div class="col-lg-6 col-md-12 companyBox moreBox" style="display: block;min-height: 270px;
     padding-top: 68px;">
                               <div class="single-browse-company">
                                  
@@ -54,7 +51,7 @@
 
                            </div>
 
-                          <div class="col-lg-4 col-md-12 companyBox moreBox" style="display: block;min-height: 270px;
+                          <div class="col-lg-6 col-md-12 companyBox moreBox" style="display: block;min-height: 270px;
    padding-top: 68px;">
                              <div class="single-browse-company">
                                 
