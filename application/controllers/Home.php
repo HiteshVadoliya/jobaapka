@@ -17,11 +17,24 @@ class Home extends FrontController {
         $data['active_menu'] = "signup";
         $this->loadViews(USER."choose_signup", $this->global, $data, NULL,NULL);
     }
-    public function signup() {
+    public function signup( $type = 'jobseeker' ) {
         $data = array();
         $this->global['pageTitle'] = 'signup';
         $data['active_menu'] = "signup";
+        $data['signup_type'] = $type;
         $this->loadViews(USER."signup", $this->global, $data, NULL,NULL);
+    }
+    public function policy( ) {
+        $data = array();
+        $this->global['pageTitle'] = 'policy';
+        $data['active_menu'] = "policy";
+        $this->loadViews(USER."policy", $this->global, $data, NULL,NULL);
+    }
+    public function terms( ) {
+        $data = array();
+        $this->global['pageTitle'] = 'terms';
+        $data['active_menu'] = "terms";
+        $this->loadViews(USER."terms", $this->global, $data, NULL,NULL);
     }
 
     public function login() {

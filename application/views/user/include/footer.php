@@ -29,8 +29,8 @@
                      <li><a href="#"><i class="fa fa-angle-double-right "></i> HOME</a></li>
                      <li><a href="<?= base_url('about'); ?>"><i class="fa fa-angle-double-right "></i> ABOUT US</a></li>
                      <li><a href="<?= base_url('whyus'); ?>"><i class="fa fa-angle-double-right "></i> WHY US </a></li>
-                     <li><a href="#"><i class="fa fa-angle-double-right "></i> REGISTER </a></li>
-                     <li><a href="#"><i class="fa fa-angle-double-right "></i> LOGIN</a></li>
+                     <li><a href="<?= base_url('choose_signup') ?>"><i class="fa fa-angle-double-right "></i> REGISTER </a></li>
+                     <li><a href="<?= base_url('login') ?>"><i class="fa fa-angle-double-right "></i> LOGIN</a></li>
                      <li><a href="#"><i class="fa fa-angle-double-right "></i> FAQS </a></li>
                      <li><a href="<?= base_url('contact'); ?>"><i class="fa fa-angle-double-right "></i> CONTACT US</a></li>
                   </ul>
@@ -45,8 +45,8 @@
                      <li><a href="#"><i class="fa fa-angle-double-right "></i> EMPLOYER PLAN </a></li>
                      <li><a href="#"><i class="fa fa-angle-double-right "></i> JOBSEEKER </a></li>
                      <li><a href="#"><i class="fa fa-angle-double-right "></i> PLAN Address  </a></li>
-                     <li><a href="#"><i class="fa fa-angle-double-right "></i> TERMS AND CONDITIONS </a></li>
-                     <li><a href="#"><i class="fa fa-angle-double-right "></i> PRIVACY POLICY </a></li>
+                     <li><a href="<?= base_url('terms') ?>"><i class="fa fa-angle-double-right "></i> TERMS AND CONDITIONS </a></li>
+                     <li><a href="<?= base_url('policy') ?>"><i class="fa fa-angle-double-right "></i> PRIVACY POLICY </a></li>
                   </ul>
                </div>
             </div>

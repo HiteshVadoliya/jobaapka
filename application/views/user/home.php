@@ -68,20 +68,29 @@
              </div>
           </div>
        </div>
-       <div class="row">
-          <div class="col-md-12">
-             <div class="happy-freelancer-slider owl-carousel">
-                <div class="single-happy-freelancer">
-                   <img src="<?= IMG_TESTIMONIAL ?>/1.png" alt="testimonial 1" style="border-radius: 1%;" />
+          <div class="col-md-12 home_image ">
+            <div class="row">
+            
+               <div class="col-md-4">
+                  <a href="https://www.ideators.tech/our-partners-jobaapka" target="_blank"><img src="<?= IMG_HOME ?>/job_1.png" style="border-radius: 1%;" /></a>
+               </div>
+               <div class="col-md-4">
+                  <a href="https://skillshop.exceedlms.com/student/award/33034979" target="_blank"><img src="<?= IMG_HOME ?>/job_2.png" style="border-radius: 1%;" /></a>
+               </div>
+               <div class="col-md-4">
+                  <a href="http://www.burgerkingindia.in/" target="_blank"><img src="<?= IMG_HOME ?>/job_3.png" style="border-radius: 1%;" /></a>
+               </div>
+                <!-- <div class="single-happy-freelancer">
+                   <img src="<?= IMG_HOME ?>/1.png" alt="testimonial 1" style="border-radius: 1%;" />
                 </div>
                 <div class="single-happy-freelancer">
-                   <img src="<?= IMG_TESTIMONIAL ?>/2.png" alt="testimonial 1" style="border-radius: 1%;" />
+                   <img src="<?= IMG_HOME ?>/2.png" alt="testimonial 1" style="border-radius: 1%;" />
                 </div>
                 <div class="single-happy-freelancer">
-                   <img src="<?= IMG_TESTIMONIAL ?>/4.png" alt="testimonial 1" style="border-radius: 1%;" />
-                </div>
+                   <img src="<?= IMG_HOME ?>/3.jpg" alt="testimonial 1" style="border-radius: 1%;" />
+                </div> -->
                 
-             </div>
+             
           </div>
        </div>
     </div>

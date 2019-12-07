@@ -105,6 +105,8 @@ define('MyPath', 'public/uploads/files/');
 define('DEFAULT_IMG',APP_URL.'public/default.jpg');
 define('IMG_SRC','public/uploads/');
 define('IMG_SLIDER','public/uploads/slider/');
+define('IMG_SIGNUP','public/uploads/signup/');
+define('IMG_HOME','public/uploads/home/');
 define('IMG_TESTIMONIAL','public/uploads/testimonial/');
 define('IMG_SERVICES','public/uploads/services/');
 define('IMG_OPPORTUNITY','public/uploads/opportunity/');

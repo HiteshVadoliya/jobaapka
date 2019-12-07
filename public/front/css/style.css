@@ -585,10 +585,10 @@ li {
 	top: 0;
 }
 
-.stick-top {
+.stick-top {  
 	position: absolute;
 	left: 0;
-	top: 55px;
+	top: 40px;
 	width: 100%;
 	z-index: 12;
 }
@@ -5504,4 +5504,167 @@ ul.company-desc-list li i {
 .contact-right form .row:last-child .single-contact-field {
 	margin-bottom: 0
 }
+
+
+.social-icons li {
+	display: inline;
+	float: left;
+	margin-right: 4px;
+	text-align: left
+}
+
+.social-icons li a {
+	width: 25px;
+	height: 24px;
+	display: inline-block;
+	background-color: #f2f2f2;
+	border-radius: 50%;
+	-webkit-transition: all .3s ease-in-out;
+	-moz-transition: all .3s ease-in-out;
+	-o-transition: all .3s ease-in-out;
+	-ms-transition: all .3s ease-in-out;
+	transition: all .3s ease-in-out;
+	position: relative;
+	overflow: hidden
+}
+
+.social-icons li {
+	transform: scale(1.15);
+	-webkit-transform: scale(1.15);
+	-moz-transform: scale(1.15);
+	-o-transform: scale(1.15);
+	margin-right: 9px;
+	margin-top: 9px
+}
+
+
+.icon-delicious:before {
+	content: '\23'
+}
+
+.icon-paypal:before {
+	content: '\24'
+}
+
+.icon-gplus:before {
+	content: '\2b'
+}
+
+.icon-stumbleupon:before {
+	content: '\2f'
+}
+
+.icon-fivehundredpx:before {
+	content: '\30'
+}
+
+.icon-pinterest:before {
+	content: '\31'
+}
+
+.icon-forrst:before {
+	content: '\3a'
+}
+
+.icon-digg:before {
+	content: '\3b'
+}
+
+.icon-spotify:before {
+	content: '\3d'
+}
+
+.icon-reddit:before {
+	content: '\3e'
+}
+
+.icon-appstore:before {
+	content: '\41'
+}
+
+.icon-blogger:before {
+	content: '\42'
+}
+
+.icon-dribbble:before {
+	content: '\44'
+}
+
+.icon-evernote:before {
+	content: '\45'
+}
+
+.icon-flickr:before {
+	content: '\46'
+}
+
+.icon-linkedin:before {
+	content: '\4c'
+}
+
+.icon-rss:before {
+	content: '\52'
+}
+
+.icon-twitter:before {
+	content: '\54'
+}
+
+.icon-youtube:before {
+	content: '\55'
+}
+
+.icon-vimeo:before {
+	content: '\56'
+}
+
+.icon-xing:before {
+	content: '\58'
+}
+
+.icon-yahoo:before {
+	content: '\59'
+}
+
+.icon-amazon:before {
+	content: '\61'
+}
+
+.icon-steam:before {
+	content: '\62'
+}
+
+.icon-dropbox:before {
+	content: '\64'
+}
+
+.icon-facebook:before {
+	content: '\66'
+}
+
+.icon-github:before {
+	content: '\67'
+}
+
+.icon-lastfm:before {
+	content: '\6c'
+}
+
+.icon-tumblr:before {
+	content: '\74'
+}
+
+.icon-wordpress:before {
+	content: '\77'
+}
+
+.icon-linkedin-rect:before {
+	content: '\f31b'
+}
+
+.icon-instagram:before {
+	content: '\f31f'
+}
+
+
 

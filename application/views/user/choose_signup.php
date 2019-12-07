@@ -5,7 +5,7 @@
                <div class="row">
                   <div class="col-md-12">
                      <div class="breadcromb-box">
-                        <h3>Join Us</h3>
+                        <h3>WELCOME TO JOBAAPKA LOGO</h3>
                      </div>
                   </div>
                </div>
@@ -33,6 +33,7 @@
          <div class="container">
             <div class="row">
                <div class="col-md-12">
+                <center><h2>YOU ARE</h2></center>
                   
                   <div class="tab-content" id="myTabContent">
                      <div class="tab-pane fade show active" id="company_a" role="tabpanel" aria-labelledby="company_a_tab">
@@ -41,11 +42,11 @@
     padding-top: 68px;">
                               <div class="single-browse-company">
                                  
-                                 <h3><a href="<?= base_url('signup'); ?>" class="post-jobs" style="color: #fff;">Signup as Employer</a></h3>
+                                 <h3><a href="<?= base_url('signup/jobseeker'); ?>" class="post-jobs" style="background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);">JOBSEEKER/CANDIDATE</a></h3>
                                  
-                                 <div class="single-browse-company-btn">
+                                 <!-- <div class="single-browse-company-btn">
                                     <a href="#" class="jobguru-btn">Go..</a>
-                                 </div>
+                                 </div> -->
                               </div>
 
 
@@ -55,11 +56,11 @@
    padding-top: 68px;">
                              <div class="single-browse-company">
                                 
-                                <h3><a href="<?= base_url('signup'); ?>" class="post-jobs" style="color: #fff;">Signup as JobSeeker</a></h3>
+                                <h3><a href="<?= base_url('signup/employer'); ?>" class="post-jobs" style="background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);">EMPLOYER/RECRUITER</a></h3>
                                 
-                                <div class="single-browse-company-btn">
+                               <!--  <div class="single-browse-company-btn">
                                    <a href="#" class="jobguru-btn">Go..</a>
-                                </div>
+                                </div> -->
                              </div>
 
                              

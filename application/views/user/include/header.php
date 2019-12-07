@@ -1,19 +1,27 @@
 <!-- Header Area Start -->
 <div class="col-md-12 custom_row_1">
    <div class="row">
-      <table class="table ">
-         <tr>
-            <td><p><a href="tel:+918657430699" ><i class="fa fa-phone"></i> Mo : +91 8657430699</p></a></td>
-            <td><p title="<?= $site_address ?>"> <i class="fa fa-map-marker"></i> Thane (West), Maharashtra Pin – 400601</p></td>
-            <td class="top_nav" >
-               <span><i class="fa fa-facebook"></i></span>
-               <span><i class="fa fa-twitter"></i></span>
-               <span><i class="fa fa-linkedin"></i></span>
-               <span><i class="fa fa-google-plus"></i></span>
-               <span><i class="fa fa-skype"></i></span>
-            </td>
-         </tr>
-      </table>
+
+   <div class="col-lg-4">
+      <p style="margin-top: 9px;"><a href="tel:+918657430699"  style="color: #777;" ><i class="fa fa-phone"></i> Mo : +91 8657430699</p></a>
+   </div>
+
+   <div class="col-lg-4">
+      <p style="margin-top: 9px;" title="<?= $site_address ?>"> <i class="fa fa-map-marker"></i> Thane (West), Maharashtra Pin – 400601</p>
+   </div>
+
+   <div class="col-lg-4 footer-bottom">
+      <ul class="social-icons" style="float: right;">
+
+                  <li><a class="facebook" href="#"><i class="fa fa-facebook"  style="margin-left: 5px;"></i></a></li>
+                  <li><a class="twitter" href="#"><i class="fa fa-twitter"  style="margin-left: 5px;"></i></a></li>
+                  <li><a class="gplus" href="#"><i class="fa fa-google-plus" style="margin-left: 5px;"></i></a></li>
+                  <li><a class="linkedin" href="#"><i class="fa fa-linkedin" style="margin-left: 5px;"></i></a></li>
+                  <?php /*<li><a class="skype" href="#"><i class="fa fa-skype"></i></a></li>*/ ?>
+               </ul>
+   </div>
+
+      
    </div>
 </div>
 <header class="jobguru-header-area stick-top forsticky <?php if($active_menu!='home') { echo 'page-header'; } ?> ">
@@ -32,7 +40,7 @@
                <!-- Responsive Menu Start -->
             </div>
 
-            <div class="col-lg-2">
+            <div class="col-lg-4">
                <div class="header-right-menu">
                   <ul>
                      <li><a href="<?= base_url('whyus') ?>" class="post-jobs">WHY US</a></li>
@@ -40,7 +48,7 @@
                </div>
             </div>
 
-            <div class="col-lg-8" style="text-align: center;">
+            <div class="col-lg-6" >
                <div class="header-menu">
                   <nav id="navigation">
                      <ul id="jobguru_navigation">
