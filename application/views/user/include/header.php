@@ -3,7 +3,7 @@
    <div class="row">
 
    <div class="col-lg-4">
-      <p style="margin-top: 9px;"><a href="tel:+918657430699"  style="color: #777;" ><i class="fa fa-phone"></i> Mo : +91 8657430699</p></a>
+      <p style="margin-top: 9px;"><a href="tel:<?= $site_phone ?>"  style="color: #777;" ><i class="fa fa-phone"></i> Mo : <?= $site_phone ?></p></a>
    </div>
 
    <div class="col-lg-4">
@@ -43,7 +43,7 @@
             <div class="col-lg-4">
                <div class="header-right-menu">
                   <ul>
-                     <li><a href="<?= base_url('whyus') ?>" class="post-jobs">WHY US</a></li>
+                     <li><a href="<?= base_url('whyus') ?>" class="post-jobs animate-flicker">WHY US</a></li>
                   </ul>
                </div>
             </div>
@@ -55,9 +55,9 @@
                         <li class="active"><a href="<?= base_url('home'); ?>">HOME</a></li>
                         <!-- <li ><a href="<?= base_url('employer/profile'); ?>">EMPLOYER</a></li> -->
 
-                        <li class=" has-children">
+                        <li class=" "> <!-- has-children -->
                            <a href="<?= base_url('employer/profile'); ?>">EMPLOYER</a>
-                           <ul>
+                           <!-- <ul>
                               <li><a href="<?= base_url('employer/profile'); ?>">COMPANY DETAILS</a></li>
                               <li><a href="<?= base_url('employer/postjob'); ?>">POST A JOB</a></li>
                               <li><a href="<?= base_url('employer/jobslisted'); ?>">JOBS LISTED</a></li>
@@ -67,7 +67,7 @@
                               <li><a href="<?= base_url('employer/application'); ?>">JOB APPLICANTS</a></li>
                               <li><a href="<?= base_url('employer/alerts'); ?>">JOBSEEKER PROFILE ALERTS</a></li>
                               <li><a href="<?= base_url('employer/consultin'); ?>">TECHNOLOGY CONSULTING </a></li>
-                           </ul>
+                           </ul> -->
                         </li>
 
                         <li ><a href="<?= base_url('jobseeker/dashboard'); ?>">JOBSEEKER </a></li>
@@ -165,4 +165,4 @@
       </div>
    </div>
 </header>
-<!-- Header Area End -->
+<!-- Header Area End

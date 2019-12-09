@@ -37,51 +37,25 @@
                   
                   <div class="tab-content" id="myTabContent">
                      <div class="tab-pane fade show active" id="company_a" role="tabpanel" aria-labelledby="company_a_tab">
-                        <div class="row">
-                           
-                           <div class="col-lg-6 col-md-12 companyBox moreBox" style="display: block;min-height: 270px;
-    padding-top: 68px;">
-                              <div class="single-browse-company">
-                                 
+                        <div class="row">                           
+                           <div class="col-lg-6 col-md-12 companyBox moreBox" style="display: block;">
+                              <div class="single-browse-company">                                 
                                  <h3>
                                  Sign up as <br /><br />JOBSEEKER/CANDIDATE <br /><br />
                                  <a href="<?= base_url('signup/jobseeker'); ?>" class="post-jobs">Create Account</a>
                                  </h3>
-                                 
-                                 <!-- <div class="single-browse-company-btn">
-                                    <a href="#" class="jobguru-btn">Go..</a>
-                                 </div> -->
                               </div>
-
-
                            </div>
-
-                           
-
-                          <div class="col-lg-6 col-md-12 companyBox moreBox" style="display: block;min-height: 270px;
-   padding-top: 68px;">
-                             <div class="single-browse-company">
-                                
-                                <h3>
-                                   
+                          <div class="col-lg-6 col-md-12 companyBox moreBox" style="display: block;">
+                             <div class="single-browse-company">                                
+                                <h3>                                   
                                 Sign up as <br /><br />EMPLOYER/RECRUITER <br /><br />
-                                <a href="<?= base_url('signup/employer'); ?>" class="post-jobs" >Create Account</a>
-                              
+                                <a href="<?= base_url('signup/employer'); ?>" class="post-jobs" >Create Account</a>                              
                                 </h3>
-                                
-                               <!--  <div class="single-browse-company-btn">
-                                   <a href="#" class="jobguru-btn">Go..</a>
-                                </div> -->
-                             </div>
-
-                             
-                          </div>
-                           
+                             </div>                            
+                          </div>                           
                         </div>
-                       
-                        
                      </div>
-                     
                   </div>
                </div>
             </div>

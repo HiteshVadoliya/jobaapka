@@ -1056,7 +1056,7 @@ header,
 	display: block;
 	margin-top: 14px;
 	border-radius: 5px;
-	min-height: 200px;
+	/*min-height: 200px;*/
 	position: relative;
 	z-index: 1;
 	-webkit-transition: all 0.2s ease 0s;

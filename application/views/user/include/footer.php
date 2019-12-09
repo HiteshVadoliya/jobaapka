@@ -78,9 +78,12 @@
             <div class="col-lg-3 col-md-6">
                <div class="single-footer-widget footer-contact">
                   <h3>Contact Info</h3>
-                  <p><i class="fa fa-map-marker"></i> <?= nl2br($site_address) ?> </p>
-                  <p><i class="fa fa-phone"></i> <?= $site_phone ?></p>
-                  <p><i class="fa fa-envelope-o"></i> <?= $site_email ?></p>
+                  <br/>
+                  <a href="javascript:;"><i class="fa fa-map-marker"></i> <?= nl2br($site_address) ?> </a>
+                  <br/>
+                  <a href="tel:<?= $site_phone ?>"><i class="fa fa-phone"></i> <?= $site_phone ?></a>
+                  <br/>
+                  <a href="mailto:<?= $site_email ?>"><i class="fa fa-envelope-o"></i> <?= $site_email ?></a>
                </div>
             </div>
 

@@ -12,7 +12,7 @@
     font-weight: 700;
 }
 .top_nav span {
-    color: #25ad60;
+    color: #2a734a;
     font-size: 20px;
     vertical-align: middle;
 }
@@ -69,4 +69,73 @@
 }
 .social_login_icon img {
     width: 40%;
+}
+.single-category-holder {
+    height: 150px;
+    width: 150px;
+    padding: 34px 20px;
+}
+.category-holder-text h3 {
+    font-size: 14px;
+    line-height: 18px;
+}
+.category-holder-icon i {
+    font-size: 25px;
+}
+.whyusclass {
+
+}
+
+.animate-flicker {
+  background-color: #2a734a;
+  /*background-color: #2a734a;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  border: none;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Arial;
+  font-size: 20px;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;*/
+  -webkit-animation: glowing 1500ms infinite;
+  -moz-animation: glowing 1500ms infinite;
+  -o-animation: glowing 1500ms infinite;
+  animation: glowing 1500ms infinite;
+}
+@-webkit-keyframes glowing {
+  0% { background-color: #2a734a; -webkit-box-shadow: 0 0 3px #2a734a; }
+  50% { background-color: #25AD60; -webkit-box-shadow: 0 0 40px #25AD60; }
+  100% { background-color: #2a734a; -webkit-box-shadow: 0 0 3px #2a734a; }
+}
+
+@-moz-keyframes glowing {
+  0% { background-color: #2a734a; -moz-box-shadow: 0 0 3px #2a734a; }
+  50% { background-color: #25AD60; -moz-box-shadow: 0 0 40px #25AD60; }
+  100% { background-color: #2a734a; -moz-box-shadow: 0 0 3px #2a734a; }
+}
+
+@-o-keyframes glowing {
+  0% { background-color: #2a734a; box-shadow: 0 0 3px #2a734a; }
+  50% { background-color: #25AD60; box-shadow: 0 0 40px #25AD60; }
+  100% { background-color: #2a734a; box-shadow: 0 0 3px #2a734a; }
+}
+
+@keyframes glowing {
+  0% { background-color: #2a734a; box-shadow: 0 0 3px #2a734a; }
+  50% { background-color: #25AD60; box-shadow: 0 0 40px #25AD60; }
+  100% { background-color: #2a734a; box-shadow: 0 0 3px #2a734a; }
+}
+
+
+@media only screen and (min-width: 320px) {
+  .single-browse-company {
+    padding: 2px 10px 28px 10px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  
 }
