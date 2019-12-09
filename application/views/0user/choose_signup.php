@@ -5,7 +5,7 @@
                <div class="row">
                   <div class="col-md-12">
                      <div class="breadcromb-box">
-                        <h3>WELCOME TO JOBAAPKA</h3>
+                        <h3>WELCOME TO JOBAAPKA LOGO</h3>
                      </div>
                   </div>
                </div>
@@ -33,20 +33,16 @@
          <div class="container">
             <div class="row">
                <div class="col-md-12">
-                <?php /*<center><h2>Sign up as Employer and Jobseeker to be as per signup shown</h2></center> */ ?>
+                <center><h2>YOU ARE</h2></center>
                   
                   <div class="tab-content" id="myTabContent">
                      <div class="tab-pane fade show active" id="company_a" role="tabpanel" aria-labelledby="company_a_tab">
                         <div class="row">
-                           
                            <div class="col-lg-6 col-md-12 companyBox moreBox" style="display: block;min-height: 270px;
     padding-top: 68px;">
                               <div class="single-browse-company">
                                  
-                                 <h3>
-                                 Sign up as <br /><br />JOBSEEKER/CANDIDATE <br /><br />
-                                 <a href="<?= base_url('signup/jobseeker'); ?>" class="post-jobs">Create Account</a>
-                                 </h3>
+                                 <h3><a href="<?= base_url('signup/jobseeker'); ?>" class="post-jobs" style="background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);">JOBSEEKER/CANDIDATE</a></h3>
                                  
                                  <!-- <div class="single-browse-company-btn">
                                     <a href="#" class="jobguru-btn">Go..</a>
@@ -56,18 +52,11 @@
 
                            </div>
 
-                           
-
                           <div class="col-lg-6 col-md-12 companyBox moreBox" style="display: block;min-height: 270px;
    padding-top: 68px;">
                              <div class="single-browse-company">
                                 
-                                <h3>
-                                   
-                                Sign up as <br /><br />EMPLOYER/RECRUITER <br /><br />
-                                <a href="<?= base_url('signup/employer'); ?>" class="post-jobs" >Create Account</a>
-                              
-                                </h3>
+                                <h3><a href="<?= base_url('signup/employer'); ?>" class="post-jobs" style="background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);">EMPLOYER/RECRUITER</a></h3>
                                 
                                <!--  <div class="single-browse-company-btn">
                                    <a href="#" class="jobguru-btn">Go..</a>
