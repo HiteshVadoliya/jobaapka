@@ -42,6 +42,8 @@
       <link rel="stylesheet" href="<?= FRONT_CSS; ?>custom.css">
 
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script> 
+
+      <script src="<?= FRONT_JS; ?>bootstrap-notify.js"></script>
    </head>
 
 
@@ -66,6 +68,8 @@
          
          <!--Popper js-->
          <script src="<?= FRONT_JS; ?>popper.min.js"></script>
+
+         
          <!--Bootstrap js-->
          <script src="<?= FRONT_JS; ?>bootstrap.min.js"></script>
          <!--Bootstrap Datepicker js-->
@@ -98,6 +102,7 @@
          s0.parentNode.insertBefore(s1,s0);
          })();
          </script>
+         
          <!--End of Tawk.to Script-->
       </body>
    </html>

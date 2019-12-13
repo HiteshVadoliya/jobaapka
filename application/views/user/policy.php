@@ -36,11 +36,9 @@
                <div class="col-md-12 col-lg-12">
                   <div class="single-candidate-bottom-left">
                      <div class="single-candidate-widget">
-                        <h3>Policy</h3>
-                        <p>Contain goes here...</p>
-                     </div>
-
-                     
+                        <h3><?= $hwt_policy['title'] ?></h3>
+                        <?= $hwt_policy['descr'] ?>
+                     </div>                     
                   </div>
                </div>
                

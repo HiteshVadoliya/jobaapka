@@ -105,6 +105,9 @@ define('MyPath', 'public/uploads/files/');
 define('DEFAULT_IMG',APP_URL.'public/default.jpg');
 define('IMG_SRC','public/uploads/');
 define('IMG_SLIDER','public/uploads/slider/');
+define('IMG_CLIENT','public/uploads/client/');
+define('IMG_INDUSTRY','public/uploads/industry/');
+
 define('IMG_SIGNUP','public/uploads/signup/');
 define('IMG_HOME','public/uploads/home/');
 define('IMG_TESTIMONIAL','public/uploads/testimonial/');
@@ -129,7 +132,7 @@ define('MSG_AUTH_FAIL','Authentication Token Fail');
 define('LIMIT','10');
 define('CURR_SYMBOL','$');
 define('ALPHA_DEV','Y');
-define('FROM_EMAIL','info@job.in');
+define('FROM_EMAIL','hmvadoliya.iipl2013@gmail.com');
 define('SUPPORT_EMAIL','info@job.in');
 define('SITE_NAME','JobAapka');
 define('COPY_RIGHT_YEAR','2019');

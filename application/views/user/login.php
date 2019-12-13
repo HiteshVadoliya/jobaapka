@@ -37,15 +37,25 @@
                   <div class="login-box" id="signup">
                      <div class="login-title">
                         <h3>Sign in</h3>
+                        <br/>
+                        <div class="footer-bottom" style="text-align: center;">
+                        <ul class="social-icons" >
+
+                                    <li style="float: none;"><a href="" style="width: 45px; height: 46px;"><img src="<?= base_url().IMG_SIGNUP.'fb.png' ?>"></a></li>
+                                    <li style="float: none;"><a href="" style="width: 45px; height: 46px;"><img src="<?= base_url().IMG_SIGNUP.'linkedin.png' ?>"></a></li>
+                                    <li style="float: none;"><a href="" style="width: 45px; height: 46px;"><img src="<?= base_url().IMG_SIGNUP.'google.png' ?>"></a></li>
+                                    
+                                 </ul>
                      </div>
-                     <form>
+                     </div>
+                     <form name="frm" id="frm" action="javascript:;" method="post" >
                         <div class="single-login-field inner-addon left-addon">
                            <i class="fa fa-envelope-open inner-text" aria-hidden="true"></i>
-                           <input type="text" placeholder="Email" class="signup_class">
+                           <input type="text" name="email" id="email" placeholder="Email" class="signup_class">
                         </div>
                         <div class="single-login-field inner-addon left-addon">
                            <i class="fa fa-lock inner-text" aria-hidden="true"></i>
-                           <input type="password" placeholder="Choose Password" class="signup_class">
+                           <input type="password" id="password" name="password" placeholder="Enter Password" class="signup_class">
                         </div>
                         
                         <div class="remember-row single-login-field clearfix">
@@ -54,7 +64,7 @@
                               <label for="Freelance"><span></span>Keep Me Signed In</label>
                            </p> -->
                            <p class="lost-pass">
-                              <a href="#">forgot password?</a>
+                              <a href="<?= base_url('forgot_password'); ?>">forgot password?</a>
                            </p>
                         </div>
                         <div class="single-login-field">
@@ -64,18 +74,63 @@
                      <div class="dont_have">
                         <a href="<?= base_url('signup/jobseeker') ?>">Don't have an account?</a>
                      </div>
-                     <br/>
-                     <div class="row social_login_icon " style="text-align: center;">
-                        
-                        <div class="col-md-4"><a href=""><img src="<?= base_url().IMG_SIGNUP.'fb.png' ?>"></a></div>
-                        <div class="col-md-4"><a href=""><img src="<?= base_url().IMG_SIGNUP.'linkedin.png' ?>"></a></div>
-                        <div class="col-md-4"><a href=""><img src="<?= base_url().IMG_SIGNUP.'google.png' ?>"></a></div>
-                        <!-- FACEBOOK with logo ,LINKEDIN with logo,GOOGLE with logo     -->
-                     </div>
+                     
                   </div>
                </div>
             </div>
          </div>
       </section>
       <!-- Login Area End -->
-       
+<script type="text/javascript">
+
+
+    $(function(){
+        $("#frm").validate({
+                
+            rules: {
+                
+                name : { required : true },
+                email : { required : true },
+            },
+            messages: {
+
+               name : { required : "Please enter name." },
+               email : { required : "Please enter Email ." },
+            },
+
+            errorPlacement: function(error, element) {
+               if (element.attr("name") == "descr") {
+                    error.insertAfter(".desc_error");
+                }
+                else{
+                    error.insertAfter(element);
+                }
+            }
+        });
+    });
+    
+
+    $("#frm").on('submit',function(){
+        var val_form = $("#frm").valid();
+        if(!val_form) { return false; }
+        $(".close").trigger("click");
+        $.ajax({
+            type: "POST",            
+            url: "<?php echo base_url('Home/login_process') ?>",
+            data: $("#frm").serialize(),
+            dataType: 'json',
+            success: function(res) {
+                if(res.error=='success') {
+                  $.notify({message: res.error_msg },{type: 'success'});
+                  var url = '<?php echo base_url('jobseeker/dashboard'); ?>';
+                  setTimeout(function(){ window.location = url; }, 2000);                  
+                } else if(res.error=='verification'){
+                    $.notify({message: res.error_msg },{type: 'danger'});
+                }
+                $("#frm")[0].reset(); 
+            },
+            error: function (error) {}
+        });
+        return false;
+    });
+</script>

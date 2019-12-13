@@ -94,7 +94,7 @@
                      <div class="row">
                         <div class="col-md-12">
                            <div class="single-contact-field">
-                              <input type="text" placeholder="Enter your email ID to stay tuned with the latest corporate news">
+                              <input type="text" style="width: 80%;" placeholder="Enter your email ID to stay tuned with the latest corporate news">
                            </div>
                         </div>
                      </div>
@@ -110,7 +110,7 @@
          <div class="row">
             <div class="col-lg-12">
                <div class="copyright-left">
-                  <p>2020 <i class="fa fa-trademark"></i> LOGO ALL RIGHTS RESERVED <img src="<?= FRONT_IMG."logo/".$site_logo; ?>">
+                  <p>2020 <i class="fa fa-trademark"></i> ALL RIGHTS RESERVED <img src="<?= FRONT_IMG."logo/".$site_logo; ?>">
 
                      <!-- Copyright &copy; <?= date('Y'); ?> <?= $site_title ?>. All Rights Reserved</p> -->
                </div>
@@ -119,4 +119,22 @@
       </div>
    </div>
 </footer>
+<?php 
+if(isset($_SESSION['FAIL'])) {
+   ?>
+   <script type="text/javascript">
+      $.notify({message: '<?php echo $_SESSION['FAIL']; ?>' },{type: 'danger'});
+   </script>
+   <?php
+   unset($_SESSION['FAIL']);
+}
+if(isset($_SESSION['SUCCESS'])) {
+   ?>
+   <script type="text/javascript">
+      $.notify({message: '<?php echo $_SESSION['SUCCESS']; ?>' },{type: 'success'});
+   </script>
+   <?php
+   unset($_SESSION['SUCCESS']);
+}
+?>
 <!-- Footer Area End

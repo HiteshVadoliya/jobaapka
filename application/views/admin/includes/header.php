@@ -106,8 +106,7 @@
                             </a>
                         </li>
 
-
-                        <!-- <li class="treeview">
+                        <li class="treeview">
                             <a href="#">
                                 <i class="fa fa-bars"></i> <span>Slider</span>
                                 <span class="pull-right-container">
@@ -115,11 +114,53 @@
                                 </span>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="<?php echo ADMIN_LINK; ?>workshop_slider"><i class="fa fa-circle-o"></i>Manage Slider</a></li>
-                                <li><a href="<?php echo ADMIN_LINK; ?>workshop_slider/add"><i class="fa fa-circle-o"></i>Add Slider</a></li>
+                                <li><a href="<?php echo ADMIN_LINK; ?>slider"><i class="fa fa-circle-o"></i>Manage Slider</a></li>
+                                <li><a href="<?php echo ADMIN_LINK; ?>slider/add"><i class="fa fa-circle-o"></i>Add Slider</a></li>
                             </ul>
                         </li>
 
+
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-bars"></i> <span>Our Clients</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="<?php echo ADMIN_LINK; ?>our_clients"><i class="fa fa-circle-o"></i>Manage Our Client</a></li>
+                                <li><a href="<?php echo ADMIN_LINK; ?>our_clients/add"><i class="fa fa-circle-o"></i>Add Our Client</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-bars"></i> <span>Industry</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="<?php echo ADMIN_LINK; ?>industry"><i class="fa fa-circle-o"></i>Manage Industry</a></li>
+                                <li><a href="<?php echo ADMIN_LINK; ?>industry/add"><i class="fa fa-circle-o"></i>Add Industry</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-bars"></i> <span>Testimonial</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="<?php echo ADMIN_LINK; ?>testimonial"><i class="fa fa-circle-o"></i>Manage Testimonial</a></li>
+                                <li><a href="<?php echo ADMIN_LINK; ?>testimonial/add"><i class="fa fa-circle-o"></i>Add Testimonial</a></li>
+                            </ul>
+                        </li>
+
+
+                        <!--
                         <li class="treeview">
                             <a href="#">
                                 <i class="fa fa-bars"></i> <span>Watch</span>
@@ -145,7 +186,7 @@
                             </ul>
                         </li> -->
 
-                        <?php /*
+                        
                         <li class="treeview">
                             <a href="#">
                                 <i class="fa fa-bars"></i> <span>CMS</span>
@@ -153,14 +194,14 @@
                                     <i class="fa fa-angle-left pull-right"></i>
                                 </span>
                             </a>
-                            <ul class="treeview-menu"><!-- 
-                                <li><a href="<?php echo ADMIN_LINK."home_header/5"; ?>"><i class="fa fa-circle-o"></i> <span>Home header Contain</span></a></li> -->
-                                <li><a href="<?php echo ADMIN_LINK."about/1"; ?>"><i class="fa fa-circle-o"></i> <span>About Us</span></a></li>
-                                <!--<li><a href="<?php echo ADMIN_LINK."privacy-policy/2"; ?>"><i class="fa fa-circle-o"></i> <span>Privacy Policy</span></a></li>
-                                <li><a href="<?php echo ADMIN_LINK."terms/3"; ?>"><i class="fa fa-circle-o"></i> <span>Terms</span></a></li> -->
+                            <ul class="treeview-menu">
+                                <li><a href="<?php echo ADMIN_LINK."whyus/1"; ?>"><i class="fa fa-circle-o"></i> <span>Why Us</span></a></li>
+                                <li><a href="<?php echo ADMIN_LINK."about/2"; ?>"><i class="fa fa-circle-o"></i> <span>About Us</span></a></li>
+                                <li><a href="<?php echo ADMIN_LINK."privacy-policy/2"; ?>"><i class="fa fa-circle-o"></i> <span>Privacy Policy</span></a></li>
+                                <li><a href="<?php echo ADMIN_LINK."terms/3"; ?>"><i class="fa fa-circle-o"></i> <span>Terms</span></a></li>
                             </ul>
                         </li>
-                        */ ?>
+                        
 
                         
                         

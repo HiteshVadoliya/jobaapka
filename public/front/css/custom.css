@@ -1,6 +1,9 @@
 .nth_clear_4:nth-child(4n+1){
     clear:both;
 }
+.error {
+  color: #ff0000;
+}
 .custom_row_1 {
     /*height: 36px;*/
     background: #e1e1e1;
@@ -62,18 +65,19 @@
     text-align: center;
 }
 .home_image img {
-    width: 60%;
+    width: 35%;
 }
 .btntoTop{
     right: 150px;
 }
 .social_login_icon img {
-    width: 40%;
+    width: 30%;
 }
 .single-category-holder {
-    height: 150px;
+    /*height: 150px;
     width: 150px;
-    padding: 34px 20px;
+    padding: 34px 20px;*/
+    
 }
 .category-holder-text h3 {
     font-size: 14px;

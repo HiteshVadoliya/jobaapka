@@ -13,6 +13,10 @@ class Slider extends BaseController
         $this->Controller = "Slider"; 
         $this->url = "slider";
         $this->img_path = IMG_SLIDER; 
+
+        $this->img_height = 1000; 
+        $this->img_width = 700;
+        $this->isthumb = true;
     }
 
     function index()
@@ -36,6 +40,7 @@ class Slider extends BaseController
                 $data['type'] = "edit";
                 $data['edit'] = $this->HWT->get_one_row($this->table,"*",array($this->id=>$id,"isDelete"=>0));
             }
+            $data['Controller'] = $this->Controller;
             $data['MainTitle'] = $this->MainTitle;
             $data['tbl_id'] = $this->id;
             $data['url'] = $this->url; 
@@ -79,8 +84,8 @@ class Slider extends BaseController
                 {
                     $statuslbl = $post['status'] == '1' ? 'Active' : 'Deactive';
                     $statusColor = $post['status'] == '1' ? 'success' : 'danger';
-                    $nestedData['title'] = $post['title'];
-                    $nestedData['url'] = $post['url'];
+                    //$nestedData['title'] = $post['title'];
+                    
 
                     $img_name = $post['img_src'];
                     if($img_name!='' && file_exists($this->img_path.$img_name)) {
@@ -127,10 +132,10 @@ class Slider extends BaseController
         {
             $this->load->library('form_validation');
             
-            // $this->form_validation->set_rules('title','Country Name','trim|required');
-            // $this->form_validation->set_rules('url','URL Name','trim|required');
+            $this->form_validation->set_rules('img_path','Image','trim|required');
             
-            if(1 != 1)
+            
+            if($this->form_validation->run() == FALSE)
             {
                 $this->showForm();
             }
@@ -138,35 +143,63 @@ class Slider extends BaseController
             {
 
                 $type = $this->input->post('type');
+                $post = $this->input->post();
                 $DataInfo = array(
-                    'title'=>$this->input->post('title'),
-                    'url'=>$this->input->post('url'),
+                    /*'title'=>$this->input->post('title'),
+                    'descr'=>$this->input->post('descr'),*/
                 );
 
-                if( !empty($_FILES["img_src"]["name"]) ){
+                
 
-                    $config['upload_path']          = $this->img_path;
-                    $config['allowed_types']        = 'jpg|jpeg|png|gif';
-                    
-                    // $config['max_size']             = 1024;
-                    $this->load->library('upload', $config);
-                    if($this->upload->do_upload('img_src'))
-                    {
-                        $upload_data = $this->upload->data();
-                        $filename = $upload_data['file_name']; 
-                        $DataInfo['img_src'] = $filename;                         
-                    }else{
-                        $this->session->set_flashdata('error', 'Media Source not uploaded..!');
-                        redirect(ADMIN_LINK.$this->url);                        
+                if($type == "add"){
+
+                    /* Profile Image */
+                    if($post['img_path'] != '') {
+                        $path = $this->img_path;
+                        if(!is_dir($path)) {
+                            mkdir($path);
+                        }    
+                        $Img = array();
+                        $ImgFile = $post['img_path'];                        
+                        $src = MyPath.$ImgFile;
+                        $dest = $this->img_path.$ImgFile;
+                        copy($src, $dest);
+                        unlink($src);                        
+                        $DataInfo['img_src'] = $post['img_path']; 
+                        $this->HWT->resize_image($this->img_path,$post['img_path'],$this->img_height,$this->img_width,$this->isthumb,'Thumb/');                       
                     }
-                }
 
-                if($type == "add"){                    
                     $DataInfo['created_at'] = date('Y-m-d H:i:s');
                     $DataInfo['status'] = '1';
                     $result = $this->HWT->insert($this->table,$DataInfo);
                 }
                 if($type == "edit"){
+
+                    /* Image */
+                    if($post['img_path'] != '') {
+                        $path = $this->img_path;
+                        if(!is_dir($path)) {
+                            mkdir($path);
+                        }                        
+                        $Img = array();
+                        $old_Img = $post['old_Img'];
+                        $ImgFile = $post['img_path'];
+                        
+                        $src = MyPath.$ImgFile;
+                        $dest = $this->img_path.$ImgFile;
+                        copy($src, $dest);
+                        unlink($src);
+                        
+                        if($old_Img != '' && file_exists($this->img_path.$old_Img)) {                    
+                            unlink($this->img_path.$old_Img);
+                        }
+                        $DataInfo['img_src'] = $post['img_path'];
+
+                        $this->HWT->resize_image($this->img_path,$post['img_path'],$this->img_height,$this->img_width,$this->isthumb,'Thumb/');
+                    }
+
+                    
+
                     $DataInfo['updated_at'] = date('Y-m-d H:i:s');
                     $editid = $this->input->post('editid'); 
                     $result = $this->HWT->update($this->table,$DataInfo,array($this->id=>$editid));
@@ -227,6 +260,55 @@ class Slider extends BaseController
                 echo(json_encode(array('status'=>FALSE))); 
             }
         }
+    }
+
+    /* Upload Files */
+    public function upload_files()
+    {
+        /*ini_set('upload_max_filesize', '10M');
+        ini_set('post_max_size', '10M');*/
+        try {
+            if (
+                !isset($_FILES['file']['error']) ||
+                is_array($_FILES['file']['error'])
+            ) {
+                throw new RuntimeException('Invalid parameters.');
+            }
+
+            switch ($_FILES['file']['error']) {
+                case UPLOAD_ERR_OK:
+                    break;
+                case UPLOAD_ERR_NO_FILE:
+                    throw new RuntimeException('No file sent.');
+                case UPLOAD_ERR_INI_SIZE:
+                    throw new RuntimeException('Other Error.');
+                case UPLOAD_ERR_FORM_SIZE:
+                    throw new RuntimeException('Exceeded filesize limit.');
+                default:
+                    throw new RuntimeException('Unknown errors.');
+            }
+            $filename = uniqid().'_'.str_replace(" ", "_hwt_", $_FILES['file']['name']);
+            // $filepath = sprintf(MyPath.'%s_%s', uniqid(), $_FILES['file']['name']);
+            $filepath = MyPath.$filename;
+
+            if (!move_uploaded_file($_FILES['file']['tmp_name'],$filepath)) {
+                throw new RuntimeException('Failed to move uploaded file.');
+            }
+
+            // All good, send the response
+            $data = array('status' => 'ok','path' => $filename);
+            //echo json_encode($data);
+
+        } catch (RuntimeException $e) {
+            // Something went wrong, send the err message as JSON
+            http_response_code(400);
+
+            echo json_encode([
+                'status' => 'error',
+                'message' => $e->getMessage()
+            ]);
+        }
+        echo json_encode($data);
     }
    
 }

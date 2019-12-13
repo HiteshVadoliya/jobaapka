@@ -1,17 +1,24 @@
-
- 
-
- 
- 
 <!-- Banner Area Start -->
 <section class="jobguru-banner-area">
    <div class="banner-slider owl-carousel">
-      <div class="banner-single-slider slider-item-1">
+      <?php
+      if(!empty($hwt_slider)) {
+        foreach ($hwt_slider as $s_key => $s_value) {
+          if(file_exists(IMG_SLIDER.'Thumb/'.$s_value['img_src'])) {
+            $img = base_url().IMG_SLIDER.'Thumb/'.$s_value['img_src'];
+            ?>
+            <div class="banner-single-slider" style="background: url(<?php echo $img ?>);" >
+               <div class="slider-offset"></div>
+            </div>
+            <?php
+          }
+        }
+      }
+      ?> 
+      
+      <!-- <div class="banner-single-slider slider-item-2">
          <div class="slider-offset"></div>
-      </div>
-      <div class="banner-single-slider slider-item-2">
-         <div class="slider-offset"></div>
-      </div>
+      </div> -->
    </div>
    <div class="banner-text">
       <div class="container">
@@ -26,20 +33,6 @@
                         <div class="banner-form-input">
                            <input type="text" placeholder="Put your Job Keywords here">
                         </div>
-                        <!-- <div class="banner-form-input">
-                           <input type="text" placeholder="City, State or ZIP">
-                        </div>
-                        <div class="banner-form-input">
-                           <select class="banner-select">
-                              <option selected>Select Sector</option>
-                              <option value="1">Design & multimedia</option>
-                              <option value="2">Programming & tech</option>
-                              <option value="3">Accounting/finance</option>
-                              <option value="4">content writting</option>
-                              <option value="5">Training</option>
-                              <option value="6">Digital Marketing</option>
-                           </select>
-                        </div> -->
                         <div class="banner-form-input">
                            <button type="submit"><i class="fa fa-search"></i></button>
                         </div>
@@ -58,16 +51,16 @@
 
 
  <!-- Happy Freelancer Start -->
- <section class="jobguru-happy-freelancer-area section_70">
+ <section class="jobguru-happy-freelancer-area" style="padding: 5px 0;">
     <div class="container">
-       <div class="row">
+       <?php /*<div class="row">
           <div class="col-md-12">
              <div class="site-heading">
                 <h4>Job Aapka </h4>
-                <!-- <p>A better career is out there. We'll help you find it. We're your first step to becoming everything you want to be.</p> -->
+                
              </div>
           </div>
-       </div>
+       </div> */ ?>
           <div class="col-md-12 home_image ">
             <div class="row">
             
@@ -402,7 +395,30 @@
       <div class="row">
          <div class="col-md-12">
             <div class="happy-freelancer-slider owl-carousel">
-               <div class="single-happy-freelancer">
+               <?php
+               if(isset($hwt_testimonial) && !empty($hwt_testimonial)) {
+                  foreach ($hwt_testimonial as $t_key => $t_value) {
+                     if(file_exists(IMG_TESTIMONIAL.'Thumb/'.$t_value['img_src'])) {
+                       $t_img = base_url().IMG_TESTIMONIAL.'Thumb/'.$t_value['img_src'];
+                       ?>
+                       <div class="single-happy-freelancer">
+                          <div class="happy-freelancer-img">
+                             <img src="<?= $t_img ?>" alt="<?= $t_value['post'] ?>" />
+                          </div>
+                          <div class="happy-freelancer-text">
+                             <p><?= $t_value['descr'] ?></p>
+                             <div class="happy-freelancer-info">
+                                <h4><?= $t_value['company_name'] ?></h4>
+                                <p><?= $t_value['post'] ?></p>
+                             </div>
+                          </div>
+                       </div>
+                       <?php
+                     }
+                  }
+               }
+               ?>
+              <!--  <div class="single-happy-freelancer">
                   <div class="happy-freelancer-img">
                      <img src="<?= FRONT_IMG2 ?>/testimonial-1.jpg" alt="testimonial 1" />
                   </div>
@@ -449,7 +465,7 @@
                         <p>web designer</p>
                      </div>
                   </div>
-               </div>
+               </div> -->
             </div>
          </div>
       </div>

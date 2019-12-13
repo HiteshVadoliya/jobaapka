@@ -12,7 +12,11 @@ class Testimonial extends BaseController
         $this->folder = "testimonial/"; 
         $this->Controller = "Testimonial"; 
         $this->url = "testimonial";
-        $this->img_path = IMG_TESTIMONIAL; 
+
+        $this->img_path = IMG_TESTIMONIAL;
+        $this->img_height = 350; 
+        $this->img_width = 350;
+        $this->isthumb = true;
     }
 
     function index()
@@ -32,6 +36,7 @@ class Testimonial extends BaseController
         {   
 
             $data['type'] = "add";
+            $data['main_category'] = $this->HWT->get_result("category","*",array("isDelete"=>0,"status"=>1));
             if($id!='') {
                 $data['type'] = "edit";
                 $data['edit'] = $this->HWT->get_one_row($this->table,"*",array($this->id=>$id,"isDelete"=>0));
@@ -52,7 +57,7 @@ class Testimonial extends BaseController
         $limit = $this->input->post('length');
         $start = $this->input->post('start');
         $param['limit'] = array($start,$limit);
-        $param['search_column'] = array("cat_id","title","status");
+        $param['search_column'] = array("post","company_name");
         $order = $columns[$this->input->post('order')[0]['column']];
         $dir = $this->input->post('order')[0]['dir'];
       
@@ -80,12 +85,13 @@ class Testimonial extends BaseController
                 {
                     $statuslbl = $post['status'] == '1' ? 'Active' : 'Deactive';
                     $statusColor = $post['status'] == '1' ? 'success' : 'danger';
-                    $nestedData['title'] = $post['title'];
+                    // $nestedData['title'] = $post['title'];
                     $nestedData['post'] = $post['post'];
-
+                    $nestedData['company_name'] = $post['company_name'];
+                    
                     $img_name = $post['img_src'];
                     if($img_name!='' && file_exists($this->img_path.$img_name)) {
-                        $pre_img = APP_URL.$this->img_path.$img_name;
+                        $pre_img = APP_URL.$this->img_path.'Thumb/'.$img_name;
                     } else {
                         $pre_img = DEFAULT_IMG;
                     }
@@ -128,8 +134,10 @@ class Testimonial extends BaseController
         {
             $this->load->library('form_validation');
             
-            $this->form_validation->set_rules('title','Title Name','trim|required');
-            $this->form_validation->set_rules('post','POST ','trim|required');
+            // $this->form_validation->set_rules('title','Title Name','trim|required');
+            $this->form_validation->set_rules('post','Post','trim|required');
+            $this->form_validation->set_rules('company_name','Comapny Name','trim|required');
+            
             
             if($this->form_validation->run() == FALSE)
             {
@@ -137,37 +145,90 @@ class Testimonial extends BaseController
             }
             else
             {
-                $post = $this->input->post();
+
                 $type = $this->input->post('type');
+                $post = $this->input->post();
+
+                $is_featured = (isset($post['is_featured'])) ? $post['is_featured'] : '0';
+
                 $DataInfo = array(
-                    'title'=>$this->input->post('title'),
                     'post'=>$this->input->post('post'),
+                    'company_name'=>$this->input->post('company_name'),
                     'descr'=>$this->input->post('descr'),
                 );
+
                 
-                
+
                 if($type == "add"){
 
                     /* Profile Image */
                     if($post['img_path'] != '') {
-                        echo $path = $this->img_path;
+                        $path = $this->img_path;
                         if(!is_dir($path)) {
                             mkdir($path);
-                        }                        
+                        }    
                         $Img = array();
                         $ImgFile = $post['img_path'];                        
                         $src = MyPath.$ImgFile;
                         $dest = $this->img_path.$ImgFile;
                         copy($src, $dest);
                         unlink($src);                        
-                        $DataInfo['img_src'] = $post['img_path'];                        
+                        $DataInfo['img_src'] = $post['img_path']; 
+                        $this->HWT->resize_image($this->img_path,$post['img_path'],$this->img_height,$this->img_width,$this->isthumb,'Thumb/');                       
                     }
-                    
+
                     $DataInfo['created_at'] = date('Y-m-d H:i:s');
                     $DataInfo['status'] = '1';
                     $result = $this->HWT->insert($this->table,$DataInfo);
                 }
                 if($type == "edit"){
+
+                    /* Images */
+                    /* Images */
+                    $editid = $this->input->post('editid'); 
+                    if($post['img_src_multi'] != '') {
+
+                        $path = $this->img_path;
+                        if(!is_dir($path)) {
+                            mkdir($path);
+                        }
+                        
+                        $Images = array();
+                        $old_img_src_multi_old = $this->HWT->get_column($this->table,'img_src_multi',array("id"=>$editid)); //$post['old_img_src_multi'];
+                        
+                        $img_src_multi = json_decode($post['img_src_multi'], true);
+                        foreach ($img_src_multi as $key => $value) {
+                            $src = MyPath.$value;
+                            $dest = $this->img_path.$value;
+                            copy($src, $dest);
+                            $this->HWT->resize_image($this->img_path,$value,$this->img_height,$this->img_width,$this->isthumb,'Thumb/');  
+                            unlink($src);
+                        }
+
+                        if($old_img_src_multi_old != '') {
+                            $old_img_src_multi_old = json_decode($old_img_src_multi_old, true);
+                            $Images = array_merge($old_img_src_multi_old,$img_src_multi);
+                            $Images = json_encode($Images);
+                            $DataInfo['img_src_multi'] = $Images;
+                        }
+                        else {
+
+                            $DataInfo['img_src_multi'] = $post['img_src_multi'];
+                        }
+                        
+                    }
+                    /* Images */
+
+                    
+                    /* Images */
+
+                    
+
+                    
+                    /* Images */
+
+                    
+                    /* Profile Image */
 
                     /* Image */
                     if($post['img_path'] != '') {
@@ -184,14 +245,17 @@ class Testimonial extends BaseController
                         copy($src, $dest);
                         unlink($src);
                         
-                        if($old_Img != '') {                    
+                        if($old_Img != '' && file_exists($this->img_path.$old_Img)) {                    
                             unlink($this->img_path.$old_Img);
                         }
-                        $DataInfo['img_src'] = $post['img_path'];                        
+                        $DataInfo['img_src'] = $post['img_path'];
+
+                        $this->HWT->resize_image($this->img_path,$post['img_path'],$this->img_height,$this->img_width,$this->isthumb,'Thumb/');
                     }
 
+                    
+
                     $DataInfo['updated_at'] = date('Y-m-d H:i:s');
-                    $editid = $this->input->post('editid'); 
                     $result = $this->HWT->update($this->table,$DataInfo,array($this->id=>$editid));
                 }
               
@@ -257,6 +321,11 @@ class Testimonial extends BaseController
     {
         /*ini_set('upload_max_filesize', '10M');
         ini_set('post_max_size', '10M');*/
+
+        $path = MyPath;
+        if(!is_dir($path)) {
+            mkdir($path);
+        }
         try {
             if (
                 !isset($_FILES['file']['error']) ||

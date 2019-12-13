@@ -62,6 +62,10 @@ $route['employer/(:any)'] = 'Home/employer/$1';
 $route['contact'] = 'Home/contact';
 $route['404_override'] = 'MyCustom404Ctrl';
 $route['translate_uri_dashes'] = FALSE;
+$route['confirm_registration/(:any)/(:any)'] = 'Home/confirm_registration/$1/$2';
+$route['set-new-password/(:any)/(:any)'] = 'Home/set_new_password/$1/$2';
+$route['logout'] = 'Home/logout';
+$route['forgot_password'] = 'Home/forgot_password';
 /* User start */
 
 $route['admin'] = 'admin/login';
@@ -99,23 +103,53 @@ $route[ADMIN.'user/save'] = ADMIN."HWT_User/save";
 $route[ADMIN.'user/view/(:any)'] = ADMIN."HWT_User/view/$1";
 
 
-$route[ADMIN.'home_content/(:any)'] = ADMIN."Content/content/1";
+/*$route[ADMIN.'home_content/(:any)'] = ADMIN."Content/content/1";
 $route[ADMIN.'home_content/(:any)/save'] = ADMIN."Content/save_content";
+*/
 
-$route[ADMIN.'home_header/(:any)'] = ADMIN."CMS/about/5";
-$route[ADMIN.'home_header/(:any)/save'] = ADMIN."CMS/save_about";
+/*$route[ADMIN.'home_header/(:any)'] = ADMIN."CMS/about/1";
+$route[ADMIN.'home_header/(:any)/save'] = ADMIN."CMS/save_about";*/
 
-$route[ADMIN.'about/(:any)'] = ADMIN."CMS/about/1";
+$route[ADMIN.'whyus/(:any)'] = ADMIN."CMS/about/1";
+$route[ADMIN.'whyus/(:any)/save'] = ADMIN."CMS/save_about";
+
+
+$route[ADMIN.'about/(:any)'] = ADMIN."CMS/about/2";
 $route[ADMIN.'about/(:any)/save'] = ADMIN."CMS/save_about";
 
-$route[ADMIN.'privacy-policy/(:any)'] = ADMIN."CMS/about/2";
+$route[ADMIN.'privacy-policy/(:any)'] = ADMIN."CMS/about/3";
 $route[ADMIN.'privacy-policy/(:any)/save'] = ADMIN."CMS/save_about";
 
-$route[ADMIN.'terms/(:any)'] = ADMIN."CMS/about/3";
+$route[ADMIN.'terms/(:any)'] = ADMIN."CMS/about/4";
 $route[ADMIN.'terms/(:any)/save'] = ADMIN."CMS/save_about";
 
-$route[ADMIN.'terms/(:any)'] = ADMIN."CMS/about/3";
+/*Our Clients */
+$route[ADMIN.'our_clients'] = ADMIN."OurClients";
+$route[ADMIN.'our_clients/add'] = ADMIN."OurClients/showForm";
+$route[ADMIN.'our_clients/edit/(:any)'] = ADMIN."OurClients/showForm/$1";
+$route[ADMIN.'our_clients/save'] = ADMIN."OurClients/save";
+
+/*Slider */
+$route[ADMIN.'slider'] = ADMIN."Slider";
+$route[ADMIN.'slider/add'] = ADMIN."Slider/showForm";
+$route[ADMIN.'slider/edit/(:any)'] = ADMIN."Slider/showForm/$1";
+$route[ADMIN.'slider/save'] = ADMIN."Slider/save";
+
+/*Slider */
+$route[ADMIN.'industry'] = ADMIN."Industry";
+$route[ADMIN.'industry/add'] = ADMIN."Industry/showForm";
+$route[ADMIN.'industry/edit/(:any)'] = ADMIN."Industry/showForm/$1";
+$route[ADMIN.'industry/save'] = ADMIN."Industry/save";
+
+/*Testimonial */
+$route[ADMIN.'testimonial'] = ADMIN."Testimonial";
+$route[ADMIN.'testimonial/add'] = ADMIN."Testimonial/showForm";
+$route[ADMIN.'testimonial/edit/(:any)'] = ADMIN."Testimonial/showForm/$1";
+$route[ADMIN.'testimonial/save'] = ADMIN."Testimonial/save";
+
+/*$route[ADMIN.'terms/(:any)'] = ADMIN."CMS/about/3";
 $route[ADMIN.'terms/(:any)/save'] = ADMIN."CMS/save_about";
 
 $route[ADMIN.'services_contain/(:any)'] = ADMIN."CMS/about/4";
 $route[ADMIN.'services_contain/(:any)/save'] = ADMIN."CMS/save_about";
+*/

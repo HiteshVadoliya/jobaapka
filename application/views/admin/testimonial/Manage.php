@@ -28,9 +28,9 @@
                  
                     <table class="table table-bordered table-striped" id="posts">
                         <thead>
-                               <th>Title</th>
-                               <th>Post</th>
                                <th>Image</th>
+                               <th>Post</th>
+                               <th>Comapny Name</th>
                                <th>Action</th>
                         </thead>        
                    </table>
@@ -61,9 +61,9 @@
            "data":{  '<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>' }
                        },
           "columns": [
-                  { "data": "title" },
-                  { "data": "post" },
                   { "data": "img_src" },
+                  { "data": "post" },
+                  { "data": "company_name" },
                   { "data": "action","bSortable": false  },
                ]   
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 06, 2019 at 07:06 PM
+-- Generation Time: Dec 13, 2019 at 03:31 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -37,11 +37,10 @@ CREATE TABLE `about` (
 --
 
 INSERT INTO `about` (`id`, `title`, `descr`) VALUES
-(1, 'about us', '<h2>The important characteristics of a good watch.</h2>\r\n\r\n<p>A watch is something personal. Everyone has their own taste in design and style. Therefore, we do not want to say what a good or bad watch is, but what the signs of a quality watch are in general. And how these signs are easily identifiable. A little side note is that we are mainly looking at an affordable watch<br />\r\n<br />\r\n<strong>Lorem Ipsum</strong><span style=\"color:rgb(0, 0, 0); font-family:open sans,arial,sans-serif; font-size:14px\">&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</span></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong>Lorem Ipsum</strong><span style=\"color:rgb(0, 0, 0); font-family:open sans,arial,sans-serif; font-size:14px\">&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</span></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong>Lorem Ipsum</strong><span style=\"color:rgb(0, 0, 0); font-family:open sans,arial,sans-serif; font-size:14px\">&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</span></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong>Lorem Ipsum</strong><span style=\"color:rgb(0, 0, 0); font-family:open sans,arial,sans-serif; font-size:14px\">&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</span></p>'),
-(2, 'Privacy Policy', '<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer</p><p> took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum<br></p>'),
-(3, 'Terms', '<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer</p><p> took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum<br></p>'),
-(4, 'Services Information', '<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer</p>\r\n\r\n<p>took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>'),
-(5, 'JOIN THE WORLD OF COLORBERRY!', '<h2 style=\"text-align: center;\">SMILE.POUR.LOVE.</h2>\r\n\r\n<p>MRS.COLORBERRY is well known for her abstract and geode resin artworks. By adding texture and stones / crystals to the high gloss resin art, it gets another dimension - a 3D effect. Because of using glitter, which is MRS.COLORBERRY`s favorite color, the artwork changes by walking by. All artworks are inspired by the nature, the wonderful world of crystals and their healing power. Join the world of MRS.COLORBERRY !</p>');
+(1, 'Why Us', '<p>There is no doubt that thousands of other websites provide job services.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Its very logical question to ask that what difference we will make and what really we can do for you which others cannot?</p>\r\n\r\n<p>Before starting our new venture Jobaapka.com, this is what Ideators Technologies has achieved that makes us stand out from the big crowd of job websites and give us strong edge over our competitors.</p>\r\n\r\n<p><strong>1) CLUTCH,USA CERTIFIED</strong>&nbsp;-&nbsp;<a href=\"https://clutch.co/profile/ideators-technologies\" style=\"box-sizing: border-box; color: rgb(107, 115, 156); text-decoration-line: none; background-color: transparent; transition: all 0.4s ease 0s;\">https://clutch.co/profile/ideators-technologies</a></p>\r\n\r\n<p>Clutch is an independent platform that collects objective feedback from clients about each company registered on the site. They perform in-depth interviews with clients and customers about the quality of their interaction with each Clutch-registered company. Based on the data gathered, the service formulates a fair rating of all the firms. Clutch categorises companies by their geographic location,a field of their expertise and the focus on proven skills</p>\r\n\r\n<p><a href=\"https://clutch.co/\" style=\"box-sizing: border-box; color: rgb(107, 115, 156); text-decoration-line: none; background-color: transparent; transition: all 0.4s ease 0s;\">Read more here - https://clutch.co/</a></p>\r\n\r\n<p><a href=\"https://clutch.co/\" style=\"box-sizing: border-box; color: rgb(107, 115, 156); text-decoration-line: none; background-color: transparent; transition: all 0.4s ease 0s;\"><strong>2) GOOGLE SEARCH ADS CERTIFIED</strong>&nbsp;-&nbsp;</a><a href=\"https://academy.exceedlms.com/student/award/33034979\" style=\"box-sizing: border-box; color: rgb(107, 115, 156); text-decoration-line: none; background-color: transparent; transition: all 0.4s ease 0s;\">https://academy.exceedlms.com/student/award/33034979</a></p>\r\n\r\n<p>Every second, there are 2.3 million searches performed on Google, and the majority of search results pages include Google ads.Whenever you look for a product or service online, Google (or any other search-engine provider) displays a results page consisting of both organic and sponsored results.</p>\r\n\r\n<p><a href=\"https://support.google.com/google-ads/answer/9029201\" style=\"box-sizing: border-box; color: rgb(107, 115, 156); text-decoration-line: none; background-color: transparent; transition: all 0.4s ease 0s;\">Read more here - https://support.google.com/google-ads/answer/9029201</a></p>\r\n\r\n<p><a href=\"https://support.google.com/google-ads/answer/9029201\" style=\"box-sizing: border-box; color: rgb(107, 115, 156); text-decoration-line: none; background-color: transparent; transition: all 0.4s ease 0s;\"><strong>3) PREVIOUS DOMAIN RESELLER FOR GODADDY</strong>&nbsp;-&nbsp;</a><a href=\"https://in.godaddy.com/reseller-program/hosting\" style=\"box-sizing: border-box; color: rgb(107, 115, 156); text-decoration-line: none; background-color: transparent; transition: all 0.4s ease 0s;\">https://in.godaddy.com/reseller-program/hosting</a></p>\r\n\r\n<p><strong>4) OUR SERVICES</strong>&nbsp;- We provide you all the requisite services at the most lowest cost for both Employers and Jobseekers. Learn more about that in Our plan</p>'),
+(2, 'About Us', '<p>AFTER SUCCESSFUL WORKING OF IDEATORS, A TECHNOLOGY DEVELOPMENT AS WELL AS DIGITAL MARKETING AND BIG DATA TRAINING COMPANY BASED OUT OF THANE,THIS IS OUR NEW INITIATIVE AND VENTURE, JOBAAPKA.COM</p>\r\n\r\n<p>OUR OBJECTIVE IS NOT JUST TO MAKE THE CANDIDATES/JOBSEEKERS FIND THE SUITABLE AND THE RIGHT JOB BUT MAKE THEM SKILLED,EFFICIENT AND PRODUCTIVE IN THEIR JOB HUNT THROUGH OUR OPTIONAL SERVICES.</p>\r\n\r\n<p>WE AIM TO MAKE THE EMPLOYERS GROW NOT ONLY IN TERMS OF HIRING RIGHT PEOPLE BUT ALSO EMPOWERING THEM WITH THE MOST EFFECTIVE AND HIGHLY WORKABLE TECHNOLOGY WHICH WILL ADDRESS THEIR BUSINESS ISSUES.</p>\r\n\r\n<p>THIS PORTAL PROVIDES THE MOST UNIQUE SERVICE IN TERMS OF HIRING/RECRUITMENT AND TECHNOLOGY CONSULTING FOR THE EMPLOYERS AS WELL AS INTERVIEW PREPARATION,CV WRITING AND JOB ASSISTANCE SERVICE FOR THE JOBSEEKERS.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<h3><strong>BELOW POINTS EXPLAIN YOU HOW</strong> -</h3>\r\n\r\n<p><strong>A SINGLE PLAN SOLUTION</strong> &ndash;</p>\r\n\r\n<p>Hassle free and only one simple plan for your Hiring as well as Technology needs at a very low price which you would have never got or thought before.</p>\r\n\r\n<p><strong>A WIN WIN SCENARIO FOR BOTH EMPLOYERS AND JOBSEEKERS -</strong></p>\r\n\r\n<p>Our working style and systematic process makes this a favourable situation for both the parties as we give you ample time to resolve your issues.Know more about that in Our plan</p>\r\n\r\n<p><strong>TECHNOLOGY CONSULTING AS PER YOUR BUSINESS PROBLEMS -</strong></p>\r\n\r\n<p>We understand your business not only in terms of your manpower requirement but also in form of a highly affordable technology that you can decide through our free technology consulting session.</p>\r\n\r\n<p><strong>PERSONAL JOB ASSISTANCE FOR JOBSEEKERS -</strong></p>\r\n\r\n<p>We help candidates who have subscribed for our plan with CV writing,Interview preparation as well as second job or 6 months of support ,whatever comes first after losing out on their previous job.</p>\r\n\r\n<p><strong>100% CREDIBLE AND TRUSTWORTHY -</strong></p>\r\n\r\n<p>With all our credentials and reputation we have gained,you can easily rely on us and be certainly assured of 100% quality and perfect services from us.</p>'),
+(3, 'Privacy Policy', '<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer</p>\r\n\r\n<p>took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>'),
+(4, 'Terms & Condition', '<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer</p>\r\n\r\n<p>took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>');
 
 -- --------------------------------------------------------
 
@@ -435,12 +434,19 @@ INSERT INTO `gallery` (`id`, `title`, `descr`, `img_src`, `img_src_multi`, `stat
 
 CREATE TABLE `hwt_user` (
   `id` int(11) NOT NULL,
+  `type` varchar(255) NOT NULL,
   `fname` varchar(255) NOT NULL,
   `lname` varchar(255) NOT NULL,
   `img_src` varchar(400) NOT NULL,
   `email` varchar(150) NOT NULL,
   `password` varchar(255) NOT NULL,
   `pass_txt` varchar(255) NOT NULL,
+  `company_name` varchar(255) NOT NULL,
+  `job_function` varchar(255) NOT NULL,
+  `industry` varchar(255) NOT NULL,
+  `job_location` varchar(255) NOT NULL,
+  `exp_year` varchar(255) NOT NULL,
+  `exp_month` varchar(255) NOT NULL,
   `username` varchar(255) NOT NULL,
   `mobile` varchar(150) NOT NULL,
   `phone` int(15) NOT NULL,
@@ -467,20 +473,43 @@ CREATE TABLE `hwt_user` (
   `zip` varchar(50) NOT NULL,
   `is_registere` tinyint(1) NOT NULL,
   `is_alive` tinyint(1) NOT NULL,
-  `language_id` int(11) NOT NULL DEFAULT '1'
+  `language_id` int(11) NOT NULL DEFAULT '1',
+  `verify_string` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `hwt_user`
 --
 
-INSERT INTO `hwt_user` (`id`, `fname`, `lname`, `img_src`, `email`, `password`, `pass_txt`, `username`, `mobile`, `phone`, `home_town`, `city`, `gender`, `marital_status`, `bdate`, `edu`, `occupation`, `device_name`, `device_type`, `device_token`, `device_id`, `auth_key`, `status`, `isDelete`, `created_at`, `updated_at`, `created_timestamp`, `updated_timestamp`, `address`, `state`, `zip`, `is_registere`, `is_alive`, `language_id`) VALUES
-(4, 'Dax', 'vad', '', 'dax@gmail.com', '80e2235fd9a018996178a07a6a3f4fff', 'hitesh', '', '8866', 252525, 'rajk', 0, 'F', 1, '2012-10-11', 'Msc', 'IT', '5555', '', '111111', '', 'fYyJlGZqa2lqbmdpZmeUaZQ=', 1, 0, '2019-07-10 22:01:27', '2019-07-19 22:23:41', 1562776287, 1563555221, 'my address', 'gujrat', '360007', 1, 0, 1),
-(5, 'Muljibhai', 'Vadoliya', '', 'muljibhai@gmail.com', '80e2235fd9a018996178a07a6a3f4fff', 'hitesh', '', '9898905130', 2575978, 'rajkot', 0, 'M', 1, '2019-10-12', 'MscIT', 'Majuri', 'jack Device', 'Android', '123456', '9', 'fYyJlGZqa2dta2pmZ2uUapQ=', 0, 0, '2019-07-11 23:04:42', '0000-00-00 00:00:00', 1562866482, 0, 'my address', 'gujrat', '360007', 1, 0, 1),
-(6, 'Labhuben', 'Vadoliya', '', 'labhuaben@gmail.com', '80e2235fd9a018996178a07a6a3f4fff', 'hitesh', '', '9898905130', 2575978, 'rajkot', 0, 'M', 1, '2019-10-12', 'MscIT', 'Majuri', 'jack Device', 'Android', '123456', '9', '', 0, 0, '2019-07-11 23:07:20', '0000-00-00 00:00:00', 1562866640, 0, 'my address', 'gujrat', '360007', 1, 0, 1),
-(8, 'Test', 'Vadoliya', '', 'test@gmail.com', '80e2235fd9a018996178a07a6a3f4fff', 'hitesh', '', '9898905130', 2575978, 'rajkot', 0, 'M', 1, '2019-10-12', '2', '3', 'jack Device', 'Android', '123456', '9', 'fYyJlGZqa2hnZW1laGeUbZQ=', 0, 0, '2019-07-15 21:57:12', '0000-00-00 00:00:00', 1563208032, 0, 'my address', 'gujrat', '360007', 1, 0, 1),
-(9, 'Test', 'Vadoliya', '', 'tests@gmail.com', '80e2235fd9a018996178a07a6a3f4fff', 'hitesh', '', '989890513', 2575978, 'rajkot', 0, 'M', 1, '2019-10-12', '2', '3', 'jack Device', 'Android', '123456', '9', 'fYyJlGZqa2hnZmVpa2yUbpQ=', 0, 0, '2019-07-15 22:37:47', '0000-00-00 00:00:00', 1563210467, 0, 'my address', 'gujrat', '360007', 1, 0, 1),
-(10, 'Test', 'Vadoliya', '', 'test3s@gmail.com', '80e2235fd9a018996178a07a6a3f4fff', 'hitesh', '', '9898905134', 2575978, 'rajkot', 0, 'M', 1, '2019-10-12', '2', '3', 'jack Device', 'Android', '123456', '9', 'fYyJlGZqa2hnbmhsbGWUZmWU', 0, 0, '2019-07-16 21:46:10', '0000-00-00 00:00:00', 1563293770, 0, 'my address', 'gujrat', '360007', 1, 0, 1);
+INSERT INTO `hwt_user` (`id`, `type`, `fname`, `lname`, `img_src`, `email`, `password`, `pass_txt`, `company_name`, `job_function`, `industry`, `job_location`, `exp_year`, `exp_month`, `username`, `mobile`, `phone`, `home_town`, `city`, `gender`, `marital_status`, `bdate`, `edu`, `occupation`, `device_name`, `device_type`, `device_token`, `device_id`, `auth_key`, `status`, `isDelete`, `created_at`, `updated_at`, `created_timestamp`, `updated_timestamp`, `address`, `state`, `zip`, `is_registere`, `is_alive`, `language_id`, `verify_string`) VALUES
+(5, 'jobseeker', 'Hitesh', '', '', 'a@gmail.com', '912ec803b2ce49e4a541068d495ab570', 'asdf', '', '', '', 'Current job function', 'Experience in years', 'Experience in month', '', 'asdfasd', 0, '', 0, 'M', 0, '0000-00-00', '', '', '', '', '', '', '', 1, 0, '2019-12-13 06:17:24', '0000-00-00 00:00:00', 0, 0, '', '', '', 0, 0, 1, ''),
+(6, 'employer', 'Hitesh', '', '', 'hmvadoliya.iipl2013@gmail.com', '202cb962ac59075b964b07152d234b70', '123', 'test', 'Current job function', 'Company industry', '', '', '', '', 'asdf', 0, '', 0, 'M', 0, '0000-00-00', '', '', '', '', '', '', '', 1, 0, '2019-12-13 07:15:01', '0000-00-00 00:00:00', 0, 0, '', '', '', 0, 0, 1, '9828');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `industry`
+--
+
+CREATE TABLE `industry` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `icon` varchar(255) NOT NULL,
+  `img_src` varchar(255) NOT NULL,
+  `status` tinyint(1) NOT NULL COMMENT '0-no 1-yes',
+  `isDelete` tinyint(1) NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+
+--
+-- Dumping data for table `industry`
+--
+
+INSERT INTO `industry` (`id`, `title`, `icon`, `img_src`, `status`, `isDelete`, `created_at`, `updated_at`) VALUES
+(1, 'Industry 1', '<i class=\"fa fa-briefcase\"></i>', '5df2626a3925c_account_cat.jpg', 1, 0, '2019-12-12 16:53:15', '2019-12-12 16:54:05'),
+(2, 'Industry 2', '<i class=\"fa fa-briefcase\"></i>', '5df262a97054c_account_cat.jpg', 1, 0, '2019-12-12 16:54:18', '0000-00-00 00:00:00'),
+(3, 'Industry 3', '<i class=\"fa fa-briefcase\"></i>', '5df262bcb0eff_design_art.jpg', 0, 0, '2019-12-12 16:54:38', '2019-12-12 21:24:45');
 
 -- --------------------------------------------------------
 
@@ -492,6 +521,7 @@ CREATE TABLE `inquiry` (
   `id` int(11) NOT NULL,
   `fname` varchar(255) NOT NULL,
   `lname` varchar(255) NOT NULL,
+  `subject` varchar(255) NOT NULL,
   `contact` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `descr` longtext NOT NULL,
@@ -505,25 +535,33 @@ CREATE TABLE `inquiry` (
 -- Dumping data for table `inquiry`
 --
 
-INSERT INTO `inquiry` (`id`, `fname`, `lname`, `contact`, `email`, `descr`, `status`, `isDelete`, `created_at`, `updated_at`) VALUES
-(1, 'Hitesh', '', '', 'hmvadoliya.iipl2013@gmail.com', 'asdf', 1, 0, '2019-10-09 22:42:30', '0000-00-00 00:00:00'),
-(2, 'Hitesh', '', '', 'hmvadoliya.iipl2013@gmail.com', 'asdf', 1, 0, '2019-10-09 22:42:51', '0000-00-00 00:00:00'),
-(3, 'Hitesh', '', '323', 'hmvadoliya.iipl2013@gmail.com', 'dfasdf\r\na\r\nsdfasd', 1, 0, '2019-10-09 22:47:43', '0000-00-00 00:00:00'),
-(4, 'Hitesh', '', '1312312312', 'hmvadoliya.iipl2013@gmail.com', 'asdf\r\nasdf\r\na\r\nsdf\r\na\r\nsdfasd', 1, 0, '2019-10-09 22:51:19', '0000-00-00 00:00:00'),
-(5, 'Hitesh', '', '1312312312', 'hmvadoliya.iipl2013@gmail.com', 'asdf\r\nasdf\r\na\r\nsdf\r\na\r\nsdfasd', 1, 0, '2019-10-09 22:51:23', '0000-00-00 00:00:00'),
-(6, 'Hitesh', '', 'asdf', 'hmvadoliya.iipl2013@gmail.com', 'asd', 1, 0, '2019-11-12 21:30:16', '0000-00-00 00:00:00'),
-(7, 'Hitesh', '', 'asdf', 'hmvadoliya.iipl2013@gmail.com', 'asdf', 1, 0, '2019-11-12 21:31:06', '0000-00-00 00:00:00'),
-(8, 'Hitesh', '', 'ads', 'hmvadoliya.iipl2013@gmail.com', 'asd', 1, 0, '2019-11-12 21:31:42', '0000-00-00 00:00:00'),
-(9, 'Hitesh', '', 'asd', 'hmvadoliya.iipl2013@gmail.com', 'asd', 1, 0, '2019-11-12 21:32:12', '0000-00-00 00:00:00'),
-(10, 'Hitesh', '', 'asd', 'hmvadoliya.iipl2013@gmail.com', 'asd', 1, 0, '2019-11-12 21:32:43', '0000-00-00 00:00:00'),
-(11, 'asdfasdf', '', '1231', 'asdf', 'dfasd', 1, 0, '2019-11-16 12:57:31', '0000-00-00 00:00:00'),
-(12, 'asdfasdf', '', '1231', 'asdf', 'dfasd', 1, 0, '2019-11-16 12:57:33', '0000-00-00 00:00:00'),
-(13, 'sdf', '', 'asdfasdf', 'asdfasdf', 'asdf', 1, 0, '2019-11-16 12:58:35', '0000-00-00 00:00:00'),
-(14, 'asf', '', 'asdf', 'asdf', 'asdf', 1, 0, '2019-11-16 12:58:52', '0000-00-00 00:00:00'),
-(15, 'Hitesh', '', 'ddddddd', 'hmvadoliya.iipl2013@gmail.com', 'ddddddddddddddd', 1, 0, '2019-11-16 12:59:29', '0000-00-00 00:00:00'),
-(16, 'Hiteshd', '', 'dddddddddddd', 'hmvadoliya.iipl2013@gmail.com', 'ddddddddd', 1, 0, '2019-11-16 13:00:01', '0000-00-00 00:00:00'),
-(17, 'Hitesh', '', 'd', 'hmvadoliya.iipl2013@gmail.com', 'd', 1, 0, '2019-11-16 13:00:22', '0000-00-00 00:00:00'),
-(18, 'Hitesh', '', 'd', 'hmvadoliya.iipl2013@gmail.com', 'sasd', 1, 0, '2019-11-16 13:01:17', '0000-00-00 00:00:00');
+INSERT INTO `inquiry` (`id`, `fname`, `lname`, `subject`, `contact`, `email`, `descr`, `status`, `isDelete`, `created_at`, `updated_at`) VALUES
+(1, 'Hitesh', '', '', '', 'hmvadoliya.iipl2013@gmail.com', 'asdf', 1, 0, '2019-10-09 22:42:30', '0000-00-00 00:00:00'),
+(2, 'Hitesh', '', '', '', 'hmvadoliya.iipl2013@gmail.com', 'asdf', 1, 0, '2019-10-09 22:42:51', '0000-00-00 00:00:00'),
+(3, 'Hitesh', '', '', '323', 'hmvadoliya.iipl2013@gmail.com', 'dfasdf\r\na\r\nsdfasd', 1, 0, '2019-10-09 22:47:43', '0000-00-00 00:00:00'),
+(4, 'Hitesh', '', '', '1312312312', 'hmvadoliya.iipl2013@gmail.com', 'asdf\r\nasdf\r\na\r\nsdf\r\na\r\nsdfasd', 1, 0, '2019-10-09 22:51:19', '0000-00-00 00:00:00'),
+(5, 'Hitesh', '', '', '1312312312', 'hmvadoliya.iipl2013@gmail.com', 'asdf\r\nasdf\r\na\r\nsdf\r\na\r\nsdfasd', 1, 0, '2019-10-09 22:51:23', '0000-00-00 00:00:00'),
+(6, 'Hitesh', '', '', 'asdf', 'hmvadoliya.iipl2013@gmail.com', 'asd', 1, 0, '2019-11-12 21:30:16', '0000-00-00 00:00:00'),
+(7, 'Hitesh', '', '', 'asdf', 'hmvadoliya.iipl2013@gmail.com', 'asdf', 1, 0, '2019-11-12 21:31:06', '0000-00-00 00:00:00'),
+(8, 'Hitesh', '', '', 'ads', 'hmvadoliya.iipl2013@gmail.com', 'asd', 1, 0, '2019-11-12 21:31:42', '0000-00-00 00:00:00'),
+(9, 'Hitesh', '', '', 'asd', 'hmvadoliya.iipl2013@gmail.com', 'asd', 1, 0, '2019-11-12 21:32:12', '0000-00-00 00:00:00'),
+(10, 'Hitesh', '', '', 'asd', 'hmvadoliya.iipl2013@gmail.com', 'asd', 1, 0, '2019-11-12 21:32:43', '0000-00-00 00:00:00'),
+(11, 'asdfasdf', '', '', '1231', 'asdf', 'dfasd', 1, 0, '2019-11-16 12:57:31', '0000-00-00 00:00:00'),
+(12, 'asdfasdf', '', '', '1231', 'asdf', 'dfasd', 1, 0, '2019-11-16 12:57:33', '0000-00-00 00:00:00'),
+(13, 'sdf', '', '', 'asdfasdf', 'asdfasdf', 'asdf', 1, 0, '2019-11-16 12:58:35', '0000-00-00 00:00:00'),
+(14, 'asf', '', '', 'asdf', 'asdf', 'asdf', 1, 0, '2019-11-16 12:58:52', '0000-00-00 00:00:00'),
+(15, 'Hitesh', '', '', 'ddddddd', 'hmvadoliya.iipl2013@gmail.com', 'ddddddddddddddd', 1, 0, '2019-11-16 12:59:29', '0000-00-00 00:00:00'),
+(16, 'Hiteshd', '', '', 'dddddddddddd', 'hmvadoliya.iipl2013@gmail.com', 'ddddddddd', 1, 0, '2019-11-16 13:00:01', '0000-00-00 00:00:00'),
+(17, 'Hitesh', '', '', 'd', 'hmvadoliya.iipl2013@gmail.com', 'd', 1, 0, '2019-11-16 13:00:22', '0000-00-00 00:00:00'),
+(18, 'Hitesh', '', '', 'd', 'hmvadoliya.iipl2013@gmail.com', 'sasd', 1, 0, '2019-11-16 13:01:17', '0000-00-00 00:00:00'),
+(19, 'Hitesh', '', 'asdf', '', 'hmvadoliya.iipl2013@gmail.com', 'asdf', 1, 0, '2019-12-12 21:43:02', '0000-00-00 00:00:00'),
+(20, 'Hitesh', '', 'asdf', '', 'hmvadoliya.iipl2013@gmail.com', 'asdf', 1, 0, '2019-12-12 21:43:46', '0000-00-00 00:00:00'),
+(21, 'Hitesh', '', 'my subject', '', 'hmvadoliya.iipl2013@gmail.com', 'lores lipsum lores lipsum lores lipsum lores lipsum lores lipsum lores lipsum lores lipsum lores lipsum lores lipsum lores lipsum lores lipsum lores lipsum lores lipsum lores lipsum lores lipsum lores lipsum lores lipsum lores lipsum lores lipsum \r\n\r\nlores lipsum lores lipsum lores lipsum lores lipsum lores lipsum lores lipsum lores lipsum lores lipsum lores lipsum lores lipsum lores lipsum lores lipsum lores lipsum lores lipsum lores lipsum lores lipsum lores lipsum lores lipsum lores lipsum \r\n\r\nlores lipsum lores lipsum lores lipsum lores lipsum lores lipsum lores lipsum lores lipsum lores lipsum lores lipsum lores lipsum lores lipsum lores lipsum lores lipsum lores lipsum lores lipsum lores lipsum lores lipsum lores lipsum lores lipsum ', 1, 0, '2019-12-12 21:45:50', '0000-00-00 00:00:00'),
+(22, 'Hitesh', '', 'asdf', '', 'hmvadoliya.iipl2013@gmail.com', 'asfd', 1, 0, '2019-12-12 21:47:06', '0000-00-00 00:00:00'),
+(23, 'Hitesh', '', 'asdf', '', 'hmvadoliya.iipl2013@gmail.com', 'asfd', 1, 0, '2019-12-12 21:47:08', '0000-00-00 00:00:00'),
+(24, 'Hitesh', '', 'asdf', '', 'hmvadoliya.iipl2013@gmail.com', 'asfd', 1, 0, '2019-12-12 21:47:17', '0000-00-00 00:00:00'),
+(25, 'Hitesh', '', 'asd', '', 'hmvadoliya.iipl2013@gmail.com', 'fasd', 1, 0, '2019-12-12 21:49:58', '0000-00-00 00:00:00'),
+(26, 'Hitesh', '', 'asdf', '', 'hmvadoliya.iipl2013@gmail.com', 'asd', 1, 0, '2019-12-12 21:50:16', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -589,6 +627,33 @@ INSERT INTO `ourteam` (`id`, `title`, `post`, `descr`, `img_src`, `status`, `isD
 (15, 'test', '', '<p>sfasdf</p>', '5d537664351ac_book1.png', 0, 0, '2019-08-14 04:48:05', '2019-08-18 10:23:11'),
 (16, 'test', '', '<p>sfasdf</p>', '5d537664351ac_book1.png', 0, 0, '2019-08-14 04:48:05', '2019-08-18 10:23:20'),
 (17, 'Mical Jackson', '', '<p>There are many variations of passages of Lorem Ipsum available</p>\r\n', '5d58d9a6151d8_6.jpeg', 1, 0, '2019-08-18 06:52:55', '0000-00-00 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `our_clients`
+--
+
+CREATE TABLE `our_clients` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `url` varchar(255) NOT NULL,
+  `img_src` varchar(255) NOT NULL,
+  `status` tinyint(1) NOT NULL COMMENT '0-no 1-yes',
+  `isDelete` tinyint(1) NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `our_clients`
+--
+
+INSERT INTO `our_clients` (`id`, `title`, `url`, `img_src`, `status`, `isDelete`, `created_at`, `updated_at`) VALUES
+(2, '', '', '5df25c6333e74_1.png', 1, 0, '2019-12-12 16:26:07', '2019-12-12 16:27:32'),
+(3, '', '', '5df25c7271c9e_2.png', 1, 0, '2019-12-12 16:26:13', '2019-12-12 16:27:47'),
+(4, '', '', '5df25c779b655_4.png', 1, 0, '2019-12-12 16:26:30', '2019-12-12 16:27:52'),
+(5, '', '', '5df26e7ea40f3_1.png', 1, 0, '2019-12-12 17:44:47', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -789,12 +854,8 @@ CREATE TABLE `slider` (
 --
 
 INSERT INTO `slider` (`id`, `title`, `url`, `img_src`, `status`, `isDelete`, `created_at`, `updated_at`) VALUES
-(1, '', '', '1.jpg', 1, 0, '2019-08-05 18:38:47', '2019-08-08 20:45:02'),
-(2, '', '', '2.jpg', 1, 0, '2019-08-05 18:39:02', '2019-08-08 20:45:15'),
-(3, '', '', '3.jpg', 1, 0, '2019-08-05 18:39:10', '2019-08-08 20:45:21'),
-(4, 'DTech Technologies', 'http://www.google.com', '4.jpg', 0, 0, '2019-08-05 18:39:22', '2019-08-07 23:11:13'),
-(5, 'DTech Technologies', 'http://www.google.com', '5.jpg', 0, 0, '2019-08-05 18:39:33', '2019-08-07 23:11:12'),
-(6, 'DTech Technologies', 'http://www.google.com', '6.jpg', 0, 0, '2019-08-05 18:39:43', '2019-08-07 23:11:11');
+(1, '', '', '5df25ec05afb4_slider-1.jpg', 1, 0, '2019-12-12 16:37:38', '0000-00-00 00:00:00'),
+(2, '', '', '5df25ee108fe9_slider-2.jpg', 1, 0, '2019-12-12 16:38:10', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -903,7 +964,8 @@ INSERT INTO `tbl_last_login` (`id`, `userId`, `sessionData`, `machineIp`, `userA
 (83, 11, '{\"role\":\"1\",\"roleText\":\"System Administrator\",\"name\":\"Admin\"}', '::1', 'Chrome 78.0.3904.108', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36', 'Windows 8.1', '2019-11-30 08:07:07'),
 (84, 11, '{\"role\":\"1\",\"roleText\":\"System Administrator\",\"name\":\"Admin\"}', '::1', 'Chrome 78.0.3904.108', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36', 'Windows 8.1', '2019-11-30 08:20:54'),
 (85, 11, '{\"role\":\"1\",\"roleText\":\"System Administrator\",\"name\":\"Admin\"}', '::1', 'Chrome 78.0.3904.108', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36', 'Windows 8.1', '2019-11-30 14:28:47'),
-(86, 11, '{\"role\":\"1\",\"roleText\":\"System Administrator\",\"name\":\"Admin\"}', '::1', 'Chrome 78.0.3904.108', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36', 'Windows 8.1', '2019-12-06 23:30:24');
+(86, 11, '{\"role\":\"1\",\"roleText\":\"System Administrator\",\"name\":\"Admin\"}', '::1', 'Chrome 78.0.3904.108', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36', 'Windows 8.1', '2019-12-06 23:30:24'),
+(87, 11, '{\"role\":\"1\",\"roleText\":\"System Administrator\",\"name\":\"Admin\"}', '::1', 'Chrome 78.0.3904.108', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36', 'Windows 8.1', '2019-12-12 20:19:45');
 
 -- --------------------------------------------------------
 
@@ -981,6 +1043,7 @@ CREATE TABLE `testimonial` (
   `id` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
   `post` varchar(255) NOT NULL,
+  `company_name` varchar(255) NOT NULL,
   `descr` text NOT NULL,
   `img_src` varchar(255) NOT NULL,
   `status` tinyint(1) NOT NULL COMMENT '0-no 1-yes',
@@ -993,13 +1056,10 @@ CREATE TABLE `testimonial` (
 -- Dumping data for table `testimonial`
 --
 
-INSERT INTO `testimonial` (`id`, `title`, `post`, `descr`, `img_src`, `status`, `isDelete`, `created_at`, `updated_at`) VALUES
-(5, 'Dr.Smith', 'CEO', '<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn\'t anything embarrassing hidden in the middle of text.</p>', '1.jpg', 1, 0, '2019-08-01 19:10:27', '2019-08-06 00:32:32'),
-(6, 'John Maclin', 'Director', '<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn\'t anything embarrassing hidden in the middle of text.</p>', '2.jpg', 1, 0, '2019-08-01 19:10:27', '2019-08-06 00:32:38'),
-(7, 'Martian Smith', 'Client', '<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn\'t anything embarrassing hidden in the middle of text.</p>', '3.jpg', 1, 0, '2019-08-01 19:10:27', '2019-08-06 00:32:44'),
-(8, 'Managing Director', 'General Director', '<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn\'t anything embarrassing hidden in the middle of text.</p>', '4.jpg', 1, 0, '2019-08-01 19:10:27', '2019-08-06 00:32:50'),
-(9, '1', '2', '<p>33</p>', '5d4edea028b9d_512x512bb.jpg', 1, 0, '2019-08-10 17:05:13', '2019-08-10 17:11:29'),
-(10, 'asdf', 'sdf', '<p>sadf</p>', '5d4edeaadaa75_download_hwt_(1).jpg', 1, 0, '2019-08-10 17:11:40', '0000-00-00 00:00:00');
+INSERT INTO `testimonial` (`id`, `title`, `post`, `company_name`, `descr`, `img_src`, `status`, `isDelete`, `created_at`, `updated_at`) VALUES
+(1, '', 'Developer', 'Reliance', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus molestie, justo nec convallis sollicitudin, sapien lorem dictum lacus, non consequat odio ipsum nec est.</p>\r\n', '5df274baf118d_testimonial-1.jpg', 1, 0, '2019-12-12 18:12:50', '2019-12-12 18:20:08'),
+(2, '', 'CEO', 'Essar', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus molestie, justo nec convallis sollicitudin, sapien lorem dictum lacus, non consequat odio ipsum nec est.</p>\r\n', '5df2758a03ea9_testimonial-2.jpg', 1, 0, '2019-12-12 18:14:51', '2019-12-12 18:20:14'),
+(3, '', 'Marketer', 'TATA', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus molestie, justo nec convallis sollicitudin, sapien lorem dictum lacus, non consequat odio ipsum nec est.</p>\r\n', '5df275a05a5fa_testimonial-3.jpg', 1, 0, '2019-12-12 18:15:13', '2019-12-12 18:20:19');
 
 -- --------------------------------------------------------
 
@@ -1111,6 +1171,12 @@ ALTER TABLE `hwt_user`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `industry`
+--
+ALTER TABLE `industry`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `inquiry`
 --
 ALTER TABLE `inquiry`
@@ -1126,6 +1192,12 @@ ALTER TABLE `opportunity`
 -- Indexes for table `ourteam`
 --
 ALTER TABLE `ourteam`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `our_clients`
+--
+ALTER TABLE `our_clients`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -1244,12 +1316,17 @@ ALTER TABLE `gallery`
 -- AUTO_INCREMENT for table `hwt_user`
 --
 ALTER TABLE `hwt_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT for table `industry`
+--
+ALTER TABLE `industry`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `inquiry`
 --
 ALTER TABLE `inquiry`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 --
 -- AUTO_INCREMENT for table `opportunity`
 --
@@ -1260,6 +1337,11 @@ ALTER TABLE `opportunity`
 --
 ALTER TABLE `ourteam`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+--
+-- AUTO_INCREMENT for table `our_clients`
+--
+ALTER TABLE `our_clients`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `portfolio`
 --
@@ -1289,12 +1371,12 @@ ALTER TABLE `site_settings`
 -- AUTO_INCREMENT for table `slider`
 --
 ALTER TABLE `slider`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `tbl_last_login`
 --
 ALTER TABLE `tbl_last_login`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
 --
 -- AUTO_INCREMENT for table `tbl_reset_password`
 --
@@ -1314,7 +1396,7 @@ ALTER TABLE `tbl_users`
 -- AUTO_INCREMENT for table `testimonial`
 --
 ALTER TABLE `testimonial`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `workshop`
 --

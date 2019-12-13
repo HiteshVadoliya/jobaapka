@@ -14,8 +14,8 @@ class CMS extends BaseController
             $data['type'] = "";
             $data['edit'] = $this->HWT->get_one_row("about","*",array("id"=>$id));
     
-            $MainTitle = array("1"=>"About","2"=>"Privacy Policy","3"=>"Terms","4"=>"Service Contain","5"=>"Home Header Contain");
-            $url = array("1"=>"about/".$id,"2"=>"privacy-policy/".$id,"3"=>"terms/".$id,"4"=>"services_contain/".$id,"5"=>"home_header/".$id);
+            $MainTitle = array("1"=>"Why Us","2"=>"About Us","3"=>"Privacy Policy","4"=>"Terms & Condition");
+            $url = array("1"=>"whyus/".$id,"2"=>"about/".$id,"3"=>"privacy-policy/".$id,"4"=>"terms/".$id);
             $data['MainTitle'] = $MainTitle[$id];
             $data['tbl_id'] = "id";
             $data['url'] = $url[$id]; 
@@ -60,7 +60,7 @@ class CMS extends BaseController
                 {
                     $this->session->set_flashdata('error', 'Something Went Wrong..!');
                 }
-                $url = array("1"=>"about/".$editid,"2"=>"privacy-policy/".$editid,"3"=>"terms/".$editid,"4"=>"services_contain/".$editid,"5"=>"home_header/".$editid);
+                $url = array("1"=>"whyus/".$editid,"2"=>"about/".$editid,"3"=>"privacy-policy/".$editid,"4"=>"terms/".$editid);
                 redirect(ADMIN_LINK.$url[$editid]);
             }
         }

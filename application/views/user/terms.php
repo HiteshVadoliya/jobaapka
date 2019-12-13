@@ -36,8 +36,8 @@
                <div class="col-md-12 col-lg-12">
                   <div class="single-candidate-bottom-left">
                      <div class="single-candidate-widget">
-                        <h3>Terms & Condition</h3>
-                        <p>Contain goes here...</p>
+                        <h3><?= $hwt_terms['title']; ?></h3>
+                        <?= $hwt_terms['descr']; ?>
                      </div>
 
                      

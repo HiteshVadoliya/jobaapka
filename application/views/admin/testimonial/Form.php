@@ -4,6 +4,7 @@
 <style type="text/css">
 .dm-uploader { padding: 0; }
 </style>
+
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -50,10 +51,6 @@
             </div>
             
             <div class="col-md-12">
-              <!-- general form elements -->
-                
-                
-                
                 <div class="box box-primary">
                     <div class="box-header">
                         <h3 class="box-title">Details</h3>
@@ -68,14 +65,22 @@
                         <input type="hidden" name="type" id="type" value="<?= $type ?>">
                         <div class="box-body">
                             <div class="row">
-                                <div class="col-md-6">                                
+                                <div class="col-md-6">
+                                  
+
+                                    <!-- <div class="form-group">
+                                        <label for="title">writer</label>
+                                        <input type="text" class="form-control required" value="<?php if(isset($edit) && $edit['title']!='' ) { echo $edit['title']; } else { set_value('title'); } ?>" id="title" name="title" maxlength="128">
+                                    </div> -->
+
                                     <div class="form-group">
-                                        <label for="title">Name</label>
-                                        <input type="text" class="form-control required" value="<?php if(isset($edit) && $edit['title']!='' ) { echo $edit['title']; } else { set_value('fname'); } ?>" id="title" name="title" maxlength="128">
+                                        <label for="title">Designation </label>
+                                        <input type="text" class="form-control required" value='<?php if(isset($edit) && $edit['post']!='' ) { echo $edit['post']; } else { set_value('post'); } ?>' id="post" name="post">
                                     </div>
+
                                     <div class="form-group">
-                                        <label for="title">Post</label>
-                                        <input type="text" class="form-control required" value="<?php if(isset($edit) && $edit['post']!='' ) { echo $edit['post']; } else { set_value('fname'); } ?>" id="post" name="post" maxlength="128">
+                                        <label for="title">Company name</label>
+                                        <input type="text" class="form-control required" value='<?php if(isset($edit) && $edit['company_name']!='' ) { echo $edit['company_name']; } else { set_value('company_name'); } ?>' id="company_name" name="company_name">
                                     </div>
 
                                     <div class="form-group">
@@ -83,6 +88,8 @@
                                         <textarea name="descr" id="descr" rows="30" class="form-control"><?php if(isset($edit) && $edit['descr']!='') { echo $edit['descr']; } else { echo set_value('descr'); } ?></textarea>                                       
                                     </div>
 
+
+                                   
                                     <div class="mb-3 dm-uploader" id="image">
                                        <div class="row">
                                           <div class="col-md-10 col-sm-12">
@@ -124,19 +131,11 @@
                                              ?>
                                           </div>
                                        </div>
+                                          <span>Image size should be : 350 * 350 </span>
                                     </div>
 
-                                    <!-- <div class="form-group">
-                                        <label for="title">Image</label>
-                                        <input type="file" name="img_src" id="img_src" class="form-control">
-                                    </div>
-                                    <?php if(isset($edit) && $edit['img_src']!='') { ?> 
-                                    <div class="form-group">
-                                        <img src="<?php echo base_url().$img_path.$edit['img_src']; ?>" width="150" >
-                                    </div>
-                                    <?php } ?> -->
                                 </div>
-
+                                
                             </div>
                         </div><!-- /.box-body -->
     
@@ -158,36 +157,38 @@
 <script src="<?= ADMIN_CSS_JS.'fileupload/js/file_upload.js'; ?>"></script>
 <script src="<?= ADMIN_CSS_JS.'js/bootstrap-tagsinput.min.js'; ?>"></script>
 
-
 <!-- <script src="<?php echo base_url(); ?>assets/js/addUser.js" type="text/javascript"></script> -->
-<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
-<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>
+<<script src="<?php echo PUBLIC_FILE.'backend/ckeditor/ckeditor.js' ?>"></script>
+<script src="<?php echo PUBLIC_FILE.'backend/ckeditor/adapters/jquery.js' ?>"></script>
 <script>
-    $(document).ready(function() {
-
-        $('#descr').summernote({
-            
-        });
-        
-        //$('#descr').summernote();
+    $(document).ready(function() {      
+        $('#descr').ckeditor();
+    });
+    $(".multi_delete").on("click",function(){
+      var did = $(this).attr('data-value');
+      $(".delete_"+did).hide();
+      console.log("delete_"+did);
     });
   </script>
 <script type="text/javascript">
     $(document).ready(function(){
-        var addUserForm = $("#frm_");
+        var addUserForm = $("#frm");
         var validator = addUserForm.validate({
             rules:{
-                title :{ required : true },
-                url :{ required : true, url:true },
+                company_name :{ required : true },
+                post :{ required : true },
+                descr :{ required : true },
+                // code :{ required : true },
             },
             messages:{
-                title :{ required : "This field is required" },
-                url :{ required : "This field is required" },
+                company_name :{ required : "Please enter Comapny Name" },
+                post :{ required : "Please enter Post" },
+                descr :{ required : "Please enter Post" },
+                // code :{ required : "Please enter Code" },
             }
         });
     });
 </script>
-
 
 <script type="text/javascript">
 $(function(){
@@ -299,6 +300,8 @@ $(function(){
          ui_add_log('File \'' + file.name + '\' cannot be added: must be an image (extension error)', 'danger');
       }
    });
+
+  
 
 
 });

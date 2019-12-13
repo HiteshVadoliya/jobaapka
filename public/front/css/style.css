@@ -572,7 +572,8 @@ li {
 ==================================================*/
 
 .jobguru-header-area {
-	padding: 15px 0
+	padding: 15px 0;
+	background: #fff;
 }
 
 .jobguru-header-area .container-fluid {
@@ -601,7 +602,7 @@ li {
 	-ms-box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
 	-o-box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
 	box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
-	z-index: 99999
+	z-index: 3
 }
 
 header,
@@ -655,7 +656,7 @@ header,
 .header-menu ul li a {
 	display: block;
 	padding: 5px 10px;
-	color: #fff;
+	color: #393941;
 	text-transform: capitalize;
 	font-family: 'Montserrat', sans-serif;
 	font-weight: 500;
@@ -885,7 +886,7 @@ header,
 	background-position: center center !important;
 	background-size: cover !important;
 	background-repeat: no-repeat !important;
-	height: 500px;
+	height: 400px;
 }
 
 .slider-item-1 {
@@ -934,7 +935,7 @@ header,
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
-	width: 80%;
+	width: 60%;
 	background-color: #fff;
 	border-radius: 4px;
 	box-shadow: 0 2px 12px rgba(0, 0, 0, .09);
