@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 13, 2019 at 03:31 AM
+-- Generation Time: Dec 14, 2019 at 05:48 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -29,18 +29,20 @@ SET time_zone = "+00:00";
 CREATE TABLE `about` (
   `id` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
-  `descr` longtext NOT NULL
+  `descr` longtext NOT NULL,
+  `meta_title` varchar(255) NOT NULL,
+  `meta_descr` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `about`
 --
 
-INSERT INTO `about` (`id`, `title`, `descr`) VALUES
-(1, 'Why Us', '<p>There is no doubt that thousands of other websites provide job services.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Its very logical question to ask that what difference we will make and what really we can do for you which others cannot?</p>\r\n\r\n<p>Before starting our new venture Jobaapka.com, this is what Ideators Technologies has achieved that makes us stand out from the big crowd of job websites and give us strong edge over our competitors.</p>\r\n\r\n<p><strong>1) CLUTCH,USA CERTIFIED</strong>&nbsp;-&nbsp;<a href=\"https://clutch.co/profile/ideators-technologies\" style=\"box-sizing: border-box; color: rgb(107, 115, 156); text-decoration-line: none; background-color: transparent; transition: all 0.4s ease 0s;\">https://clutch.co/profile/ideators-technologies</a></p>\r\n\r\n<p>Clutch is an independent platform that collects objective feedback from clients about each company registered on the site. They perform in-depth interviews with clients and customers about the quality of their interaction with each Clutch-registered company. Based on the data gathered, the service formulates a fair rating of all the firms. Clutch categorises companies by their geographic location,a field of their expertise and the focus on proven skills</p>\r\n\r\n<p><a href=\"https://clutch.co/\" style=\"box-sizing: border-box; color: rgb(107, 115, 156); text-decoration-line: none; background-color: transparent; transition: all 0.4s ease 0s;\">Read more here - https://clutch.co/</a></p>\r\n\r\n<p><a href=\"https://clutch.co/\" style=\"box-sizing: border-box; color: rgb(107, 115, 156); text-decoration-line: none; background-color: transparent; transition: all 0.4s ease 0s;\"><strong>2) GOOGLE SEARCH ADS CERTIFIED</strong>&nbsp;-&nbsp;</a><a href=\"https://academy.exceedlms.com/student/award/33034979\" style=\"box-sizing: border-box; color: rgb(107, 115, 156); text-decoration-line: none; background-color: transparent; transition: all 0.4s ease 0s;\">https://academy.exceedlms.com/student/award/33034979</a></p>\r\n\r\n<p>Every second, there are 2.3 million searches performed on Google, and the majority of search results pages include Google ads.Whenever you look for a product or service online, Google (or any other search-engine provider) displays a results page consisting of both organic and sponsored results.</p>\r\n\r\n<p><a href=\"https://support.google.com/google-ads/answer/9029201\" style=\"box-sizing: border-box; color: rgb(107, 115, 156); text-decoration-line: none; background-color: transparent; transition: all 0.4s ease 0s;\">Read more here - https://support.google.com/google-ads/answer/9029201</a></p>\r\n\r\n<p><a href=\"https://support.google.com/google-ads/answer/9029201\" style=\"box-sizing: border-box; color: rgb(107, 115, 156); text-decoration-line: none; background-color: transparent; transition: all 0.4s ease 0s;\"><strong>3) PREVIOUS DOMAIN RESELLER FOR GODADDY</strong>&nbsp;-&nbsp;</a><a href=\"https://in.godaddy.com/reseller-program/hosting\" style=\"box-sizing: border-box; color: rgb(107, 115, 156); text-decoration-line: none; background-color: transparent; transition: all 0.4s ease 0s;\">https://in.godaddy.com/reseller-program/hosting</a></p>\r\n\r\n<p><strong>4) OUR SERVICES</strong>&nbsp;- We provide you all the requisite services at the most lowest cost for both Employers and Jobseekers. Learn more about that in Our plan</p>'),
-(2, 'About Us', '<p>AFTER SUCCESSFUL WORKING OF IDEATORS, A TECHNOLOGY DEVELOPMENT AS WELL AS DIGITAL MARKETING AND BIG DATA TRAINING COMPANY BASED OUT OF THANE,THIS IS OUR NEW INITIATIVE AND VENTURE, JOBAAPKA.COM</p>\r\n\r\n<p>OUR OBJECTIVE IS NOT JUST TO MAKE THE CANDIDATES/JOBSEEKERS FIND THE SUITABLE AND THE RIGHT JOB BUT MAKE THEM SKILLED,EFFICIENT AND PRODUCTIVE IN THEIR JOB HUNT THROUGH OUR OPTIONAL SERVICES.</p>\r\n\r\n<p>WE AIM TO MAKE THE EMPLOYERS GROW NOT ONLY IN TERMS OF HIRING RIGHT PEOPLE BUT ALSO EMPOWERING THEM WITH THE MOST EFFECTIVE AND HIGHLY WORKABLE TECHNOLOGY WHICH WILL ADDRESS THEIR BUSINESS ISSUES.</p>\r\n\r\n<p>THIS PORTAL PROVIDES THE MOST UNIQUE SERVICE IN TERMS OF HIRING/RECRUITMENT AND TECHNOLOGY CONSULTING FOR THE EMPLOYERS AS WELL AS INTERVIEW PREPARATION,CV WRITING AND JOB ASSISTANCE SERVICE FOR THE JOBSEEKERS.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<h3><strong>BELOW POINTS EXPLAIN YOU HOW</strong> -</h3>\r\n\r\n<p><strong>A SINGLE PLAN SOLUTION</strong> &ndash;</p>\r\n\r\n<p>Hassle free and only one simple plan for your Hiring as well as Technology needs at a very low price which you would have never got or thought before.</p>\r\n\r\n<p><strong>A WIN WIN SCENARIO FOR BOTH EMPLOYERS AND JOBSEEKERS -</strong></p>\r\n\r\n<p>Our working style and systematic process makes this a favourable situation for both the parties as we give you ample time to resolve your issues.Know more about that in Our plan</p>\r\n\r\n<p><strong>TECHNOLOGY CONSULTING AS PER YOUR BUSINESS PROBLEMS -</strong></p>\r\n\r\n<p>We understand your business not only in terms of your manpower requirement but also in form of a highly affordable technology that you can decide through our free technology consulting session.</p>\r\n\r\n<p><strong>PERSONAL JOB ASSISTANCE FOR JOBSEEKERS -</strong></p>\r\n\r\n<p>We help candidates who have subscribed for our plan with CV writing,Interview preparation as well as second job or 6 months of support ,whatever comes first after losing out on their previous job.</p>\r\n\r\n<p><strong>100% CREDIBLE AND TRUSTWORTHY -</strong></p>\r\n\r\n<p>With all our credentials and reputation we have gained,you can easily rely on us and be certainly assured of 100% quality and perfect services from us.</p>'),
-(3, 'Privacy Policy', '<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer</p>\r\n\r\n<p>took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>'),
-(4, 'Terms & Condition', '<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer</p>\r\n\r\n<p>took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>');
+INSERT INTO `about` (`id`, `title`, `descr`, `meta_title`, `meta_descr`) VALUES
+(1, 'Why Us', '<p>There is no doubt that thousands of other websites provide job services.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Its very logical question to ask that what difference we will make and what really we can do for you which others cannot?</p>\r\n\r\n<p>Before starting our new venture Jobaapka.com, this is what Ideators Technologies has achieved that makes us stand out from the big crowd of job websites and give us strong edge over our competitors.</p>\r\n\r\n<p><strong>1) CLUTCH,USA CERTIFIED</strong>&nbsp;-&nbsp;<a href=\"https://clutch.co/profile/ideators-technologies\" style=\"box-sizing: border-box; color: rgb(107, 115, 156); text-decoration-line: none; background-color: transparent; transition: all 0.4s ease 0s;\">https://clutch.co/profile/ideators-technologies</a></p>\r\n\r\n<p>Clutch is an independent platform that collects objective feedback from clients about each company registered on the site. They perform in-depth interviews with clients and customers about the quality of their interaction with each Clutch-registered company. Based on the data gathered, the service formulates a fair rating of all the firms. Clutch categorises companies by their geographic location,a field of their expertise and the focus on proven skills</p>\r\n\r\n<p><a href=\"https://clutch.co/\" style=\"box-sizing: border-box; color: rgb(107, 115, 156); text-decoration-line: none; background-color: transparent; transition: all 0.4s ease 0s;\">Read more here - https://clutch.co/</a></p>\r\n\r\n<p><a href=\"https://clutch.co/\" style=\"box-sizing: border-box; color: rgb(107, 115, 156); text-decoration-line: none; background-color: transparent; transition: all 0.4s ease 0s;\"><strong>2) GOOGLE SEARCH ADS CERTIFIED</strong>&nbsp;-&nbsp;</a><a href=\"https://academy.exceedlms.com/student/award/33034979\" style=\"box-sizing: border-box; color: rgb(107, 115, 156); text-decoration-line: none; background-color: transparent; transition: all 0.4s ease 0s;\">https://academy.exceedlms.com/student/award/33034979</a></p>\r\n\r\n<p>Every second, there are 2.3 million searches performed on Google, and the majority of search results pages include Google ads.Whenever you look for a product or service online, Google (or any other search-engine provider) displays a results page consisting of both organic and sponsored results.</p>\r\n\r\n<p><a href=\"https://support.google.com/google-ads/answer/9029201\" style=\"box-sizing: border-box; color: rgb(107, 115, 156); text-decoration-line: none; background-color: transparent; transition: all 0.4s ease 0s;\">Read more here - https://support.google.com/google-ads/answer/9029201</a></p>\r\n\r\n<p><a href=\"https://support.google.com/google-ads/answer/9029201\" style=\"box-sizing: border-box; color: rgb(107, 115, 156); text-decoration-line: none; background-color: transparent; transition: all 0.4s ease 0s;\"><strong>3) PREVIOUS DOMAIN RESELLER FOR GODADDY</strong>&nbsp;-&nbsp;</a><a href=\"https://in.godaddy.com/reseller-program/hosting\" style=\"box-sizing: border-box; color: rgb(107, 115, 156); text-decoration-line: none; background-color: transparent; transition: all 0.4s ease 0s;\">https://in.godaddy.com/reseller-program/hosting</a></p>\r\n\r\n<p><strong>4) OUR SERVICES</strong>&nbsp;- We provide you all the requisite services at the most lowest cost for both Employers and Jobseekers. Learn more about that in Our plan</p>', 'Why Us', 'Why Us'),
+(2, 'About Us', '<p>AFTER SUCCESSFUL WORKING OF IDEATORS, A TECHNOLOGY DEVELOPMENT AS WELL AS DIGITAL MARKETING AND BIG DATA TRAINING COMPANY BASED OUT OF THANE,THIS IS OUR NEW INITIATIVE AND VENTURE, JOBAAPKA.COM</p>\r\n\r\n<p>OUR OBJECTIVE IS NOT JUST TO MAKE THE CANDIDATES/JOBSEEKERS FIND THE SUITABLE AND THE RIGHT JOB BUT MAKE THEM SKILLED,EFFICIENT AND PRODUCTIVE IN THEIR JOB HUNT THROUGH OUR OPTIONAL SERVICES.</p>\r\n\r\n<p>WE AIM TO MAKE THE EMPLOYERS GROW NOT ONLY IN TERMS OF HIRING RIGHT PEOPLE BUT ALSO EMPOWERING THEM WITH THE MOST EFFECTIVE AND HIGHLY WORKABLE TECHNOLOGY WHICH WILL ADDRESS THEIR BUSINESS ISSUES.</p>\r\n\r\n<p>THIS PORTAL PROVIDES THE MOST UNIQUE SERVICE IN TERMS OF HIRING/RECRUITMENT AND TECHNOLOGY CONSULTING FOR THE EMPLOYERS AS WELL AS INTERVIEW PREPARATION,CV WRITING AND JOB ASSISTANCE SERVICE FOR THE JOBSEEKERS.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<h3><strong>BELOW POINTS EXPLAIN YOU HOW</strong> -</h3>\r\n\r\n<p><strong>A SINGLE PLAN SOLUTION</strong> &ndash;</p>\r\n\r\n<p>Hassle free and only one simple plan for your Hiring as well as Technology needs at a very low price which you would have never got or thought before.</p>\r\n\r\n<p><strong>A WIN WIN SCENARIO FOR BOTH EMPLOYERS AND JOBSEEKERS -</strong></p>\r\n\r\n<p>Our working style and systematic process makes this a favourable situation for both the parties as we give you ample time to resolve your issues.Know more about that in Our plan</p>\r\n\r\n<p><strong>TECHNOLOGY CONSULTING AS PER YOUR BUSINESS PROBLEMS -</strong></p>\r\n\r\n<p>We understand your business not only in terms of your manpower requirement but also in form of a highly affordable technology that you can decide through our free technology consulting session.</p>\r\n\r\n<p><strong>PERSONAL JOB ASSISTANCE FOR JOBSEEKERS -</strong></p>\r\n\r\n<p>We help candidates who have subscribed for our plan with CV writing,Interview preparation as well as second job or 6 months of support ,whatever comes first after losing out on their previous job.</p>\r\n\r\n<p><strong>100% CREDIBLE AND TRUSTWORTHY -</strong></p>\r\n\r\n<p>With all our credentials and reputation we have gained,you can easily rely on us and be certainly assured of 100% quality and perfect services from us.</p>', 'About Us', 'About Us'),
+(3, 'Privacy Policy', '<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer</p>\r\n\r\n<p>took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>', 'Privacy Policy', 'Privacy Policy'),
+(4, 'Terms & Condition', '<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer</p>\r\n\r\n<p>took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>', 'Terms & Condition', 'Terms & Condition');
 
 -- --------------------------------------------------------
 
@@ -474,16 +476,18 @@ CREATE TABLE `hwt_user` (
   `is_registere` tinyint(1) NOT NULL,
   `is_alive` tinyint(1) NOT NULL,
   `language_id` int(11) NOT NULL DEFAULT '1',
-  `verify_string` varchar(255) NOT NULL
+  `verify_string` varchar(255) NOT NULL,
+  `fbid` varchar(255) NOT NULL,
+  `gid` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `hwt_user`
 --
 
-INSERT INTO `hwt_user` (`id`, `type`, `fname`, `lname`, `img_src`, `email`, `password`, `pass_txt`, `company_name`, `job_function`, `industry`, `job_location`, `exp_year`, `exp_month`, `username`, `mobile`, `phone`, `home_town`, `city`, `gender`, `marital_status`, `bdate`, `edu`, `occupation`, `device_name`, `device_type`, `device_token`, `device_id`, `auth_key`, `status`, `isDelete`, `created_at`, `updated_at`, `created_timestamp`, `updated_timestamp`, `address`, `state`, `zip`, `is_registere`, `is_alive`, `language_id`, `verify_string`) VALUES
-(5, 'jobseeker', 'Hitesh', '', '', 'a@gmail.com', '912ec803b2ce49e4a541068d495ab570', 'asdf', '', '', '', 'Current job function', 'Experience in years', 'Experience in month', '', 'asdfasd', 0, '', 0, 'M', 0, '0000-00-00', '', '', '', '', '', '', '', 1, 0, '2019-12-13 06:17:24', '0000-00-00 00:00:00', 0, 0, '', '', '', 0, 0, 1, ''),
-(6, 'employer', 'Hitesh', '', '', 'hmvadoliya.iipl2013@gmail.com', '202cb962ac59075b964b07152d234b70', '123', 'test', 'Current job function', 'Company industry', '', '', '', '', 'asdf', 0, '', 0, 'M', 0, '0000-00-00', '', '', '', '', '', '', '', 1, 0, '2019-12-13 07:15:01', '0000-00-00 00:00:00', 0, 0, '', '', '', 0, 0, 1, '9828');
+INSERT INTO `hwt_user` (`id`, `type`, `fname`, `lname`, `img_src`, `email`, `password`, `pass_txt`, `company_name`, `job_function`, `industry`, `job_location`, `exp_year`, `exp_month`, `username`, `mobile`, `phone`, `home_town`, `city`, `gender`, `marital_status`, `bdate`, `edu`, `occupation`, `device_name`, `device_type`, `device_token`, `device_id`, `auth_key`, `status`, `isDelete`, `created_at`, `updated_at`, `created_timestamp`, `updated_timestamp`, `address`, `state`, `zip`, `is_registere`, `is_alive`, `language_id`, `verify_string`, `fbid`, `gid`) VALUES
+(5, 'jobseeker', 'Hitesh', '', '', 'a@gmail.com', '912ec803b2ce49e4a541068d495ab570', 'asdf', '', '', '', 'Current job function', 'Experience in years', 'Experience in month', '', 'asdfasd', 0, '', 0, 'M', 0, '0000-00-00', '', '', '', '', '', '', '', 1, 0, '2019-12-13 06:17:24', '0000-00-00 00:00:00', 0, 0, '', '', '', 0, 0, 1, '', '', ''),
+(7, 'jobseeker', 'Hitesh Vadoliya', '', '', 'hmvadoliya.iipl2013@gmail.com', '', '', '', '', '', '', '', '', '', '', 0, '', 0, 'M', 0, '0000-00-00', '', '', '', '', '', '', '', 0, 0, '2019-12-13 23:05:44', '0000-00-00 00:00:00', 0, 0, '', '', '', 0, 0, 1, '', '2407087139541034', '104244376389683567681');
 
 -- --------------------------------------------------------
 
@@ -639,6 +643,7 @@ CREATE TABLE `our_clients` (
   `title` varchar(255) NOT NULL,
   `url` varchar(255) NOT NULL,
   `img_src` varchar(255) NOT NULL,
+  `alt_tag` varchar(255) NOT NULL,
   `status` tinyint(1) NOT NULL COMMENT '0-no 1-yes',
   `isDelete` tinyint(1) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -649,11 +654,14 @@ CREATE TABLE `our_clients` (
 -- Dumping data for table `our_clients`
 --
 
-INSERT INTO `our_clients` (`id`, `title`, `url`, `img_src`, `status`, `isDelete`, `created_at`, `updated_at`) VALUES
-(2, '', '', '5df25c6333e74_1.png', 1, 0, '2019-12-12 16:26:07', '2019-12-12 16:27:32'),
-(3, '', '', '5df25c7271c9e_2.png', 1, 0, '2019-12-12 16:26:13', '2019-12-12 16:27:47'),
-(4, '', '', '5df25c779b655_4.png', 1, 0, '2019-12-12 16:26:30', '2019-12-12 16:27:52'),
-(5, '', '', '5df26e7ea40f3_1.png', 1, 0, '2019-12-12 17:44:47', '0000-00-00 00:00:00');
+INSERT INTO `our_clients` (`id`, `title`, `url`, `img_src`, `alt_tag`, `status`, `isDelete`, `created_at`, `updated_at`) VALUES
+(2, '', '', '5df462ca5f4fd_b_logo.png', '', 1, 1, '2019-12-12 16:26:07', '2019-12-14 09:49:28'),
+(3, '', '', '5df25c7271c9e_2.png', 'JobAapka', 1, 0, '2019-12-12 16:26:13', '2019-12-14 05:44:08'),
+(4, '', '', '5df25c779b655_4.png', 'JobAapka', 1, 0, '2019-12-12 16:26:30', '2019-12-14 05:44:12'),
+(5, '', '', '5df26e7ea40f3_1.png', 'JobAapka', 1, 0, '2019-12-12 17:44:47', '2019-12-14 05:44:20'),
+(6, '', '', '5df463a55a3ad_b_logo_2.png', 'test', 1, 1, '2019-12-14 05:23:02', '2019-12-14 10:13:20'),
+(7, '', '', '5df46476437fe_blog-1.jpg', 'tesasddddsss', 1, 1, '2019-12-14 05:26:31', '2019-12-14 10:13:22'),
+(8, '', '', '5df468323d123_blog-2.jpg', 'sdfasdf', 1, 1, '2019-12-14 05:42:27', '2019-12-14 10:13:24');
 
 -- --------------------------------------------------------
 
@@ -843,6 +851,7 @@ CREATE TABLE `slider` (
   `title` varchar(255) NOT NULL,
   `url` varchar(255) NOT NULL,
   `img_src` varchar(255) NOT NULL,
+  `alt_tag` varchar(255) NOT NULL,
   `status` tinyint(1) NOT NULL COMMENT '0-no 1-yes',
   `isDelete` tinyint(1) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -853,9 +862,11 @@ CREATE TABLE `slider` (
 -- Dumping data for table `slider`
 --
 
-INSERT INTO `slider` (`id`, `title`, `url`, `img_src`, `status`, `isDelete`, `created_at`, `updated_at`) VALUES
-(1, '', '', '5df25ec05afb4_slider-1.jpg', 1, 0, '2019-12-12 16:37:38', '0000-00-00 00:00:00'),
-(2, '', '', '5df25ee108fe9_slider-2.jpg', 1, 0, '2019-12-12 16:38:10', '0000-00-00 00:00:00');
+INSERT INTO `slider` (`id`, `title`, `url`, `img_src`, `alt_tag`, `status`, `isDelete`, `created_at`, `updated_at`) VALUES
+(1, '', '', '5df25ec05afb4_slider-1.jpg', 'JobAapka', 1, 0, '2019-12-12 16:37:38', '2019-12-14 05:43:53'),
+(2, '', '', '5df25ee108fe9_slider-2.jpg', 'JobAapka', 1, 0, '2019-12-12 16:38:10', '2019-12-14 05:43:58'),
+(3, '', '', '5df4624f0cc17_abt-1.jpg', 'teasd', 1, 1, '2019-12-14 05:17:20', '2019-12-14 09:51:08'),
+(5, '', '', '5df46811db269_design_art.jpg', 'tasdfasdddddddddddddddddd', 1, 1, '2019-12-14 05:41:40', '2019-12-14 10:13:30');
 
 -- --------------------------------------------------------
 
@@ -965,7 +976,9 @@ INSERT INTO `tbl_last_login` (`id`, `userId`, `sessionData`, `machineIp`, `userA
 (84, 11, '{\"role\":\"1\",\"roleText\":\"System Administrator\",\"name\":\"Admin\"}', '::1', 'Chrome 78.0.3904.108', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36', 'Windows 8.1', '2019-11-30 08:20:54'),
 (85, 11, '{\"role\":\"1\",\"roleText\":\"System Administrator\",\"name\":\"Admin\"}', '::1', 'Chrome 78.0.3904.108', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36', 'Windows 8.1', '2019-11-30 14:28:47'),
 (86, 11, '{\"role\":\"1\",\"roleText\":\"System Administrator\",\"name\":\"Admin\"}', '::1', 'Chrome 78.0.3904.108', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36', 'Windows 8.1', '2019-12-06 23:30:24'),
-(87, 11, '{\"role\":\"1\",\"roleText\":\"System Administrator\",\"name\":\"Admin\"}', '::1', 'Chrome 78.0.3904.108', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36', 'Windows 8.1', '2019-12-12 20:19:45');
+(87, 11, '{\"role\":\"1\",\"roleText\":\"System Administrator\",\"name\":\"Admin\"}', '::1', 'Chrome 78.0.3904.108', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36', 'Windows 8.1', '2019-12-12 20:19:45'),
+(88, 11, '{\"role\":\"1\",\"roleText\":\"System Administrator\",\"name\":\"Admin\"}', '::1', 'Chrome 78.0.3904.108', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36', 'Windows 8.1', '2019-12-13 08:06:17'),
+(89, 11, '{\"role\":\"1\",\"roleText\":\"System Administrator\",\"name\":\"Admin\"}', '::1', 'Chrome 78.0.3904.108', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36', 'Windows 8.1', '2019-12-14 09:35:53');
 
 -- --------------------------------------------------------
 
@@ -1057,7 +1070,7 @@ CREATE TABLE `testimonial` (
 --
 
 INSERT INTO `testimonial` (`id`, `title`, `post`, `company_name`, `descr`, `img_src`, `status`, `isDelete`, `created_at`, `updated_at`) VALUES
-(1, '', 'Developer', 'Reliance', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus molestie, justo nec convallis sollicitudin, sapien lorem dictum lacus, non consequat odio ipsum nec est.</p>\r\n', '5df274baf118d_testimonial-1.jpg', 1, 0, '2019-12-12 18:12:50', '2019-12-12 18:20:08'),
+(1, '', 'Developer', 'Reliance', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus molestie, justo nec convallis sollicitudin, sapien lorem dictum lacus, non consequat odio ipsum nec est.</p>\r\n', '5df274baf118d_testimonial-1.jpg', 1, 0, '2019-12-12 18:12:50', '2019-12-14 05:31:01'),
 (2, '', 'CEO', 'Essar', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus molestie, justo nec convallis sollicitudin, sapien lorem dictum lacus, non consequat odio ipsum nec est.</p>\r\n', '5df2758a03ea9_testimonial-2.jpg', 1, 0, '2019-12-12 18:14:51', '2019-12-12 18:20:14'),
 (3, '', 'Marketer', 'TATA', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus molestie, justo nec convallis sollicitudin, sapien lorem dictum lacus, non consequat odio ipsum nec est.</p>\r\n', '5df275a05a5fa_testimonial-3.jpg', 1, 0, '2019-12-12 18:15:13', '2019-12-12 18:20:19');
 
@@ -1286,7 +1299,7 @@ ALTER TABLE `workshop_slider`
 -- AUTO_INCREMENT for table `about`
 --
 ALTER TABLE `about`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `category`
 --
@@ -1316,7 +1329,7 @@ ALTER TABLE `gallery`
 -- AUTO_INCREMENT for table `hwt_user`
 --
 ALTER TABLE `hwt_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `industry`
 --
@@ -1341,7 +1354,7 @@ ALTER TABLE `ourteam`
 -- AUTO_INCREMENT for table `our_clients`
 --
 ALTER TABLE `our_clients`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `portfolio`
 --
@@ -1371,12 +1384,12 @@ ALTER TABLE `site_settings`
 -- AUTO_INCREMENT for table `slider`
 --
 ALTER TABLE `slider`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `tbl_last_login`
 --
 ALTER TABLE `tbl_last_login`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
 --
 -- AUTO_INCREMENT for table `tbl_reset_password`
 --
