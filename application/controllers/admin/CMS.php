@@ -42,6 +42,8 @@ class CMS extends BaseController
                 $DataInfo = array(
                     'title'=>$this->input->post('title'),
                     'descr'=>$this->input->post('descr'),
+                    'meta_title'=>$this->input->post('meta_title'),
+                    'meta_descr'=>$this->input->post('meta_descr'),
                 );
 
                 if($type == "add"){                    

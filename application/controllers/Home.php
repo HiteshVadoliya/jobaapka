@@ -25,6 +25,23 @@ class Home extends FrontController {
     public function signup( $type = 'jobseeker' ) {
         $this->check_session();
         $data = array();
+
+        /*Login With Facebook */
+        $this->load->library('facebook');
+          $userData = array();
+          if($this->facebook->is_authenticated()){
+              $userProfile = $this->facebook->request('get', '/me?fields=id,first_name,last_name,email,gender,locale,picture');
+              // echo "<pre>";
+              $this->login_with_facebook($userProfile);
+              // print_r($userProfile);
+              die;
+          }
+          else
+          {
+              $data['authUrl'] =  $this->facebook->login_url();
+          }
+        /*Login With Facebook */
+
         $this->global['pageTitle'] = 'signup';
         $data['active_menu'] = "signup";
         $data['signup_type'] = $type;
@@ -46,12 +63,126 @@ class Home extends FrontController {
     }
 
     public function login() {
-      $this->check_session();
+
+      //$this->check_session();
       $data = array();
+      /*Login With Facebook */
+      $this->load->library('facebook');
+        $userData = array();
+        if($this->facebook->is_authenticated()){
+            $userProfile = $this->facebook->request('get', '/me?fields=id,first_name,last_name,email,gender,locale,picture');
+            // echo "<pre>";
+            $this->login_with_facebook($userProfile);
+            // print_r($userProfile);
+            die;
+        }
+        else
+        {
+            $data['authUrl'] =  $this->facebook->login_url();
+        }
+      /*Login With Facebook */
+
+      $this->load->library('google');
+      $data['google_login_url']=$this->google->get_login_url();
+
+
       $this->global['pageTitle'] = 'login';
       $data['active_menu'] = "login";
       $this->loadViews(USER."login", $this->global, $data, NULL,NULL);
     }
+
+    public function login_with_google( ) {
+        require_once APPPATH.'third_party/src/Google_Client.php';
+        require_once APPPATH.'third_party/src/contrib/Google_Oauth2Service.php';
+
+        $clientId = '500258887489-7heulp5g02fpbnbimkdpeouj1sb3amb0.apps.googleusercontent.com'; //Google client ID
+        $clientSecret = 'X0GWTJ0ChkTSSrBIiRVGXtf7'; //Google client secret
+        $redirectURL = base_url() . 'Home/login_with_google/';
+        // $redirectURL = base_url() . 'Login/google_login/';
+        
+        //Call Google API
+        $gClient = new Google_Client();
+        $gClient->setApplicationName('Login');
+        $gClient->setClientId($clientId);
+        $gClient->setClientSecret($clientSecret);
+        $gClient->setRedirectUri($redirectURL);
+        $google_oauthV2 = new Google_Oauth2Service($gClient);
+        
+        if(isset($_GET['code']))
+        {
+            $gClient->authenticate($_GET['code']);
+            $_SESSION['token'] = $gClient->getAccessToken();
+            header('Location: ' . filter_var($redirectURL, FILTER_SANITIZE_URL));
+        }
+
+        if (isset($_SESSION['token'])) 
+        {
+            $gClient->setAccessToken($_SESSION['token']);
+        }
+        
+        if ($gClient->getAccessToken()) {
+            $userProfile = $google_oauthV2->userinfo->get();
+            // echo "<pre>";
+            // print_r($userProfile);
+            $this->login_with_facebook( $userProfile , "google" );
+            die;
+        } 
+        else 
+        {
+            $url = $gClient->createAuthUrl();
+            header("Location: $url");
+            exit;
+        }
+    }
+
+    public function login_with_facebook( $data , $type = "FB" ) {
+
+        if($type=="google") {
+            $id             = $data['id'];
+            $first_name     = $data['name'];
+            $last_name      = $data['last_name'];
+            $email          = $data['email'];
+            $picture          = $data['picture'];
+            $data_insert = array(
+                "fname"=> $first_name,
+                "email"=> $email,
+                "gid"=> $id,
+                "type"=> "jobseeker",
+            );
+        } else {
+            $id             = $data['id'];
+            $first_name     = $data['first_name'];
+            $last_name      = $data['last_name'];
+            $email          = $data['email'];
+            $data_insert = array(
+                "fname"=> $first_name." ".$last_name,
+                "email"=> $email,
+                "fbid"=> $id,
+                "type"=> "jobseeker",
+            );
+        }
+
+        $res = $this->HWT->get_one_row("hwt_user","*",array("email"=>$email));
+        if($res) {
+            $this->HWT->update("hwt_user",$data_insert,array("email"=>$email));
+        } else {
+            $this->HWT->insert("hwt_user",$data_insert);
+        }
+
+        $dup = $this->HWT->get_one_row("hwt_user","*",array("email"=>$email));
+
+        $_SESSION[PREFIX.'id'] = $dup['id'];
+        $_SESSION[PREFIX.'name'] = $dup['fname'];
+        $_SESSION[PREFIX.'type'] = $dup['type'];
+        $_SESSION[PREFIX.'email'] = $dup['email'];
+        $login_with = "Facebook ";
+        if($type=='google') { $login_with = "Google "; }
+        $_SESSION['SUCCESS'] = $login_with. "login Successfully";
+        redirect(base_url());
+
+    }
+
+    
 
     public function about() {
         $data = array();

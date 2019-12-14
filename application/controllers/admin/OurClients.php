@@ -132,19 +132,29 @@ class OurClients extends BaseController
         {
             $this->load->library('form_validation');
             
-            $this->form_validation->set_rules('img_path','Image','trim|required');
             
+            
+            $type = $this->input->post('type');
+            $post = $this->input->post();
+            if($type == "add"){
+                $this->form_validation->set_rules('img_path','Image','trim|required');
+            }
+            $this->form_validation->set_rules('alt_tag','Alter Tag','trim|required');
             
             if($this->form_validation->run() == FALSE)
             {
-                $this->showForm();
+                $this->session->set_flashdata('error', validation_errors());
+                if($type == "edit"){
+                    redirect(ADMIN_LINK.$this->url.'/edit/'.$post['editid']);
+                } else {
+                    redirect(ADMIN_LINK.$this->url.'/add/');
+                }
             }
             else
             {
 
-                $type = $this->input->post('type');
-                $post = $this->input->post();
                 $DataInfo = array(
+                    'alt_tag'=>$this->input->post('alt_tag'),
                     /*'title'=>$this->input->post('title'),
                     'descr'=>$this->input->post('descr'),*/
                 );
@@ -215,6 +225,7 @@ class OurClients extends BaseController
                 }
                 redirect(ADMIN_LINK.$this->url);
             }
+                //echo ADMIN_LINK.$this->url; die();
         }
     }
 

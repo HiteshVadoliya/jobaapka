@@ -42,9 +42,9 @@
                         <br/>
                         <div class="footer-bottom" style="text-align: center;">
                         <ul class="social-icons" >
-                           <li style="float: none;"><a href="" style="width: 45px; height: 46px;"><img src="<?= base_url().IMG_SIGNUP.'fb.png' ?>"></a></li>
+                           <li style="float: none;"><a href="<?= $authUrl ?>" style="width: 45px; height: 46px;"><img src="<?= base_url().IMG_SIGNUP.'fb.png' ?>"></a></li>
                            <li style="float: none;"><a href="" style="width: 45px; height: 46px;"><img src="<?= base_url().IMG_SIGNUP.'linkedin.png' ?>"></a></li>
-                           <li style="float: none;"><a href="" style="width: 45px; height: 46px;"><img src="<?= base_url().IMG_SIGNUP.'google.png' ?>"></a></li>                           
+                           <li style="float: none;"><a href="<?=base_url()?>Home/login_with_google" style="width: 45px; height: 46px;"><img src="<?= base_url().IMG_SIGNUP.'google.png' ?>"></a></li>                           
                         </ul>
                      </div>
                  
@@ -147,9 +147,9 @@
                         <div class="footer-bottom" style="text-align: center;">
                         <ul class="social-icons" >
 
-                                    <li style="float: none;"><a href="" style="width: 45px; height: 46px;"><img src="<?= base_url().IMG_SIGNUP.'fb.png' ?>"></a></li>
+                                    <li style="float: none;"><a href="<?= $authUrl ?>" style="width: 45px; height: 46px;"><img src="<?= base_url().IMG_SIGNUP.'fb.png' ?>"></a></li>
                                     <li style="float: none;"><a href="" style="width: 45px; height: 46px;"><img src="<?= base_url().IMG_SIGNUP.'linkedin.png' ?>"></a></li>
-                                    <li style="float: none;"><a href="" style="width: 45px; height: 46px;"><img src="<?= base_url().IMG_SIGNUP.'google.png' ?>"></a></li>
+                                    <li style="float: none;"><a href="<?=base_url()?>Home/login_with_google" style="width: 45px; height: 46px;"><img src="<?= base_url().IMG_SIGNUP.'google.png' ?>"></a></li>
                                     
                                  </ul>
                      </div>

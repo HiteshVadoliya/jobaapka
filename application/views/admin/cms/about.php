@@ -75,6 +75,21 @@
 
                                 </div>
                             </div>
+
+                            <div class="row">
+                                <div class="col-md-6">                                
+                                    <div class="form-group">
+                                        <label for="title">Meta Title</label>
+                                        <input type="text" name="meta_title" id="meta_title" class="form-control" value="<?php if(isset($edit) && $edit['meta_title']!='') { echo $edit['meta_title']; } else { echo set_value('meta_title'); } ?>">                                        
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="title">Meta Description</label>
+                                        <textarea name="meta_descr" id="meta_descr" rows="5" class="form-control"><?php if(isset($edit) && $edit['meta_descr']!='') { echo $edit['meta_descr']; } else { echo set_value('meta_descr'); } ?></textarea>                                       
+                                    </div>
+
+                                </div>
+                            </div>
                         </div><!-- /.box-body -->
     
                         <div class="box-footer">

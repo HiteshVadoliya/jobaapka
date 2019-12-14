@@ -71,11 +71,11 @@
                         <div class="box-body">
                             <div class="row">
                                 <div class="col-md-6">                                
-                                    <!-- <div class="form-group">
-                                        <label for="title">Name</label>
-                                        <input type="text" class="form-control required" value="<?php if(isset($edit) && $edit['title']!='' ) { echo $edit['title']; } else { set_value('fname'); } ?>" id="title" name="title" maxlength="128">
+                                    <div class="form-group">
+                                        <label for="title">Alt Tag</label>
+                                        <input type="text" class="form-control required" value="<?php if(isset($edit) && $edit['alt_tag']!='' ) { echo $edit['alt_tag']; } else { set_value('fname'); } ?>" id="alt_tag" name="alt_tag" maxlength="128">
                                     </div>
-                                    
+                                    <!-- 
 
                                     <div class="form-group">
                                         <label for="title">Description</label>
