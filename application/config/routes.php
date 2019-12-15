@@ -89,11 +89,11 @@ $route['admin/createPasswordUser'] = "admin/login/createPasswordUser";
 /* End of file routes.php */
 
 /*Category */
-$route[ADMIN.'category'] = ADMIN."CategoryController";
+/*$route[ADMIN.'category'] = ADMIN."CategoryController";
 $route[ADMIN.'category/add'] = ADMIN."CategoryController/showForm";
 $route[ADMIN.'category/edit/(:any)'] = ADMIN."CategoryController/showForm/$1";
 $route[ADMIN.'category/save'] = ADMIN."CategoryController/save";
-
+*/
 
 /*User */
 $route[ADMIN.'user'] = ADMIN."HWT_User";
@@ -146,6 +146,48 @@ $route[ADMIN.'testimonial'] = ADMIN."Testimonial";
 $route[ADMIN.'testimonial/add'] = ADMIN."Testimonial/showForm";
 $route[ADMIN.'testimonial/edit/(:any)'] = ADMIN."Testimonial/showForm/$1";
 $route[ADMIN.'testimonial/save'] = ADMIN."Testimonial/save";
+
+/*Job Function */
+$route[ADMIN.'job_function'] = ADMIN."Job_Function";
+$route[ADMIN.'job_function/add'] = ADMIN."Job_Function/showForm";
+$route[ADMIN.'job_function/edit/(:any)'] = ADMIN."Job_Function/showForm/$1";
+$route[ADMIN.'job_function/save'] = ADMIN."Job_Function/save";
+
+/*Location */
+$route[ADMIN.'location'] = ADMIN."Location";
+$route[ADMIN.'location/add'] = ADMIN."Location/showForm";
+$route[ADMIN.'location/edit/(:any)'] = ADMIN."Location/showForm/$1";
+$route[ADMIN.'location/save'] = ADMIN."Location/save";
+
+/*Education */
+$route[ADMIN.'education'] = ADMIN."Education";
+$route[ADMIN.'education/add'] = ADMIN."Education/showForm";
+$route[ADMIN.'education/edit/(:any)'] = ADMIN."Education/showForm/$1";
+$route[ADMIN.'education/save'] = ADMIN."Education/save";
+
+/*Designation Level */
+$route[ADMIN.'designation_level'] = ADMIN."Designation_Level";
+$route[ADMIN.'designation_level/add'] = ADMIN."Designation_Level/showForm";
+$route[ADMIN.'designation_level/edit/(:any)'] = ADMIN."Designation_Level/showForm/$1";
+$route[ADMIN.'designation_level/save'] = ADMIN."Designation_Level/save";
+
+/*JobType */
+$route[ADMIN.'jobtype'] = ADMIN."JobType";
+$route[ADMIN.'jobtype/add'] = ADMIN."JobType/showForm";
+$route[ADMIN.'jobtype/edit/(:any)'] = ADMIN."JobType/showForm/$1";
+$route[ADMIN.'jobtype/save'] = ADMIN."JobType/save";
+
+/*Salary */
+$route[ADMIN.'salary'] = ADMIN."Salary";
+$route[ADMIN.'salary/add'] = ADMIN."Salary/showForm";
+$route[ADMIN.'salary/edit/(:any)'] = ADMIN."Salary/showForm/$1";
+$route[ADMIN.'salary/save'] = ADMIN."Salary/save";
+
+/*Category */
+$route[ADMIN.'category'] = ADMIN."Category";
+$route[ADMIN.'category/add'] = ADMIN."Category/showForm";
+$route[ADMIN.'category/edit/(:any)'] = ADMIN."Category/showForm/$1";
+$route[ADMIN.'category/save'] = ADMIN."Category/save";
 
 /*$route[ADMIN.'terms/(:any)'] = ADMIN."CMS/about/3";
 $route[ADMIN.'terms/(:any)/save'] = ADMIN."CMS/save_about";

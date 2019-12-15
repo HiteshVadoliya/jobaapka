@@ -44,31 +44,30 @@
             </div>
             
             <div class="col-md-12">
+              <!-- general form elements -->
+                
+                
+                
                 <div class="box box-primary">
                     <div class="box-header">
-                        <h3 class="box-title">Details</h3>
+                        <!-- <h3 class="box-title">Enter User Details</h3> -->
                     </div><!-- /.box-header -->
                     <!-- form start -->
                     <?php if(isset($edit)) { ?>
-                    <form enctype="multipart/form-data"  role="form" id="frm" name="frm" action="<?php echo ADMIN_LINK.$url; ?>/save" method="post" role="form">
-                        <input type="hidden" name="editid" id="editid" value="<?= $edit[$tbl_id] ?>">
+                    <form role="form" id="frm" name="frm" action="<?php echo ADMIN_LINK; ?>category/save" method="post" role="form">
+                        <input type="hidden" name="editid" id="editid" value="<?= $edit['cat_id'] ?>">
                     <?php } else { ?>
-                    <form enctype="multipart/form-data" role="form" id="frm" name="frm" action="<?php echo ADMIN_LINK.$url; ?>/save" method="post" role="form">
+                    <form role="form" id="frm" name="frm" action="<?php echo ADMIN_LINK; ?>category/save" method="post" role="form">
                     <?php } ?>
                         <input type="hidden" name="type" id="type" value="<?= $type ?>">
                         <div class="box-body">
                             <div class="row">
-                                <div class="col-md-6">
-                                  
-
+                                <div class="col-md-6">                                
                                     <div class="form-group">
-                                        <label for="title">Title</label>
-                                        <input type="text" class="form-control required" value="<?php if(isset($edit) && $edit['title']!='' ) { echo $edit['title']; } else { set_value('title'); } ?>" id="title" name="title" maxlength="128">
+                                        <label for="title">Category</label>
+                                        <input type="text" class="form-control required" value="<?php if(isset($edit) && $edit['title']!='' ) { echo $edit['title']; } else { set_value('fname'); } ?>" id="title" name="title" maxlength="128">
                                     </div>
-
-
                                 </div>
-                                
                             </div>
                         </div><!-- /.box-body -->
     
@@ -85,7 +84,7 @@
     </section>
     
 </div>
-
+<!-- <script src="<?php echo base_url(); ?>assets/js/addUser.js" type="text/javascript"></script> -->
 <script type="text/javascript">
     $(document).ready(function(){
         var addUserForm = $("#frm");
@@ -94,7 +93,7 @@
                 title :{ required : true },
             },
             messages:{
-                title :{ required : "Please enter title" },
+                title :{ required : "This field is required" },
             }
         });
     });

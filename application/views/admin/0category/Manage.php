@@ -13,7 +13,7 @@
 
             <div class="col-xs-12 text-right">              
                 <div class="form-group">
-                    <a class="btn btn-primary " href="<?= ADMIN_LINK.$url."/add/" ?>" ><i class="fa fa-plus"></i> Add New <?= $MainTitle; ?></a>
+                    <a class="btn btn-primary " href="<?= ADMIN_LINK."category/add/" ?>" ><i class="fa fa-plus"></i> Add New <?= $MainTitle; ?></a>
                 </div>
             </div>
         </div>
@@ -28,7 +28,7 @@
                  
                     <table class="table table-bordered table-striped" id="posts">
                         <thead>
-                               <th style="width: 80%;">Title</th>
+                               <th>Title</th>
                                <th>Action</th>
                         </thead>        
                    </table>

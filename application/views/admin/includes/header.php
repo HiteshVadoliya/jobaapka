@@ -159,6 +159,109 @@
                             </ul>
                         </li>
 
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-bars"></i> <span>Inquiry</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="<?php echo ADMIN_LINK; ?>inquiry"><i class="fa fa-circle-o"></i>Manage Inquiry</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-bars"></i> <span>Job Function</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="<?php echo ADMIN_LINK; ?>job_function"><i class="fa fa-circle-o"></i>Manage Job Function</a></li>
+                                <li><a href="<?php echo ADMIN_LINK; ?>job_function/add"><i class="fa fa-circle-o"></i>Add Job Function</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-bars"></i> <span>Location</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="<?php echo ADMIN_LINK; ?>location"><i class="fa fa-circle-o"></i>Manage Location</a></li>
+                                <li><a href="<?php echo ADMIN_LINK; ?>location/add"><i class="fa fa-circle-o"></i>Add Location</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-bars"></i> <span>Education</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="<?php echo ADMIN_LINK; ?>education"><i class="fa fa-circle-o"></i>Manage Education</a></li>
+                                <li><a href="<?php echo ADMIN_LINK; ?>education/add"><i class="fa fa-circle-o"></i>Add Education</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-bars"></i> <span>Designation Level</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="<?php echo ADMIN_LINK; ?>designation_level"><i class="fa fa-circle-o"></i>Manage Designation Level</a></li>
+                                <li><a href="<?php echo ADMIN_LINK; ?>designation_level/add"><i class="fa fa-circle-o"></i>Add Designation Level</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-bars"></i> <span>Job Type</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="<?php echo ADMIN_LINK; ?>jobtype"><i class="fa fa-circle-o"></i>Manage Job Type</a></li>
+                                <li><a href="<?php echo ADMIN_LINK; ?>jobtype/add"><i class="fa fa-circle-o"></i>Add Job Type</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-bars"></i> <span>Salary</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="<?php echo ADMIN_LINK; ?>salary"><i class="fa fa-circle-o"></i>Manage Salary</a></li>
+                                <li><a href="<?php echo ADMIN_LINK; ?>salary/add"><i class="fa fa-circle-o"></i>Add Salary</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-bars"></i> <span>Category</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="<?php echo ADMIN_LINK; ?>category"><i class="fa fa-circle-o"></i>Manage Category</a></li>
+                                <li><a href="<?php echo ADMIN_LINK; ?>category/add"><i class="fa fa-circle-o"></i>Add Category</a></li>
+                            </ul>
+                        </li>
+
 
                         <!--
                         <li class="treeview">
@@ -174,17 +277,7 @@
                             </ul>
                         </li>
 
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fa fa-bars"></i> <span>Inquiry</span>
-                                <span class="pull-right-container">
-                                    <i class="fa fa-angle-left pull-right"></i>
-                                </span>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li><a href="<?php echo ADMIN_LINK; ?>inquiry"><i class="fa fa-circle-o"></i>Manage Inquiry</a></li>
-                            </ul>
-                        </li> -->
+                         -->
 
                         
                         <li class="treeview">

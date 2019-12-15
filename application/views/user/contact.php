@@ -99,6 +99,11 @@
                      </form>
                   </div>
                </div>
+               <br/>
+               <br/>
+               <div class="col-md-12">
+                  <div style="width: 100%"><iframe width="100%" height="600" zoom="9" src="https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;q=A-403%2C%204th%20flr.%2C%20%20Krishna%20Plaza%2C%20%20%20Opp.%20CKP%20Bank%2C%20%20Above%20Krishna%20Sweets%2C%20%20%20Near%20Thane%20Railway%20Station%2C%20%20Thane%20(West)%2CMaharashtra%20%20%20Pin%20%E2%80%93%20400601%20+(Job%20Aapka)&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=A&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.maps.ie/coordinates.html">latitude longitude finder</a></iframe></div><br />
+               </div>
             </div>
          </div>
       </section>

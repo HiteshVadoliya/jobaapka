@@ -248,6 +248,26 @@ class HWT extends CI_Model
 		}
 		return true;
 	}
+	public function hwt_selected( $value , $data ) {
+		if(!empty($data)) {
+			$my_array = explode(",", $data);
+			if(in_array($value, $my_array)) {
+				return "selected";
+			} else {
+				return "";
+			}
+		}
+	}
 
+	public function hwt_checked( $value , $data ) {
+		if(!empty($data)) {
+			$my_array = explode(",", $data);
+			if(in_array($value, $my_array)) {
+				return "checked";
+			} else {
+				return "";
+			}
+		}
+	}
     
 }

@@ -2,7 +2,7 @@
     clear:both;
 }
 .error {
-  color: #ff0000;
+  color: #ff0000 !important;
 }
 .custom_row_1 {
     /*height: 36px;*/
@@ -142,4 +142,11 @@
 
 @media only screen and (min-width: 768px) {
   
+}
+
+.bootstrap-select .dropdown-toggle .filter-option {
+  border: 2px solid #e8ecec !important;
+  border-radius: 5px !important;
+  background-color: #ffffff;
+  color:#666;
 }

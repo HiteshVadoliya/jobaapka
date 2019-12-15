@@ -39,7 +39,7 @@
          <div class="col-lg-9 col-md-12">
             <div class="dashboard-right">
                <div class="welcome-dashboard">
-                  <h3>Welcome Jhon Doe !</h3>
+                  <h3>Welcome <?= ucwords($_SESSION[PREFIX.'name']); ?></h3>
                </div>
                <div class="row">
                   <div class="col-lg-4 col-md-12 col-sm-12">

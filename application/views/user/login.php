@@ -121,7 +121,11 @@
             success: function(res) {
                 if(res.error=='success') {
                   $.notify({message: res.error_msg },{type: 'success'});
+                  if(res.type=='jobseeker') {
                   var url = '<?php echo base_url('jobseeker/dashboard'); ?>';
+                  } else {
+                  var url = '<?php echo base_url('employer/profile'); ?>';
+                  }
                   setTimeout(function(){ window.location = url; }, 2000);                  
                 } else if(res.error=='verification'){
                     $.notify({message: res.error_msg },{type: 'danger'});

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 14, 2019 at 05:48 AM
+-- Generation Time: Dec 15, 2019 at 04:23 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -53,6 +53,7 @@ INSERT INTO `about` (`id`, `title`, `descr`, `meta_title`, `meta_descr`) VALUES
 CREATE TABLE `category` (
   `cat_id` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
+  `slug` varchar(255) NOT NULL,
   `status` tinyint(1) NOT NULL COMMENT '0-no 1-yes',
   `isDelete` tinyint(1) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -63,13 +64,10 @@ CREATE TABLE `category` (
 -- Dumping data for table `category`
 --
 
-INSERT INTO `category` (`cat_id`, `title`, `status`, `isDelete`, `created_at`, `updated_at`) VALUES
-(1, 'Wall clock', 1, 0, '2019-10-09 17:39:21', '0000-00-00 00:00:00'),
-(2, 'Family Frame With Clock', 1, 0, '2019-10-09 17:39:28', '0000-00-00 00:00:00'),
-(3, 'Family Frame Without Clock', 1, 0, '2019-10-09 17:39:36', '0000-00-00 00:00:00'),
-(4, 'Scenery Poster Frame', 1, 0, '2019-10-09 17:39:45', '0000-00-00 00:00:00'),
-(5, 'God Statue Frame', 1, 1, '2019-10-09 17:39:52', '2019-11-10 11:25:52'),
-(6, 'Photo Frame', 1, 1, '2019-10-09 17:40:00', '2019-11-10 11:25:48');
+INSERT INTO `category` (`cat_id`, `title`, `slug`, `status`, `isDelete`, `created_at`, `updated_at`) VALUES
+(1, 'Clerk', 'clerk', 1, 0, '2019-12-15 03:03:58', '0000-00-00 00:00:00'),
+(2, 'Supervisor', 'supervisor', 1, 0, '2019-12-15 03:04:06', '0000-00-00 00:00:00'),
+(3, 'Assistant Manager', 'assistant-manager', 1, 0, '2019-12-15 03:04:15', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -406,6 +404,62 @@ INSERT INTO `countries` (`id`, `country_code`, `country_name`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `designation_level`
+--
+
+CREATE TABLE `designation_level` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `slug` varchar(255) NOT NULL,
+  `seq` int(11) NOT NULL DEFAULT '1',
+  `status` tinyint(1) NOT NULL COMMENT '0-no 1-yes',
+  `isDelete` tinyint(1) NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+
+--
+-- Dumping data for table `designation_level`
+--
+
+INSERT INTO `designation_level` (`id`, `title`, `slug`, `seq`, `status`, `isDelete`, `created_at`, `updated_at`) VALUES
+(1, 'Junior Engineer', 'junior-engineer', 1, 1, 0, '2019-12-15 02:43:57', '0000-00-00 00:00:00'),
+(2, 'Associate Manager', 'associate-manager', 1, 1, 0, '2019-12-15 02:44:07', '0000-00-00 00:00:00'),
+(3, 'Senior Manager', 'senior-manager', 1, 1, 0, '2019-12-15 02:44:14', '0000-00-00 00:00:00'),
+(4, 'Group Manager', 'group-manager', 1, 1, 0, '2019-12-15 02:44:21', '0000-00-00 00:00:00'),
+(5, 'Deputy General Manager', 'deputy-general-manager', 1, 1, 0, '2019-12-15 02:44:30', '0000-00-00 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `education`
+--
+
+CREATE TABLE `education` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `slug` varchar(255) NOT NULL,
+  `seq` int(11) NOT NULL DEFAULT '1',
+  `status` tinyint(1) NOT NULL COMMENT '0-no 1-yes',
+  `isDelete` tinyint(1) NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+
+--
+-- Dumping data for table `education`
+--
+
+INSERT INTO `education` (`id`, `title`, `slug`, `seq`, `status`, `isDelete`, `created_at`, `updated_at`) VALUES
+(1, 'Education 1', 'education-1', 1, 1, 0, '2019-12-14 11:21:17', '0000-00-00 00:00:00'),
+(2, 'Education 2', 'education-2', 1, 1, 0, '2019-12-14 11:21:23', '0000-00-00 00:00:00'),
+(3, 'Education 3', 'education-3', 1, 1, 0, '2019-12-14 11:21:27', '0000-00-00 00:00:00'),
+(4, 'Education 4', 'education-4', 1, 1, 0, '2019-12-14 11:21:30', '0000-00-00 00:00:00'),
+(5, 'Education 5', 'education-5', 1, 1, 0, '2019-12-14 11:21:34', '0000-00-00 00:00:00');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `gallery`
 --
 
@@ -478,16 +532,18 @@ CREATE TABLE `hwt_user` (
   `language_id` int(11) NOT NULL DEFAULT '1',
   `verify_string` varchar(255) NOT NULL,
   `fbid` varchar(255) NOT NULL,
-  `gid` varchar(255) NOT NULL
+  `gid` varchar(255) NOT NULL,
+  `country_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `hwt_user`
 --
 
-INSERT INTO `hwt_user` (`id`, `type`, `fname`, `lname`, `img_src`, `email`, `password`, `pass_txt`, `company_name`, `job_function`, `industry`, `job_location`, `exp_year`, `exp_month`, `username`, `mobile`, `phone`, `home_town`, `city`, `gender`, `marital_status`, `bdate`, `edu`, `occupation`, `device_name`, `device_type`, `device_token`, `device_id`, `auth_key`, `status`, `isDelete`, `created_at`, `updated_at`, `created_timestamp`, `updated_timestamp`, `address`, `state`, `zip`, `is_registere`, `is_alive`, `language_id`, `verify_string`, `fbid`, `gid`) VALUES
-(5, 'jobseeker', 'Hitesh', '', '', 'a@gmail.com', '912ec803b2ce49e4a541068d495ab570', 'asdf', '', '', '', 'Current job function', 'Experience in years', 'Experience in month', '', 'asdfasd', 0, '', 0, 'M', 0, '0000-00-00', '', '', '', '', '', '', '', 1, 0, '2019-12-13 06:17:24', '0000-00-00 00:00:00', 0, 0, '', '', '', 0, 0, 1, '', '', ''),
-(7, 'jobseeker', 'Hitesh Vadoliya', '', '', 'hmvadoliya.iipl2013@gmail.com', '', '', '', '', '', '', '', '', '', '', 0, '', 0, 'M', 0, '0000-00-00', '', '', '', '', '', '', '', 0, 0, '2019-12-13 23:05:44', '0000-00-00 00:00:00', 0, 0, '', '', '', 0, 0, 1, '', '2407087139541034', '104244376389683567681');
+INSERT INTO `hwt_user` (`id`, `type`, `fname`, `lname`, `img_src`, `email`, `password`, `pass_txt`, `company_name`, `job_function`, `industry`, `job_location`, `exp_year`, `exp_month`, `username`, `mobile`, `phone`, `home_town`, `city`, `gender`, `marital_status`, `bdate`, `edu`, `occupation`, `device_name`, `device_type`, `device_token`, `device_id`, `auth_key`, `status`, `isDelete`, `created_at`, `updated_at`, `created_timestamp`, `updated_timestamp`, `address`, `state`, `zip`, `is_registere`, `is_alive`, `language_id`, `verify_string`, `fbid`, `gid`, `country_id`) VALUES
+(8, 'jobseeker', 'Hiteshs', '', 'author1.jpg', 'jobseeker@gmail.com', '202cb962ac59075b964b07152d234b70', '123', '', '', '', '2', '6', '6', '', '123123123', 0, '', 231, 'M', 0, '0000-00-00', '', '', '', '', '', '', '', 1, 0, '2019-12-14 16:23:29', '0000-00-00 00:00:00', 0, 0, '554', '', '2132', 0, 0, 1, '691532', '', '', 13),
+(9, 'employer', 'Hiteshs', '', 'b_logo.png', 'employer@gmail.com', '202cb962ac59075b964b07152d234b70', '123', 'Employer', '2', '3', '4', '', '', '', '12312312', 0, '', 0, 'M', 0, '0000-00-00', '', '', '', '', '', '', '', 1, 0, '2019-12-15 18:37:55', '0000-00-00 00:00:00', 0, 0, '', '', '', 0, 0, 1, '899426', '', '', 0),
+(10, 'employer', 'Hitesh', '', '', 'hmvadoliya.iipl2013@gmail.com', '912ec803b2ce49e4a541068d495ab570', 'asdf', 'sadf', '1', '1', '', '', '', '', 'asdf', 0, '', 0, 'M', 0, '0000-00-00', '', '', '', '', '', '', '', 0, 0, '2019-12-15 18:39:11', '0000-00-00 00:00:00', 0, 0, '', '', '', 0, 0, 1, '650324', '', '', 0);
 
 -- --------------------------------------------------------
 
@@ -513,7 +569,7 @@ CREATE TABLE `industry` (
 INSERT INTO `industry` (`id`, `title`, `icon`, `img_src`, `status`, `isDelete`, `created_at`, `updated_at`) VALUES
 (1, 'Industry 1', '<i class=\"fa fa-briefcase\"></i>', '5df2626a3925c_account_cat.jpg', 1, 0, '2019-12-12 16:53:15', '2019-12-12 16:54:05'),
 (2, 'Industry 2', '<i class=\"fa fa-briefcase\"></i>', '5df262a97054c_account_cat.jpg', 1, 0, '2019-12-12 16:54:18', '0000-00-00 00:00:00'),
-(3, 'Industry 3', '<i class=\"fa fa-briefcase\"></i>', '5df262bcb0eff_design_art.jpg', 0, 0, '2019-12-12 16:54:38', '2019-12-12 21:24:45');
+(3, 'Industry 3', '<i class=\"fa fa-briefcase\"></i>', '5df262bcb0eff_design_art.jpg', 1, 0, '2019-12-12 16:54:38', '2019-12-14 16:16:49');
 
 -- --------------------------------------------------------
 
@@ -566,6 +622,150 @@ INSERT INTO `inquiry` (`id`, `fname`, `lname`, `subject`, `contact`, `email`, `d
 (24, 'Hitesh', '', 'asdf', '', 'hmvadoliya.iipl2013@gmail.com', 'asfd', 1, 0, '2019-12-12 21:47:17', '0000-00-00 00:00:00'),
 (25, 'Hitesh', '', 'asd', '', 'hmvadoliya.iipl2013@gmail.com', 'fasd', 1, 0, '2019-12-12 21:49:58', '0000-00-00 00:00:00'),
 (26, 'Hitesh', '', 'asdf', '', 'hmvadoliya.iipl2013@gmail.com', 'asd', 1, 0, '2019-12-12 21:50:16', '0000-00-00 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `jobseeker_other`
+--
+
+CREATE TABLE `jobseeker_other` (
+  `id` int(11) NOT NULL,
+  `jobseeker_id` int(11) NOT NULL,
+  `specific_role` text NOT NULL,
+  `project` text NOT NULL,
+  `achivement` text NOT NULL,
+  `awards` text NOT NULL,
+  `status` tinyint(1) NOT NULL COMMENT '0-no 1-yes',
+  `isDelete` tinyint(4) NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `jobseeker_other`
+--
+
+INSERT INTO `jobseeker_other` (`id`, `jobseeker_id`, `specific_role`, `project`, `achivement`, `awards`, `status`, `isDelete`, `created_at`, `updated_at`) VALUES
+(3, 8, 'tea sdf', 'tea', 'tea', 'tas\r\nasdf\r\na\r\nsdf', 0, 0, '2019-12-15 17:33:47', '0000-00-00 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `jobseeker_skill`
+--
+
+CREATE TABLE `jobseeker_skill` (
+  `id` int(11) NOT NULL,
+  `jobseeker_id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `skill` text NOT NULL,
+  `exp_year` int(11) NOT NULL,
+  `exp_month` int(11) NOT NULL,
+  `designation` varchar(255) NOT NULL,
+  `job_type` varchar(255) NOT NULL,
+  `salary` varchar(255) NOT NULL,
+  `job_function` varchar(255) NOT NULL,
+  `location` varchar(255) NOT NULL,
+  `industry` varchar(255) NOT NULL,
+  `category` varchar(255) NOT NULL,
+  `img_src` varchar(255) NOT NULL,
+  `status` tinyint(1) NOT NULL COMMENT '0-no 1-yes',
+  `isDelete` tinyint(4) NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `jobseeker_skill`
+--
+
+INSERT INTO `jobseeker_skill` (`id`, `jobseeker_id`, `title`, `skill`, `exp_year`, `exp_month`, `designation`, `job_type`, `salary`, `job_function`, `location`, `industry`, `category`, `img_src`, `status`, `isDelete`, `created_at`, `updated_at`) VALUES
+(2, 8, 'Profile title', 'Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum \r\n\r\nLorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum ', 7, 8, '1,2,4', '1,3,4', '3,4', '2,3,4', '1,2,4', '1,3', '2,3', '', 0, 0, '2019-12-15 12:32:56', '0000-00-00 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `job_function`
+--
+
+CREATE TABLE `job_function` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `slug` varchar(255) NOT NULL,
+  `seq` int(11) NOT NULL DEFAULT '1',
+  `status` tinyint(1) NOT NULL COMMENT '0-no 1-yes',
+  `isDelete` tinyint(1) NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+
+--
+-- Dumping data for table `job_function`
+--
+
+INSERT INTO `job_function` (`id`, `title`, `slug`, `seq`, `status`, `isDelete`, `created_at`, `updated_at`) VALUES
+(1, 'Job Function 1', 'job-function-1', 1, 1, 0, '2019-12-14 11:07:46', '0000-00-00 00:00:00'),
+(2, 'Job Function 2', 'job-function-2', 1, 1, 0, '2019-12-14 11:07:52', '0000-00-00 00:00:00'),
+(3, 'Job Function 3', 'job-function-3', 1, 1, 0, '2019-12-14 11:07:55', '0000-00-00 00:00:00'),
+(4, 'Job Function 4', 'job-function-4', 1, 1, 0, '2019-12-14 11:07:59', '0000-00-00 00:00:00'),
+(5, 'Job Function 5', 'job-function-5', 1, 1, 0, '2019-12-14 11:08:02', '0000-00-00 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `job_type`
+--
+
+CREATE TABLE `job_type` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `slug` varchar(255) NOT NULL,
+  `seq` int(11) NOT NULL DEFAULT '1',
+  `status` tinyint(1) NOT NULL COMMENT '0-no 1-yes',
+  `isDelete` tinyint(1) NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+
+--
+-- Dumping data for table `job_type`
+--
+
+INSERT INTO `job_type` (`id`, `title`, `slug`, `seq`, `status`, `isDelete`, `created_at`, `updated_at`) VALUES
+(1, 'Agriculture', 'agriculture', 1, 1, 0, '2019-12-15 02:50:02', '0000-00-00 00:00:00'),
+(2, 'Arts', 'arts', 1, 1, 0, '2019-12-15 02:50:13', '0000-00-00 00:00:00'),
+(3, 'Education and Training', 'education-and-training', 1, 1, 0, '2019-12-15 02:50:21', '0000-00-00 00:00:00'),
+(4, 'Government', 'government', 1, 1, 0, '2019-12-15 02:50:30', '0000-00-00 00:00:00'),
+(5, 'Information Technology.', 'information-technology', 1, 1, 0, '2019-12-15 02:50:43', '0000-00-00 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `location`
+--
+
+CREATE TABLE `location` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `slug` varchar(255) NOT NULL,
+  `seq` int(11) NOT NULL DEFAULT '1',
+  `status` tinyint(1) NOT NULL COMMENT '0-no 1-yes',
+  `isDelete` tinyint(1) NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+
+--
+-- Dumping data for table `location`
+--
+
+INSERT INTO `location` (`id`, `title`, `slug`, `seq`, `status`, `isDelete`, `created_at`, `updated_at`) VALUES
+(1, 'Location 1', 'location-1', 1, 1, 0, '2019-12-14 11:15:49', '0000-00-00 00:00:00'),
+(2, 'Location 2', 'location-2', 1, 1, 0, '2019-12-14 11:15:57', '0000-00-00 00:00:00'),
+(3, 'Location 3', 'location-3', 1, 1, 0, '2019-12-14 11:16:02', '0000-00-00 00:00:00'),
+(4, 'Location 4', 'location-4', 1, 1, 0, '2019-12-14 11:16:07', '0000-00-00 00:00:00'),
+(5, 'Location 5', 'location-5', 1, 1, 0, '2019-12-14 11:16:12', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -739,6 +939,34 @@ INSERT INTO `product` (`id`, `cat_id`, `title`, `size`, `code`, `is_featured`, `
 (11, 2, 'R - 227 Ganesha Clock', '560 X 320 X 70 MM', 'SDF456', 1, '<p><strong>Lorem Ipsum</strong><span style=\"color:rgb(0, 0, 0); font-family:open sans,arial,sans-serif; font-size:14px\">&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</span></p>\r\n', '5d9834f9c6ca1_1537423055-7799.jpg', '', 1, 0, '2019-10-05 08:15:23', '2019-10-09 19:30:15'),
 (12, 1, 'R - 227 Scenery Clock', '305 X 485 X 65 MM', 'SDEEF5', 1, '<p><strong>Lorem Ipsum</strong><span style=\"color:rgb(0, 0, 0); font-family:open sans,arial,sans-serif; font-size:14px\">&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</span></p>\r\n', '5d98352e6ca64_1537423577-7616.jpg', '', 1, 0, '2019-10-05 08:16:15', '2019-10-09 19:30:24'),
 (13, 1, 'tes', 'tes', '', 0, '<p>te</p>\r\n', '5dc38859a8b8a_1_test.jpg', '', 1, 0, '2019-11-07 03:58:35', '0000-00-00 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `salary`
+--
+
+CREATE TABLE `salary` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `slug` varchar(255) NOT NULL,
+  `seq` int(11) NOT NULL DEFAULT '1',
+  `status` tinyint(1) NOT NULL COMMENT '0-no 1-yes',
+  `isDelete` tinyint(1) NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+
+--
+-- Dumping data for table `salary`
+--
+
+INSERT INTO `salary` (`id`, `title`, `slug`, `seq`, `status`, `isDelete`, `created_at`, `updated_at`) VALUES
+(1, '5000', '5000', 1, 1, 0, '2019-12-15 02:54:17', '2019-12-15 07:32:31'),
+(2, '10000', '10000', 1, 1, 0, '2019-12-15 02:54:22', '0000-00-00 00:00:00'),
+(3, '15000', '15000', 1, 1, 0, '2019-12-15 02:54:28', '0000-00-00 00:00:00'),
+(4, '20000', '20000', 1, 1, 0, '2019-12-15 02:54:33', '0000-00-00 00:00:00'),
+(5, '30000', '30000', 1, 1, 0, '2019-12-15 02:54:38', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -978,7 +1206,9 @@ INSERT INTO `tbl_last_login` (`id`, `userId`, `sessionData`, `machineIp`, `userA
 (86, 11, '{\"role\":\"1\",\"roleText\":\"System Administrator\",\"name\":\"Admin\"}', '::1', 'Chrome 78.0.3904.108', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36', 'Windows 8.1', '2019-12-06 23:30:24'),
 (87, 11, '{\"role\":\"1\",\"roleText\":\"System Administrator\",\"name\":\"Admin\"}', '::1', 'Chrome 78.0.3904.108', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36', 'Windows 8.1', '2019-12-12 20:19:45'),
 (88, 11, '{\"role\":\"1\",\"roleText\":\"System Administrator\",\"name\":\"Admin\"}', '::1', 'Chrome 78.0.3904.108', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36', 'Windows 8.1', '2019-12-13 08:06:17'),
-(89, 11, '{\"role\":\"1\",\"roleText\":\"System Administrator\",\"name\":\"Admin\"}', '::1', 'Chrome 78.0.3904.108', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36', 'Windows 8.1', '2019-12-14 09:35:53');
+(89, 11, '{\"role\":\"1\",\"roleText\":\"System Administrator\",\"name\":\"Admin\"}', '::1', 'Chrome 78.0.3904.108', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36', 'Windows 8.1', '2019-12-14 09:35:53'),
+(90, 11, '{\"role\":\"1\",\"roleText\":\"System Administrator\",\"name\":\"Admin\"}', '::1', 'Chrome 78.0.3904.108', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36', 'Windows 8.1', '2019-12-14 15:14:19'),
+(91, 11, '{\"role\":\"1\",\"roleText\":\"System Administrator\",\"name\":\"Admin\"}', '::1', 'Chrome 78.0.3904.108', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36', 'Windows 8.1', '2019-12-15 07:08:09');
 
 -- --------------------------------------------------------
 
@@ -1172,6 +1402,18 @@ ALTER TABLE `countries`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `designation_level`
+--
+ALTER TABLE `designation_level`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `education`
+--
+ALTER TABLE `education`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `gallery`
 --
 ALTER TABLE `gallery`
@@ -1193,6 +1435,36 @@ ALTER TABLE `industry`
 -- Indexes for table `inquiry`
 --
 ALTER TABLE `inquiry`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `jobseeker_other`
+--
+ALTER TABLE `jobseeker_other`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `jobseeker_skill`
+--
+ALTER TABLE `jobseeker_skill`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `job_function`
+--
+ALTER TABLE `job_function`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `job_type`
+--
+ALTER TABLE `job_type`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `location`
+--
+ALTER TABLE `location`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -1223,6 +1495,12 @@ ALTER TABLE `portfolio`
 -- Indexes for table `product`
 --
 ALTER TABLE `product`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `salary`
+--
+ALTER TABLE `salary`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -1304,7 +1582,7 @@ ALTER TABLE `about`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `cat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `cat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `contact`
 --
@@ -1321,6 +1599,16 @@ ALTER TABLE `content`
 ALTER TABLE `countries`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=247;
 --
+-- AUTO_INCREMENT for table `designation_level`
+--
+ALTER TABLE `designation_level`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT for table `education`
+--
+ALTER TABLE `education`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
 -- AUTO_INCREMENT for table `gallery`
 --
 ALTER TABLE `gallery`
@@ -1329,7 +1617,7 @@ ALTER TABLE `gallery`
 -- AUTO_INCREMENT for table `hwt_user`
 --
 ALTER TABLE `hwt_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `industry`
 --
@@ -1340,6 +1628,31 @@ ALTER TABLE `industry`
 --
 ALTER TABLE `inquiry`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+--
+-- AUTO_INCREMENT for table `jobseeker_other`
+--
+ALTER TABLE `jobseeker_other`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `jobseeker_skill`
+--
+ALTER TABLE `jobseeker_skill`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `job_function`
+--
+ALTER TABLE `job_function`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT for table `job_type`
+--
+ALTER TABLE `job_type`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT for table `location`
+--
+ALTER TABLE `location`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `opportunity`
 --
@@ -1366,6 +1679,11 @@ ALTER TABLE `portfolio`
 ALTER TABLE `product`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
+-- AUTO_INCREMENT for table `salary`
+--
+ALTER TABLE `salary`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
 -- AUTO_INCREMENT for table `services`
 --
 ALTER TABLE `services`
@@ -1389,7 +1707,7 @@ ALTER TABLE `slider`
 -- AUTO_INCREMENT for table `tbl_last_login`
 --
 ALTER TABLE `tbl_last_login`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
 --
 -- AUTO_INCREMENT for table `tbl_reset_password`
 --

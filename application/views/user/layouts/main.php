@@ -12,7 +12,8 @@
       <!-- Favicon -->
       <!-- <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon/favicon-32x32.png"> -->
       <!--Bootstrap css-->
-      <link rel="stylesheet" href="<?= FRONT_CSS; ?>bootstrap.css">
+      <!-- <link rel="stylesheet" href="<?= FRONT_CSS; ?>bootstrap.css"> -->
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
       <!--Font Awesome css-->
       <link rel="stylesheet" href="<?= FRONT_CSS; ?>font-awesome.min.css">
       <!--Magnific css-->
@@ -43,6 +44,8 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script> 
 
       <script src="<?= FRONT_JS; ?>bootstrap-notify.js"></script>
+
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
    </head>
 
 
@@ -70,7 +73,7 @@
 
          
          <!--Bootstrap js-->
-         <script src="<?= FRONT_JS; ?>bootstrap.min.js"></script>
+         <!-- <script src="<?= FRONT_JS; ?>bootstrap.min.js"></script> -->
          <!--Bootstrap Datepicker js-->
          <script src="<?= FRONT_JS; ?>bootstrap-datepicker.min.js"></script>
          <!--Perfect Scrollbar js-->
@@ -89,6 +92,8 @@
          <script src="<?= FRONT_JS; ?>jarallax.min.js"></script>
          <script src="<?= FRONT_JS; ?>jarallax-video.min.js"></script>
          <script src="<?= FRONT_JS; ?>main.js"></script>
+         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
          <!--Start of Tawk.to Script-->
          <script type="text/javascript">
          var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();

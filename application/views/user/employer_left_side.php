@@ -11,8 +11,8 @@
 	      <li class="<?php if($active_menu=="consultin") { echo "active"; } ?> " ><a href="javascript:;"><i class="fa fa-users"></i>JOBSEEKER PROFILE ALERTS</a></li>
 	      <li class="<?php if($active_menu=="consultin") { echo "active"; } ?> " ><a href="<?= base_url('employer/consultin'); ?>"><i class="fa fa-users"></i>TECHNOLOGY CONSULTING</a></li>
 	      
-	      <li><a href="javascript:;"><i class="fa fa-lock"></i>change password</a></li>
-	      <li><a href="javascript:;"><i class="fa fa-power-off"></i>LogOut</a></li>
+	      <li class="<?php if($active_menu=="change_password") { echo "active"; } ?> "><a href="<?= base_url("employer/change_password") ?>"><i class="fa fa-lock"></i>change password</a></li>
+	      <li><a href="<?= base_url('logout'); ?>"><i class="fa fa-power-off"></i>LogOut</a></li>
 	   </ul>
 	</div>
 </div>

@@ -26,6 +26,12 @@ class Home extends FrontController {
         $this->check_session();
         $data = array();
 
+        $data['collection'] = $this->collection_data();
+
+        /*echo "<pre>";
+        print_r($data['collection']);
+        die();*/
+        
         /*Login With Facebook */
         $this->load->library('facebook');
           $userData = array();
@@ -47,6 +53,66 @@ class Home extends FrontController {
         $data['signup_type'] = $type;
         $this->loadViews(USER."signup", $this->global, $data, NULL,NULL);
     }
+
+    public function collection_data() {
+        $collection = array();
+        /*Job Function */
+        $job_function = $this->HWT->get_result("job_function","*",array("isDelete"=>0,"status"=>1));
+        $collection['job_function'] = $job_function;
+
+        /* Location */
+        $location = $this->HWT->get_result("location","*",array("isDelete"=>0,"status"=>1));
+        $collection['location'] = $location;
+
+        /* Education */
+        $education = $this->HWT->get_result("education","*",array("isDelete"=>0,"status"=>1));
+        $collection['education'] = $education;
+
+        /* Industry */
+        $industry = $this->HWT->get_result("industry","*",array("isDelete"=>0,"status"=>1));
+        $collection['industry'] = $industry;
+
+        /* Counrty */
+        $countries = $this->HWT->get_result("countries","*",array("1"=>"1"));
+        $collection['countries'] = $countries;
+
+        /* Designation Level */
+        $designation_level = $this->HWT->get_result("designation_level","*",array("isDelete"=>0,"status"=>1));
+        $collection['designation_level'] = $designation_level;
+
+        /* job_type */
+        $job_type = $this->HWT->get_result("job_type","*",array("isDelete"=>0,"status"=>1));
+        $collection['job_type'] = $job_type;
+
+        /* job_type */
+        $salary = $this->HWT->get_result("salary","*",array("isDelete"=>0,"status"=>1));
+        $collection['salary'] = $salary;
+
+        /* category */
+        $category = $this->HWT->get_result("category","*",array("isDelete"=>0,"status"=>1));
+        $collection['category'] = $category;
+
+        /* Experience in Year */
+        $exe = 21;
+        $exe_year = array();
+        for ($exp_i=0; $exp_i < $exe; $exp_i++) { 
+            $exe_year[] = $exp_i;
+        }
+        $collection['exp_year'] = $exe_year;
+
+        /* Experience in Month */
+        $exe_m = 12;
+        $exe_month = array();
+        for ($exp_m=0; $exp_m < $exe_m; $exp_m++) { 
+            $exe_month[] = $exp_m;
+        }
+        $collection['exp_month'] = $exe_month;
+
+        
+
+        return $collection;
+    }
+
     public function policy( ) {
         $data = array();
         $this->global['pageTitle'] = 'policy';
@@ -203,16 +269,20 @@ class Home extends FrontController {
     }
 
     public function jobseeker( $type ) {
+
+        $this->check_jobseeker();
         $data = array();
         $this->global['pageTitle'] = 'jobseeker';
         $data['active_menu'] = "jobseeker";
         $data['active_menu'] = $type;
-        // $data['hwt_about'] = $this->HWT->get_one_row("about","*",array("id"=>1));
+        $data['collection'] = $this->collection_data();
+        $data['jobseeker_data'] = $this->HWT->get_one_row("hwt_user","*",array("isDelete"=>0,"status"=>1,"id"=>$_SESSION[PREFIX.'id']));
         if($type=="profile") {
             $this->loadViews(USER."jobseeker_profile", $this->global, $data, NULL,NULL);
-        } else if($type=="contact") {
+        } else if($type=="contact") {            
             $this->loadViews(USER."jobseeker_contact", $this->global, $data, NULL,NULL);
         } else if($type=="skill") {
+            $data['skill'] = $this->HWT->get_one_row("jobseeker_skill","*",array("jobseeker_id"=>$_SESSION[PREFIX.'id']));
             $this->loadViews(USER."jobseeker_skill", $this->global, $data, NULL,NULL);
         } else if($type=="jobalert") {
             $this->loadViews(USER."jobseeker_jobalert", $this->global, $data, NULL,NULL);
@@ -225,17 +295,41 @@ class Home extends FrontController {
         } else if($type=="dashboard") {
             $this->loadViews(USER."jobseeker_dashboard", $this->global, $data, NULL,NULL);
         } else if($type=="other") {
+            $data['other'] = $this->HWT->get_one_row("jobseeker_other","*",array("jobseeker_id"=>$_SESSION[PREFIX.'id']));
             $this->loadViews(USER."jobseeker_other", $this->global, $data, NULL,NULL);
+        } else if($type=="change_password") {
+            $this->loadViews(USER."jobseeker_password", $this->global, $data, NULL,NULL);
         } 
+    }
+
+    function check_jobseeker () {
+        if(isset( $_SESSION[PREFIX.'type'] ) && $_SESSION[PREFIX.'type'] == 'jobseeker') {
+            return true;
+        } else {
+            $_SESSION['FAIL'] = "Unauthorization Found";
+            redirect(base_url());
+        }
+    }
+
+    function check_employer () {
+        if(isset( $_SESSION[PREFIX.'type'] ) && $_SESSION[PREFIX.'type'] == 'employer') {
+            return true;
+        } else {
+            $_SESSION['FAIL'] = "Unauthorization Found";
+            redirect(base_url());
+        }
     }
 
 
     public function employer( $type ) {
+        $this->check_employer();
         $data = array();
         $this->global['pageTitle'] = 'employer';
         $data['active_menu'] = "employer";
         $data['active_menu'] = $type;
-        // $data['hwt_about'] = $this->HWT->get_one_row("about","*",array("id"=>1));
+        
+        $data['collection'] = $this->collection_data();
+        $data['employer'] = $this->HWT->get_one_row("hwt_user","*",array("id"=>$_SESSION[PREFIX.'id'],"isDelete"=>0,"status"=>1));
         if($type=="profile") {
             $this->loadViews(USER."employer_profile", $this->global, $data, NULL,NULL);
         } else if($type=="postjob") {
@@ -248,7 +342,9 @@ class Home extends FrontController {
             $this->loadViews(USER."employer_shortlisted", $this->global, $data, NULL,NULL);
         }  else if($type=="consultin") {
             $this->loadViews(USER."employer_consultin", $this->global, $data, NULL,NULL);
-        }  
+        }  else if($type=="change_password") {
+            $this->loadViews(USER."employer_password", $this->global, $data, NULL,NULL);
+        }
     }
 
     public function contact() {
@@ -335,27 +431,6 @@ class Home extends FrontController {
         }
 
     
-        /*
-
-        <pre>Array
-        (
-            [type] => employer
-            [company_name] => test
-            [name] => Hitesh
-            [email] => hmvadoliya.iipl2013@gmail.com
-            [password] => asdf
-            [c_password] => asdf
-            [mobile] => asdf
-            [industry] => Company industry
-            [job_function] => Current job function
-        )
-        */
-        
-       
-        /*echo "<pre>";
-        print_r($post);
-        die();*/
-
         $type = $post['type'];
 
 
@@ -417,14 +492,12 @@ class Home extends FrontController {
             $mail_result = $this->HWT->hwt_send_mail($mail_data_send);
 
             if($mail_result) {
-                $return['error'] = "Success";
+                $return['error'] = "success";
             } else {
                 $return['error'] = "NotAdded";
             }
             print json_encode($return);
             exit;
-
-
         } else {
             $error_messages = $this->form_validation->error_array();
             $return['error'] = "ValidationError";
@@ -471,6 +544,7 @@ class Home extends FrontController {
             $_SESSION[PREFIX.'email'] = $dup['email'];
             $error_messages = 'Login Successfully';
             $return['error'] = "success";
+            $return['type'] = $dup['type'];
             $return['error_msg'] = $error_messages;
             print json_encode($return);
             exit;

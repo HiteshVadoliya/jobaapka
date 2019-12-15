@@ -35,34 +35,11 @@
 <section class="candidate-dashboard-area section_70">
    <div class="container">
       <div class="row">
-         <div class="col-lg-3 col-md-12 dashboard-left-border">
-            <div class="dashboard-left">
-               <ul class="dashboard-menu">
-                  <li class="active">
-                     <a href="candidate-dashboard.html">
-                     <i class="fa fa-tachometer"></i>
-                     Dashboard
-                     </a>
-                  </li>
-                  <li><a href="candidate-profile.html"><i class="fa fa-users"></i>My Profile</a></li>
-                  <li><a href="candidate-profile.html"><i class="fa fa-users"></i>CONTACT INFO</a></li>
-                  <li><a href="candidate-profile.html"><i class="fa fa-users"></i>CV, PROFILE AND SKILLS</a></li>
-                  <li><a href="candidate-profile.html"><i class="fa fa-users"></i>Job Alerts </a></li>
-                  <li><a href="candidate-profile.html"><i class="fa fa-users"></i>Applied Jobs  </a></li>
-                  <li><a href="candidate-profile.html"><i class="fa fa-users"></i>Shortlisted Jobs  </a></li>
-                  <li><a href="candidate-profile.html"><i class="fa fa-users"></i>EDUCATIONAL BACKGROUND</a></li>
-                 <!--  <li><a href="message.html"><i class="fa fa-envelope-open"></i>messages</a></li>
-                  <li><a href="manage-jobs.html"><i class="fa fa-briefcase"></i>manage jobs</a></li>
-                  <li><a href="candidate-earnings.html"><i class="fa fa-rocket"></i>earnings</a></li> -->
-                  <li><a href="change-password.html"><i class="fa fa-lock"></i>change password</a></li>
-                  <li><a href="#"><i class="fa fa-power-off"></i>LogOut</a></li>
-               </ul>
-            </div>
-         </div>
+         <?php $this->load->view(USER."jobseeker_left_side"); ?>
          <div class="col-lg-9 col-md-12">
             <div class="dashboard-right">
                <div class="welcome-dashboard">
-                  <h3>Welcome Jhon Doe !</h3>
+                  <h3>Welcome <?= $_SESSION[PREFIX.'name']; ?> !</h3>
                </div>
                <div class="row">
                   <div class="col-lg-4 col-md-12 col-sm-12">

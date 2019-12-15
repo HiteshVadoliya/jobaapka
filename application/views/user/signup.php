@@ -86,40 +86,50 @@
                         </div>
                         <div class="single-login-field">
                            <select name="job_location" id="job_location" class="form-control signup_class" >
-                              <option>Current job function</option>
-                              <option>Location 1</option>
-                              <option>Location 2</option>
+                              <option value="">Current job function</option>
+                              <?php
+                              if(isset($collection['job_function']) && !empty($collection['job_function']))
+                              {
+                                $job_function = $collection['job_function'];
+                                foreach ($job_function as $j_key => $j_value) {
+                                  ?>
+                                  <option value="<?= $j_value['id'] ?>" ><?= $j_value['title']; ?></option>
+                                  <?php
+                                }
+                              }
+                              ?>
                            </select>
                         </div>
                         <div class="single-login-field">
                               <select name="exp_year" id="exp_year" class="form-control signup_class" >
-                                 <option>Experience in years</option>
-                                 <option>0</option>
-                                 <option>1</option>
-                                 <option>2</option>
-                                 <option>3</option>
-                                 <option>4</option>
-                                 <option>5</option>
-                                 <option>6</option>
-                                 <option>7</option>
-                                 <option>8</option>
-                                 <option>9</option>
-                                 <option>10</option>
+                                 <option value="">Experience in years</option>
+                                 <?php
+                                 if(isset($collection['exp_year']) && !empty($collection['exp_year']))
+                                 {
+                                   $exp_year = $collection['exp_year'];
+                                   foreach ($exp_year as $e_key => $e_value) {
+                                     ?>
+                                     <option value="<?= $e_value ?>" ><?= $e_value; ?></option>
+                                     <?php
+                                   }
+                                 }
+                                 ?>
                               </select>                              
                         </div>
                         <div class="single-login-field">
                               <select name="exp_month" id="exp_month" class="form-control signup_class" >
-                                 <option>Experience in month</option>
-                                 <option>1</option>
-                                 <option>2</option>
-                                 <option>3</option>
-                                 <option>4</option>
-                                 <option>5</option>
-                                 <option>6</option>
-                                 <option>7</option>
-                                 <option>8</option>
-                                 <option>9</option>
-                                 <option>10</option>
+                                 <option value="">Experience in month</option>
+                                 <?php
+                                 if(isset($collection['exp_month']) && !empty($collection['exp_month']))
+                                 {
+                                   $exp_month = $collection['exp_month'];
+                                   foreach ($exp_month as $m_key => $m_value) {
+                                     ?>
+                                     <option value="<?= $m_value ?>" ><?= $m_value; ?></option>
+                                     <?php
+                                   }
+                                 }
+                                 ?>
                               </select>                              
                         </div>
                         <div class=" single-login-field clearfix">
@@ -183,15 +193,33 @@
                         <div class="single-login-field">
                            <select name="industry" id="industry" class="form-control signup_class" >
                               <option>Company industry</option>
-                              <option>Industry 1</option>
-                              <option>Industry 2</option>
+                              <?php
+                              if(isset($collection['industry']) && !empty($collection['industry']))
+                              {
+                                $industry = $collection['industry'];
+                                foreach ($industry as $i_key => $i_value) {
+                                  ?>
+                                  <option value="<?= $i_value['id'] ?>" ><?= $i_value['title']; ?></option>
+                                  <?php
+                                }
+                              }
+                              ?>
                            </select>
                         </div>
                         <div class="single-login-field">
                            <select name="job_function" id="job_function" class="form-control signup_class" >
-                              <option>Current job function</option>
-                              <option>Location 1</option>
-                              <option>Location 2</option>
+                              <option value="">Current job function</option>
+                              <?php
+                              if(isset($collection['job_function']) && !empty($collection['job_function']))
+                              {
+                                $job_function = $collection['job_function'];
+                                foreach ($job_function as $j_key => $j_value) {
+                                  ?>
+                                  <option value="<?= $j_value['id'] ?>" ><?= $j_value['title']; ?></option>
+                                  <?php
+                                }
+                              }
+                              ?>
                            </select>
                         </div>
                         
