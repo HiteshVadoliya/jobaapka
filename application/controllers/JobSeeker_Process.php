@@ -182,4 +182,72 @@ class JobSeeker_Process extends FrontController {
         echo json_encode($response);
         die();
     }
+
+    public function post_job() {
+        $post = $this->input->post();
+
+
+        $job_date               = $post['job_date'];
+        $job_date_expired       = $post['job_date_expired'];
+        $job_title              = $post['job_title'];
+        $job_industry           = $post['job_industry'];
+        if(isset($job_industry) && !empty($job_industry)) { $job_industry = implode(",", $job_industry); }
+        
+        $job_location = $post['job_location'];
+        if(isset($job_location) && !empty($job_location)) { $job_location = implode(",", $job_location); }
+        
+        $job_job_function = $post['job_job_function'];
+        if(isset($job_job_function) && !empty($job_job_function)) { $job_job_function = implode(",", $job_job_function); }
+        
+        $job_education = $post['job_education'];
+        if(isset($job_education) && !empty($job_education)) { $job_education = implode(",", $job_education); }
+       
+        $job_exp_year           = $post['job_exp_year'];
+        $job_exp_month          = $post['job_exp_month'];
+        $job_salary             = $post['job_salary'];
+        $job_skill              = $post['job_skill'];
+        $job_additional_skill   = $post['job_additional_skill'];
+        $job_descr              = $post['job_descr'];
+        $job_additional_role    = $post['job_additional_role'];
+
+        $action = $post['action'];
+
+        $AllData = array(
+            "employer_id" => $_SESSION[PREFIX.'id'],
+            "job_date" => $job_date,
+            "job_date_expired" => $job_date_expired,
+            "job_title" => $job_title,
+            "job_industry" => $job_industry,
+            "job_location" => $job_location,
+            "job_job_function" => $job_job_function,
+            "job_education" => $job_education,
+            "job_exp_year" => $job_exp_year,
+            "job_exp_month" => $job_exp_month,
+            "job_salary" => $job_salary,
+            "job_skill" => $job_skill,
+            "job_additional_skill" => $job_additional_skill,
+            "job_descr" => $job_descr,
+            "job_additional_role" => $job_additional_role,
+        );
+
+        $response = array();
+
+        if($action=='add') {
+            $res = $this->HWT->insert("job",$AllData);
+            if($res) {
+                $response['error'] = $res;
+                $response['message'] = "Job Added Successfully";
+            } else {
+                $response['error'] = $res;
+                $response['message'] = "Something Went Wrong";
+            }
+        } else {
+            $res = $this->HWT->update("job",$AllData,array("job_id"=>$post['editid'],"employer_id"=>$_SESSION[PREFIX.'id']));
+            $response['error'] = 1;
+            $response['message'] = "Job Updated Successfully";
+        }
+        
+        echo json_encode($response);
+        die();
+    }
 }

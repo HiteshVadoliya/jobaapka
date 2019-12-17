@@ -321,7 +321,7 @@ class Home extends FrontController {
     }
 
 
-    public function employer( $type ) {
+    public function employer( $type , $editid = '' ) {
         $this->check_employer();
         $data = array();
         $this->global['pageTitle'] = 'employer';
@@ -333,7 +333,16 @@ class Home extends FrontController {
         if($type=="profile") {
             $this->loadViews(USER."employer_profile", $this->global, $data, NULL,NULL);
         } else if($type=="postjob") {
+            $data['edit'] = array();
+            if(isset($editid) && $editid != '' ) {
+                $job_res = $this->HWT->get_one_row("job","*",array("employer_id"=>$_SESSION[PREFIX.'id'],'isDelete'=>0, 'status'=>1 ));
+                if( !empty($job_res) ) {
+                    $data['edit'] = $job_res;
+                }
+            }
+            
             $this->loadViews(USER."employer_postjob", $this->global, $data, NULL,NULL);
+            
         } else if($type=="jobslisted") {
             $this->loadViews(USER."employer_jobslisted", $this->global, $data, NULL,NULL);
         } else if($type=="jobalert") {

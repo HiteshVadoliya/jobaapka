@@ -150,3 +150,6 @@
   background-color: #ffffff;
   color:#666;
 }
+.ui-state-active {
+  color: #1b8af3 !important;
+}

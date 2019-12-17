@@ -90,6 +90,7 @@ define('URL',APP_URL);
 define('ADMIN','admin/');
 define('ADMIN_LINK',APP_URL.ADMIN);
 define('PUBLIC_FILE',URL.'public/');
+define('FRONT',PUBLIC_FILE.'front/');
 define('FRONT_CSS',PUBLIC_FILE.'front/css/');
 define('FRONT_JS',PUBLIC_FILE.'front/js/');
 define('FRONT_IMG',PUBLIC_FILE.'front/images/');

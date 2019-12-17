@@ -95,6 +95,7 @@
          <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
          <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
          <!--Start of Tawk.to Script-->
+         <?php if($_SERVER["HTTP_HOST"]!='localhost') { ?>
          <script type="text/javascript">
          var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
          (function(){
@@ -106,6 +107,7 @@
          s0.parentNode.insertBefore(s1,s0);
          })();
          </script>
+         <?php } ?>
          
          <!--End of Tawk.to Script-->
       </body>

@@ -59,6 +59,7 @@ $route['about'] = 'Home/about';
 $route['whyus'] = 'Home/whyus';
 $route['jobseeker/(:any)'] = 'Home/jobseeker/$1';
 $route['employer/(:any)'] = 'Home/employer/$1';
+$route['employer/(:any)/(:any)'] = 'Home/employer/$1/$2';
 $route['contact'] = 'Home/contact';
 $route['404_override'] = 'MyCustom404Ctrl';
 $route['translate_uri_dashes'] = FALSE;
