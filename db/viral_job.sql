@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 15, 2019 at 04:23 PM
+-- Generation Time: Dec 19, 2019 at 03:49 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -622,6 +622,51 @@ INSERT INTO `inquiry` (`id`, `fname`, `lname`, `subject`, `contact`, `email`, `d
 (24, 'Hitesh', '', 'asdf', '', 'hmvadoliya.iipl2013@gmail.com', 'asfd', 1, 0, '2019-12-12 21:47:17', '0000-00-00 00:00:00'),
 (25, 'Hitesh', '', 'asd', '', 'hmvadoliya.iipl2013@gmail.com', 'fasd', 1, 0, '2019-12-12 21:49:58', '0000-00-00 00:00:00'),
 (26, 'Hitesh', '', 'asdf', '', 'hmvadoliya.iipl2013@gmail.com', 'asd', 1, 0, '2019-12-12 21:50:16', '0000-00-00 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `job`
+--
+
+CREATE TABLE `job` (
+  `job_id` int(11) NOT NULL,
+  `employer_id` int(11) NOT NULL,
+  `job_date` date NOT NULL,
+  `job_date_expired` date NOT NULL,
+  `job_title` text NOT NULL,
+  `slug` varchar(255) NOT NULL,
+  `job_industry` varchar(255) NOT NULL,
+  `job_job_location` varchar(255) NOT NULL,
+  `job_job_function` varchar(255) NOT NULL,
+  `job_education` varchar(255) NOT NULL,
+  `job_exp_year` int(11) NOT NULL,
+  `job_exp_month` int(11) NOT NULL,
+  `job_salary` varchar(255) NOT NULL,
+  `job_skill` text NOT NULL,
+  `job_additional_skill` text NOT NULL,
+  `job_descr` text NOT NULL,
+  `job_additional_role` text NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT '1' COMMENT '0-no 1-yes',
+  `pay_info` tinyint(4) NOT NULL DEFAULT '1',
+  `isDelete` tinyint(1) NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `job`
+--
+
+INSERT INTO `job` (`job_id`, `employer_id`, `job_date`, `job_date_expired`, `job_title`, `slug`, `job_industry`, `job_job_location`, `job_job_function`, `job_education`, `job_exp_year`, `job_exp_month`, `job_salary`, `job_skill`, `job_additional_skill`, `job_descr`, `job_additional_role`, `status`, `pay_info`, `isDelete`, `created_at`, `updated_at`) VALUES
+(1, 0, '0000-00-00', '0000-00-00', '', 'clerk', '', '', '', '', 0, 0, '', '', '', '', '', 1, 1, 0, '2019-12-15 03:03:58', '0000-00-00 00:00:00'),
+(2, 0, '0000-00-00', '0000-00-00', '', 'supervisor', '', '', '', '', 0, 0, '', '', '', '', '', 1, 1, 0, '2019-12-15 03:04:06', '0000-00-00 00:00:00'),
+(3, 0, '0000-00-00', '0000-00-00', '', 'assistant-manager', '', '', '', '', 0, 0, '', '', '', '', '', 1, 1, 0, '2019-12-15 03:04:15', '0000-00-00 00:00:00'),
+(4, 9, '2019-12-17', '2019-12-25', 'PHP Developer', '', '2,3', '2,3', '2,3', '1,2,3,4,5', 11, 4, '5600', 'Skill Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum \r\n\r\nSkill Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum ', 'add skill Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum \r\n\r\nSkill Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum ', 'Job description skill Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum \r\n\r\nSkill Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum ', 'Additional roles description skill Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum \r\n\r\nSkill Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum ', 1, 1, 0, '2019-12-16 22:29:46', '2019-12-19 07:57:05'),
+(5, 9, '0000-00-00', '0000-00-00', 'job title', '', '2,3', '2,3', '2,3', '1,2,3,4,5', 11, 4, '5600', 'skill', 'adddi', 'job descr', 'roles- asdfasd\r\nasd\r\n\r\nasdf', 1, 1, 0, '2019-12-16 22:29:46', '2019-12-19 00:08:42'),
+(6, 9, '0000-00-00', '0000-00-00', 'job title', '', '2,3', '2,3', '2,3', '1,2,3,4,5', 11, 4, '5600', 'skill', 'adddi', 'job descr', 'roles- asdfasd\r\nasd\r\n\r\nasdf', 1, 1, 0, '2019-12-16 22:29:46', '2019-12-19 00:08:45'),
+(7, 9, '0000-00-00', '0000-00-00', 'job title', '', '2,3', '2,3', '2,3', '1,2,3,4,5', 11, 4, '5600', 'skill', 'adddi', 'job descr', 'roles- asdfasd\r\nasd\r\n\r\nasdf', 1, 1, 0, '2019-12-16 22:29:46', '2019-12-16 23:15:17'),
+(8, 9, '0000-00-00', '0000-00-00', 'test 12313', '', '1,2,3', '2,3,4', '3,5', '3,4', 14, 10, '50000', 'tasdf', 'asdfas', 'asdf', 'asdf', 1, 1, 1, '2019-12-18 07:50:34', '2019-12-19 00:08:24');
 
 -- --------------------------------------------------------
 
@@ -1438,6 +1483,12 @@ ALTER TABLE `inquiry`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `job`
+--
+ALTER TABLE `job`
+  ADD PRIMARY KEY (`job_id`);
+
+--
 -- Indexes for table `jobseeker_other`
 --
 ALTER TABLE `jobseeker_other`
@@ -1628,6 +1679,11 @@ ALTER TABLE `industry`
 --
 ALTER TABLE `inquiry`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+--
+-- AUTO_INCREMENT for table `job`
+--
+ALTER TABLE `job`
+  MODIFY `job_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `jobseeker_other`
 --

@@ -68,6 +68,9 @@ $route['set-new-password/(:any)/(:any)'] = 'Home/set_new_password/$1/$2';
 $route['logout'] = 'Home/logout';
 $route['forgot_password'] = 'Home/forgot_password';
 /* User start */
+$route['job_list'] = 'Home/job_list';
+$route['job_list/(:any)'] = 'Home/job_list/$1';
+$route['view_job/(:any)'] = 'Home/view_job/$1';
 
 $route['admin'] = 'admin/login';
 

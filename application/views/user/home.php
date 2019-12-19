@@ -28,10 +28,10 @@
                   <h2>Search Job.</h2>
 
                   <h4>We have 1542 job offers for you! </h4>
-                  <form>
+                  <form name="search" id="search" method="get" action="<?= base_url("job_list/"); ?>">
                      <div class="banner-form-box">
                         <div class="banner-form-input">
-                           <input type="text" placeholder="Put your Job Keywords here">
+                           <input name="q" id="q" type="text" placeholder="Put your Job Keywords here" autocomplete="off">
                         </div>
                         <div class="banner-form-input">
                            <button type="submit"><i class="fa fa-search"></i></button>

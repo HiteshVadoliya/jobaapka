@@ -17,8 +17,8 @@
             <div class="col-md-12">
                <div class="breadcromb-box-pagin">
                   <ul>
-                     <li><a href="#">home</a></li>
-                     <li class="active-breadcromb"><a href="#">Job Listed</a></li>
+                     <li><a href="<?= base_url() ?>">home</a></li>
+                     <li class="active-breadcromb"><a href="javascript:;">Job Listed</a></li>
                   </ul>
                </div>
             </div>
@@ -28,237 +28,42 @@
 </section>
 <!-- Breadcromb Area End -->
  
- 
 <!-- Candidate Dashboard Area Start -->
 <section class="candidate-dashboard-area section_70">
    <div class="container">
       <div class="row">
-         <?php $this->load->view(USER."employer_left_side"); ?>
-         
+         <?php $this->load->view(USER."employer_left_side"); ?>         
          <div class="col-md-12 col-lg-9">
-            <div class="job-grid-right">
-               <!-- end job head -->
-               <div class="job-sidebar-list-single">
-                  <div class="sidebar-list-single">
-                     <div class="top-company-list">
-                        <div class="company-list-logo">
-                           <a href="#">
-                           <img src="<?= FRONT_IMG2 ?>company-logo-1.png" alt="company list 1">
-                           </a>
-                        </div>
-                        <div class="company-list-details">
-                           <h3><a href="#">Job Title</a></h3>
-                           <p class="company-state"><i class="fa fa-map-marker"></i> Company name</p>
-                           <p class="open-icon"><i class="fa fa-clock-o"></i>Recruiter Company name</p>
-                           <p class="open-icon"><i class="fa fa-clock-o"></i>Experience</p>
-                           <p class="varify"><i class="fa fa-check"></i>Fixed price : $1200-$2000</p>
-                           <p class="company-state"><i class="fa fa-map-marker"></i> Location</p>
-                           <p class="rating-company">4.1</p>
-                        </div>
-                        <div class="company-list-btn">
-                           <a href="#" class="jobguru-btn">edit</a>
-                        </div>
-                     </div>
-                  </div>
-                  <!-- end sidebar single list -->
-                  <div class="sidebar-list-single">
-                     <div class="top-company-list">
-                        <div class="company-list-logo">
-                           <a href="#">
-                           <img src="<?= FRONT_IMG2 ?>company-logo-4.png" alt="company list 1">
-                           </a>
-                        </div>
-                        <div class="company-list-details">
-                           <h3><a href="#">C Developer (Senior) C .Net</a></h3>
-                           <p class="company-state"><i class="fa fa-map-marker"></i> Chicago, Michigan</p>
-                           <p class="open-icon"><i class="fa fa-clock-o"></i>2 minutes ago</p>
-                           <p class="varify"><i class="fa fa-check"></i>Fixed price : $800-$1200</p>
-                           <p class="rating-company">3.1</p>
-                        </div>
-                        <div class="company-list-btn">
-                           <a href="#" class="jobguru-btn">edit</a>
-                        </div>
-                     </div>
-                  </div>
-                  <!-- end sidebar single list -->
-                  <div class="sidebar-list-single">
-                     <div class="top-company-list">
-                        <div class="company-list-logo">
-                           <a href="#">
-                           <img src="<?= FRONT_IMG2 ?>company-logo-2.png" alt="company list 1">
-                           </a>
-                        </div>
-                        <div class="company-list-details">
-                           <h3><a href="#">Regional Sales Manager</a></h3>
-                           <p class="company-state"><i class="fa fa-map-marker"></i> Chicago, Michigan</p>
-                           <p class="open-icon"><i class="fa fa-clock-o"></i>2 minutes ago</p>
-                           <p class="varify"><i class="fa fa-check"></i>Fixed price : $1200-$2000</p>
-                           <p class="rating-company">4.1</p>
-                        </div>
-                        <div class="company-list-btn">
-                           <a href="#" class="jobguru-btn">edit</a>
-                        </div>
-                     </div>
-                  </div>
-                  <!-- end sidebar single list -->
-                  <div class="sidebar-list-single">
-                     <div class="top-company-list">
-                        <div class="company-list-logo">
-                           <a href="#">
-                           <img src="<?= FRONT_IMG2 ?>company-logo-3.png" alt="company list 1">
-                           </a>
-                        </div>
-                        <div class="company-list-details">
-                           <h3><a href="#">Asst. Teacher</a></h3>
-                           <p class="company-state"><i class="fa fa-map-marker"></i> Chicago, Michigan</p>
-                           <p class="open-icon"><i class="fa fa-clock-o"></i>2 minutes ago</p>
-                           <p class="varify"><i class="fa fa-check"></i>Fixed price : $800-$1200</p>
-                           <p class="rating-company">4.2</p>
-                        </div>
-                        <div class="company-list-btn">
-                           <a href="#" class="jobguru-btn">edit</a>
-                        </div>
-                     </div>
-                  </div>
-                  <!-- end sidebar single list -->
-                  <div class="sidebar-list-single">
-                     <div class="top-company-list">
-                        <div class="company-list-logo">
-                           <a href="#">
-                           <img src="<?= FRONT_IMG2 ?>company-logo-2.png" alt="company list 1">
-                           </a>
-                        </div>
-                        <div class="company-list-details">
-                           <h3><a href="#">civil engineer</a></h3>
-                           <p class="company-state"><i class="fa fa-map-marker"></i> Chicago, Michigan</p>
-                           <p class="open-icon"><i class="fa fa-clock-o"></i>2 minutes ago</p>
-                           <p class="varify"><i class="fa fa-check"></i>Fixed price : $800-$1200</p>
-                           <p class="rating-company">4.2</p>
-                        </div>
-                        <div class="company-list-btn">
-                           <a href="#" class="jobguru-btn">edit</a>
-                        </div>
-                     </div>
-                  </div>
-                  <!-- end sidebar single list -->
-                  <div class="sidebar-list-single">
-                     <div class="top-company-list">
-                        <div class="company-list-logo">
-                           <a href="#">
-                           <img src="<?= FRONT_IMG2 ?>company-logo-3.png" alt="company list 1">
-                           </a>
-                        </div>
-                        <div class="company-list-details">
-                           <h3><a href="#">Asst. Teacher</a></h3>
-                           <p class="company-state"><i class="fa fa-map-marker"></i> Chicago, Michigan</p>
-                           <p class="open-icon"><i class="fa fa-clock-o"></i>2 minutes ago</p>
-                           <p class="varify"><i class="fa fa-check"></i>Fixed price : $800-$1200</p>
-                           <p class="rating-company">4.2</p>
-                        </div>
-                        <div class="company-list-btn">
-                           <a href="#" class="jobguru-btn">edit</a>
-                        </div>
-                     </div>
-                  </div>
-                  <!-- end sidebar single list -->
-                  <div class="sidebar-list-single">
-                     <div class="top-company-list">
-                        <div class="company-list-logo">
-                           <a href="#">
-                           <img src="<?= FRONT_IMG2 ?>company-logo-1.png" alt="company list 1">
-                           </a>
-                        </div>
-                        <div class="company-list-details">
-                           <h3><a href="#">Regional Sales Manager</a></h3>
-                           <p class="company-state"><i class="fa fa-map-marker"></i> Chicago, Michigan</p>
-                           <p class="open-icon"><i class="fa fa-clock-o"></i>2 minutes ago</p>
-                           <p class="varify"><i class="fa fa-check"></i>Fixed price : $1200-$2000</p>
-                           <p class="rating-company">4.1</p>
-                        </div>
-                        <div class="company-list-btn">
-                           <a href="#" class="jobguru-btn">edit</a>
-                        </div>
-                     </div>
-                  </div>
-                  <!-- end sidebar single list -->
-                  <div class="sidebar-list-single">
-                     <div class="top-company-list">
-                        <div class="company-list-logo">
-                           <a href="#">
-                           <img src="<?= FRONT_IMG2 ?>company-logo-4.png" alt="company list 1">
-                           </a>
-                        </div>
-                        <div class="company-list-details">
-                           <h3><a href="#">C Developer (Senior) C .Net</a></h3>
-                           <p class="company-state"><i class="fa fa-map-marker"></i> Chicago, Michigan</p>
-                           <p class="open-icon"><i class="fa fa-clock-o"></i>2 minutes ago</p>
-                           <p class="varify"><i class="fa fa-check"></i>Fixed price : $800-$1200</p>
-                           <p class="rating-company">3.1</p>
-                        </div>
-                        <div class="company-list-btn">
-                           <a href="#" class="jobguru-btn">edit</a>
-                        </div>
-                     </div>
-                  </div>
-                  <!-- end sidebar single list -->
-                  <div class="sidebar-list-single">
-                     <div class="top-company-list">
-                        <div class="company-list-logo">
-                           <a href="#">
-                           <img src="<?= FRONT_IMG2 ?>company-logo-3.png" alt="company list 1">
-                           </a>
-                        </div>
-                        <div class="company-list-details">
-                           <h3><a href="#">Asst. Teacher</a></h3>
-                           <p class="company-state"><i class="fa fa-map-marker"></i> Chicago, Michigan</p>
-                           <p class="open-icon"><i class="fa fa-clock-o"></i>2 minutes ago</p>
-                           <p class="varify"><i class="fa fa-check"></i>Fixed price : $800-$1200</p>
-                           <p class="rating-company">4.2</p>
-                        </div>
-                        <div class="company-list-btn">
-                           <a href="#" class="jobguru-btn">edit</a>
-                        </div>
-                     </div>
-                  </div>
-                  <!-- end sidebar single list -->
-                  <div class="sidebar-list-single">
-                     <div class="top-company-list">
-                        <div class="company-list-logo">
-                           <a href="#">
-                           <img src="<?= FRONT_IMG2 ?>company-logo-2.png" alt="company list 1">
-                           </a>
-                        </div>
-                        <div class="company-list-details">
-                           <h3><a href="#">civil engineer</a></h3>
-                           <p class="company-state"><i class="fa fa-map-marker"></i> Chicago, Michigan</p>
-                           <p class="open-icon"><i class="fa fa-clock-o"></i>2 minutes ago</p>
-                           <p class="varify"><i class="fa fa-check"></i>Fixed price : $800-$1200</p>
-                           <p class="rating-company">4.2</p>
-                        </div>
-                        <div class="company-list-btn">
-                           <a href="#" class="jobguru-btn">edit</a>
-                        </div>
-                     </div>
-                  </div>
-                  <!-- end sidebar single list -->
-               </div>
-               <!-- end job sidebar list -->
-               <div class="pagination-box-row">
-                  <p>Page 1 of 6</p>
-                  <ul class="pagination">
-                     <li class="active"><a href="#">1</a></li>
-                     <li><a href="#">2</a></li>
-                     <li><a href="#">3</a></li>
-                     <li>...</li>
-                     <li><a href="#">6</a></li>
-                     <li><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
-                  </ul>
-               </div>
-               <!-- end pagination -->
+            <div class="job-grid-right hwt_ajax">
             </div>
          </div>
       </div>
    </div>
 </section>
 <!-- Candidate Dashboard Area End -->
+<!-- <div class="loadermain_f">
+    <div><img style="width:10%" src="<?php echo base_url().IMG_SRC.'hwt.svg'; ?>"><br><span style="color: #fff;">Loading Please Wait...</span></div>
+</div> -->
+<script type="text/javascript">
+
+   $(document).ready(function(){
+      get_data(0);
+   });
+   function get_data(pagno) {
+      // $(".loadermain_f").show();
+      $.ajax({
+        url: "<?php echo base_url()."Employer_Process/get_result/" ?>" +pagno,
+        method: "POST",
+        dataType: "html",
+        data :{},
+        success: function(data) {
+            $(".hwt_ajax").html(data);
+            // $(".loadermain_f").hide();
+        },
+        error: function(data) {
+            console.log(data);
+        }
+    });
+   }
+</script>
  

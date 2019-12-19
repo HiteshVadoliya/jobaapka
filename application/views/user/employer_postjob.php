@@ -87,15 +87,15 @@
                                     </div>
                                     <div class="single-input">
                                        <label for="j_type">Location :</label>
-                                       <select id="job_location" name="job_location[]" class="selectpicker form-control" multiple data-live-search="true">
+                                       <select id="job_job_location" name="job_job_location[]" class="selectpicker form-control" multiple data-live-search="true">
                                           <?php
                                           if(isset($collection['location']) && !empty($collection['location']))
                                           {
                                             $location = $collection['location'];
                                             $selected_loc = "";
                                             foreach ($location as $l_key => $l_value) {
-                                             if( isset($edit) && !empty($edit['job_location']) ) {
-                                                 $selected_loc = $this->HWT->hwt_selected( $l_value['id'], $edit['job_location']);
+                                             if( isset($edit) && !empty($edit['job_job_location']) ) {
+                                                 $selected_loc = $this->HWT->hwt_selected( $l_value['id'], $edit['job_job_location']);
                                               }
                                               ?>
                                               <option value="<?= $l_value['id'] ?>" <?= $selected_loc ?> ><?= $l_value['title']; ?></option>
@@ -104,7 +104,7 @@
                                           }
                                           ?>
                                        </select>
-                                       <span class="job_location"></span>
+                                       <span class="job_job_location"></span>
                                     </div>
                                  </div>
                                  <div class="single-resume-feild feild-flex-2">
@@ -278,7 +278,7 @@
                job_date_expired : { required : true },
                job_title : { required : true },
                "job_industry[]" : { required : true },
-               "job_location[]" : { required : true },
+               "job_job_location[]" : { required : true },
                "job_job_function[]" : { required : true },
                "job_education[]" : { required : true },
                job_exp_year : { required : true },
@@ -295,7 +295,7 @@
               job_date_expired : { required : "Please select expiry date" },
               job_title : { required : "Please enter title" },
               job_industry : { required : "Please select industry" },
-              job_location : { required : "Please select location" },
+              job_job_location : { required : "Please select location" },
               job_job_function : { required : "Please select function" },
               job_education : { required : "Please select education" },
               job_exp_year : { required : "Please select experience in year" },
@@ -309,8 +309,8 @@
            errorPlacement: function(error, element) {
                if (element.attr("name") == "job_industry[]") {
                    error.insertAfter(".job_industry");
-               } else if (element.attr("name") == "job_location[]") {
-                   error.insertAfter(".job_location");
+               } else if (element.attr("name") == "job_job_location[]") {
+                   error.insertAfter(".job_job_location");
                } else if (element.attr("name") == "job_job_function[]") {
                    error.insertAfter(".job_job_function");
                } else if (element.attr("name") == "job_education[]") {
@@ -333,7 +333,7 @@
        
        $.ajax({
            type: "POST",            
-           url: "<?php echo base_url('JobSeeker_Process/post_job') ?>",
+           url: "<?php echo base_url('Employer_Process/post_job') ?>",
            data: $("#frm").serialize(),
            dataType: 'json',
            success: function(res) {

@@ -103,9 +103,16 @@ class HWT extends CI_Model
 		$this->db->from($tbl[0]);
 		foreach ($tbl as $key => $value) {
 			if($key>0) {
+				/*$join_type = "left";
+				if( !empty($parmas['join_type'])) {
+					$join_type = $parmas['join_type'];
+				}*/
+				// $this->db->join($tbl[$key], $join[$key-1],$join_type);
 				$this->db->join($tbl[$key], $join[$key-1]);
 			}
 		}
+
+
 		$this->db->select($rows);
 
 		if(isset($param['search']) && $param['search']!="" && !empty($param['search_column'])) {
@@ -268,6 +275,34 @@ class HWT extends CI_Model
 				return "";
 			}
 		}
+	}
+
+	public function get_jobs( $wh = "" ,$parmas = "" )
+	{
+		$this->db->select("*");
+		$this->db->from("job");
+		$this->db->where($wh);
+
+		echo $this->db->last_query();
+		die();
+		
+	}
+
+	public function get_explode( $tbl, $field, $value ) {
+
+		$this->db->select($field);
+		$this->db->from($tbl);
+		$array = explode(",", $value);
+		$this->db->where_in("id", $array);
+		$query = $this->db->get();
+		$res =$query->result_array();
+		$result = "";
+		if(isset($res) && !empty($res) ) {
+			foreach ($res as $res_key => $res_value) {
+				$result .= $res_value[$field].", ";
+			}
+		}
+		return rtrim($result,", ");
 	}
     
 }

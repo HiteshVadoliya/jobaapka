@@ -344,6 +344,18 @@ class Home extends FrontController {
             $this->loadViews(USER."employer_postjob", $this->global, $data, NULL,NULL);
             
         } else if($type=="jobslisted") {
+            $wh = array("isDelete"=>0,"status"=>1,"employer_id"=>$_SESSION[PREFIX.'id']);
+            $tbl = array("job as job","hwt_user as u");
+            $join = array('job.employer_id = u.id');
+            $where_array = array(
+                "job.isDelete"=>0,
+                "job.status"=>1,
+                "job.employer_id"=>$_SESSION[PREFIX.'id'],                
+            );
+
+
+            $data['jobs'] = $this->HWT->hwt_join_1(  $tbl,$join,$rows="*",$where_array,$param = array() );
+           
             $this->loadViews(USER."employer_jobslisted", $this->global, $data, NULL,NULL);
         } else if($type=="jobalert") {
             $this->loadViews(USER."employer_jobalert", $this->global, $data, NULL,NULL);
@@ -691,6 +703,55 @@ class Home extends FrontController {
             print json_encode($return);
             exit;
         }
+    }
+
+
+    public function job_list( $data = "" ) {
+        
+        $post = $this->input->get();
+        
+        $data = array();
+        $data['search'] = $post;
+        $this->global['pageTitle'] = 'job_list';
+        $data['active_menu'] = "job_list";
+        
+        $data['collection'] = $this->collection_data();
+        
+        $wh = array("isDelete"=>0,"status"=>1,"employer_id"=>$_SESSION[PREFIX.'id']);
+        $tbl = array("job as job","hwt_user as u");
+        $join = array('job.employer_id = u.id');
+        $where_array = array(
+            "job.isDelete"=>0,
+            "job.status"=>1,
+            "job.employer_id"=>$_SESSION[PREFIX.'id'],                
+        );
+
+
+        $data['jobs'] = $this->HWT->hwt_join_1(  $tbl,$join,$rows="*",$where_array,$param = array() );
+        
+        $this->loadViews(USER."job_list", $this->global, $data, NULL,NULL);
+    }
+
+    public function view_job( $job_id ) {
+
+        $data = array();
+        $this->global['pageTitle'] = 'view_job';
+        $data['active_menu'] = "view_job";
+        
+        $data['collection'] = $this->collection_data();
+        
+        $tbl = array("job as job","hwt_user as u");
+        $join = array('job.employer_id = u.id');
+        $where_array = array(
+            "job.isDelete"=>0,
+            "job.status"=>1,
+            "job.job_id"=>$job_id,
+        );
+
+
+        $result = $this->HWT->hwt_join_1(  $tbl,$join,$rows="*",$where_array,$param = array() );
+        $data['jobs'] = $result[0];
+        $this->loadViews(USER."view_job", $this->global, $data, NULL,NULL);
     }
 
 

@@ -67,4 +67,152 @@ class Employer_Process extends FrontController {
         echo json_encode($response);
         die();
     }
+
+    public function post_job() {
+        $post = $this->input->post();
+
+        $job_date               = date("Y-m-d",strtotime($post['job_date']));
+        $job_date_expired       = date("Y-m-d",strtotime($post['job_date_expired']));
+        $job_title              = $post['job_title'];
+        $job_industry           = $post['job_industry'];
+        if(isset($job_industry) && !empty($job_industry)) { $job_industry = implode(",", $job_industry); }
+        
+        $job_job_location = $post['job_job_location'];
+        if(isset($job_job_location) && !empty($job_job_location)) { $job_job_location = implode(",", $job_job_location); }
+        
+        $job_job_function = $post['job_job_function'];
+        if(isset($job_job_function) && !empty($job_job_function)) { $job_job_function = implode(",", $job_job_function); }
+        
+        $job_education = $post['job_education'];
+        if(isset($job_education) && !empty($job_education)) { $job_education = implode(",", $job_education); }
+       
+        $job_exp_year           = $post['job_exp_year'];
+        $job_exp_month          = $post['job_exp_month'];
+        $job_salary             = $post['job_salary'];
+        $job_skill              = $post['job_skill'];
+        $job_additional_skill   = $post['job_additional_skill'];
+        $job_descr              = $post['job_descr'];
+        $job_additional_role    = $post['job_additional_role'];
+
+        $action = $post['action'];
+
+        $AllData = array(
+            "employer_id" => $_SESSION[PREFIX.'id'],
+            "job_date" => $job_date,
+            "job_date_expired" => $job_date_expired,
+            "job_title" => $job_title,
+            "job_industry" => $job_industry,
+            "job_job_location" => $job_job_location,
+            "job_job_function" => $job_job_function,
+            "job_education" => $job_education,
+            "job_exp_year" => $job_exp_year,
+            "job_exp_month" => $job_exp_month,
+            "job_salary" => $job_salary,
+            "job_skill" => $job_skill,
+            "job_additional_skill" => $job_additional_skill,
+            "job_descr" => $job_descr,
+            "job_additional_role" => $job_additional_role,
+        );
+
+        $response = array();
+
+        if($action=='add') {
+            $res = $this->HWT->insert("job",$AllData);
+            if($res) {
+                $response['error'] = $res;
+                $response['message'] = "Job Added Successfully";
+            } else {
+                $response['error'] = $res;
+                $response['message'] = "Something Went Wrong";
+            }
+        } else {
+            $res = $this->HWT->update("job",$AllData,array("job_id"=>$post['editid'],"employer_id"=>$_SESSION[PREFIX.'id']));
+            $response['error'] = 1;
+            $response['message'] = "Job Updated Successfully";
+        }
+        
+        echo json_encode($response);
+        die();
+    }
+
+    function get_result( $rowno = 0 ) {
+        $params = array();
+        $rowperpage = LIMIT;
+        if($rowno != 0){
+            $rowno = ($rowno-1) * $rowperpage;
+        } 
+
+        $wh = array("isDelete"=>0,"status"=>1,"employer_id"=>$_SESSION[PREFIX.'id']);
+        $tbl = array("job as job","hwt_user as u");
+        $join = array('job.employer_id = u.id');
+        $where_array = array(
+            "job.isDelete"=>0,
+            "job.status"=>1,
+            "job.employer_id"=>$_SESSION[PREFIX.'id'],                
+        );
+
+        $res2 = $this->HWT->hwt_join_1(  $tbl,$join,$rows="*",$where_array,$params );
+        
+        $this->load->library ( 'pagination' );
+        $config ['base_url'] =  base_url().'Employer_Process/get_result/';
+        $config ['total_rows'] = count($res2);
+        $config['use_page_numbers'] = TRUE;
+        $config ['per_page'] = $rowperpage;
+        $config ['num_links'] = 3;
+        $config ['full_tag_open'] = '<nav><ul class="pagination">';
+        $config ['full_tag_close'] = '</ul></nav>';
+        $config ['first_tag_open'] = '<li class="page-item">';
+        $config ['first_link'] = '<<';
+        $config ['first_tag_close'] = '</li>';
+        $config ['prev_link'] = '<';
+        $config ['prev_tag_open'] = '<li class="page-item">';
+        $config ['prev_tag_close'] = '</li>';
+        $config ['next_link'] = '>';
+        $config ['next_tag_open'] = '<li class="page-item">';
+        $config ['next_tag_close'] = '</li>';
+        $config ['cur_tag_open'] = '<li class="active"><a href="javascript:;">';
+        $config ['cur_tag_close'] = '</a></li>';
+        $config ['num_tag_open'] = '<li>';
+        $config ['num_tag_close'] = '</li>';
+        $config ['last_tag_open'] = '<li class="page-item">';
+        $config ['last_link'] = '>>';
+        $config ['last_tag_close'] = '</li>';
+
+        $params['limit'] = array($rowno,$rowperpage); // $rowperpage;
+        $res = $this->HWT->hwt_join_1(  $tbl,$join,$rows="*",$where_array,$params );
+
+
+        $this->pagination->initialize($config);
+        $data['page_link'] = $this->pagination->create_links( );
+        $data['result'] = $res;
+        $data['row'] = $rowno;
+
+        $data['jobs'] = $res;
+        //$data['searchParam'] = $search;
+        //$data['area'] = $area;
+        //$type = explode(',', $type);
+        //$data['type'] = $type;
+        //$data['findSchool'] = true;
+        $data['no_of_item'] = count($res2);       
+        
+        // echo $this->db->last_query();
+        $this->load->view(USER.'ajax/ajax',$data);
+        
+    }
+
+    public function delete_job() {
+        $post = $this->input->post();
+        $response = array();
+        $response['result'] = 0;
+        if( !empty($post['did']) ) {
+            $DataUpdate = array(
+                "isDelete"=>1
+            );
+            $wh = array("job_id"=>$post['did']);
+            $res = $this->HWT->update("job",$DataUpdate,$wh);
+            $response['result'] = $res;
+        }
+        echo json_encode($response);
+        die();
+    }
 }

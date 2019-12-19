@@ -78,7 +78,7 @@
                         if(isset($_SESSION[PREFIX.'id']) && !empty($_SESSION[PREFIX.'id'])) {
                            ?>
                            <li class="has-children "> <!-- has-children -->
-                              <a href="<?= base_url($_SESSION[PREFIX.'type'].'/dashboard'); ?>">PROFILE</a>
+                              <a href="<?= base_url($_SESSION[PREFIX.'type'].'/profile'); ?>">PROFILE</a>
                                <ul>
                                  <li><a href="<?= base_url($_SESSION[PREFIX.'type'].'/profile'); ?>"><?= strtoupper($_SESSION[PREFIX.'name']) ?></a></li>
                                  <li><a href="<?= base_url('logout'); ?>">LOGOUT</a></li>
