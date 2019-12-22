@@ -7,7 +7,7 @@
 	      <li class="<?php if($active_menu=="jobalert") { echo "active"; } ?> " ><a href="<?= base_url('employer/jobalert'); ?>"><i class="fa fa-users"></i>OTHER COMPANY JOB POSTS ALERT</a></li>
 	      <li class="<?php if($active_menu=="shortlisted") { echo "active"; } ?> " ><a href="<?= base_url('employer/shortlisted'); ?>"><i class="fa fa-users"></i>OTHER COMPANY JOB POSTS SHORTLIST</a></li>
 	      <li class="<?php if($active_menu=="consultin") { echo "active"; } ?> " ><a href="javascript:;"><i class="fa fa-users"></i>SEARCH JOBSEEKERS</a></li>
-	      <li class="<?php if($active_menu=="consultin") { echo "active"; } ?> " ><a href="javascript:;"><i class="fa fa-users"></i>JOB APPLICANTS</a></li>
+	      <li class="<?php if($active_menu=="applicants") { echo "active"; } ?> " ><a href="<?= base_url('employer/applicants'); ?>"><i class="fa fa-users"></i>JOB APPLICANTS</a></li>
 	      <li class="<?php if($active_menu=="consultin") { echo "active"; } ?> " ><a href="javascript:;"><i class="fa fa-users"></i>JOBSEEKER PROFILE ALERTS</a></li>
 	      <li class="<?php if($active_menu=="consultin") { echo "active"; } ?> " ><a href="<?= base_url('employer/consultin'); ?>"><i class="fa fa-users"></i>TECHNOLOGY CONSULTING</a></li>
 	      

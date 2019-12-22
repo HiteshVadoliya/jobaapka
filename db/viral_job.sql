@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 19, 2019 at 03:49 AM
+-- Generation Time: Dec 22, 2019 at 01:26 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -533,17 +533,19 @@ CREATE TABLE `hwt_user` (
   `verify_string` varchar(255) NOT NULL,
   `fbid` varchar(255) NOT NULL,
   `gid` varchar(255) NOT NULL,
-  `country_id` int(11) NOT NULL
+  `country_id` int(11) NOT NULL,
+  `shortlist` varchar(255) NOT NULL,
+  `applied_job` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `hwt_user`
 --
 
-INSERT INTO `hwt_user` (`id`, `type`, `fname`, `lname`, `img_src`, `email`, `password`, `pass_txt`, `company_name`, `job_function`, `industry`, `job_location`, `exp_year`, `exp_month`, `username`, `mobile`, `phone`, `home_town`, `city`, `gender`, `marital_status`, `bdate`, `edu`, `occupation`, `device_name`, `device_type`, `device_token`, `device_id`, `auth_key`, `status`, `isDelete`, `created_at`, `updated_at`, `created_timestamp`, `updated_timestamp`, `address`, `state`, `zip`, `is_registere`, `is_alive`, `language_id`, `verify_string`, `fbid`, `gid`, `country_id`) VALUES
-(8, 'jobseeker', 'Hiteshs', '', 'author1.jpg', 'jobseeker@gmail.com', '202cb962ac59075b964b07152d234b70', '123', '', '', '', '2', '6', '6', '', '123123123', 0, '', 231, 'M', 0, '0000-00-00', '', '', '', '', '', '', '', 1, 0, '2019-12-14 16:23:29', '0000-00-00 00:00:00', 0, 0, '554', '', '2132', 0, 0, 1, '691532', '', '', 13),
-(9, 'employer', 'Hiteshs', '', 'b_logo.png', 'employer@gmail.com', '202cb962ac59075b964b07152d234b70', '123', 'Employer', '2', '3', '4', '', '', '', '12312312', 0, '', 0, 'M', 0, '0000-00-00', '', '', '', '', '', '', '', 1, 0, '2019-12-15 18:37:55', '0000-00-00 00:00:00', 0, 0, '', '', '', 0, 0, 1, '899426', '', '', 0),
-(10, 'employer', 'Hitesh', '', '', 'hmvadoliya.iipl2013@gmail.com', '912ec803b2ce49e4a541068d495ab570', 'asdf', 'sadf', '1', '1', '', '', '', '', 'asdf', 0, '', 0, 'M', 0, '0000-00-00', '', '', '', '', '', '', '', 0, 0, '2019-12-15 18:39:11', '0000-00-00 00:00:00', 0, 0, '', '', '', 0, 0, 1, '650324', '', '', 0);
+INSERT INTO `hwt_user` (`id`, `type`, `fname`, `lname`, `img_src`, `email`, `password`, `pass_txt`, `company_name`, `job_function`, `industry`, `job_location`, `exp_year`, `exp_month`, `username`, `mobile`, `phone`, `home_town`, `city`, `gender`, `marital_status`, `bdate`, `edu`, `occupation`, `device_name`, `device_type`, `device_token`, `device_id`, `auth_key`, `status`, `isDelete`, `created_at`, `updated_at`, `created_timestamp`, `updated_timestamp`, `address`, `state`, `zip`, `is_registere`, `is_alive`, `language_id`, `verify_string`, `fbid`, `gid`, `country_id`, `shortlist`, `applied_job`) VALUES
+(8, 'jobseeker', 'Hites 8', '', 'author1.jpg', 'jobseeker@gmail.com', '202cb962ac59075b964b07152d234b70', '123', '', '', '', '2', '6', '6', '', '123123123', 0, '', 231, 'M', 0, '0000-00-00', '', '', '', '', '', '', '', 1, 0, '2019-12-14 16:23:29', '0000-00-00 00:00:00', 0, 0, '554', '', '2132', 0, 0, 1, '691532', '', '', 13, '5,6', '5,7'),
+(9, 'jobseeker', 'Hites 9', '', 'b_logo.png', 'employer@gmail.com', '202cb962ac59075b964b07152d234b70', '123', 'Employer', '2', '3', '4', '', '', '', '12312312', 0, '', 0, 'M', 0, '0000-00-00', '', '', '', '', '', '', '', 1, 0, '2019-12-15 18:37:55', '0000-00-00 00:00:00', 0, 0, '', '', '', 0, 0, 1, '899426', '', '', 0, '5', '5'),
+(10, 'employer', 'Hitesh', '', '', 'hmvadoliya.iipl2013@gmail.com', '912ec803b2ce49e4a541068d495ab570', 'asdf', 'sadf', '1', '1', '', '', '', '', 'asdf', 0, '', 0, 'M', 0, '0000-00-00', '', '', '', '', '', '', '', 0, 0, '2019-12-15 18:39:11', '0000-00-00 00:00:00', 0, 0, '', '', '', 0, 0, 1, '650324', '', '', 0, '', '');
 
 -- --------------------------------------------------------
 
@@ -726,7 +728,7 @@ CREATE TABLE `jobseeker_skill` (
 --
 
 INSERT INTO `jobseeker_skill` (`id`, `jobseeker_id`, `title`, `skill`, `exp_year`, `exp_month`, `designation`, `job_type`, `salary`, `job_function`, `location`, `industry`, `category`, `img_src`, `status`, `isDelete`, `created_at`, `updated_at`) VALUES
-(2, 8, 'Profile title', 'Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum \r\n\r\nLorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum ', 7, 8, '1,2,4', '1,3,4', '3,4', '2,3,4', '1,2,4', '1,3', '2,3', '', 0, 0, '2019-12-15 12:32:56', '0000-00-00 00:00:00');
+(2, 8, 'Profile title', 'Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum \r\n\r\nLorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum ', 7, 8, '1,2,4', '1,3,4', '3,4', '2,3,4', '1,2,4', '1,3', '2,3', 'Doc12.docx', 0, 0, '2019-12-15 12:32:56', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 

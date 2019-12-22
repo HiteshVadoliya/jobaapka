@@ -26,11 +26,11 @@ Single Candidate Start -->
                </div>
             </div>
          </div>
-         <!-- <div class="col-md-3 col-lg-6">
-            <div class="single-candidate-action">
-               <a href="#" class="candidate-contact"><i class="fa fa-star"></i>Bookmarks</a>
+         <div class="col-md-3 col-lg-6">
+            <div class="single-candidate-action shortlist "  >
+               <a class="candidate-contact add_shortlist <?= $shortlist_active ?> " data-jobid="<?= $jobs['job_id'] ?>"><i class="fa fa-star"></i>Shortlist</a>
             </div>
-         </div> -->
+         </div>
       </div>
    </div>
 </section>
@@ -72,12 +72,20 @@ Single Candidate Start -->
          </div>
          <div class="col-md-4 col-lg-3">
             <div class="single-candidate-bottom-right">
-               <div class="single-candidate-widget-2">
-                  <a href="#" class="jobguru-btn-2">
+                <?php if($_SESSION[PREFIX.'type']=='jobseeker') { ?>
+               <div class="single-candidate-widget-2 apply_job" data-jobid="<?= $jobs['job_id'] ?>">
+                  <a href="javascript:;" class="jobguru-btn-2">
                   <i class="fa fa-paper-plane-o"></i>
                   Apply Now
                   </a>
                </div>
+               <div class="single-candidate-widget-2">
+                  <a href="#" class="jobguru-btn-2">
+                  <i class="fa fa-paper-plane-o"></i>
+                  Apply Without Login
+                  </a>
+               </div>
+              <?php } ?>
                <div class="single-candidate-widget-2">
                   <h3>Job overview</h3>
                   <ul class="job-overview">
@@ -133,4 +141,58 @@ Single Candidate Start -->
       </div>
    </div>
 </section>
-<!-- Single Candidate Bottom End
+<!-- Single Candidate Bottom End -->
+<script type="text/javascript">
+  
+  $(".add_shortlist").on("click", function(){
+
+   
+    var jobid = $(this).attr("data-jobid");
+    $.ajax({
+          url: "<?php echo base_url()."JobSeeker_Process/add_shortlist/" ?>",
+          method: "POST",
+          dataType: "json",
+          data :{jobid:jobid},
+          success: function(data) {
+
+            if(data.result) {
+              $.notify({message: data.message },{type: 'success'});
+            } else {
+              $.notify({message: data.message },{type: 'danger'});
+            }
+            if(data.result_type=="Add") {
+              $(".add_shortlist").addClass("shortlist_active");
+            } else {
+              $(".add_shortlist").removeClass("shortlist_active");
+            }
+          },
+          error: function(data) {
+              console.log(data);
+          }
+      });
+  });
+
+  $(".apply_job").on("click", function(){
+   
+    var jobid = $(this).attr("data-jobid");
+    $.ajax({
+          url: "<?php echo base_url()."Job_Process/apply_job/" ?>",
+          method: "POST",
+          dataType: "json",
+          data :{jobid:jobid},
+          success: function(data) {
+
+            if(data.result_type=="already") {
+              $.notify({message: "Already Applied fot this job" },{type: 'success'});
+            }else if(data.result) {
+              $.notify({message: data.message },{type: 'success'});
+            } else {
+              $.notify({message: data.message },{type: 'danger'});
+            }
+          },
+          error: function(data) {
+              console.log(data);
+          }
+      });
+  });
+</script>

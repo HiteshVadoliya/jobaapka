@@ -156,3 +156,11 @@
 .loadermain_f{ width: 100%; height: 100vh; left: 0px; right: 0px; top: 0px; bottom: 0px; background: rgba(164, 221, 188, 0.3); z-index: 2000; text-align: center; display: table; }
 .loadermain_f div{ vertical-align: middle; display: table-cell; width: 200px; }
 .loadermain_f img{ display: inline; }
+
+.shortlist a:hover {
+  color: white !important;
+  cursor: pointer;
+}
+.shortlist_active {
+  color: #ccff00 !important;
+}

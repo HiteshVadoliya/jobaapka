@@ -42,13 +42,27 @@
                <div class="candidate-profile">
                   
                   <div class="candidate-single-profile-info">
-                     <form name="frm" id="frm" action="javascript:;" method="post" >
+                     <form name="frm" id="frm" action="javascript:;" method="post" enctype="multipart/form-data">
                         <div class="resume-box">
                            <h3>CV, PROFILE AND SKILLS</h3>
                            <div class="single-resume-feild feild-flex-2">
                               <div class="single-input">
                                  <label for="Phone">Upload CV * :</label>
                                  <input type="file" id="img_src" name="img_src">
+                                 <input type="hidden" value="<?= $skill['img_src']; ?>" name="img_src_old" id="img_src_old">
+                                 <?php
+                                 $img_src = "";
+                                 if($skill['img_src']!="") {
+                                   if(file_exists(IMG_PROFILE.$skill['img_src'])) {
+                                     $img_src = base_url().IMG_PROFILE.$skill['img_src'];
+                                   } 
+                                 }
+                                 if($img_src!="") {
+                                  ?>
+                                    <a href="<?= $img_src ?>">View CV</a>
+                                  <?php
+                                 }
+                                 ?>
                               </div>
                               <div class="single-input">
                                  <label for="Email">Profile Title :</label>
@@ -332,8 +346,12 @@
        $.ajax({
            type: "POST",            
            url: "<?php echo base_url('JobSeeker_Process/skill') ?>",
-           data: $("#frm").serialize(),
-           dataType: 'json',
+           // data: $("#frm").serialize(),
+           data: new FormData(this),
+           contentType: false,  
+           cache: false,  
+           processData:false,  
+           dataType: "json",
            success: function(res) {
                if(res.response) {
                  $.notify({message: res.msg },{type: 'success'});

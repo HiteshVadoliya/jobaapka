@@ -20,10 +20,34 @@
                  <p class="company-state"><i class="fa fa-map-marker"></i> Location : <?php echo $this->HWT->get_explode("location","title",$j_value['job_job_location']); ?></p>
                  <!-- <p class="rating-company">4.1</p> -->
               </div>
+              <?php
+              if($type=='job_applicants') {
+
+                 $wh = array("isDelete"=>0,"status"=>1,"applied_job !="=>"","type"=>"jobseeker","applied_job !="=>"");
+                 $res3 = $this->HWT->get_hwt( "hwt_user", "*", $wh );
+                 $users_array = array();
+                 foreach ($res3 as $key => $value) {
+                     
+                     $check_in = explode(",", $value['applied_job']);
+                     if(in_array($j_value['job_id'], $check_in)) {
+                         if (($key = array_search($j_value['job_id'], $check_in)) !== false) {
+                             $users_array[] = $value['id'];
+
+                         }
+                     }
+                 }
+              ?>
+              <div class="company-list-btn">
+                 <a title="View Applicants" href="<?= base_url("employer/applicants/".$j_value['job_id']) ?>" class="jobguru-btn"><i class="fa fa-bars" ></i> <?= count($users_array); ?></a>
+              </div>
+              <?php
+              } else {
+              ?>
               <div class="company-list-btn">
                  <a title="Edit" href="<?= base_url("employer/postjob/".$j_value['job_id']) ?>" class="jobguru-btn"><i class="fa fa-pencil" ></i></a>
                  <a title="Delete" href="javascript:;" class="jobguru-btn delete_job " data-jobid="<?= $j_value['job_id'] ?>" ><i class="fa fa-trash"></i></a>
               </div>
+              <?php } ?>
            </div>
         </div>
         

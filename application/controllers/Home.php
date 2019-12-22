@@ -269,7 +269,7 @@ class Home extends FrontController {
     }
 
     public function jobseeker( $type ) {
-
+       
         $this->check_jobseeker();
         $data = array();
         $this->global['pageTitle'] = 'jobseeker';
@@ -365,6 +365,12 @@ class Home extends FrontController {
             $this->loadViews(USER."employer_consultin", $this->global, $data, NULL,NULL);
         }  else if($type=="change_password") {
             $this->loadViews(USER."employer_password", $this->global, $data, NULL,NULL);
+        } else if($type=="applicants") {
+            $data['job_view_id'] = "";
+            if(isset($editid) && $editid != '' ) {
+                $data['job_view_id'] = $editid;
+            }
+            $this->loadViews(USER."employer_applicants", $this->global, $data, NULL,NULL);
         }
     }
 
@@ -749,9 +755,28 @@ class Home extends FrontController {
         );
 
 
+        /* shortlist */
+        $res_shorlist =$this->HWT->hwt_idin("hwt_user","*",array("id"=>$_SESSION[PREFIX.'id']),"shortlist",$job_id);
+        $data['shortlist_active'] = ($res_shorlist) ? 'shortlist_active': '';
+        /* shortlist */
+
+        
+
+
+
         $result = $this->HWT->hwt_join_1(  $tbl,$join,$rows="*",$where_array,$param = array() );
         $data['jobs'] = $result[0];
         $this->loadViews(USER."view_job", $this->global, $data, NULL,NULL);
+    }
+
+    public function view_jobseeker( $id ) {
+        $data = array();
+        $this->global['pageTitle'] = '';
+        $data['collection'] = $this->collection_data();
+        $data['active_menu'] = "";
+        $data['jobseeker_data'] = $this->HWT->get_one_row("hwt_user","*",array("id"=>$id));
+        $data['skill'] = $this->HWT->get_one_row("jobseeker_skill","*",array("jobseeker_id"=>$id));
+        $this->loadViews(USER."view_jobseeker", $this->global, $data, NULL,NULL);        
     }
 
 

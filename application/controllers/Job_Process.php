@@ -78,5 +78,49 @@ class Job_Process extends FrontController {
         
     }
 
+    public function apply_job() {
+        $post = $this->input->post();
+        $response = array();
+        if(isset($_SESSION[PREFIX.'type'])) {
+            $final_applylist = "";
+            $res = $this->HWT->get_one_row("hwt_user","applied_job",array("id"=>$_SESSION[PREFIX.'id']));
+            $applied_job = $res['applied_job'];
+
+            $action = "Add";
+            if(empty($applied_job)) {
+                $final_applylist = $post['jobid'];
+            } else {
+
+                $check_in = explode(",", $res['applied_job']);
+                if(in_array($post['jobid'], $check_in)) {
+                    if (($key = array_search($post['jobid'], $check_in)) !== false) {
+                        //unset($check_in[$key]);
+                        $action = "already";
+                    }
+                    $final_applylist = $applied_job;
+                } else {
+                    $action = "Add";
+                    $final_applylist = $applied_job.",".$post['jobid'];
+                }
+            }
+
+
+            $DataUpdate = array(
+                "applied_job" => $final_applylist
+            );
+            $wh = array("id"=>$_SESSION[PREFIX.'id']);
+            $output = $this->HWT->update("hwt_user",$DataUpdate,$wh);
+            
+            $response['result_type'] = $action;
+            $response['result'] = $output;
+            $response['message'] = 'Apply Successfully';
+        } else {
+            $response['result'] = 0;
+            $response['message'] = 'Please Login';
+        }
+        echo json_encode($response);
+        die();
+    }
+
 
 }

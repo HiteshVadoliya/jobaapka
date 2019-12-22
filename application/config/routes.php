@@ -71,6 +71,12 @@ $route['forgot_password'] = 'Home/forgot_password';
 $route['job_list'] = 'Home/job_list';
 $route['job_list/(:any)'] = 'Home/job_list/$1';
 $route['view_job/(:any)'] = 'Home/view_job/$1';
+$route['view_jobseeker/(:any)'] = 'Home/view_jobseeker/$1';
+
+/*ajax*/
+
+// $route['get_result_shortlist'] = 'JobSeeker_Porcess/get_result_shortlist';
+
 
 $route['admin'] = 'admin/login';
 

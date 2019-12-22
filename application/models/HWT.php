@@ -90,6 +90,20 @@ class HWT extends CI_Model
 			$this->db->group_by($param['groupby']);
         }
 
+        if(array_key_exists("in_array",$param) && array_key_exists("in_array_field",$param)){
+			$this->db->where_in($param['in_array_field'],$param['in_array']);
+        }
+
+        if(array_key_exists("find_in_array",$param) && array_key_exists("find_in_array_field",$param)){
+	        $this->db->group_start();
+	        foreach($selected_values as $val)
+	        {
+	            $this->db->where("find_in_set($values, $field)");
+	        }
+	        $this->db->group_end();
+        }
+
+
 		$query = $this->db->get();
 		if ($query->num_rows() > 0) {
 			return $query->result_array();
@@ -303,6 +317,30 @@ class HWT extends CI_Model
 			}
 		}
 		return rtrim($result,", ");
+	}
+
+	public function hwt_idin( $tbl, $row, $where, $field, $values ) {
+
+		$row_res = $this->get_one_row($tbl,$row,$where);
+
+		$shortlist = $row_res[$field];
+		$selected_values = explode(",", $shortlist);
+		
+		$this->db->select($row)->from($tbl)->where($where);
+	    $this->db->group_start();
+	    foreach($selected_values as $val)
+	    {
+	        $this->db->where("find_in_set($values, $field)");
+	    }
+	    $this->db->group_end();
+	    $result = $this->db->get()->result_array();
+
+	    if(isset($result) && !empty($result)) {
+	    	return true;
+	    } else {
+	    	return false;
+	    }
+	    
 	}
     
 }

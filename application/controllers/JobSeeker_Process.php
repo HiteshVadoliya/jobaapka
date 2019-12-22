@@ -64,6 +64,30 @@ class JobSeeker_Process extends FrontController {
 
     public function skill() {
         $post = $this->input->post();
+
+
+        $config['upload_path'] = IMG_PROFILE; 
+        $path = IMG_PROFILE;
+        if(!is_dir($path)) {
+            mkdir($path);
+        }
+        $config['allowed_types'] = '*';  
+        $this->load->library('upload', $config); 
+        $img_src = $post['img_src_old']; 
+        
+        if($_FILES['img_src']['name']!='') {
+            if(!$this->upload->do_upload('img_src'))  
+            {  
+                $error =  $this->upload->display_errors(); 
+                echo json_encode(array('msg' => $error, 'success' => false));
+            } else {
+                $data = $this->upload->data();
+                $img_src = $data['file_name'];
+            } 
+        }
+
+        
+
         $action = "insert";
         $res = $this->HWT->get_one_row("jobseeker_skill","*",array("jobseeker_id"=>$_SESSION[PREFIX.'id']));
         if($res) {
@@ -105,6 +129,7 @@ class JobSeeker_Process extends FrontController {
            'location' => $location,
            'industry' => $industry,
            'category' => $category,
+           'img_src' => $img_src,
         );
         if($action=="insert") {
             $DataUpdate['jobseeker_id'] = $_SESSION[PREFIX.'id'];
@@ -183,5 +208,251 @@ class JobSeeker_Process extends FrontController {
         die();
     }
 
+    public function add_shortlist() {
+        $post = $this->input->post();
+        $response = array();
+        if(isset($_SESSION[PREFIX.'type'])) {
+            $final_shortlist = "";
+            $res = $this->HWT->get_one_row("hwt_user","shortlist",array("id"=>$_SESSION[PREFIX.'id']));
+            $shortlist = $res['shortlist'];
+
+            $action = "Add";
+            if(empty($shortlist)) {
+                $final_shortlist = $post['jobid'];
+            } else {
+
+                $check_in = explode(",", $res['shortlist']);
+                if(in_array($post['jobid'], $check_in)) {
+                    $action = "Remove";
+                    if (($key = array_search($post['jobid'], $check_in)) !== false) {
+                        unset($check_in[$key]);
+                    }
+                    $final_shortlist = implode(",", $check_in);
+                } else {
+                    $final_shortlist = $shortlist.",".$post['jobid'];
+                }
+            }
+
+
+            $DataUpdate = array(
+                "shortlist" => $final_shortlist
+            );
+            $wh = array("id"=>$_SESSION[PREFIX.'id']);
+            $output = $this->HWT->update("hwt_user",$DataUpdate,$wh);
+            
+            $response['result_type'] = $action;
+            $response['result'] = $output;
+            $response['message'] = $action.' Successfully';
+        } else {
+            $response['result'] = 0;
+            $response['message'] = 'Please Login';
+        }
+        echo json_encode($response);
+        die();
+    }
+
+    function get_result_shortlist( $rowno = 0 ) {
+
+        $params = array();
+        $rowperpage = LIMIT;
+        if($rowno != 0){
+            $rowno = ($rowno-1) * $rowperpage;
+        } 
+
+        $user_data = $this->HWT->get_one_row("hwt_user","shortlist",array("id"=>$_SESSION[PREFIX.'id']));
+
+        if($user_data['shortlist']!='') {
+            $shortlist_data = $user_data['shortlist'];
+            $shortlist_data = explode(",", $shortlist_data);            
+        } else {
+            $shortlist_data = array("");
+        }
+       
+        $param['in_array'] = $shortlist_data; 
+        $param['in_array_field'] = 'job_id'; 
+        $res2 = $this->HWT->get_hwt("job","*",array("isDelete"=>0,"status"=>1), $param );
+
+        $this->load->library ( 'pagination' );
+        $config ['base_url'] =  base_url().'JobSeeker_Process/get_result_shortlist/';
+        $config ['total_rows'] = count($res2);
+        $config['use_page_numbers'] = TRUE;
+        $config ['per_page'] = $rowperpage;
+        $config ['num_links'] = 3;
+        $config ['full_tag_open'] = '<nav><ul class="pagination">';
+        $config ['full_tag_close'] = '</ul></nav>';
+        $config ['first_tag_open'] = '<li class="page-item">';
+        $config ['first_link'] = '<<';
+        $config ['first_tag_close'] = '</li>';
+        $config ['prev_link'] = '<';
+        $config ['prev_tag_open'] = '<li class="page-item">';
+        $config ['prev_tag_close'] = '</li>';
+        $config ['next_link'] = '>';
+        $config ['next_tag_open'] = '<li class="page-item">';
+        $config ['next_tag_close'] = '</li>';
+        $config ['cur_tag_open'] = '<li class="active"><a href="javascript:;">';
+        $config ['cur_tag_close'] = '</a></li>';
+        $config ['num_tag_open'] = '<li>';
+        $config ['num_tag_close'] = '</li>';
+        $config ['last_tag_open'] = '<li class="page-item">';
+        $config ['last_link'] = '>>';
+        $config ['last_tag_close'] = '</li>';
+
+        $param['limit'] = array($rowno,$rowperpage); // $rowperpage;
+        $res = $this->HWT->get_hwt("job","*",array("isDelete"=>0,"status"=>1), $param );
+
+        $this->pagination->initialize($config);
+        $data['page_link'] = $this->pagination->create_links( );
+        $data['result'] = $res;
+        $data['row'] = $rowno;
+
+        $data['jobs'] = $res;
+        //$data['searchParam'] = $search;
+        //$data['area'] = $area;
+        //$type = explode(',', $type);
+        //$data['type'] = $type;
+        //$data['findSchool'] = true;
+        $data['no_of_item'] = count($res);       
+        /*echo "<pre>";
+        print_r($res);
+        die();*/
+        // echo $this->db->last_query();
+        if($user_data['shortlist']!='') {
+            $this->load->view(USER.'ajax/ajax_shortlist',$data);
+        } else {
+            $data['jobs'] = array();
+            $this->load->view(USER.'ajax/ajax_shortlist',$data);
+        }
+        
+    }
+
+    public function delete_shortlist() {
+        $post = $this->input->post();
+        $response = array();
+        $response['result'] = 0;
+        if( !empty($post['jobid']) ) {
+
+            $user_data = $this->HWT->get_one_row("hwt_user","*",array("id"=>$_SESSION[PREFIX.'id']));
+            $final_shortlist = $user_data['shortlist'];
+            $check_in = explode(",", $user_data['shortlist']);
+            if(in_array($post['jobid'], $check_in)) {
+                if (($key = array_search($post['jobid'], $check_in)) !== false) {
+                    unset($check_in[$key]);
+                }
+                $final_shortlist = implode(",", $check_in);
+            }
+           
+            
+            $DataUpdate = array(
+                "shortlist"=>$final_shortlist
+            );
+            $wh = array("id"=>$_SESSION[PREFIX.'id']);
+            $res = $this->HWT->update("hwt_user",$DataUpdate,$wh);
+            $response['result'] = $res;
+        }
+        echo json_encode($response);
+        die();
+    }
+
+    function get_result_applied_job( $rowno = 0 ) {
+
+        $params = array();
+        $rowperpage = LIMIT;
+        if($rowno != 0){
+            $rowno = ($rowno-1) * $rowperpage;
+        } 
+
+        $user_data = $this->HWT->get_one_row("hwt_user","applied_job",array("id"=>$_SESSION[PREFIX.'id']));
+
+        if($user_data['applied_job']!='') {
+            $applied_job_data = $user_data['applied_job'];
+            $applied_job_data = explode(",", $applied_job_data);            
+        } else {
+            $applied_job_data = array("");
+        }
+       
+        $param['in_array'] = $applied_job_data; 
+        $param['in_array_field'] = 'job_id'; 
+        $res2 = $this->HWT->get_hwt("job","*",array("isDelete"=>0,"status"=>1), $param );
+
+        $this->load->library ( 'pagination' );
+        $config ['base_url'] =  base_url().'JobSeeker_Process/get_result_applied_job/';
+        $config ['total_rows'] = count($res2);
+        $config['use_page_numbers'] = TRUE;
+        $config ['per_page'] = $rowperpage;
+        $config ['num_links'] = 3;
+        $config ['full_tag_open'] = '<nav><ul class="pagination">';
+        $config ['full_tag_close'] = '</ul></nav>';
+        $config ['first_tag_open'] = '<li class="page-item">';
+        $config ['first_link'] = '<<';
+        $config ['first_tag_close'] = '</li>';
+        $config ['prev_link'] = '<';
+        $config ['prev_tag_open'] = '<li class="page-item">';
+        $config ['prev_tag_close'] = '</li>';
+        $config ['next_link'] = '>';
+        $config ['next_tag_open'] = '<li class="page-item">';
+        $config ['next_tag_close'] = '</li>';
+        $config ['cur_tag_open'] = '<li class="active"><a href="javascript:;">';
+        $config ['cur_tag_close'] = '</a></li>';
+        $config ['num_tag_open'] = '<li>';
+        $config ['num_tag_close'] = '</li>';
+        $config ['last_tag_open'] = '<li class="page-item">';
+        $config ['last_link'] = '>>';
+        $config ['last_tag_close'] = '</li>';
+
+        $param['limit'] = array($rowno,$rowperpage); // $rowperpage;
+        $res = $this->HWT->get_hwt("job","*",array("isDelete"=>0,"status"=>1), $param );
+
+        $this->pagination->initialize($config);
+        $data['page_link'] = $this->pagination->create_links( );
+        $data['result'] = $res;
+        $data['row'] = $rowno;
+
+        $data['jobs'] = $res;
+        //$data['searchParam'] = $search;
+        //$data['area'] = $area;
+        //$type = explode(',', $type);
+        //$data['type'] = $type;
+        //$data['findSchool'] = true;
+        $data['no_of_item'] = count($res);       
+        /*echo "<pre>";
+        print_r($res);
+        die();*/
+        // echo $this->db->last_query();
+        if($user_data['applied_job']!='') {
+            $this->load->view(USER.'ajax/ajax_applied_job',$data);
+        } else {
+            $data['jobs'] = array();
+            $this->load->view(USER.'ajax/ajax_applied_job',$data);
+        }
+        
+    }
+
+    public function delete_appliedjob() {
+        $post = $this->input->post();
+        $response = array();
+        $response['result'] = 0;
+        if( !empty($post['jobid']) ) {
+
+            $user_data = $this->HWT->get_one_row("hwt_user","*",array("id"=>$_SESSION[PREFIX.'id']));
+            $final_applied_job = $user_data['applied_job'];
+            $check_in = explode(",", $user_data['applied_job']);
+            if(in_array($post['jobid'], $check_in)) {
+                if (($key = array_search($post['jobid'], $check_in)) !== false) {
+                    unset($check_in[$key]);
+                }
+                $final_applied_job = implode(",", $check_in);
+            }
+           
+            
+            $DataUpdate = array(
+                "applied_job"=>$final_applied_job
+            );
+            $wh = array("id"=>$_SESSION[PREFIX.'id']);
+            $res = $this->HWT->update("hwt_user",$DataUpdate,$wh);
+            $response['result'] = $res;
+        }
+        echo json_encode($response);
+        die();
+    }
     
 }
