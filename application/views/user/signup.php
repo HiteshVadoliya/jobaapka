@@ -134,7 +134,7 @@
                         </div>
                         <div class=" single-login-field clearfix">
                            <p class="checkbox remember">
-                              <input class="checkbox-spin" type="checkbox" id="" required>
+                              <input class="checkbox-spin" type="checkbox" id="Freelance">
                               <label for="Freelance"><span></span>accept terms & condition</label>
                            </p>
                         </div>
@@ -296,13 +296,13 @@
             data: $("#frm").serialize(),
             dataType: 'json',
             success: function(res) {
-                if(res.message=='success') {
+                if(res.result=='success') {
                   $.notify({message: 'Registration Successful, Please Confirm Your Email' },{type: 'success'});
-                } else if(res.message=='duplicate'){
+                } else if(res.result=='duplicate'){
                     $.notify({message: 'Email Already Registered' },{type: 'danger'});
-                } else if(res.error=='Already'){
+                } else if(res.result=='Already'){
                     $.notify({message: 'This email is Already Registered' },{type: 'danger'});
-                } else if(res.error=='ValidationError'){
+                } else if(res.result=='ValidationError'){
                      $.notify({message: 'Validation Error' },{type: 'danger'});
                 }
                  $("#frm")[0].reset(); 
@@ -358,16 +358,16 @@
             data: $("#frm_2").serialize(),
             dataType: 'json',
             success: function(res) {
-                if(res.message=='success') {
+                if(res.result=='success') {
                   $.notify({message: 'Registration Successful, Please Confirm Your Email' },{type: 'success'});
-                } else if(res.message=='duplicate'){
+                } else if(res.result=='duplicate'){
                     $.notify({message: 'Email Already Registered' },{type: 'danger'});
                 } else if(res.error=='Already'){
-                    $.notify({message: 'This email is Already Registered' },{type: 'danger'});
+                    $.notify({result: 'This email is Already Registered' },{type: 'danger'});
                 } else if(res.error=='ValidationError'){
-                     $.notify({message: 'Validation Error' },{type: 'danger'});
+                     $.notify({result: 'Validation Error' },{type: 'danger'});
                 }
-                 $("#frm")[0].reset(); 
+                $("#frm_2")[0].reset(); 
             },
             error: function (error) {}
         });

@@ -120,7 +120,7 @@ class Employer_Process extends FrontController {
             $res = $this->HWT->insert("job",$AllData);
             if($res) {
                 $response['error'] = $res;
-                $response['message'] = "Job Added Successfully";
+                $response['message'] = "Your Job has been posted successfully";
             } else {
                 $response['error'] = $res;
                 $response['message'] = "Something Went Wrong";
@@ -128,7 +128,7 @@ class Employer_Process extends FrontController {
         } else {
             $res = $this->HWT->update("job",$AllData,array("job_id"=>$post['editid'],"employer_id"=>$_SESSION[PREFIX.'id']));
             $response['error'] = 1;
-            $response['message'] = "Job Updated Successfully";
+            $response['message'] = "Your Job has been Updated successfully";
         }
         
         echo json_encode($response);
@@ -192,6 +192,8 @@ class Employer_Process extends FrontController {
         $data['row'] = $rowno;
 
         $data['jobs'] = $res;
+
+        
         //$data['searchParam'] = $search;
         //$data['area'] = $area;
         //$type = explode(',', $type);

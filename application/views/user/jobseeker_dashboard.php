@@ -18,9 +18,8 @@
             <div class="col-md-12">
                <div class="breadcromb-box-pagin">
                   <ul>
-                     <li><a href="#">home</a></li>
-                     <li><a href="#">candidates</a></li>
-                     <li class="active-breadcromb"><a href="#">Dashboard</a></li>
+                     <li><a href="<?= base_url(); ?>">home</a></li>
+                     <li class="active-breadcromb"><a href="javascript:;">Dashboard</a></li>
                   </ul>
                </div>
             </div>
@@ -45,22 +44,22 @@
                   <div class="col-lg-4 col-md-12 col-sm-12">
                      <div class="widget_card_page grid_flex widget_bg_blue">
                         <div class="widget-icon">
-                           <i class="fa fa-gavel"></i>
+                           <i class="fa fa-briefcase" aria-hidden="true"></i>
                         </div>
                         <div class="widget-page-text">
-                           <h4>1426</h4>
-                           <h2>new orders</h2>
+                           <h4>5</h4>
+                           <h2>Applied Job</h2>
                         </div>
                      </div>
                   </div>
                   <div class="col-lg-4 col-md-12 col-sm-12">
                      <div class="widget_card_page grid_flex  widget_bg_purple">
                         <div class="widget-icon">
-                           <i class="fa fa-usd"></i>
+                           <i class="fa fa-chain-broken" aria-hidden="true"></i>
                         </div>
                         <div class="widget-page-text">
-                           <h4>$4,000</h4>
-                           <h2>Earnings</h2>
+                           <h4>3</h4>
+                           <h2>Shortlisted Job</h2>
                         </div>
                      </div>
                   </div>

@@ -47,7 +47,7 @@
 	  get_data(pageno);
 	});
 $(".delete_shortlist").on("click", function(){
-	var r = confirm("Are you sure to remove?");
+	var r = confirm("Are you sure to remove from applied job?");
 	if(!r) { return false; }
 
 	var did = $(this).attr("data-jobid");
@@ -60,6 +60,7 @@ $(".delete_shortlist").on("click", function(){
         	if(data.result) {
         		$(".job_"+did).remove();
         		$.notify({message: 'Removed Successfully.' },{type: 'success'});
+            get_data(0);
         	} else {
         		$.notify({message: 'Something Went wrong..' },{type: 'danger'});
         	}

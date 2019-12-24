@@ -341,6 +341,9 @@
                  $.notify({message: res.message },{type: 'success'});
                }
               $(".custom_submit").html(btn_old_val);
+
+              var url = '<?php echo base_url('employer/jobslisted'); ?>';
+              setTimeout(function(){ window.location = url; }, 3000);                  
            },
            error: function (error) {}
        });

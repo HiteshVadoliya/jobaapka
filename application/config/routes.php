@@ -72,6 +72,7 @@ $route['job_list'] = 'Home/job_list';
 $route['job_list/(:any)'] = 'Home/job_list/$1';
 $route['view_job/(:any)'] = 'Home/view_job/$1';
 $route['view_jobseeker/(:any)'] = 'Home/view_jobseeker/$1';
+$route['apply_without_registration/(:any)'] = 'Home/apply_without_registration/$1';
 
 /*ajax*/
 

@@ -72,20 +72,31 @@ Single Candidate Start -->
          </div>
          <div class="col-md-4 col-lg-3">
             <div class="single-candidate-bottom-right">
-                <?php if($_SESSION[PREFIX.'type']=='jobseeker') { ?>
+
+               <?php if(isset($_SESSION[PREFIX.'type']) && $_SESSION[PREFIX.'type']=='jobseeker') { ?>
                <div class="single-candidate-widget-2 apply_job" data-jobid="<?= $jobs['job_id'] ?>">
                   <a href="javascript:;" class="jobguru-btn-2">
                   <i class="fa fa-paper-plane-o"></i>
                   Apply Now
                   </a>
                </div>
+               <?php } else if(!isset($_SESSION[PREFIX.'type'])) { ?>
+                <div class="single-candidate-widget-2 not_login">
+                   <a href="javascript:;" class="jobguru-btn-2">
+                   <i class="fa fa-paper-plane-o"></i>
+                   Apply Now
+                   </a>
+                </div>
+               <?php } ?>
+               <?php if(!isset($_SESSION[PREFIX.'type'])) { ?>
                <div class="single-candidate-widget-2">
-                  <a href="#" class="jobguru-btn-2">
+                  <a href="<?= base_url("apply_without_registration/".$jobs['job_id']); ?>" class="jobguru-btn-2">
                   <i class="fa fa-paper-plane-o"></i>
-                  Apply Without Login
+                  Apply Job without Registration
                   </a>
                </div>
               <?php } ?>
+
                <div class="single-candidate-widget-2">
                   <h3>Job overview</h3>
                   <ul class="job-overview">
@@ -119,7 +130,7 @@ Single Candidate Start -->
                      </li>
                   </ul>
                </div>
-               <div class="single-candidate-widget-2">
+               <!-- <div class="single-candidate-widget-2">
                   <h3>Quick Contacts</h3>
                   <form>
                      <p>
@@ -135,7 +146,7 @@ Single Candidate Start -->
                         <button type="submit">Send Message</button>
                      </p>
                   </form>
-               </div>
+               </div> -->
             </div>
          </div>
       </div>
@@ -194,5 +205,9 @@ Single Candidate Start -->
               console.log(data);
           }
       });
+  });
+
+  $(".not_login").on("click",function(){
+    $.notify({message: "Please login to apply this job." },{type: 'danger'});
   });
 </script>

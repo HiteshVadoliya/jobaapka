@@ -53,9 +53,10 @@
                   <nav id="navigation">
                      <ul id="jobguru_navigation">
                         <li class="active"><a href="<?= base_url('home'); ?>">HOME</a></li>
+                        <li class="active"><a href="javascript:;">EMPLOYER</a></li>
                         <!-- <li ><a href="<?= base_url('employer/profile'); ?>">EMPLOYER</a></li> -->
 
-                        <li class="has-children "> <!-- has-children -->
+                        <!-- <li class="has-children ">
                            <a href="<?= base_url('employer/profile'); ?>">EMPLOYER</a>
                             <ul>
                               <li><a href="<?= base_url('employer/profile'); ?>">COMPANY DETAILS</a></li>
@@ -68,9 +69,9 @@
                               <li><a href="<?= base_url('employer/alerts'); ?>">JOBSEEKER PROFILE ALERTS</a></li>
                               <li><a href="<?= base_url('employer/consultin'); ?>">TECHNOLOGY CONSULTING </a></li>
                            </ul> 
-                        </li>
+                        </li> -->
 
-                        <li ><a href="<?= base_url('jobseeker/dashboard'); ?>">JOBSEEKER </a></li>
+                        <li ><a href="javascript:;">JOBSEEKER </a></li>
                         <!-- <li ><a href="<?= base_url('about'); ?>">ABOUT US</a></li>
                         <li ><a href="<?= base_url('whyus'); ?>">WHY US</a></li> -->
                         <li ><a href="<?= base_url('contact'); ?>">CONTACT US</a></li>

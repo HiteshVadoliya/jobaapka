@@ -242,7 +242,7 @@ class JobSeeker_Process extends FrontController {
             
             $response['result_type'] = $action;
             $response['result'] = $output;
-            $response['message'] = $action.' Successfully';
+            $response['message'] = " Shortlist ".$action.' Successfully';
         } else {
             $response['result'] = 0;
             $response['message'] = 'Please Login';
@@ -451,6 +451,40 @@ class JobSeeker_Process extends FrontController {
             $res = $this->HWT->update("hwt_user",$DataUpdate,$wh);
             $response['result'] = $res;
         }
+        echo json_encode($response);
+        die();
+    }
+
+    public function education() {
+        $post = $this->input->post();
+        $action = "insert";
+        $res = $this->HWT->get_one_row("jobseeker_edu","*",array("jobseeker_id"=>$_SESSION[PREFIX.'id']));
+        if($res) {
+            $action = "update";
+        }
+        $action;
+
+        $post_graduation        = $post['post_graduation'];
+        $graduation             = $post['graduation'];
+        $other                  = $post['other'];
+        
+        $DataUpdate = array(
+           'post_graduation' => $post_graduation,
+           'graduation' => $graduation,
+           'other' => $other,
+        );
+        if($action=="insert") {
+            $DataUpdate['jobseeker_id'] = $_SESSION[PREFIX.'id'];
+            $this->HWT->insert("jobseeker_edu",$DataUpdate);
+            $response = array();
+        } else {
+            $wh = array("jobseeker_id"=>$_SESSION[PREFIX.'id']);
+            $this->HWT->update("jobseeker_edu",$DataUpdate,$wh);
+            $response = array();
+        }
+
+        $response['msg'] = "Update Successfully";
+        $response['response'] = 1;
         echo json_encode($response);
         die();
     }

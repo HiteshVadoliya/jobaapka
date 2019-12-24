@@ -291,6 +291,9 @@ class Home extends FrontController {
         } else if($type=="shortlisted") {
             $this->loadViews(USER."jobseeker_shortlisted", $this->global, $data, NULL,NULL);
         } else if($type=="education") {
+
+            $data['edu'] = $this->HWT->get_one_row("jobseeker_edu","*",array("jobseeker_id"=>$_SESSION[PREFIX.'id']));
+
             $this->loadViews(USER."jobseeker_education", $this->global, $data, NULL,NULL);
         } else if($type=="dashboard") {
             $this->loadViews(USER."jobseeker_dashboard", $this->global, $data, NULL,NULL);
@@ -519,15 +522,15 @@ class Home extends FrontController {
             $mail_result = $this->HWT->hwt_send_mail($mail_data_send);
 
             if($mail_result) {
-                $return['error'] = "success";
+                $return['result'] = "success";
             } else {
-                $return['error'] = "NotAdded";
+                $return['result'] = "NotAdded";
             }
             print json_encode($return);
             exit;
         } else {
             $error_messages = $this->form_validation->error_array();
-            $return['error'] = "ValidationError";
+            $return['result'] = "ValidationError";
             $return['error_msg'] = $error_messages;
             print json_encode($return);
             exit;
@@ -548,15 +551,15 @@ class Home extends FrontController {
                         "verify_string"=>"",
                     );
                     $this->HWT->update("hwt_user",$data,array("email"=>base64_decode($mail)));
-                    $_SESSION['SUCCESS'] = "Email verification is success";
+                    $_SESSION['SUCCESS'] = "Email verification is Successfully complete";
                 }
             } else {
-                $_SESSION['FAIL'] = "You are already Verified..!";
+                $_SESSION['FAIL'] = "Email verification is pending. Please confirm your email..!";
             }
         } else {
             $_SESSION['FAIL'] = "Something Went Wrong..!";
         }
-        redirect(base_url());
+        redirect(base_url('login/'));
         die();
     }
 
@@ -576,7 +579,7 @@ class Home extends FrontController {
             print json_encode($return);
             exit;
         } else {
-            $error_messages = 'Verification is Pending';
+            $error_messages = 'Email Verification is Pending';
             $return['error'] = "verification";
             $return['error_msg'] = $error_messages;
             print json_encode($return);
@@ -777,6 +780,28 @@ class Home extends FrontController {
         $data['jobseeker_data'] = $this->HWT->get_one_row("hwt_user","*",array("id"=>$id));
         $data['skill'] = $this->HWT->get_one_row("jobseeker_skill","*",array("jobseeker_id"=>$id));
         $this->loadViews(USER."view_jobseeker", $this->global, $data, NULL,NULL);        
+    }
+
+    public function apply_without_registration( $job_id ) {
+
+         $data = array();
+        $this->global['pageTitle'] = 'view_job';
+        $data['active_menu'] = "view_job";
+        
+        $data['collection'] = $this->collection_data();
+        
+        $tbl = array("job as job","hwt_user as u");
+        $join = array('job.employer_id = u.id');
+        $where_array = array(
+            "job.isDelete"=>0,
+            "job.status"=>1,
+            "job.job_id"=>$job_id,
+        );
+
+        $result = $this->HWT->hwt_join_1(  $tbl,$join,$rows="*",$where_array,$param = array() );
+        $data['jobs'] = $result[0];
+        $data['job_id'] = $job_id;
+        $this->loadViews(USER."apply_job_without_registration", $this->global, $data, NULL,NULL); 
     }
 
 

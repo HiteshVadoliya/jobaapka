@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 22, 2019 at 01:26 PM
+-- Generation Time: Dec 24, 2019 at 05:34 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -43,6 +43,29 @@ INSERT INTO `about` (`id`, `title`, `descr`, `meta_title`, `meta_descr`) VALUES
 (2, 'About Us', '<p>AFTER SUCCESSFUL WORKING OF IDEATORS, A TECHNOLOGY DEVELOPMENT AS WELL AS DIGITAL MARKETING AND BIG DATA TRAINING COMPANY BASED OUT OF THANE,THIS IS OUR NEW INITIATIVE AND VENTURE, JOBAAPKA.COM</p>\r\n\r\n<p>OUR OBJECTIVE IS NOT JUST TO MAKE THE CANDIDATES/JOBSEEKERS FIND THE SUITABLE AND THE RIGHT JOB BUT MAKE THEM SKILLED,EFFICIENT AND PRODUCTIVE IN THEIR JOB HUNT THROUGH OUR OPTIONAL SERVICES.</p>\r\n\r\n<p>WE AIM TO MAKE THE EMPLOYERS GROW NOT ONLY IN TERMS OF HIRING RIGHT PEOPLE BUT ALSO EMPOWERING THEM WITH THE MOST EFFECTIVE AND HIGHLY WORKABLE TECHNOLOGY WHICH WILL ADDRESS THEIR BUSINESS ISSUES.</p>\r\n\r\n<p>THIS PORTAL PROVIDES THE MOST UNIQUE SERVICE IN TERMS OF HIRING/RECRUITMENT AND TECHNOLOGY CONSULTING FOR THE EMPLOYERS AS WELL AS INTERVIEW PREPARATION,CV WRITING AND JOB ASSISTANCE SERVICE FOR THE JOBSEEKERS.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<h3><strong>BELOW POINTS EXPLAIN YOU HOW</strong> -</h3>\r\n\r\n<p><strong>A SINGLE PLAN SOLUTION</strong> &ndash;</p>\r\n\r\n<p>Hassle free and only one simple plan for your Hiring as well as Technology needs at a very low price which you would have never got or thought before.</p>\r\n\r\n<p><strong>A WIN WIN SCENARIO FOR BOTH EMPLOYERS AND JOBSEEKERS -</strong></p>\r\n\r\n<p>Our working style and systematic process makes this a favourable situation for both the parties as we give you ample time to resolve your issues.Know more about that in Our plan</p>\r\n\r\n<p><strong>TECHNOLOGY CONSULTING AS PER YOUR BUSINESS PROBLEMS -</strong></p>\r\n\r\n<p>We understand your business not only in terms of your manpower requirement but also in form of a highly affordable technology that you can decide through our free technology consulting session.</p>\r\n\r\n<p><strong>PERSONAL JOB ASSISTANCE FOR JOBSEEKERS -</strong></p>\r\n\r\n<p>We help candidates who have subscribed for our plan with CV writing,Interview preparation as well as second job or 6 months of support ,whatever comes first after losing out on their previous job.</p>\r\n\r\n<p><strong>100% CREDIBLE AND TRUSTWORTHY -</strong></p>\r\n\r\n<p>With all our credentials and reputation we have gained,you can easily rely on us and be certainly assured of 100% quality and perfect services from us.</p>', 'About Us', 'About Us'),
 (3, 'Privacy Policy', '<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer</p>\r\n\r\n<p>took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>', 'Privacy Policy', 'Privacy Policy'),
 (4, 'Terms & Condition', '<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer</p>\r\n\r\n<p>took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>', 'Terms & Condition', 'Terms & Condition');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `apply_job_without_login`
+--
+
+CREATE TABLE `apply_job_without_login` (
+  `id` int(11) NOT NULL,
+  `employer_id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `mobile` varchar(255) NOT NULL,
+  `exp_year` int(11) NOT NULL,
+  `exp_month` int(11) NOT NULL,
+  `details` text NOT NULL,
+  `location` varchar(255) NOT NULL,
+  `img_src` varchar(255) NOT NULL,
+  `status` tinyint(1) NOT NULL COMMENT '0-no 1-yes',
+  `isDelete` tinyint(4) NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -507,7 +530,7 @@ CREATE TABLE `hwt_user` (
   `mobile` varchar(150) NOT NULL,
   `phone` int(15) NOT NULL,
   `home_town` varchar(255) NOT NULL,
-  `city` int(11) NOT NULL,
+  `city` varchar(255) NOT NULL,
   `gender` enum('M','F','O') NOT NULL DEFAULT 'M',
   `marital_status` tinyint(1) NOT NULL COMMENT '0-no 1-Yes',
   `bdate` date NOT NULL,
@@ -543,9 +566,9 @@ CREATE TABLE `hwt_user` (
 --
 
 INSERT INTO `hwt_user` (`id`, `type`, `fname`, `lname`, `img_src`, `email`, `password`, `pass_txt`, `company_name`, `job_function`, `industry`, `job_location`, `exp_year`, `exp_month`, `username`, `mobile`, `phone`, `home_town`, `city`, `gender`, `marital_status`, `bdate`, `edu`, `occupation`, `device_name`, `device_type`, `device_token`, `device_id`, `auth_key`, `status`, `isDelete`, `created_at`, `updated_at`, `created_timestamp`, `updated_timestamp`, `address`, `state`, `zip`, `is_registere`, `is_alive`, `language_id`, `verify_string`, `fbid`, `gid`, `country_id`, `shortlist`, `applied_job`) VALUES
-(8, 'jobseeker', 'Hites 8', '', 'author1.jpg', 'jobseeker@gmail.com', '202cb962ac59075b964b07152d234b70', '123', '', '', '', '2', '6', '6', '', '123123123', 0, '', 231, 'M', 0, '0000-00-00', '', '', '', '', '', '', '', 1, 0, '2019-12-14 16:23:29', '0000-00-00 00:00:00', 0, 0, '554', '', '2132', 0, 0, 1, '691532', '', '', 13, '5,6', '5,7'),
-(9, 'jobseeker', 'Hites 9', '', 'b_logo.png', 'employer@gmail.com', '202cb962ac59075b964b07152d234b70', '123', 'Employer', '2', '3', '4', '', '', '', '12312312', 0, '', 0, 'M', 0, '0000-00-00', '', '', '', '', '', '', '', 1, 0, '2019-12-15 18:37:55', '0000-00-00 00:00:00', 0, 0, '', '', '', 0, 0, 1, '899426', '', '', 0, '5', '5'),
-(10, 'employer', 'Hitesh', '', '', 'hmvadoliya.iipl2013@gmail.com', '912ec803b2ce49e4a541068d495ab570', 'asdf', 'sadf', '1', '1', '', '', '', '', 'asdf', 0, '', 0, 'M', 0, '0000-00-00', '', '', '', '', '', '', '', 0, 0, '2019-12-15 18:39:11', '0000-00-00 00:00:00', 0, 0, '', '', '', 0, 0, 1, '650324', '', '', 0, '', '');
+(7, 'employer', 'Dhirubhai', '', 'reliance-petroleum-vadu-vadodara-petrol-pumps-reliance-6pm5f01og2.jpg', 'dhiru@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '123456', 'Reliance', '1', '1', '1', '', '', '', '123123132', 0, '', '0', 'M', 0, '0000-00-00', '', '', '', '', '', '', '', 1, 0, '2019-12-24 19:59:17', '0000-00-00 00:00:00', 0, 0, '', '', '', 0, 0, 1, '915226', '', '', 0, '1,3', ''),
+(8, 'employer', 'Ratan TATA', '', 'Tata-Group-logo-3840x2160.png', 'tata@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '123456', 'TATA Motors', '1', '1', '1', '', '', '', '9898989898', 0, '', '0', 'M', 0, '0000-00-00', '', '', '', '', '', '', '', 1, 0, '2019-12-24 20:00:06', '0000-00-00 00:00:00', 0, 0, '', '', '', 0, 0, 1, '343442', '', '', 0, '', ''),
+(9, 'jobseeker', 'Hitesh', '', '20160506_193645.jpg', 'hitesh@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '123456', '', '', '', '3', '1', '1', '', '9898905130', 0, '', 'Rajkot', 'M', 0, '0000-00-00', '', '', '', '', '', '', '', 1, 0, '2019-12-24 21:25:46', '0000-00-00 00:00:00', 0, 0, 'gandhigram', '', '360007', 0, 0, 1, '', '', '', 100, '4,3,2,1', '3');
 
 -- --------------------------------------------------------
 
@@ -661,14 +684,35 @@ CREATE TABLE `job` (
 --
 
 INSERT INTO `job` (`job_id`, `employer_id`, `job_date`, `job_date_expired`, `job_title`, `slug`, `job_industry`, `job_job_location`, `job_job_function`, `job_education`, `job_exp_year`, `job_exp_month`, `job_salary`, `job_skill`, `job_additional_skill`, `job_descr`, `job_additional_role`, `status`, `pay_info`, `isDelete`, `created_at`, `updated_at`) VALUES
-(1, 0, '0000-00-00', '0000-00-00', '', 'clerk', '', '', '', '', 0, 0, '', '', '', '', '', 1, 1, 0, '2019-12-15 03:03:58', '0000-00-00 00:00:00'),
-(2, 0, '0000-00-00', '0000-00-00', '', 'supervisor', '', '', '', '', 0, 0, '', '', '', '', '', 1, 1, 0, '2019-12-15 03:04:06', '0000-00-00 00:00:00'),
-(3, 0, '0000-00-00', '0000-00-00', '', 'assistant-manager', '', '', '', '', 0, 0, '', '', '', '', '', 1, 1, 0, '2019-12-15 03:04:15', '0000-00-00 00:00:00'),
-(4, 9, '2019-12-17', '2019-12-25', 'PHP Developer', '', '2,3', '2,3', '2,3', '1,2,3,4,5', 11, 4, '5600', 'Skill Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum \r\n\r\nSkill Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum ', 'add skill Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum \r\n\r\nSkill Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum ', 'Job description skill Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum \r\n\r\nSkill Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum ', 'Additional roles description skill Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum \r\n\r\nSkill Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum ', 1, 1, 0, '2019-12-16 22:29:46', '2019-12-19 07:57:05'),
-(5, 9, '0000-00-00', '0000-00-00', 'job title', '', '2,3', '2,3', '2,3', '1,2,3,4,5', 11, 4, '5600', 'skill', 'adddi', 'job descr', 'roles- asdfasd\r\nasd\r\n\r\nasdf', 1, 1, 0, '2019-12-16 22:29:46', '2019-12-19 00:08:42'),
-(6, 9, '0000-00-00', '0000-00-00', 'job title', '', '2,3', '2,3', '2,3', '1,2,3,4,5', 11, 4, '5600', 'skill', 'adddi', 'job descr', 'roles- asdfasd\r\nasd\r\n\r\nasdf', 1, 1, 0, '2019-12-16 22:29:46', '2019-12-19 00:08:45'),
-(7, 9, '0000-00-00', '0000-00-00', 'job title', '', '2,3', '2,3', '2,3', '1,2,3,4,5', 11, 4, '5600', 'skill', 'adddi', 'job descr', 'roles- asdfasd\r\nasd\r\n\r\nasdf', 1, 1, 0, '2019-12-16 22:29:46', '2019-12-16 23:15:17'),
-(8, 9, '0000-00-00', '0000-00-00', 'test 12313', '', '1,2,3', '2,3,4', '3,5', '3,4', 14, 10, '50000', 'tasdf', 'asdfas', 'asdf', 'asdf', 1, 1, 1, '2019-12-18 07:50:34', '2019-12-19 00:08:24');
+(1, 8, '2019-12-18', '2019-12-26', 'PHP Job By TATA', '', '1,2', '2,4', '2,3,5', '2,3,5', 1, 1, '5000', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 1, 1, 0, '2019-12-24 20:15:43', '2019-12-24 20:18:50'),
+(2, 8, '2019-12-18', '2019-12-26', 'Laravel Job By TATA', '', '1,2,3', '1,3,4', '1,3,4', '1,2,3,4', 1, 2, '10000', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 1, 1, 0, '2019-12-24 20:19:46', '0000-00-00 00:00:00'),
+(3, 7, '2019-12-20', '2019-12-18', 'PHP job By Reliance', '', '1,2,3', '2,4,5', '2,5', '2,4', 1, 2, '15000', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\r\n\r\nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\r\n\r\nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 1, 1, 0, '2019-12-24 21:18:03', '0000-00-00 00:00:00'),
+(4, 7, '2019-12-19', '2019-12-31', 'Laravel Job By Reliance', '', '1,2', '1,2,3', '1,2', '1,2', 1, 3, '35000', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 1, 1, 0, '2019-12-24 21:18:52', '0000-00-00 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `jobseeker_edu`
+--
+
+CREATE TABLE `jobseeker_edu` (
+  `id` int(11) NOT NULL,
+  `jobseeker_id` int(11) NOT NULL,
+  `post_graduation` text NOT NULL,
+  `graduation` text NOT NULL,
+  `other` text NOT NULL,
+  `status` tinyint(1) NOT NULL COMMENT '0-no 1-yes',
+  `isDelete` tinyint(4) NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `jobseeker_edu`
+--
+
+INSERT INTO `jobseeker_edu` (`id`, `jobseeker_id`, `post_graduation`, `graduation`, `other`, `status`, `isDelete`, `created_at`, `updated_at`) VALUES
+(1, 9, 'Post Graduation details', 'Graduation details', 'Other', 0, 0, '2019-12-24 22:00:16', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -694,7 +738,7 @@ CREATE TABLE `jobseeker_other` (
 --
 
 INSERT INTO `jobseeker_other` (`id`, `jobseeker_id`, `specific_role`, `project`, `achivement`, `awards`, `status`, `isDelete`, `created_at`, `updated_at`) VALUES
-(3, 8, 'tea sdf', 'tea', 'tea', 'tas\r\nasdf\r\na\r\nsdf', 0, 0, '2019-12-15 17:33:47', '0000-00-00 00:00:00');
+(1, 9, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,   \r\n\r\nwhen an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\r\n\r\nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 0, 0, '2019-12-24 22:00:39', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -728,7 +772,7 @@ CREATE TABLE `jobseeker_skill` (
 --
 
 INSERT INTO `jobseeker_skill` (`id`, `jobseeker_id`, `title`, `skill`, `exp_year`, `exp_month`, `designation`, `job_type`, `salary`, `job_function`, `location`, `industry`, `category`, `img_src`, `status`, `isDelete`, `created_at`, `updated_at`) VALUES
-(2, 8, 'Profile title', 'Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum \r\n\r\nLorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum Lorie Lipsum ', 7, 8, '1,2,4', '1,3,4', '3,4', '2,3,4', '1,2,4', '1,3', '2,3', 'Doc12.docx', 0, 0, '2019-12-15 12:32:56', '0000-00-00 00:00:00');
+(1, 9, 'PHP Developer', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 1, 2, '1,2,3', '1,2,3', '1,2,3,4,5', '1,2,3', '1,2,3', '2,3', '1,2,3', 'resume_hitesh.docx', 0, 0, '2019-12-24 21:46:58', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -1418,6 +1462,12 @@ ALTER TABLE `about`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `apply_job_without_login`
+--
+ALTER TABLE `apply_job_without_login`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `category`
 --
 ALTER TABLE `category`
@@ -1489,6 +1539,12 @@ ALTER TABLE `inquiry`
 --
 ALTER TABLE `job`
   ADD PRIMARY KEY (`job_id`);
+
+--
+-- Indexes for table `jobseeker_edu`
+--
+ALTER TABLE `jobseeker_edu`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `jobseeker_other`
@@ -1632,6 +1688,11 @@ ALTER TABLE `workshop_slider`
 ALTER TABLE `about`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
+-- AUTO_INCREMENT for table `apply_job_without_login`
+--
+ALTER TABLE `apply_job_without_login`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
@@ -1670,7 +1731,7 @@ ALTER TABLE `gallery`
 -- AUTO_INCREMENT for table `hwt_user`
 --
 ALTER TABLE `hwt_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `industry`
 --
@@ -1685,17 +1746,22 @@ ALTER TABLE `inquiry`
 -- AUTO_INCREMENT for table `job`
 --
 ALTER TABLE `job`
-  MODIFY `job_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `job_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `jobseeker_edu`
+--
+ALTER TABLE `jobseeker_edu`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `jobseeker_other`
 --
 ALTER TABLE `jobseeker_other`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `jobseeker_skill`
 --
 ALTER TABLE `jobseeker_skill`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `job_function`
 --
