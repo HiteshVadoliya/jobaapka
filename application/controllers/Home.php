@@ -325,6 +325,7 @@ class Home extends FrontController {
 
 
     public function employer( $type , $editid = '' ) {
+
         $this->check_employer();
         $data = array();
         $this->global['pageTitle'] = 'employer';
@@ -374,6 +375,20 @@ class Home extends FrontController {
                 $data['job_view_id'] = $editid;
             }
             $this->loadViews(USER."employer_applicants", $this->global, $data, NULL,NULL);
+        } else if($type=="alertlist") {
+            $data['job_view_id'] = "";
+            if(isset($editid) && $editid != '' ) {
+                $data['job_view_id'] = $editid;
+            }
+            $this->loadViews(USER."employer_alertlist", $this->global, $data, NULL,NULL);
+        } else if($type=="employer_profile_view") {
+
+            $data['employer'] = $this->HWT->get_one_row("hwt_user","*",array("id"=>$editid,"isDelete"=>0,"status"=>1));
+
+            $this->loadViews(USER."employer_profile_view", $this->global, $data, NULL,NULL);
+        } else if($type=="view_employer_jobs") {
+            $data['employer_id'] = $editid;
+           $this->loadViews(USER."view_employer_jobs", $this->global, $data, NULL,NULL);
         }
     }
 
@@ -567,23 +582,31 @@ class Home extends FrontController {
         $post = $this->input->post();
 
         $dup = $this->HWT->get_one_row("hwt_user","*",array("email"=>$post['email'],"password"=>md5($post['password'])));
-        if($dup['status']!="0") {
-            $_SESSION[PREFIX.'id'] = $dup['id'];
-            $_SESSION[PREFIX.'name'] = $dup['fname'];
-            $_SESSION[PREFIX.'type'] = $dup['type'];
-            $_SESSION[PREFIX.'email'] = $dup['email'];
-            $error_messages = 'Login Successfully';
-            $return['error'] = "success";
-            $return['type'] = $dup['type'];
-            $return['error_msg'] = $error_messages;
+        
+        if(empty($dup)) {
+            $return['error'] = "not_in";
+            $return['error_msg'] = 'Your Email is not registered with us';
             print json_encode($return);
             exit;
         } else {
-            $error_messages = 'Email Verification is Pending';
-            $return['error'] = "verification";
-            $return['error_msg'] = $error_messages;
-            print json_encode($return);
-            exit;
+            if($dup['status']!="0") {
+                $_SESSION[PREFIX.'id'] = $dup['id'];
+                $_SESSION[PREFIX.'name'] = $dup['fname'];
+                $_SESSION[PREFIX.'type'] = $dup['type'];
+                $_SESSION[PREFIX.'email'] = $dup['email'];
+                $error_messages = 'Login Successfully';
+                $return['error'] = "success";
+                $return['type'] = $dup['type'];
+                $return['error_msg'] = $error_messages;
+                print json_encode($return);
+                exit;
+            } else {
+                $error_messages = 'Email Verification is Pending';
+                $return['error'] = "verification";
+                $return['error_msg'] = $error_messages;
+                print json_encode($return);
+                exit;
+            }
         }
     }
 

@@ -129,6 +129,8 @@
                   setTimeout(function(){ window.location = url; }, 2000);                  
                 } else if(res.error=='verification'){
                     $.notify({message: res.error_msg },{type: 'danger'});
+                } else if(res.error=='not_in'){
+                    $.notify({message: res.error_msg },{type: 'danger'});
                 }
                 $("#frm")[0].reset(); 
             },
