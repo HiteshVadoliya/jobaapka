@@ -49,7 +49,6 @@
                         <div class="company-list-details">
                            <h3><a href="#">Job Title</a></h3>
                            <p class="company-state"><i class="fa fa-map-marker"></i> Company name</p>
-                           <p class="open-icon"><i class="fa fa-clock-o"></i>Recruiter Company name</p>
                            <p class="open-icon"><i class="fa fa-clock-o"></i>Experience</p>
                            <p class="varify"><i class="fa fa-check"></i>Fixed price : $1200-$2000</p>
                            <p class="company-state"><i class="fa fa-map-marker"></i> Location</p>

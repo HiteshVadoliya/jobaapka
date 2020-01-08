@@ -90,12 +90,13 @@
             <div class="col-lg-3 col-md-6">
                <div class="single-footer-widget">
                   <h3>BUSINESS NEWS</h3>
-                  <form>
+                  <form name="news_frm" id="news_frm" action="javascript:;" method="post">
                      <div class="row">
                         <div class="col-md-12">
                            <div class="single-contact-field">
-                              <input type="text" style="width: 80%;" placeholder="Enter your email ID to stay tuned with the latest corporate news">
+                              <input name="news_email" id="news_email" type="text" style="width: 80%;" placeholder="Enter your email ID to stay tuned with the latest corporate news">
                            </div>
+                           <input type="submit" class="custom_submit jobguru-btn-2" name="send" value="send">
                         </div>
                      </div>
                   </form>
@@ -119,6 +120,67 @@
       </div>
    </div>
 </footer>
+
+<script type="text/javascript">
+  
+  $(function(){
+      $("#news_frm").validate({                       
+          rules: {                
+              news_email : { required : true,email:true },
+          },
+          messages: {
+             news_email : { required : "Please enter Email." },
+          },
+          errorPlacement: function(error, element) {
+             if (element.attr("name") == "location[]") {
+                  error.insertAfter(".location");
+              }
+              else{
+                  error.insertAfter(element);
+              }
+          }
+      });
+  });
+
+  $("#news_frm").on('submit',function(){
+
+    var val_form = $("#news_frm").valid();
+    if(!val_form) { return false; }
+    $(".close").trigger("click");    
+    var btn_old_val = $(".custom_submit").text();
+    $(".custom_submit").html(btn_old_val+'...');
+
+    $.ajax({
+          url: "<?php echo base_url()."Home/subscription/" ?>",
+          method: "POST",
+          data: new FormData(this),
+          contentType: false,  
+          cache: false,  
+          processData:false,  
+          dataType: "json",
+          success: function(data) {
+            
+            
+            if(data.result) {
+              $.notify({message: data.message },{type: 'success'});
+            } else {
+              $.notify({message: data.message },{type: 'danger'});
+            }
+            $("#news_frm")[0].reset();
+
+            
+
+          },
+          error: function(data) {
+              console.log(data);
+          }
+      });
+  });
+
+  $(".not_login").on("click",function(){
+    $.notify({message: "Please login to apply this job." },{type: 'danger'});
+  });
+</script>
 <?php 
 if(isset($_SESSION['FAIL'])) {
    ?>

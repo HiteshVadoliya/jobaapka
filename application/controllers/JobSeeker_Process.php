@@ -100,6 +100,7 @@ class JobSeeker_Process extends FrontController {
         $exp_year = $post['exp_year'];
         $exp_month = $post['exp_month'];
         $designation = $post['designation'];
+        $jobseeker_tags = $post['jobseeker_tags'];
         if(isset($designation) && !empty($designation)) { $designation = implode(",", $designation); }
 
         $job_type = $post['job_type'];
@@ -130,6 +131,7 @@ class JobSeeker_Process extends FrontController {
            'industry' => $industry,
            'category' => $category,
            'img_src' => $img_src,
+           'jobseeker_tags' => $jobseeker_tags,
         );
         if($action=="insert") {
             $DataUpdate['jobseeker_id'] = $_SESSION[PREFIX.'id'];
@@ -482,6 +484,25 @@ class JobSeeker_Process extends FrontController {
             $this->HWT->update("jobseeker_edu",$DataUpdate,$wh);
             $response = array();
         }
+
+        $response['msg'] = "Update Successfully";
+        $response['response'] = 1;
+        echo json_encode($response);
+        die();
+    }
+
+    public function history() {
+        $post = $this->input->post();
+
+
+        $history = json_encode($post['history']);
+        
+        $DataUpdate = array(
+            "history" => $history,
+        );
+        $wh = array("id"=>$_SESSION[PREFIX.'id']);
+        $this->HWT->update("hwt_user",$DataUpdate,$wh);
+        $response = array();
 
         $response['msg'] = "Update Successfully";
         $response['response'] = 1;

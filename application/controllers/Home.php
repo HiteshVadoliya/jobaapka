@@ -11,9 +11,40 @@ class Home extends FrontController {
         $wh = array("isDelete"=>0,"status"=>1);
         $data['hwt_slider'] = $this->HWT->get_result("slider","*",$wh);
         $data['hwt_industry'] = $this->HWT->get_result("industry","*",$wh);
+        $params['limit'] = array("0","18");
+        $data['hwt_industry'] = $this->HWT->get_hwt("industry","*",$wh,$params);
         $data['hwt_testimonial'] = $this->HWT->get_result("testimonial","*",$wh);
+
+        $params['limit'] = array("0","4");
+        $params['shortby'] = 'id';
+        $params['shortorder'] = 'DESC';
+        $wh['type'] = 'employer';
+        $data['hwt_employer'] = $this->HWT->get_hwt("hwt_user","*",$wh,$params);
+
+
+
+        $wh['type'] = 'jobseeker';
+
+        $wh = array("isDelete"=>0,"status"=>1);
+        $tbl = array("job as job","hwt_user as u");
+        $join = array('job.employer_id = u.id');
+        $where_array = array(
+            "job.isDelete"=>0,
+            "job.status"=>1,
+        );
+        $data['hwt_jobseeker'] = $this->HWT->hwt_join_1($tbl,$join,"*",$where_array ,$params);
+        
         $this->loadViews(USER."home", $this->global, $data, NULL,NULL);
 	}
+
+    public function industry(){
+        $data = array();
+        $wh = array("isDelete"=>0,"status"=>1);
+        $data['hwt_industry'] = $this->HWT->get_hwt("industry","*",$wh);
+        $this->global['pageTitle'] = 'industry';
+        $data['active_menu'] = "industry";
+        $this->loadViews(USER."industry", $this->global, $data, NULL,NULL);
+    }
 
     public function choose_signup() {
         $this->check_session();
@@ -302,6 +333,8 @@ class Home extends FrontController {
             $this->loadViews(USER."jobseeker_other", $this->global, $data, NULL,NULL);
         } else if($type=="change_password") {
             $this->loadViews(USER."jobseeker_password", $this->global, $data, NULL,NULL);
+        } else if($type=="history") {
+            $this->loadViews(USER."jobseeker_history", $this->global, $data, NULL,NULL);
         } 
     }
 
@@ -326,7 +359,9 @@ class Home extends FrontController {
 
     public function employer( $type , $editid = '' ) {
 
-        $this->check_employer();
+        if($type!="employer_profile_view") {
+            $this->check_employer();
+        }
         $data = array();
         $this->global['pageTitle'] = 'employer';
         $data['active_menu'] = "employer";
@@ -826,6 +861,29 @@ class Home extends FrontController {
         $data['job_id'] = $job_id;
         $this->loadViews(USER."apply_job_without_registration", $this->global, $data, NULL,NULL); 
     }
+
+    public function subscription() {
+        $post = $this->input->post();
+        $response = array();
+
+        $email = $post['news_email'];
+
+        $res = $this->HWT->get_column("newsletter","title",array("isDelete"=>0,"title"=>$email));
+        
+        if($res=='') {
+            $DataInsert = array(
+                "title" => $email
+            );
+            $this->HWT->insert("newsletter",$DataInsert);
+            $response['result'] = true;
+            $response['message'] = "subscription Successfully";
+        } else {
+            $response['result'] = false;
+            $response['message'] = "this email is already subscribe";
+        }
+        echo json_encode($response);
+        die();
+    } 
 
 
 }

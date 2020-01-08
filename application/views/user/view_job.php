@@ -14,6 +14,7 @@ Single Candidate Start -->
                   }
                   ?>
                   <img src="<?= $img_src ?>" alt="<?= $jobs['job_title']; ?>" title="<?= $jobs['job_title']; ?>" />
+                  <h3><?= $jobs['company_name']; ?></h3>
                </div>
                <div class="single-candidate-box-right">
                   <h4><?= $jobs['job_title']; ?></h4>

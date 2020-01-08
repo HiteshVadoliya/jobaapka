@@ -69,7 +69,7 @@
                                  <input type="text" value="<?= $skill['title']; ?>" id="title" name="title">
                               </div>
                            </div>
-                           <div class="single-resume-feild s">
+                           <div class="single-resume-feild">
                               <div class="single-input">
                                  <label for="Phone">Skills :</label>
                                  <textarea name="skill" id="skill"><?= $skill['skill']; ?></textarea>
@@ -274,6 +274,12 @@
                                  </select>
                               </div>
                            </div>
+                           <div class="single-resume-feild">
+                              <div class="single-input">
+                                <label for="Email">Tags :</label>
+                                  <input name="jobseeker_tags" id="jobseeker_tags" class="form-control tagsinput_text" type="text" value="<?= $skill['jobseeker_tags']; ?>" data-role="tagsinput" />
+                              </div>
+                            </div>
 
 
                         </div>

@@ -385,6 +385,7 @@ class Employer_Process extends FrontController {
         $job_additional_skill   = $post['job_additional_skill'];
         $job_descr              = $post['job_descr'];
         $job_additional_role    = $post['job_additional_role'];
+        $employer_tags          = $post['employer_tags'];
 
         $action = $post['action'];
 
@@ -404,6 +405,7 @@ class Employer_Process extends FrontController {
             "job_additional_skill" => $job_additional_skill,
             "job_descr" => $job_descr,
             "job_additional_role" => $job_additional_role,
+            "employer_tags" => $employer_tags,
         );
 
         $response = array();
@@ -932,4 +934,53 @@ class Employer_Process extends FrontController {
         die();
     }
     /* Employer Alert List */
+
+    public function consultin() {
+        $post = $this->input->post();
+
+        $action = "insert";
+        /*$res = $this->HWT->get_one_row("jobseeker_skill","*",array("jobseeker_id"=>$_SESSION[PREFIX.'id']));
+        if($res) {
+            $action = "update";
+        }
+        $action;*/
+
+        $con_contact            = $post['con_contact'];
+        $con_email              = $post['con_email'];
+        $con_mobile             = $post['con_mobile'];
+        $con_company_name       = $post['con_company_name'];
+        $con_problem            = $post['con_problem'];
+        $con_appointment        = $post['con_appointment'];
+        $con_office_address     = $post['con_office_address'];
+        $con_appointment_time   = $post['con_appointment_time'];
+        $con_other              = $post['con_other'];
+
+        
+        $DataUpdate = array(
+           'con_contact' => $con_contact,
+           'con_email' => $con_email,
+           'con_mobile' => $con_mobile,
+           'con_company_name' => $con_company_name,
+           'con_problem' => $con_problem,
+           'con_appointment' => $con_appointment,
+           'con_office_address' => $con_office_address,
+           'con_appointment_time' => $con_appointment_time,
+           'con_other' => $con_other,
+        );
+        if($action=="insert") {
+            $DataUpdate['employer_id'] = $_SESSION[PREFIX.'id'];
+            $this->HWT->insert("consultin",$DataUpdate);
+            $response = array();
+        } else {
+            /*$wh = array("jobseeker_id"=>$_SESSION[PREFIX.'id']);
+            $this->HWT->update("jobseeker_skill",$DataUpdate,$wh);
+            $response = array();*/
+        }
+       
+
+        $response['msg'] = "Send Successfully";
+        $response['response'] = 1;
+        echo json_encode($response);
+        die();
+    }
 }

@@ -13,7 +13,7 @@
          <li class="<?php if($active_menu=="jobalert") { echo "active"; } ?> " ><a href="<?= base_url('jobseeker/jobalert'); ?>"><i class="fa fa-bell-o" aria-hidden="true"></i>JOB ALERTS </a></li>
          <li class="<?php if($active_menu=="applied_job") { echo "active"; } ?> " ><a href="<?= base_url('jobseeker/applied_job'); ?>"><i class="fa fa-briefcase" aria-hidden="true"></i>APPLIED JOBS  </a></li>
          <li class="<?php if($active_menu=="shortlisted") { echo "active"; } ?> " ><a href="<?= base_url('jobseeker/shortlisted'); ?>"><i class="fa fa-chain-broken" aria-hidden="true"></i>SHORTLISTED JOBS  </a></li>
-         <li class="<?php if($active_menu=="shortlisted-") { echo "active"; } ?> " ><a href="javascript:;"><i class="fa fa-history" aria-hidden="true"></i>EMPLOYMENT HISTORY</a></li>
+         <li class="<?php if($active_menu=="history") { echo "active"; } ?> " ><a href="<?= base_url('jobseeker/history'); ?>"><i class="fa fa-history" aria-hidden="true"></i>EMPLOYMENT HISTORY</a></li>
          <li class="<?php if($active_menu=="education") { echo "active"; } ?> " ><a href="<?= base_url('jobseeker/education'); ?>"><i class="fa fa-graduation-cap" aria-hidden="true"></i>EDUCATION</a></li>
          <li class="<?php if($active_menu=="other") { echo "active"; } ?> " ><a href="<?= base_url('jobseeker/other'); ?>"><i class="fa fa-ravelry" aria-hidden="true"></i>OTHER</a></li>
         <!--  <li><a href="message.html"><i class="fa fa-envelope-open"></i>messages</a></li>

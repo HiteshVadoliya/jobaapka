@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 05, 2020 at 07:17 AM
+-- Generation Time: Jan 08, 2020 at 05:53 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -105,6 +105,40 @@ CREATE TABLE `ci_sessions` (
   `last_activity` int(10) UNSIGNED NOT NULL DEFAULT '0',
   `user_data` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `consultin`
+--
+
+CREATE TABLE `consultin` (
+  `id` int(11) NOT NULL,
+  `employer_id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `con_contact` varchar(255) NOT NULL,
+  `con_email` varchar(255) NOT NULL,
+  `con_mobile` varchar(255) NOT NULL,
+  `con_company_name` varchar(255) NOT NULL,
+  `con_problem` text NOT NULL,
+  `con_appointment` varchar(255) NOT NULL,
+  `con_office_address` varchar(255) NOT NULL,
+  `con_appointment_time` varchar(255) NOT NULL,
+  `con_other` text NOT NULL,
+  `status` tinyint(1) NOT NULL COMMENT '0-no 1-yes',
+  `isDelete` tinyint(4) NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `consultin`
+--
+
+INSERT INTO `consultin` (`id`, `employer_id`, `title`, `con_contact`, `con_email`, `con_mobile`, `con_company_name`, `con_problem`, `con_appointment`, `con_office_address`, `con_appointment_time`, `con_other`, `status`, `isDelete`, `created_at`, `updated_at`) VALUES
+(2, 7, '', '1', '2', '3', '4', '5', 'our_office', '6', '7', '8', 0, 0, '2020-01-08 21:42:17', '0000-00-00 00:00:00'),
+(3, 7, '', '1', '2', '3', '4', '5', 'our_office', '6', '7', '8', 0, 0, '2020-01-08 21:42:53', '0000-00-00 00:00:00'),
+(4, 7, '', '5', '6', '4', '8', '4564', 'our_office', 'Shastrinagar st no-4, Nr. gandhigram, Rajkot', 'asdf', 'asd', 0, 0, '2020-01-08 21:43:09', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -474,11 +508,13 @@ CREATE TABLE `education` (
 --
 
 INSERT INTO `education` (`id`, `title`, `slug`, `seq`, `status`, `isDelete`, `created_at`, `updated_at`) VALUES
-(1, 'Education 1', 'education-1', 1, 1, 0, '2019-12-14 11:21:17', '0000-00-00 00:00:00'),
-(2, 'Education 2', 'education-2', 1, 1, 0, '2019-12-14 11:21:23', '0000-00-00 00:00:00'),
-(3, 'Education 3', 'education-3', 1, 1, 0, '2019-12-14 11:21:27', '0000-00-00 00:00:00'),
-(4, 'Education 4', 'education-4', 1, 1, 0, '2019-12-14 11:21:30', '0000-00-00 00:00:00'),
-(5, 'Education 5', 'education-5', 1, 1, 0, '2019-12-14 11:21:34', '0000-00-00 00:00:00');
+(1, 'S.S.C. (10Th)', 'ssc-10th', 1, 1, 0, '2019-12-14 11:21:17', '2020-01-06 06:28:00'),
+(2, 'S.H.C. (12th)', 'shc-12th', 1, 1, 0, '2019-12-14 11:21:23', '2020-01-06 06:29:59'),
+(3, 'Biochemistry (BS)', 'biochemistry-bs', 1, 1, 0, '2019-12-14 11:21:27', '2020-01-06 06:31:07'),
+(4, 'Biology (BS, BA)', 'biology-bs-ba', 1, 1, 0, '2019-12-14 11:21:30', '2020-01-06 06:31:32'),
+(5, 'Civil Engineering', 'civil-engineering', 1, 1, 0, '2019-12-14 11:21:34', '2020-01-06 06:31:48'),
+(6, 'Computer Science', 'computer-science', 1, 1, 0, '2020-01-06 06:32:04', '0000-00-00 00:00:00'),
+(7, 'Criminal Justice (AS)', 'criminal-justice-as', 1, 1, 0, '2020-01-06 06:32:16', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -559,17 +595,21 @@ CREATE TABLE `hwt_user` (
   `country_id` int(11) NOT NULL,
   `shortlist` varchar(255) NOT NULL,
   `applied_job` varchar(255) NOT NULL,
-  `shortlist_employer` text NOT NULL
+  `shortlist_employer` text NOT NULL,
+  `history` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `hwt_user`
 --
 
-INSERT INTO `hwt_user` (`id`, `type`, `fname`, `lname`, `img_src`, `email`, `password`, `pass_txt`, `company_name`, `job_function`, `industry`, `job_location`, `exp_year`, `exp_month`, `username`, `mobile`, `phone`, `home_town`, `city`, `gender`, `marital_status`, `bdate`, `edu`, `occupation`, `device_name`, `device_type`, `device_token`, `device_id`, `auth_key`, `status`, `isDelete`, `created_at`, `updated_at`, `created_timestamp`, `updated_timestamp`, `address`, `state`, `zip`, `is_registere`, `is_alive`, `language_id`, `verify_string`, `fbid`, `gid`, `country_id`, `shortlist`, `applied_job`, `shortlist_employer`) VALUES
-(7, 'employer', 'Dhirubhai', '', 'reliance-petroleum-vadu-vadodara-petrol-pumps-reliance-6pm5f01og2.jpg', 'dhiru@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '123456', 'Reliance', '1', '1', '1', '', '', '', '123123132', 0, '', '0', 'M', 0, '0000-00-00', '', '', '', '', '', '', '', 1, 0, '2019-12-24 19:59:17', '0000-00-00 00:00:00', 0, 0, '', '', '', 0, 0, 1, '915226', '', '', 0, '3', '', ''),
-(8, 'employer', 'Ratan TATA', '', 'Tata-Group-logo-3840x2160.png', 'tata@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '123456', 'TATA Motors', '1', '1', '1', '', '', '', '9898989898', 0, '', '0', 'M', 0, '0000-00-00', '', '', '', '', '', '', '', 1, 0, '2019-12-24 20:00:06', '0000-00-00 00:00:00', 0, 0, '', '', '', 0, 0, 1, '343442', '', '', 0, '', '', ''),
-(9, 'jobseeker', 'Hitesh', '', '20160506_193645.jpg', 'hitesh@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '123456', '', '', '', '3', '1', '1', '', '9898905130', 0, '', 'Rajkot', 'M', 0, '0000-00-00', '', '', '', '', '', '', '', 1, 0, '2019-12-24 21:25:46', '0000-00-00 00:00:00', 0, 0, 'gandhigram', '', '360007', 0, 0, 1, '', '', '', 100, '4,3,2,1', '3', '');
+INSERT INTO `hwt_user` (`id`, `type`, `fname`, `lname`, `img_src`, `email`, `password`, `pass_txt`, `company_name`, `job_function`, `industry`, `job_location`, `exp_year`, `exp_month`, `username`, `mobile`, `phone`, `home_town`, `city`, `gender`, `marital_status`, `bdate`, `edu`, `occupation`, `device_name`, `device_type`, `device_token`, `device_id`, `auth_key`, `status`, `isDelete`, `created_at`, `updated_at`, `created_timestamp`, `updated_timestamp`, `address`, `state`, `zip`, `is_registere`, `is_alive`, `language_id`, `verify_string`, `fbid`, `gid`, `country_id`, `shortlist`, `applied_job`, `shortlist_employer`, `history`) VALUES
+(7, 'employer', 'Dhirubhai', '', 'reliance-petroleum-vadu-vadodara-petrol-pumps-reliance-6pm5f01og2.jpg', 'dhiru@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '123456', 'Reliance', '1', '1', '1', '', '', '', '123123132', 0, '', '0', 'M', 0, '0000-00-00', '', '', '', '', '', '', '', 1, 0, '2019-12-24 19:59:17', '0000-00-00 00:00:00', 0, 0, '', '', '', 0, 0, 1, '915226', '', '', 0, '3', '', '', ''),
+(8, 'employer', 'Ratan TATA', '', 'Tata-Group-logo-3840x2160.png', 'tata@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '123456', 'TATA Motors', '1', '1', '1', '', '', '', '9898989898', 0, '', '0', 'M', 0, '0000-00-00', '', '', '', '', '', '', '', 1, 0, '2019-12-24 20:00:06', '0000-00-00 00:00:00', 0, 0, '', '', '', 0, 0, 1, '343442', '', '', 0, '', '', '', ''),
+(9, 'jobseeker', '', '', '', 'hitesh@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '123456', '', '', '', '3', '1', '1', '', '', 0, '', 'Rajkot', 'M', 0, '0000-00-00', '', '', '', '', '', '', '', 1, 0, '2019-12-24 21:25:46', '0000-00-00 00:00:00', 0, 0, 'gandhigram', '', '360007', 0, 0, 1, '', '', '', 100, '4,3,2,1', '3', '', '[\"11\\r\\nasd\\r\\nfa\\r\\nsdf\",\"33333\"]'),
+(10, 'employer', 'Prem', '', 'man-with-thick-full-healthy-beard4.jpg', 'codermitali101@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '123456', 'Susania', '1', '13', '3', '', '', '', '9898989898', 0, '', '', 'M', 0, '0000-00-00', '', '', '', '', '', '', '', 1, 0, '2020-01-06 11:08:33', '0000-00-00 00:00:00', 0, 0, '', '', '', 0, 0, 1, '', '', '', 0, '7', '', '', ''),
+(11, 'jobseeker', 'Job test', '', '', 'codermitali102@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '123456', '', '', '', '2', '2', '5', '', '9898989899', 0, '', '', 'M', 0, '0000-00-00', '', '', '', '', '', '', '', 0, 0, '2020-01-06 12:09:07', '0000-00-00 00:00:00', 0, 0, '', '', '', 0, 0, 1, '521376', '', '', 0, '', '', '', ''),
+(12, 'jobseeker', 'Chandni', '', '', 'coderchandni101@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '123456', '', '', '', '2', '2', '5', '', '9898989822', 0, '', 'Mumbai', 'M', 0, '0000-00-00', '', '', '', '', '', '', '', 1, 0, '2020-01-06 12:12:02', '0000-00-00 00:00:00', 0, 0, 'B P t colony Andheri Mumbai', '', '400053', 0, 0, 1, '', '', '', 100, '7', '7,8,9', '', '');
 
 -- --------------------------------------------------------
 
@@ -593,9 +633,19 @@ CREATE TABLE `industry` (
 --
 
 INSERT INTO `industry` (`id`, `title`, `icon`, `img_src`, `status`, `isDelete`, `created_at`, `updated_at`) VALUES
-(1, 'Industry 1', '<i class=\"fa fa-briefcase\"></i>', '5df2626a3925c_account_cat.jpg', 1, 0, '2019-12-12 16:53:15', '2019-12-12 16:54:05'),
-(2, 'Industry 2', '<i class=\"fa fa-briefcase\"></i>', '5df262a97054c_account_cat.jpg', 1, 0, '2019-12-12 16:54:18', '0000-00-00 00:00:00'),
-(3, 'Industry 3', '<i class=\"fa fa-briefcase\"></i>', '5df262bcb0eff_design_art.jpg', 1, 0, '2019-12-12 16:54:38', '2019-12-14 16:16:49');
+(1, 'Financial Services & Software', '<i class=\"fa fa-briefcase\"></i>', '5df2626a3925c_account_cat.jpg', 1, 0, '2019-12-12 16:53:15', '2020-01-06 05:46:14'),
+(2, 'Telecom/ Internet', '<i class=\"fa fa-briefcase\"></i>', '5e12ce547eb0c_images_hwt_(5).jpg', 1, 0, '2019-12-12 16:54:18', '2020-01-06 06:06:13'),
+(3, 'Textile', '<i class=\"fa fa-briefcase\"></i>', '5df262bcb0eff_design_art.jpg', 1, 1, '2019-12-12 16:54:38', '2020-01-06 11:36:38'),
+(4, 'Engineering Services', 'service', '5e12cb64b392a_Insights-MoBT-44-Engineering-the-switch-to-digital-1536x1536-400_Standard.jpg', 1, 0, '2020-01-06 05:53:43', '0000-00-00 00:00:00'),
+(5, 'Textile', 'Textile', '5e12cc206cfbf_images.jpg', 1, 0, '2020-01-06 05:56:51', '0000-00-00 00:00:00'),
+(6, 'Digital CX', 'Digital CX', '5e12cc5e09c74_images_hwt_(1).jpg', 1, 0, '2020-01-06 05:57:50', '0000-00-00 00:00:00'),
+(7, 'Tyres Industry', 'Tyres Industry', '5e12cca141fa3_Tyre-black-1-1.png', 1, 0, '2020-01-06 05:58:58', '0000-00-00 00:00:00'),
+(8, 'Banking', 'Banking', '5e12ccdeaa2b7_bl29bankingvirtualpix.jpg', 1, 0, '2020-01-06 05:59:59', '0000-00-00 00:00:00'),
+(9, 'Building Materials', 'Building Materials', '5e12cd1ec6e6f_images_hwt_(2).jpg', 1, 0, '2020-01-06 06:01:03', '0000-00-00 00:00:00'),
+(10, 'BPO/KPO', 'BPO/KPO', '5e12cd6730cd4_images_hwt_(3).jpg', 1, 0, '2020-01-06 06:02:15', '0000-00-00 00:00:00'),
+(11, 'Jewellery Industry', 'Jewellery Industry', '5e12cddbba804_images_hwt_(4).jpg', 1, 0, '2020-01-06 06:04:12', '0000-00-00 00:00:00'),
+(12, 'Healthcare/Pharma', 'Healthcare/Pharma', '5e12ce190481e_images.png', 1, 0, '2020-01-06 06:05:13', '0000-00-00 00:00:00'),
+(13, 'Software Services', 'Software Services', '5e12cebd9e2a2_it-software-services.jpg', 1, 0, '2020-01-06 06:07:59', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -673,6 +723,7 @@ CREATE TABLE `job` (
   `job_additional_skill` text NOT NULL,
   `job_descr` text NOT NULL,
   `job_additional_role` text NOT NULL,
+  `employer_tags` text NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT '1' COMMENT '0-no 1-yes',
   `pay_info` tinyint(4) NOT NULL DEFAULT '1',
   `isDelete` tinyint(1) NOT NULL,
@@ -684,13 +735,17 @@ CREATE TABLE `job` (
 -- Dumping data for table `job`
 --
 
-INSERT INTO `job` (`job_id`, `employer_id`, `job_date`, `job_date_expired`, `job_title`, `slug`, `job_industry`, `job_job_location`, `job_job_function`, `job_education`, `job_exp_year`, `job_exp_month`, `job_salary`, `job_skill`, `job_additional_skill`, `job_descr`, `job_additional_role`, `status`, `pay_info`, `isDelete`, `created_at`, `updated_at`) VALUES
-(1, 8, '2019-12-18', '2019-12-26', 'PHP Job By TATA', '', '1,2', '2,4', '2,3,5', '2,3,5', 1, 1, '5000', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 1, 1, 0, '2019-12-24 20:15:43', '2019-12-24 20:18:50'),
-(2, 8, '2019-12-18', '2019-12-26', 'Laravel Job By TATA', '', '1,2,3', '1,3,4', '1,3,4', '1,2,3,4', 1, 2, '10000', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 1, 1, 0, '2019-12-24 20:19:46', '0000-00-00 00:00:00'),
-(3, 7, '2019-12-20', '2019-12-18', 'PHP job By Reliance', '', '1,2,3', '2,4,5', '2,5', '2,4', 1, 2, '15000', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\r\n\r\nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\r\n\r\nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 1, 1, 0, '2019-12-24 21:18:03', '0000-00-00 00:00:00'),
-(4, 7, '2019-12-19', '2019-12-31', 'Laravel Job By Reliance', '', '1,2', '1,2,3', '1,2', '1,2', 1, 3, '35000', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 1, 1, 0, '2019-12-24 21:18:52', '0000-00-00 00:00:00'),
-(5, 7, '2020-01-15', '2020-01-07', 'hellow', '', '1,2,3', '2,3,4', '1,3,4,5', '2', 1, 2, '5000', 'sdf', 'asdf', 'asdf', 'asd', 1, 1, 0, '2020-01-04 22:26:54', '0000-00-00 00:00:00'),
-(6, 7, '2020-01-22', '2020-01-28', 'tes', '', '1,2,3', '1,2,3,4', '1,2,3', '2,3', 14, 3, '222', 'asd', 'asdf', 'sdf', '', 1, 1, 0, '2020-01-04 22:57:27', '0000-00-00 00:00:00');
+INSERT INTO `job` (`job_id`, `employer_id`, `job_date`, `job_date_expired`, `job_title`, `slug`, `job_industry`, `job_job_location`, `job_job_function`, `job_education`, `job_exp_year`, `job_exp_month`, `job_salary`, `job_skill`, `job_additional_skill`, `job_descr`, `job_additional_role`, `employer_tags`, `status`, `pay_info`, `isDelete`, `created_at`, `updated_at`) VALUES
+(1, 8, '2019-12-18', '2019-12-26', 'PHP Job By TATA', '', '1,2', '2,4', '2,3,5', '2,3,5', 1, 1, '5000', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '', 1, 1, 0, '2019-12-24 20:15:43', '2019-12-24 20:18:50'),
+(2, 8, '2019-12-18', '2019-12-26', 'Laravel Job By TATA', '', '1,2,3', '1,3,4', '1,3,4', '1,2,3,4', 1, 2, '10000', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '', 1, 1, 0, '2019-12-24 20:19:46', '0000-00-00 00:00:00'),
+(3, 7, '2019-12-20', '2019-12-18', 'PHP job By Reliance', '', '1,2', '2,4,5', '2,5', '2,4', 1, 2, '15000', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\r\n\r\nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\r\n\r\nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'php,laravel', 1, 1, 0, '2019-12-24 21:18:03', '2020-01-08 20:54:32'),
+(4, 7, '2019-12-19', '2019-12-31', 'Laravel Job By Reliance', '', '1,2', '1,2,3', '1,2', '1,2', 1, 3, '35000', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '', 1, 1, 0, '2019-12-24 21:18:52', '0000-00-00 00:00:00'),
+(5, 7, '2020-01-15', '2020-01-07', 'hellow', '', '1,2,3', '2,3,4', '1,3,4,5', '2', 1, 2, '5000', 'sdf', 'asdf', 'asdf', 'asd', '', 1, 1, 0, '2020-01-04 22:26:54', '0000-00-00 00:00:00'),
+(6, 7, '2020-01-22', '2020-01-28', 'tes', '', '1,2,3', '1,2,3,4', '1,2,3', '2,3', 14, 3, '222', 'asd', 'asdf', 'sdf', '', '', 1, 1, 0, '2020-01-04 22:57:27', '0000-00-00 00:00:00'),
+(7, 10, '2020-01-06', '2020-07-17', 'Data Entry', '', '13', '3', '2', '2', 2, 4, '20000', 'test job', '', 'Test Job', 'Test Job', '', 1, 1, 0, '2020-01-06 12:05:12', '0000-00-00 00:00:00'),
+(8, 10, '2020-01-06', '2020-07-17', 'Data Entry', '', '13', '3', '2', '2', 2, 4, '20000', 'test job', '', 'Test Job', 'Test Job', '', 1, 1, 0, '2020-01-06 12:05:18', '0000-00-00 00:00:00'),
+(9, 10, '2020-01-06', '2020-07-17', 'Data Entry', '', '13', '3', '2', '2', 2, 4, '20000', 'test job', '', 'Test Job', 'Test Job', '', 1, 1, 0, '2020-01-06 12:05:25', '0000-00-00 00:00:00'),
+(10, 10, '2020-01-06', '2020-07-17', 'Data Entry', '', '13', '3', '2', '2', 2, 4, '20000', 'test job', '', 'Test Job', 'Test Job', '', 1, 1, 0, '2020-01-06 12:05:32', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -763,6 +818,7 @@ CREATE TABLE `jobseeker_skill` (
   `location` varchar(255) NOT NULL,
   `industry` varchar(255) NOT NULL,
   `category` varchar(255) NOT NULL,
+  `jobseeker_tags` text NOT NULL,
   `img_src` varchar(255) NOT NULL,
   `status` tinyint(1) NOT NULL COMMENT '0-no 1-yes',
   `isDelete` tinyint(4) NOT NULL,
@@ -774,8 +830,9 @@ CREATE TABLE `jobseeker_skill` (
 -- Dumping data for table `jobseeker_skill`
 --
 
-INSERT INTO `jobseeker_skill` (`id`, `jobseeker_id`, `title`, `skill`, `exp_year`, `exp_month`, `designation`, `job_type`, `salary`, `job_function`, `location`, `industry`, `category`, `img_src`, `status`, `isDelete`, `created_at`, `updated_at`) VALUES
-(1, 9, 'PHP Developer', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 1, 2, '1,2,3', '1,2,3', '1,2,3,4,5', '1,2,3', '1,2,3', '2,3', '1,2,3', 'resume_hitesh.docx', 0, 0, '2019-12-24 21:46:58', '0000-00-00 00:00:00');
+INSERT INTO `jobseeker_skill` (`id`, `jobseeker_id`, `title`, `skill`, `exp_year`, `exp_month`, `designation`, `job_type`, `salary`, `job_function`, `location`, `industry`, `category`, `jobseeker_tags`, `img_src`, `status`, `isDelete`, `created_at`, `updated_at`) VALUES
+(1, 9, 'PHP Developer', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 1, 2, '1,2,3', '1,2,3', '1,2,3,4,5', '1,2,3', '1,2,3', '2', '1,2,3', 'php,html,laravel', 'resume_hitesh.docx', 0, 0, '2019-12-24 21:46:58', '0000-00-00 00:00:00'),
+(2, 12, 'profile title', 'test skill', 2, 2, '1,2', '1,2', '2', '1,2', '4,6', '5,8,10', '2,3', '', 'resume_hitesh1.docx', 0, 0, '2020-01-08 20:23:06', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -799,11 +856,11 @@ CREATE TABLE `job_function` (
 --
 
 INSERT INTO `job_function` (`id`, `title`, `slug`, `seq`, `status`, `isDelete`, `created_at`, `updated_at`) VALUES
-(1, 'Job Function 1', 'job-function-1', 1, 1, 0, '2019-12-14 11:07:46', '0000-00-00 00:00:00'),
-(2, 'Job Function 2', 'job-function-2', 1, 1, 0, '2019-12-14 11:07:52', '0000-00-00 00:00:00'),
-(3, 'Job Function 3', 'job-function-3', 1, 1, 0, '2019-12-14 11:07:55', '0000-00-00 00:00:00'),
-(4, 'Job Function 4', 'job-function-4', 1, 1, 0, '2019-12-14 11:07:59', '0000-00-00 00:00:00'),
-(5, 'Job Function 5', 'job-function-5', 1, 1, 0, '2019-12-14 11:08:02', '0000-00-00 00:00:00');
+(1, 'Computer operator', 'computer-operator', 1, 1, 0, '2019-12-14 11:07:46', '2020-01-06 06:13:58'),
+(2, 'Data Entry Operator', 'data-entry-operator', 1, 1, 0, '2019-12-14 11:07:52', '2020-01-06 06:14:18'),
+(3, 'Content Writer', 'content-writer', 1, 1, 0, '2019-12-14 11:07:55', '2020-01-06 06:14:43'),
+(4, 'Graphic Designer', 'graphic-designer', 1, 1, 0, '2019-12-14 11:07:59', '2020-01-06 06:15:01'),
+(5, 'HTML Designer', 'html-designer', 1, 1, 0, '2019-12-14 11:08:02', '2020-01-06 06:15:13');
 
 -- --------------------------------------------------------
 
@@ -855,11 +912,80 @@ CREATE TABLE `location` (
 --
 
 INSERT INTO `location` (`id`, `title`, `slug`, `seq`, `status`, `isDelete`, `created_at`, `updated_at`) VALUES
-(1, 'Location 1', 'location-1', 1, 1, 0, '2019-12-14 11:15:49', '0000-00-00 00:00:00'),
-(2, 'Location 2', 'location-2', 1, 1, 0, '2019-12-14 11:15:57', '0000-00-00 00:00:00'),
-(3, 'Location 3', 'location-3', 1, 1, 0, '2019-12-14 11:16:02', '0000-00-00 00:00:00'),
-(4, 'Location 4', 'location-4', 1, 1, 0, '2019-12-14 11:16:07', '0000-00-00 00:00:00'),
-(5, 'Location 5', 'location-5', 1, 1, 0, '2019-12-14 11:16:12', '0000-00-00 00:00:00');
+(1, 'Mumbai', 'mumbai', 1, 1, 0, '2019-12-14 11:15:49', '2020-01-06 06:15:39'),
+(2, 'Thane', 'thane', 1, 1, 0, '2019-12-14 11:15:57', '2020-01-06 06:15:50'),
+(3, 'Andheri West', 'andheri-west', 1, 1, 0, '2019-12-14 11:16:02', '2020-01-06 06:16:03'),
+(4, 'Bandra', 'bandra', 1, 1, 0, '2019-12-14 11:16:07', '2020-01-06 06:16:52'),
+(5, 'Worli', 'worli', 1, 1, 0, '2019-12-14 11:16:12', '2020-01-06 06:17:09'),
+(6, 'Juhu', 'juhu', 1, 1, 0, '2020-01-06 06:17:22', '0000-00-00 00:00:00'),
+(7, 'Lokhandwala', 'lokhandwala', 1, 1, 0, '2020-01-06 06:17:34', '0000-00-00 00:00:00'),
+(8, 'Lower Parel', 'lower-parel', 1, 1, 0, '2020-01-06 06:17:46', '0000-00-00 00:00:00'),
+(9, 'Konkan', 'konkan', 1, 1, 0, '2020-01-06 06:18:20', '0000-00-00 00:00:00'),
+(10, 'Kurla', 'kurla', 1, 1, 0, '2020-01-06 06:18:34', '0000-00-00 00:00:00'),
+(11, 'Borivali', 'borivali', 1, 1, 0, '2020-01-06 06:18:46', '0000-00-00 00:00:00'),
+(12, 'Altamount Road', 'altamount-road', 1, 1, 0, '2020-01-06 06:19:34', '0000-00-00 00:00:00'),
+(13, 'Hiranandani, Powai', 'hiranandani-powai', 1, 1, 0, '2020-01-06 06:19:46', '0000-00-00 00:00:00'),
+(14, 'Seven Bungalows, Versova', 'seven-bungalows-versova', 1, 1, 0, '2020-01-06 06:20:05', '0000-00-00 00:00:00'),
+(15, 'Breach Candy', 'breach-candy', 1, 1, 0, '2020-01-06 06:20:20', '0000-00-00 00:00:00'),
+(16, 'Cuffe Parade', 'cuffe-parade', 1, 1, 0, '2020-01-06 06:20:33', '0000-00-00 00:00:00'),
+(17, 'Byculla', 'byculla', 1, 1, 0, '2020-01-06 06:21:18', '0000-00-00 00:00:00'),
+(18, 'Colaba', 'colaba', 1, 1, 0, '2020-01-06 06:21:32', '0000-00-00 00:00:00'),
+(19, 'Chembur', 'chembur', 1, 1, 0, '2020-01-06 06:21:44', '0000-00-00 00:00:00'),
+(20, 'Dadar', 'dadar', 1, 1, 0, '2020-01-06 06:21:55', '0000-00-00 00:00:00'),
+(21, 'Dahisar', 'dahisar', 1, 1, 0, '2020-01-06 06:22:05', '0000-00-00 00:00:00'),
+(22, 'Dongri', 'dongri', 1, 1, 0, '2020-01-06 06:22:16', '0000-00-00 00:00:00'),
+(23, 'Elphinston Road', 'elphinston-road', 1, 1, 0, '2020-01-06 06:22:29', '0000-00-00 00:00:00'),
+(24, 'Gamdevi', 'gamdevi', 1, 1, 0, '2020-01-06 06:22:44', '0000-00-00 00:00:00'),
+(25, 'Goregaon', 'goregaon', 1, 1, 0, '2020-01-06 06:22:55', '0000-00-00 00:00:00'),
+(26, 'Ghatkopar', 'ghatkopar', 1, 1, 0, '2020-01-06 06:23:03', '0000-00-00 00:00:00'),
+(27, 'Jogeshwari', 'jogeshwari', 1, 1, 0, '2020-01-06 06:23:20', '0000-00-00 00:00:00'),
+(28, 'Kalbadevi', 'kalbadevi', 1, 1, 0, '2020-01-06 06:23:31', '0000-00-00 00:00:00'),
+(29, 'Kandivali', 'kandivali', 1, 1, 0, '2020-01-06 06:23:42', '0000-00-00 00:00:00'),
+(30, 'Khar', 'khar', 1, 1, 0, '2020-01-06 06:23:52', '0000-00-00 00:00:00'),
+(31, 'Kurla', 'kurla-1', 1, 1, 0, '2020-01-06 06:24:03', '0000-00-00 00:00:00'),
+(32, 'Mandavi', 'mandavi', 1, 1, 0, '2020-01-06 06:24:22', '0000-00-00 00:00:00'),
+(33, 'Mazgaon', 'mazgaon', 1, 1, 0, '2020-01-06 06:24:34', '0000-00-00 00:00:00'),
+(34, 'Matunga', 'matunga', 1, 1, 0, '2020-01-06 06:24:45', '0000-00-00 00:00:00'),
+(35, 'Marine Lines', 'marine-lines', 1, 1, 0, '2020-01-06 06:24:54', '0000-00-00 00:00:00'),
+(36, 'Malad', 'malad', 1, 1, 0, '2020-01-06 06:25:04', '0000-00-00 00:00:00'),
+(37, 'Mulund', 'mulund', 1, 1, 0, '2020-01-06 06:25:13', '0000-00-00 00:00:00'),
+(38, 'Mahalakshmi', 'mahalakshmi', 1, 1, 0, '2020-01-06 06:25:29', '0000-00-00 00:00:00'),
+(39, 'Nariman Point', 'nariman-point', 1, 1, 0, '2020-01-06 06:25:40', '0000-00-00 00:00:00'),
+(40, 'Prabhadevi', 'prabhadevi', 1, 1, 0, '2020-01-06 06:25:56', '0000-00-00 00:00:00'),
+(41, 'Saki Naka', 'saki-naka', 1, 1, 0, '2020-01-06 06:26:05', '0000-00-00 00:00:00'),
+(42, 'Sahar', 'sahar', 1, 1, 0, '2020-01-06 06:26:15', '0000-00-00 00:00:00'),
+(43, 'Trombay', 'trombay', 1, 1, 0, '2020-01-06 06:26:26', '0000-00-00 00:00:00'),
+(44, 'Turbhe', 'turbhe', 1, 1, 0, '2020-01-06 06:26:36', '0000-00-00 00:00:00'),
+(45, 'Vashi', 'vashi', 1, 1, 0, '2020-01-06 06:26:47', '0000-00-00 00:00:00'),
+(46, 'Vile Parle', 'vile-parle', 1, 1, 0, '2020-01-06 06:26:55', '0000-00-00 00:00:00'),
+(47, 'Vikhroli', 'vikhroli', 1, 1, 0, '2020-01-06 06:27:05', '0000-00-00 00:00:00'),
+(48, 'Wadala', 'wadala', 1, 1, 0, '2020-01-06 06:27:14', '0000-00-00 00:00:00'),
+(49, 'Yogakshema', 'yogakshema', 1, 1, 0, '2020-01-06 06:27:24', '0000-00-00 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `newsletter`
+--
+
+CREATE TABLE `newsletter` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT '1' COMMENT '0-no 1-yes',
+  `isDelete` tinyint(1) NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+
+--
+-- Dumping data for table `newsletter`
+--
+
+INSERT INTO `newsletter` (`id`, `title`, `status`, `isDelete`, `created_at`, `updated_at`) VALUES
+(1, 'a@gmail.com', 1, 0, '2020-01-07 22:32:27', '2020-01-07 22:45:39'),
+(2, 'sa@gmail.com', 1, 0, '2020-01-07 22:40:37', '2020-01-07 22:45:40'),
+(3, 'asdfas@gmail.com', 1, 0, '2020-01-07 22:40:57', '2020-01-07 22:45:41'),
+(4, 'xxx@gmail.com', 1, 0, '2020-01-07 22:46:11', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -1302,7 +1428,10 @@ INSERT INTO `tbl_last_login` (`id`, `userId`, `sessionData`, `machineIp`, `userA
 (88, 11, '{\"role\":\"1\",\"roleText\":\"System Administrator\",\"name\":\"Admin\"}', '::1', 'Chrome 78.0.3904.108', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36', 'Windows 8.1', '2019-12-13 08:06:17'),
 (89, 11, '{\"role\":\"1\",\"roleText\":\"System Administrator\",\"name\":\"Admin\"}', '::1', 'Chrome 78.0.3904.108', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36', 'Windows 8.1', '2019-12-14 09:35:53'),
 (90, 11, '{\"role\":\"1\",\"roleText\":\"System Administrator\",\"name\":\"Admin\"}', '::1', 'Chrome 78.0.3904.108', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36', 'Windows 8.1', '2019-12-14 15:14:19'),
-(91, 11, '{\"role\":\"1\",\"roleText\":\"System Administrator\",\"name\":\"Admin\"}', '::1', 'Chrome 78.0.3904.108', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36', 'Windows 8.1', '2019-12-15 07:08:09');
+(91, 11, '{\"role\":\"1\",\"roleText\":\"System Administrator\",\"name\":\"Admin\"}', '::1', 'Chrome 78.0.3904.108', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36', 'Windows 8.1', '2019-12-15 07:08:09'),
+(92, 11, '{\"role\":\"1\",\"roleText\":\"System Administrator\",\"name\":\"Admin\"}', '43.241.146.130', 'Chrome 79.0.3945.88', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36', 'Windows 10', '2020-01-06 11:12:28'),
+(93, 11, '{\"role\":\"1\",\"roleText\":\"System Administrator\",\"name\":\"Admin\"}', '43.241.146.130', 'Chrome 79.0.3945.88', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36', 'Windows 10', '2020-01-06 13:26:59'),
+(94, 11, '{\"role\":\"1\",\"roleText\":\"System Administrator\",\"name\":\"Admin\"}', '::1', 'Chrome 79.0.3945.88', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36', 'Windows 8.1', '2020-01-07 21:02:36');
 
 -- --------------------------------------------------------
 
@@ -1484,6 +1613,12 @@ ALTER TABLE `ci_sessions`
   ADD KEY `last_activity_idx` (`last_activity`);
 
 --
+-- Indexes for table `consultin`
+--
+ALTER TABLE `consultin`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `contact`
 --
 ALTER TABLE `contact`
@@ -1577,6 +1712,12 @@ ALTER TABLE `job_type`
 -- Indexes for table `location`
 --
 ALTER TABLE `location`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `newsletter`
+--
+ALTER TABLE `newsletter`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -1701,6 +1842,11 @@ ALTER TABLE `apply_job_without_login`
 ALTER TABLE `category`
   MODIFY `cat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
+-- AUTO_INCREMENT for table `consultin`
+--
+ALTER TABLE `consultin`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
 -- AUTO_INCREMENT for table `contact`
 --
 ALTER TABLE `contact`
@@ -1724,7 +1870,7 @@ ALTER TABLE `designation_level`
 -- AUTO_INCREMENT for table `education`
 --
 ALTER TABLE `education`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `gallery`
 --
@@ -1734,12 +1880,12 @@ ALTER TABLE `gallery`
 -- AUTO_INCREMENT for table `hwt_user`
 --
 ALTER TABLE `hwt_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `industry`
 --
 ALTER TABLE `industry`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT for table `inquiry`
 --
@@ -1749,7 +1895,7 @@ ALTER TABLE `inquiry`
 -- AUTO_INCREMENT for table `job`
 --
 ALTER TABLE `job`
-  MODIFY `job_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `job_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `jobseeker_edu`
 --
@@ -1764,7 +1910,7 @@ ALTER TABLE `jobseeker_other`
 -- AUTO_INCREMENT for table `jobseeker_skill`
 --
 ALTER TABLE `jobseeker_skill`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `job_function`
 --
@@ -1779,7 +1925,12 @@ ALTER TABLE `job_type`
 -- AUTO_INCREMENT for table `location`
 --
 ALTER TABLE `location`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+--
+-- AUTO_INCREMENT for table `newsletter`
+--
+ALTER TABLE `newsletter`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `opportunity`
 --
@@ -1834,7 +1985,7 @@ ALTER TABLE `slider`
 -- AUTO_INCREMENT for table `tbl_last_login`
 --
 ALTER TABLE `tbl_last_login`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
 --
 -- AUTO_INCREMENT for table `tbl_reset_password`
 --

@@ -246,6 +246,13 @@
                                     </div>
                                  </div>
 
+                                 <div class="single-resume-feild ">
+                                    <div class="single-input">
+                                       <label for="j_title">tags:</label>
+                                       <input name="employer_tags" id="employer_tags" class="form-control tagsinput_text" type="text" value="<?= (isset($edit) && !empty($edit['employer_tags'])) ? $edit['employer_tags'] : '';  ?>" data-role="tagsinput" />
+                                    </div>
+                                 </div>
+
 
                                  
                               </div>

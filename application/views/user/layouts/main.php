@@ -46,6 +46,9 @@
       <script src="<?= FRONT_JS; ?>bootstrap-notify.js"></script>
 
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
+
+      <link rel="stylesheet" href="<?= FRONT ?>tagsinput/bootstrap-tagsinput.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rainbow/1.2.0/themes/github.css">
    </head>
 
 
@@ -108,6 +111,11 @@
          })();
          </script>
          <?php } ?>
+
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
+         <script src="<?= FRONT ?>tagsinput/bootstrap-tagsinput.min.js"></script>
+
+         
          
          <!--End of Tawk.to Script-->
       </body>

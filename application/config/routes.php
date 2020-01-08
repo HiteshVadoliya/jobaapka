@@ -57,6 +57,7 @@ $route['choose_signup'] = 'Home/choose_signup';
 $route['login'] = 'Home/login';
 $route['about'] = 'Home/about';
 $route['whyus'] = 'Home/whyus';
+$route['industry'] = 'Home/industry';
 $route['jobseeker/(:any)'] = 'Home/jobseeker/$1';
 $route['employer/(:any)'] = 'Home/employer/$1';
 $route['employer/(:any)/(:any)'] = 'Home/employer/$1/$2';
@@ -200,6 +201,12 @@ $route[ADMIN.'category'] = ADMIN."Category";
 $route[ADMIN.'category/add'] = ADMIN."Category/showForm";
 $route[ADMIN.'category/edit/(:any)'] = ADMIN."Category/showForm/$1";
 $route[ADMIN.'category/save'] = ADMIN."Category/save";
+
+/*Newsletter */
+$route[ADMIN.'neewsletter'] = ADMIN."Newsletter";
+/*$route[ADMIN.'neewsletter/add'] = ADMIN."Newsletter/showForm";
+$route[ADMIN.'neewsletter/edit/(:any)'] = ADMIN."Newsletter/showForm/$1";
+$route[ADMIN.'neewsletter/save'] = ADMIN."Newsletter/save";*/
 
 /*$route[ADMIN.'terms/(:any)'] = ADMIN."CMS/about/3";
 $route[ADMIN.'terms/(:any)/save'] = ADMIN."CMS/save_about";

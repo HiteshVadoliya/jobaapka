@@ -164,3 +164,26 @@
 .shortlist_active {
   color: #ccff00 !important;
 }
+.bootstrap-tagsinput .tag {
+    background: #25ad60;
+    padding: 5px 4px 6px 9px;
+    margin-right: 5px;
+}
+.tagsinput_text {
+  padding: 10px;
+}
+
+.bootstrap-tagsinput {
+    background-color: #fff;
+    border: 2px solid #e8ecec;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    display: inline-block;
+    padding: 4px 6px;
+    color: #555;
+    vertical-align: middle;
+    border-radius: 4px;
+    max-width: 100%;
+    line-height: 34px !important;
+    cursor: text;
+    width: 100%;
+}

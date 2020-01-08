@@ -14,7 +14,6 @@
               <div class="company-list-details">
                  <h3><a href="javascript:;"><?= $j_value['job_title'] ?></a></h3>
                  <p class="company-state"><i class="fa fa-building-o" aria-hidden="true"></i> Company name : <?= $j_value['company_name']; ?></p>
-                 <p class="open-icon"><i class="fa fa-clock-o"></i>Recruiter Company name ???????</p>
                  <p class="open-icon"><i class="fa fa-history" aria-hidden="true"></i> Experience : <?= $j_value['job_exp_year']." year ".$j_value['job_exp_month']." month " ?></p>
                  <p class="varify"><i class="fa fa-money" aria-hidden="true"></i> Fixed price : <?= CURR_SYMBOL.$j_value['job_salary']; ?></p>
                  <p class="company-state"><i class="fa fa-map-marker"></i> Location : <?php echo $this->HWT->get_explode("location","title",$j_value['job_job_location']); ?></p>

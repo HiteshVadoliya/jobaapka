@@ -73,17 +73,7 @@
                <div class="col-md-4">
                   <a href="http://www.burgerkingindia.in/" target="_blank"><img src="<?= IMG_HOME ?>/job_3.png" style="border-radius: 1%;" /></a>
                </div>
-                <!-- <div class="single-happy-freelancer">
-                   <img src="<?= IMG_HOME ?>/1.png" alt="testimonial 1" style="border-radius: 1%;" />
-                </div>
-                <div class="single-happy-freelancer">
-                   <img src="<?= IMG_HOME ?>/2.png" alt="testimonial 1" style="border-radius: 1%;" />
-                </div>
-                <div class="single-happy-freelancer">
-                   <img src="<?= IMG_HOME ?>/3.jpg" alt="testimonial 1" style="border-radius: 1%;" />
-                </div> -->
-                
-             
+               
           </div>
        </div>
     </div>
@@ -100,261 +90,54 @@
             </div>
          </div>
       </div>
-      <div class="row">         
-         <div class="col-lg-2 col-md-6 col-sm-6">
-            <a href="#" class="single-category-holder account_cat">
-               <div class="category-holder-icon">
-                  <i class="fa fa-briefcase"></i>
-               </div>
-               <div class="category-holder-text">
-                  <h3>Accounting & Finance</h3>
-               </div>
-               <img src="<?= FRONT_IMG2 ?>account_cat.jpg" alt="category" />
-            </a>
-         </div>
-         <div class="col-lg-2 col-md-6 col-sm-6">
-            <a href="#" class="single-category-holder design_cat">
-               <div class="category-holder-icon">
-                  <i class="fa fa-pencil-square-o"></i>
-               </div>
-               <div class="category-holder-text">
-                  <h3>Design, Art & Multimedia</h3>
-               </div>
-               <img src="<?= FRONT_IMG2 ?>design_art.jpg" alt="category" />
-            </a>
-         </div>
-         <div class="col-lg-2 col-md-6 col-sm-6">
-            <a href="#" class="single-category-holder restaurant_cat">
-               <div class="category-holder-icon">
-                  <i class="fa fa-cutlery"></i>
-               </div>
-               <div class="category-holder-text">
-                  <h3>Restaurant / Food Service</h3>
-               </div>
-               <img src="<?= FRONT_IMG2 ?>restaurent.jpg" alt="category" />
-            </a>
-         </div>
-         <div class="col-lg-2 col-md-6 col-sm-6">
-            <a href="#" class="single-category-holder tech_cat">
-               <div class="category-holder-icon">
-                  <i class="fa fa-code"></i>
-               </div>
-               <div class="category-holder-text">
-                  <h3>Programming & Tech</h3>
-               </div>
-               <img src="<?= FRONT_IMG2 ?>programing_cat.jpg" alt="category" />
-            </a>
-         </div>
-         <div class="col-lg-2 col-md-6 col-sm-6">
-            <a href="#" class="single-category-holder tech_cat">
-               <div class="category-holder-icon">
-                  <i class="fa fa-code"></i>
-               </div>
-               <div class="category-holder-text">
-                  <h3>Programming & Tech</h3>
-               </div>
-               <img src="<?= FRONT_IMG2 ?>programing_cat.jpg" alt="category" />
-            </a>
-         </div>
-         <div class="col-lg-2 col-md-6 col-sm-6">
-            <a href="#" class="single-category-holder tech_cat">
-               <div class="category-holder-icon">
-                  <i class="fa fa-code"></i>
-               </div>
-               <div class="category-holder-text">
-                  <h3>Programming & Tech</h3>
-               </div>
-               <img src="<?= FRONT_IMG2 ?>programing_cat.jpg" alt="category" />
-            </a>
-         </div>
-      </div>
-      <div class="row">         
-         <div class="col-lg-2 col-md-6 col-sm-6">
-            <a href="#" class="single-category-holder account_cat">
-               <div class="category-holder-icon">
-                  <i class="fa fa-briefcase"></i>
-               </div>
-               <div class="category-holder-text">
-                  <h3>Accounting & Finance</h3>
-               </div>
-               <img src="<?= FRONT_IMG2 ?>account_cat.jpg" alt="category" />
-            </a>
-         </div>
-         <div class="col-lg-2 col-md-6 col-sm-6">
-            <a href="#" class="single-category-holder design_cat">
-               <div class="category-holder-icon">
-                  <i class="fa fa-pencil-square-o"></i>
-               </div>
-               <div class="category-holder-text">
-                  <h3>Design, Art & Multimedia</h3>
-               </div>
-               <img src="<?= FRONT_IMG2 ?>design_art.jpg" alt="category" />
-            </a>
-         </div>
-         <div class="col-lg-2 col-md-6 col-sm-6">
-            <a href="#" class="single-category-holder restaurant_cat">
-               <div class="category-holder-icon">
-                  <i class="fa fa-cutlery"></i>
-               </div>
-               <div class="category-holder-text">
-                  <h3>Restaurant / Food Service</h3>
-               </div>
-               <img src="<?= FRONT_IMG2 ?>restaurent.jpg" alt="category" />
-            </a>
-         </div>
-         <div class="col-lg-2 col-md-6 col-sm-6">
-            <a href="#" class="single-category-holder tech_cat">
-               <div class="category-holder-icon">
-                  <i class="fa fa-code"></i>
-               </div>
-               <div class="category-holder-text">
-                  <h3>Programming & Tech</h3>
-               </div>
-               <img src="<?= FRONT_IMG2 ?>programing_cat.jpg" alt="category" />
-            </a>
-         </div>
-         <div class="col-lg-2 col-md-6 col-sm-6">
-            <a href="#" class="single-category-holder tech_cat">
-               <div class="category-holder-icon">
-                  <i class="fa fa-code"></i>
-               </div>
-               <div class="category-holder-text">
-                  <h3>Programming & Tech</h3>
-               </div>
-               <img src="<?= FRONT_IMG2 ?>programing_cat.jpg" alt="category" />
-            </a>
-         </div>
-         <div class="col-lg-2 col-md-6 col-sm-6">
-            <a href="#" class="single-category-holder tech_cat">
-               <div class="category-holder-icon">
-                  <i class="fa fa-code"></i>
-               </div>
-               <div class="category-holder-text">
-                  <h3>Programming & Tech</h3>
-               </div>
-               <img src="<?= FRONT_IMG2 ?>programing_cat.jpg" alt="category" />
-            </a>
-         </div>
-      </div>
-      <div class="row">         
-         <div class="col-lg-2 col-md-6 col-sm-6">
-            <a href="#" class="single-category-holder account_cat">
-               <div class="category-holder-icon">
-                  <i class="fa fa-briefcase"></i>
-               </div>
-               <div class="category-holder-text">
-                  <h3>Accounting & Finance</h3>
-               </div>
-               <img src="<?= FRONT_IMG2 ?>account_cat.jpg" alt="category" />
-            </a>
-         </div>
-         <div class="col-lg-2 col-md-6 col-sm-6">
-            <a href="#" class="single-category-holder design_cat">
-               <div class="category-holder-icon">
-                  <i class="fa fa-pencil-square-o"></i>
-               </div>
-               <div class="category-holder-text">
-                  <h3>Design, Art & Multimedia</h3>
-               </div>
-               <img src="<?= FRONT_IMG2 ?>design_art.jpg" alt="category" />
-            </a>
-         </div>
-         <div class="col-lg-2 col-md-6 col-sm-6">
-            <a href="#" class="single-category-holder restaurant_cat">
-               <div class="category-holder-icon">
-                  <i class="fa fa-cutlery"></i>
-               </div>
-               <div class="category-holder-text">
-                  <h3>Restaurant / Food Service</h3>
-               </div>
-               <img src="<?= FRONT_IMG2 ?>restaurent.jpg" alt="category" />
-            </a>
-         </div>
-         <div class="col-lg-2 col-md-6 col-sm-6">
-            <a href="#" class="single-category-holder tech_cat">
-               <div class="category-holder-icon">
-                  <i class="fa fa-code"></i>
-               </div>
-               <div class="category-holder-text">
-                  <h3>Programming & Tech</h3>
-               </div>
-               <img src="<?= FRONT_IMG2 ?>programing_cat.jpg" alt="category" />
-            </a>
-         </div>
-         <div class="col-lg-2 col-md-6 col-sm-6">
-            <a href="#" class="single-category-holder tech_cat">
-               <div class="category-holder-icon">
-                  <i class="fa fa-code"></i>
-               </div>
-               <div class="category-holder-text">
-                  <h3>Programming & Tech</h3>
-               </div>
-               <img src="<?= FRONT_IMG2 ?>programing_cat.jpg" alt="category" />
-            </a>
-         </div>
-         <div class="col-lg-2 col-md-6 col-sm-6">
-            <a href="#" class="single-category-holder tech_cat">
-               <div class="category-holder-icon">
-                  <i class="fa fa-code"></i>
-               </div>
-               <div class="category-holder-text">
-                  <h3>Programming & Tech</h3>
-               </div>
-               <img src="<?= FRONT_IMG2 ?>programing_cat.jpg" alt="category" />
-            </a>
-         </div>
-      </div>
 
-      <!-- <div class="row">
-         <div class="col-lg-3 col-md-6 col-sm-6">
-            <a href="#" class="single-category-holder data_cat">
-               <div class="category-holder-icon">
-                  <i class="fa fa-bar-chart"></i>
-               </div>
-               <div class="category-holder-text">
-                  <h3>Data Science & Analitycs</h3>
-               </div>
-               <img src="<?= FRONT_IMG2 ?>data_cat.png" alt="category" />
-            </a>
-         </div>
-         <div class="col-lg-3 col-md-6 col-sm-6">
-            <a href="#" class="single-category-holder writing_cat">
-               <div class="category-holder-icon">
-                  <i class="fa fa-pencil"></i>
-               </div>
-               <div class="category-holder-text">
-                  <h3>Writing / Translations</h3>
-               </div>
-               <img src="<?= FRONT_IMG2 ?>writing_cat.jpg" alt="category" />
-            </a>
-         </div>
-         <div class="col-lg-3 col-md-6 col-sm-6">
-            <a href="#" class="single-category-holder edu_cat">
-               <div class="category-holder-icon">
-                  <i class="fa fa-graduation-cap"></i>
-               </div>
-               <div class="category-holder-text">
-                  <h3>Education / Training</h3>
-               </div>
-               <img src="<?= FRONT_IMG2 ?>edu_cat.jpg" alt="category" />
-            </a>
-         </div>
-         <div class="col-lg-3 col-md-6 col-sm-6">
-            <a href="#" class="single-category-holder sale_cat">
-               <div class="category-holder-icon">
-                  <i class="fa fa-bullhorn"></i>
-               </div>
-               <div class="category-holder-text">
-                  <h3>sales / marketing</h3>
-               </div>
-               <img src="<?= FRONT_IMG2 ?>sale_cat.png" alt="category" />
-            </a>
-         </div>
-      </div> -->
+      <?php
+      $ii = 0;
+      $j = 0;
+      $total_team = count($hwt_industry);
+      $per_page = 6;
+      
+      foreach ($hwt_industry as $t_key => $t_value) {
+         if($t_value['img_src']!='' && file_exists(IMG_INDUSTRY.$t_value['img_src'])) {
+            $ind_img = base_url().IMG_INDUSTRY.$t_value['img_src'];
+         } else {
+            $ind_img = DEFAULT_IMG;
+         }
+         if(($ii%$per_page)==0) { ?>
+         <div class="row">
+         <?php } ?>
+            <div class="col-lg-2 col-md-6 col-sm-6">
+               <a href="javascript:;" class="single-category-holder account_cat">
+                  <div class="category-holder-icon">
+                     <i class="fa fa-briefcase"></i>
+                  </div>
+                  <div class="category-holder-text">
+                     <h3><?= $t_value['title']; ?></h3>
+                  </div>
+                  <img src="<?= $ind_img ?>" alt="<?= $t_value['title']; ?>" />
+               </a>
+            </div>
+         <?php
+         if($j==$per_page-1 || $ii==$total_team-1) {
+            ?>
+            </div>
+            <?php
+            $j=0;
+         } else {
+
+         $j++;
+         }
+         ?>
+         <?php
+         $ii++;
+         } 
+         ?>
+      
+
       <div class="row">
          <div class="col-md-12">
             <div class="load-more">
-               <a href="#" class="jobguru-btn">browse all INDUSTRY</a>
+               <a href="<?= base_url("industry"); ?>" class="jobguru-btn">browse all INDUSTRY</a>
             </div>
          </div>
       </div>
@@ -418,54 +201,7 @@
                   }
                }
                ?>
-              <!--  <div class="single-happy-freelancer">
-                  <div class="happy-freelancer-img">
-                     <img src="<?= FRONT_IMG2 ?>/testimonial-1.jpg" alt="testimonial 1" />
-                  </div>
-                  <div class="happy-freelancer-text">
-                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus molestie, justo nec convallis sollicitudin, sapien lorem dictum lacus, non consequat odio ipsum nec est.</p>
-                     <div class="happy-freelancer-info">
-                        <h4>jonathon doe</h4>
-                        <p>web designer</p>
-                     </div>
-                  </div>
-               </div>
-               <div class="single-happy-freelancer">
-                  <div class="happy-freelancer-img">
-                     <img src="<?= FRONT_IMG2 ?>/testimonial-2.jpg" alt="testimonial 1" />
-                  </div>
-                  <div class="happy-freelancer-text">
-                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus molestie, justo nec convallis sollicitudin, sapien lorem dictum lacus, non consequat odio ipsum nec est.</p>
-                     <div class="happy-freelancer-info">
-                        <h4>sraboni neela</h4>
-                        <p>web designer</p>
-                     </div>
-                  </div>
-               </div>
-               <div class="single-happy-freelancer">
-                  <div class="happy-freelancer-img">
-                     <img src="<?= FRONT_IMG2 ?>/testimonial-3.jpg" alt="testimonial 1" />
-                  </div>
-                  <div class="happy-freelancer-text">
-                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus molestie, justo nec convallis sollicitudin, sapien lorem dictum lacus, non consequat odio ipsum nec est.</p>
-                     <div class="happy-freelancer-info">
-                        <h4> asif haider</h4>
-                        <p>web designer</p>
-                     </div>
-                  </div>
-               </div>
-               <div class="single-happy-freelancer">
-                  <div class="happy-freelancer-img">
-                     <img src="<?= FRONT_IMG2 ?>/testimonial-2.jpg" alt="testimonial 1" />
-                  </div>
-                  <div class="happy-freelancer-text">
-                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus molestie, justo nec convallis sollicitudin, sapien lorem dictum lacus, non consequat odio ipsum nec est.</p>
-                     <div class="happy-freelancer-info">
-                        <h4>sandy Pitter</h4>
-                        <p>web designer</p>
-                     </div>
-                  </div>
-               </div> -->
+              
             </div>
          </div>
       </div>
@@ -503,177 +239,95 @@
                <div class="tab-pane fade show active" id="pills-companies" role="tabpanel" aria-labelledby="pills-companies-tab">
                   <div class="top-company-tab">
                      <ul>
-                        <li>
-                           <div class="top-company-list">
-                              <div class="company-list-logo">
-                                 <a href="#">
-                                 <img src="<?= FRONT_IMG2 ?>company-logo-4.png" alt="company list 1" />
-                                 </a>
-                              </div>
-                              <div class="company-list-details">
-                                 <h3><a href="#">jamulai - consulting & finance Co.</a></h3>
-                                 <p class="company-state"><i class="fa fa-map-marker"></i> Chicago, Michigan</p>
-                                 <p class="open-icon"><i class="fa fa-briefcase"></i>32 open position</p>
-                                 <p class="varify"><i class="fa fa-check"></i>Verified</p>
-                                 <p class="rating-company">4.9</p>
-                              </div>
-                              <div class="company-list-btn">
-                                 <a href="#" class="jobguru-btn">view profile</a>
-                              </div>
-                           </div>
-                        </li>
-                        <li>
-                           <div class="top-company-list">
-                              <div class="company-list-logo">
-                                 <a href="#">
-                                 <img src="<?= FRONT_IMG2 ?>company-logo-2.png" alt="company list 1" />
-                                 </a>
-                              </div>
-                              <div class="company-list-details">
-                                 <h3><a href="#">Buildo - construction Co.</a></h3>
-                                 <p class="company-state"><i class="fa fa-map-marker"></i> Chicago, Michigan</p>
-                                 <p class="open-icon"><i class="fa fa-briefcase"></i>32 open position</p>
-                                 <p class="varify"><i class="fa fa-check"></i>Verified</p>
-                                 <p class="rating-company">4.2</p>
-                              </div>
-                              <div class="company-list-btn">
-                                 <a href="#" class="jobguru-btn">view profile</a>
-                              </div>
-                           </div>
-                        </li>
-                        <li>
-                           <div class="top-company-list">
-                              <div class="company-list-logo">
-                                 <a href="#">
-                                 <img src="<?= FRONT_IMG2 ?>company-logo-3.png" alt="company list 1" />
-                                 </a>
-                              </div>
-                              <div class="company-list-details">
-                                 <h3><a href="#">palms - school & college.</a></h3>
-                                 <p class="company-state"><i class="fa fa-map-marker"></i> Chicago, Michigan</p>
-                                 <p class="open-icon"><i class="fa fa-briefcase"></i>32 open position</p>
-                                 <p class="varify"><i class="fa fa-check"></i>Verified</p>
-                                 <p class="rating-company">4.6</p>
-                              </div>
-                              <div class="company-list-btn">
-                                 <a href="#" class="jobguru-btn">view profile</a>
-                              </div>
-                           </div>
-                        </li>
-                        <li>
-                           <div class="top-company-list">
-                              <div class="company-list-logo">
-                                 <a href="#">
-                                 <img src="<?= FRONT_IMG2 ?>company-logo-1.png" alt="company list 1" />
-                                 </a>
-                              </div>
-                              <div class="company-list-details">
-                                 <h3><a href="#">finance - consulting & business Co.</a></h3>
-                                 <p class="company-state"><i class="fa fa-map-marker"></i> Chicago, Michigan</p>
-                                 <p class="open-icon"><i class="fa fa-briefcase"></i>32 open position</p>
-                                 <p class="varify"><i class="fa fa-check"></i>Verified</p>
-                                 <p class="rating-company">4.9</p>
-                              </div>
-                              <div class="company-list-btn">
-                                 <a href="#" class="jobguru-btn">view profile</a>
-                              </div>
-                           </div>
-                        </li>
+                        <?php
+                        if(isset($hwt_employer) && !empty($hwt_employer)) {
+                           foreach ($hwt_employer as $e_key => $e_value) {
+
+                              
+                              $img_src_c = base_url().IMG_COMPANY_LOGO.'company_page_logo.jpg';
+                              if($e_value['img_src']!="") {
+                                if(file_exists(IMG_COMPANY_LOGO.$e_value['img_src'])) {
+                                  $img_src_c = base_url().IMG_COMPANY_LOGO.$e_value['img_src'];
+                                } 
+                              }
+                              
+                              ?>
+                              <li>
+                                 <div class="top-company-list">
+                                    <div class="company-list-logo">
+                                       <a href="#">
+                                       <img src="<?= $img_src_c; ?>" alt="<?= $e_value['fname']; ?>" />
+                                       </a>
+                                    </div>
+                                    <div class="company-list-details">
+                                       <h3><a href=""><?= $e_value['fname'] ?></a></h3>
+                                       <p class="company-state"><i class="fa fa-building-o" aria-hidden="true"></i> Name : <?= $e_value['company_name']; ?></p>
+                                      <p class="open-icon"><i class="fa fa-phone"></i>Number : <?= $e_value['mobile']; ?><p>
+                                      <p class="open-icon"><i class="fa fa-envelope" aria-hidden="true"></i> Email : <?= $e_value['email']; ?></p>
+                                    </div>
+                                    <div class="company-list-btn">
+                                       <a href="<?= base_url('employer/employer_profile_view/'.$e_value['id']); ?>" class="jobguru-btn">view profile</a>
+                                    </div>
+                                 </div>
+                              </li>
+                              <?php
+                           }
+                        }
+                        ?>
+                       
                      </ul>
                   </div>
                </div>
                <div class="tab-pane fade" id="pills-job" role="tabpanel" aria-labelledby="pills-job-tab">
                   <div class="top-company-tab">
                      <ul>
-                        <li>
-                           <div class="top-company-list">
-                              <div class="company-list-logo">
-                                 <a href="#">
-                                 <img src="<?= FRONT_IMG2 ?>company-logo-1.png" alt="company list 1" />
-                                 </a>
-                              </div>
-                              <div class="company-list-details">
-                                 <h3><a href="#">Regional Sales Manager</a></h3>
-                                 <p class="company-state"><i class="fa fa-map-marker"></i> Chicago, Michigan</p>
-                                 <p class="open-icon"><i class="fa fa-clock-o"></i>2 minutes ago</p>
-                                 <p class="varify"><i class="fa fa-check"></i>Fixed price : $1200-$2000</p>
-                                 <p class="rating-company">4.1</p>
-                              </div>
-                              <div class="company-list-btn">
-                                 <a href="#" class="jobguru-btn">bid now</a>
-                              </div>
-                           </div>
-                        </li>
-                        <li>
-                           <div class="top-company-list">
-                              <div class="company-list-logo">
-                                 <a href="#">
-                                 <img src="<?= FRONT_IMG2 ?>company-logo-4.png" alt="company list 1" />
-                                 </a>
-                              </div>
-                              <div class="company-list-details">
-                                 <h3><a href="#">C Developer (Senior) C .Net</a></h3>
-                                 <p class="company-state"><i class="fa fa-map-marker"></i> Chicago, Michigan</p>
-                                 <p class="open-icon"><i class="fa fa-clock-o"></i>2 minutes ago</p>
-                                 <p class="varify"><i class="fa fa-check"></i>Fixed price : $800-$1200</p>
-                                 <p class="rating-company">3.1</p>
-                              </div>
-                              <div class="company-list-btn">
-                                 <a href="#" class="jobguru-btn">bid now</a>
-                              </div>
-                           </div>
-                        </li>
-                        <li>
-                           <div class="top-company-list">
-                              <div class="company-list-logo">
-                                 <a href="#">
-                                 <img src="<?= FRONT_IMG2 ?>company-logo-3.png" alt="company list 1" />
-                                 </a>
-                              </div>
-                              <div class="company-list-details">
-                                 <h3><a href="#">Asst. Teacher</a></h3>
-                                 <p class="company-state"><i class="fa fa-map-marker"></i> Chicago, Michigan</p>
-                                 <p class="open-icon"><i class="fa fa-clock-o"></i>3 minutes ago</p>
-                                 <p class="varify"><i class="fa fa-check"></i>Fixed price : $800-$1200</p>
-                                 <p class="rating-company">4.3</p>
-                              </div>
-                              <div class="company-list-btn">
-                                 <a href="#" class="jobguru-btn">bid now</a>
-                              </div>
-                           </div>
-                        </li>
-                        <li>
-                           <div class="top-company-list">
-                              <div class="company-list-logo">
-                                 <a href="#">
-                                 <img src="<?= FRONT_IMG2 ?>company-logo-2.png" alt="company list 1" />
-                                 </a>
-                              </div>
-                              <div class="company-list-details">
-                                 <h3><a href="#">civil engineer</a></h3>
-                                 <p class="company-state"><i class="fa fa-map-marker"></i> Chicago, Michigan</p>
-                                 <p class="open-icon"><i class="fa fa-clock-o"></i>30 minutes ago</p>
-                                 <p class="varify"><i class="fa fa-check"></i>Fixed price : $2000-$2500</p>
-                                 <p class="rating-company">3.7</p>
-                              </div>
-                              <div class="company-list-btn">
-                                 <a href="#" class="jobguru-btn">bid now</a>
-                              </div>
-                           </div>
-                        </li>
+                        <?php
+                        if(isset($hwt_jobseeker) && !empty($hwt_jobseeker)) {
+                           foreach ($hwt_jobseeker as $j_key => $j_value) {
+
+                              $img_src_j = base_url().IMG_COMPANY_LOGO.'company_page_logo.jpg';
+                              if($j_value['img_src']!="") {
+                                if(file_exists(IMG_COMPANY_LOGO.$j_value['img_src'])) {
+                                  $img_src_j = base_url().IMG_COMPANY_LOGO.$j_value['img_src'];
+                                } 
+                              }
+                              ?>
+                              <li>
+                                 <div class="top-company-list">
+                                    <div class="company-list-logo">
+                                       <a href="#">
+                                       <img src="<?= $img_src_j ?>" alt="<?= $j_value['fname'] ?>" />
+                                       </a>
+                                    </div>
+                                    <div class="company-list-details">
+                                        <h3><a href="javascript:;"><?= $j_value['job_title'] ?></a></h3>
+                                      <p class="company-state"><i class="fa fa-building-o" aria-hidden="true"></i> Company name : <?= $j_value['company_name']; ?></p>
+                                      <p class="open-icon"><i class="fa fa-history" aria-hidden="true"></i> Experience : <?= $j_value['job_exp_year']." year ".$j_value['job_exp_month']." month " ?></p>
+                                      <p class="varify"><i class="fa fa-money" aria-hidden="true"></i> Fixed price : <?= CURR_SYMBOL.$j_value['job_salary']; ?></p>
+                                      <p class="company-state"><i class="fa fa-map-marker"></i> Location : <?php echo $this->HWT->get_explode("location","title",$j_value['job_job_location']); ?></p>
+                                    </div>
+                                    <div class="company-list-btn">
+                                       <a href="<?= base_url("view_job/".$j_value['job_id']) ?>" class="jobguru-btn">View Job</a>
+                                    </div>
+                                 </div>
+                              </li>
+                              <?php
+                           }
+                        }
+                        ?>
                      </ul>
                   </div>
                </div>
             </div>
          </div>
       </div>
-      <div class="row">
+      <!-- <div class="row">
          <div class="col-md-12">
             <div class="load-more">
                <a href="#" class="jobguru-btn">browse more listing</a>
             </div>
          </div>
-      </div>
+      </div> -->
    </div>
 </section>
 <!-- Job Tab Area End -->
