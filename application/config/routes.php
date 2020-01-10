@@ -76,6 +76,9 @@ $route['view_jobseeker/(:any)'] = 'Home/view_jobseeker/$1';
 $route['apply_without_registration/(:any)'] = 'Home/apply_without_registration/$1';
 $route['employer/employer_profile_view/(:any)'] = 'Home/employer/$1';
 
+$route['my-form'] = "MyFormController";
+// $route['my-form-upload']['post'] = "MyFormController/post";
+$route['my-form-upload']['post'] = "JobSeeker_Process/post";
 /*ajax*/
 
 // $route['get_result_shortlist'] = 'JobSeeker_Porcess/get_result_shortlist';
@@ -228,3 +231,4 @@ $route[ADMIN.'terms/(:any)/save'] = ADMIN."CMS/save_about";
 $route[ADMIN.'services_contain/(:any)'] = ADMIN."CMS/about/4";
 $route[ADMIN.'services_contain/(:any)/save'] = ADMIN."CMS/save_about";
 */
+

@@ -5,7 +5,7 @@ class JobSeeker_Process extends FrontController {
     public function profile() {
         $post = $this->input->post();
 
-        $config['upload_path'] = IMG_PROFILE; 
+        /*$config['upload_path'] = IMG_PROFILE; 
         $path = IMG_PROFILE;
         if(!is_dir($path)) {
             mkdir($path);
@@ -23,19 +23,19 @@ class JobSeeker_Process extends FrontController {
                 $data = $this->upload->data();
                 $img_src = $data['file_name'];
             } 
-        }
+        }*/
 
         $DataUpdate = array(
         	"fname" => $post['fname'],
         	"mobile" => $post['mobile'],
-            'img_src' => $img_src,
+            // 'img_src' => $img_src,
         );
         $wh = array("id"=>$_SESSION[PREFIX.'id']);
         $this->HWT->update("hwt_user",$DataUpdate,$wh);
         $response = array();
 
         $response['msg'] = "Update Successfully";
-        $response['img_src'] = base_url().IMG_PROFILE.$img_src;
+        // $response['img_src'] = base_url().IMG_PROFILE.$img_src;
         $response['response'] = 1;
         echo json_encode($response);
         die();
@@ -508,6 +508,36 @@ class JobSeeker_Process extends FrontController {
         $response['response'] = 1;
         echo json_encode($response);
         die();
+    }
+
+    public function post()
+    {
+        $data = $_POST['image'];
+
+        $imageName = $_SESSION[PREFIX.'name'].'_'.$_SESSION[PREFIX.'id'].'.png';
+     
+        list($type, $data) = explode(';', $data);
+        list(, $data)      = explode(',', $data);
+
+        $DataUpdate = array(
+            'img_src'=>$imageName,
+        );
+        $wh = array("id"=>$_SESSION[PREFIX.'id']);
+        $this->HWT->update("hwt_user",$DataUpdate,$wh);
+     
+        $data = base64_decode($data);
+
+        if($_SESSION[PREFIX.'type']=='employer') {
+
+        file_put_contents(IMG_COMPANY_LOGO.$imageName, $data);
+        } else {
+
+        file_put_contents(IMG_SRC.'profile/'.$imageName, $data);
+        }
+        
+
+     
+        echo 'done';
     }
     
 }

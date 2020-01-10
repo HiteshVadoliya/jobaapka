@@ -346,7 +346,7 @@
        var val_form = $("#frm").valid();
        if(!val_form) { return false; }
        $(".close").trigger("click");
-       var btn_old_val = $(".custom_submit").text();
+       var btn_old_val = $(".custom_submit").html();
        $(".custom_submit").html(btn_old_val+'...');
        
        $.ajax({

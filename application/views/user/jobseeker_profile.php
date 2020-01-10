@@ -1,3 +1,5 @@
+
+  
 <!-- Breadcromb Area Start -->
 <section class="jobguru-breadcromb-area">
    <div class="breadcromb-top section_100">
@@ -52,17 +54,8 @@
                             }
                             ?>
                            <img id="image_replace" src="<?= $img_src ?>" alt="<?= $jobseeker_data['fname'] ?>" title="<?= $jobseeker_data['fname'] ?>" >
-                           <!-- <img src="<?= FRONT_IMG2 ?>author.jpg" alt="resume avatar"> -->
-                           <div class="resume-avatar-hover">
-                              <div class="resume-avatar-upload">
-                                 <p>
-                                    <i class="fa fa-pencil"></i>
-                                    Edit
-                                 </p>
-                                 <input type="file" name="img_src" id="img_src">
-                                 <input type="hidden" value="<?= $jobseeker_data['img_src'] ?>" name="img_src_old" id="img_src_old">
-                              </div>
-                           </div>
+                           
+                           
                         </div>
                      </div>
                   </div>
@@ -96,8 +89,43 @@
                   </div>
                 </form>
                </div>
+
+               
+            </div>
+
+            <br/><br/>
+            <div class="dashboard-right">
+               <div class="candidate-profile">
+                <form action="javascript:;" method="post" enctype="multipart/form-data">
+                  <div class="resume-box">
+                     <h3>Profile Picture</h3>
+                  <div class="candidate-single-profile-info">
+                     <div class="single-resume-feild resume-avatar">
+                      <div class="row">
+                        <div class="col-md-6 text-center">
+                        <div id="upload-demo" style="width:350px"></div>
+                        </div>
+                        <div class="col-md-6" style="">
+                        <div id="upload-demo-i" style="background:#e1e1e1;width:250px;padding:30px;height:250px;margin-top:30px"></div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-4" style="padding-top:30px;">
+                        <strong>Select Image:</strong>
+                        <input type="file" id="upload">
+                        <br/>
+                        <button class="btn btn-success upload-result">Upload and Save Image</button>
+                        </div>
+                      </div>
+                     </div>
+                  </div>
+                  
+                </form>
+               </div>
             </div>
          </div>
+
+         
       </div>
    </div>
 </section>
@@ -132,7 +160,7 @@
         var val_form = $("#frm").valid();
         if(!val_form) { return false; }
         $(".close").trigger("click");
-        var btn_old_val = $(".custom_submit").text();
+        var btn_old_val = $(".custom_submit").html();
         $(".custom_submit").html(btn_old_val+'...');
         
         $.ajax({
@@ -148,7 +176,7 @@
             success: function(res) {
                 if(res.response) {
                   $.notify({message: res.msg },{type: 'success'});
-                  $("#image_replace").attr("src",res.img_src);
+                  // $("#image_replace").attr("src",res.img_src);
                 }
                $(".custom_submit").html(btn_old_val);
             },
@@ -157,3 +185,55 @@
         return false;
     });
  </script>
+ <!-- <script src="http://demo.itsolutionstuff.com/plugin/jquery.js"></script> -->
+  <script src="http://demo.itsolutionstuff.com/plugin/croppie.js"></script>
+  <!-- <link rel="stylesheet" href="http://demo.itsolutionstuff.com/plugin/bootstrap-3.min.css"> -->
+  <link rel="stylesheet" href="http://demo.itsolutionstuff.com/plugin/croppie.css">
+ <script type="text/javascript">
+ $uploadCrop = $('#upload-demo').croppie({
+     enableExif: true,
+     viewport: {
+         width: 200,
+         height: 200,
+         type: 'circle'
+     },
+     boundary: {
+         width: 300,
+         height: 300
+     }
+ });
+      
+ $('#upload').on('change', function () { 
+  var reader = new FileReader();
+     reader.onload = function (e) {
+      $uploadCrop.croppie('bind', {
+        url: e.target.result
+      }).then(function(){
+        console.log('jQuery bind complete');
+      });
+          
+     }
+     reader.readAsDataURL(this.files[0]);
+ });
+      
+ $('.upload-result').on('click', function (ev) {
+  $uploadCrop.croppie('result', {
+    type: 'canvas',
+    size: 'viewport'
+  }).then(function (resp) {
+      
+    $.ajax({
+      url: '<?php echo base_url('/my-form-upload'); ?>',
+      type: "POST",
+      data: {"image":resp},
+      success: function (data) {
+        html = '<img src="' + resp + '" />';
+        $("#upload-demo-i").html(html);
+        $(".resume-image").html(html);
+      }
+    });
+  });
+ });
+     
+ </script>
+ 
