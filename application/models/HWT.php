@@ -150,6 +150,15 @@ class HWT extends CI_Model
 			$this->db->where_in($param['in_array_field'],$param['in_array']);
         }
 
+        if(array_key_exists("find_in_set_array",$param) && array_key_exists("find_in_set_array_field",$param)){
+	        $this->db->group_start();
+	        $find_in_set_array = $param['find_in_set_array'];
+	        $find_in_set_array_field =$param['find_in_set_array_field'];
+	        $this->db->where("find_in_set($find_in_set_array, $find_in_set_array_field)");
+	        
+	        $this->db->group_end();
+        }
+
         if(array_key_exists("groupby",$param)){
 			$this->db->group_by($param['groupby']);
         }

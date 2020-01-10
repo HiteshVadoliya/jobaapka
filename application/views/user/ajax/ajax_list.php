@@ -27,6 +27,10 @@
         
         <?php
      }
+  } else {
+    ?>
+    <h2><center>No Result Found</center></h2>
+    <?php
   }
   ?>                 
 </div>

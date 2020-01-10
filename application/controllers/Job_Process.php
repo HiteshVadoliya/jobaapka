@@ -21,6 +21,14 @@ class Job_Process extends FrontController {
             $params['search_column'] = array("job_title","company_name");
         }
 
+        if(isset($post) && !empty($post['ind']) ) {
+            $ind_id =  base64_decode($post['ind']);
+            $params['find_in_set_array'] = $ind_id;
+            $params['find_in_set_array_field'] = 'job_industry';
+            // job_industry
+        }
+        
+
         $wh = array("isDelete"=>0,"status"=>1);
         $tbl = array("job as job","hwt_user as u");
         $join = array('job.employer_id = u.id');

@@ -35,7 +35,7 @@
         <div class="col-md-12 col-lg-3">
           <div class="job-grid-sidebar">
              <!-- Single Job Sidebar Start -->
-             <div class="single-job-sidebar sidebar-location">
+             <!-- <div class="single-job-sidebar sidebar-location">
                 <h3>location</h3>
                 <div class="job-sidebar-box">
                    <form>
@@ -54,7 +54,7 @@
                       </div>
                    </form>
                 </div>
-             </div>
+             </div> -->
              <!-- Single Job Sidebar End -->
               
              <!-- Single Job Sidebar Start -->
@@ -75,10 +75,84 @@
                    </form>
                 </div>
              </div>
+
+             <div class="single-job-sidebar sidebar-keywords">
+                <h3>Keywords</h3>
+                <div class="job-sidebar-box">
+                   <form>
+                      <select class="sidebar-category-select" name="states[]" multiple="multiple">
+                         <option value="1">accounting</option>
+                         <option value="2">finance</option>
+                         <option value="3">automotive</option>
+                         <option value="4">construction</option>
+                         <option value="5">photoshop</option>
+                         <option value="6">graphics</option>
+                         <option value="7">After affects</option>
+                         <option value="8">poster design</option>
+                      </select>
+                   </form>
+                </div>
+             </div>
+
+             <div class="single-job-sidebar sidebar-keywords">
+                <h3>Keywords</h3>
+                <div class="job-sidebar-box">
+                   <form>
+                      <select class="sidebar-category-select" name="states[]" multiple="multiple">
+                         <option value="1">accounting</option>
+                         <option value="2">finance</option>
+                         <option value="3">automotive</option>
+                         <option value="4">construction</option>
+                         <option value="5">photoshop</option>
+                         <option value="6">graphics</option>
+                         <option value="7">After affects</option>
+                         <option value="8">poster design</option>
+                      </select>
+                   </form>
+                </div>
+             </div>
+
+             <div class="single-job-sidebar sidebar-keywords">
+                <h3>Keywords</h3>
+                <div class="job-sidebar-box">
+                   <form>
+                      <select class="sidebar-category-select" name="states[]" multiple="multiple">
+                         <option value="1">accounting</option>
+                         <option value="2">finance</option>
+                         <option value="3">automotive</option>
+                         <option value="4">construction</option>
+                         <option value="5">photoshop</option>
+                         <option value="6">graphics</option>
+                         <option value="7">After affects</option>
+                         <option value="8">poster design</option>
+                      </select>
+                   </form>
+                </div>
+             </div>
+
+             <div class="single-job-sidebar sidebar-keywords">
+                <h3>Keywords</h3>
+                <div class="job-sidebar-box">
+                   <form>
+                      <select class="sidebar-category-select" name="states[]" multiple="multiple">
+                         <option value="1">accounting</option>
+                         <option value="2">finance</option>
+                         <option value="3">automotive</option>
+                         <option value="4">construction</option>
+                         <option value="5">photoshop</option>
+                         <option value="6">graphics</option>
+                         <option value="7">After affects</option>
+                         <option value="8">poster design</option>
+                      </select>
+                   </form>
+                </div>
+             </div>
+
+             
              <!-- Single Job Sidebar End -->
               
              <!-- Single Job Sidebar Start -->
-             <div class="single-job-sidebar sidebar-category">
+             <!-- <div class="single-job-sidebar sidebar-category">
                 <h3>Category</h3>
                 <div class="job-sidebar-box">
                    <form>
@@ -96,11 +170,11 @@
                       </select>
                    </form>
                 </div>
-             </div>
+             </div> -->
              <!-- Single Job Sidebar End -->
               
              <!-- Single Job Sidebar Start -->
-             <div class="single-job-sidebar sidebar-location">
+             <!-- <div class="single-job-sidebar sidebar-location">
                 <h3>Date Posted</h3>
                 <div class="date-post-job job-sidebar-box">
                    <div class="form-group form-radio">
@@ -128,11 +202,11 @@
                       <label for="last_all" class="inline control-label">all</label>
                    </div>
                 </div>
-             </div>
+             </div> -->
              <!-- Single Job Sidebar End -->
               
              <!-- Single Job Sidebar Start -->
-             <div class="single-job-sidebar sidebar-type">
+             <!-- <div class="single-job-sidebar sidebar-type">
                 <h3>job type</h3>
                 <div class="job-sidebar-box">
                    <ul>
@@ -158,11 +232,11 @@
                       </li>
                    </ul>
                 </div>
-             </div>
+             </div> -->
              <!-- Single Job Sidebar End -->
               
              <!-- Single Job Sidebar Start -->
-             <div class="single-job-sidebar sidebar-salary">
+             <!-- <div class="single-job-sidebar sidebar-salary">
                 <h3>Filter by Salary</h3>
                 <div class="job-sidebar-box">
                    <p>
@@ -170,7 +244,7 @@
                    </p>
                    <div id="slider"></div>
                 </div>
-             </div>
+             </div> -->
              <!-- Single Job Sidebar End -->
               
           </div>

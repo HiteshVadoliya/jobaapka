@@ -247,9 +247,9 @@
                                  </div>
 
                                  <div class="single-resume-feild ">
-                                    <div class="single-input">
-                                       <label for="j_title">tags:</label>
-                                       <input name="employer_tags" id="employer_tags" class="form-control tagsinput_text" type="text" value="<?= (isset($edit) && !empty($edit['employer_tags'])) ? $edit['employer_tags'] : '';  ?>" data-role="tagsinput" />
+                                    <div class="single-input single-input-tag">
+                                       <label for="j_title">tag:</label>
+                                       <input name="employer_tags" id="employer_tags" class=" tagsinput_text_ tags" type="text" value="<?= (isset($edit) && !empty($edit['employer_tags'])) ? $edit['employer_tags'] : '';  ?>" data-role="tagsinput" style="display: none;" />
                                     </div>
                                  </div>
 
@@ -276,7 +276,7 @@
 </section>
 <!-- Candidate Dashboard Area End -->
 <script type="text/javascript">
-   
+  
    $(function(){
 
        $("#frm").validate({                       

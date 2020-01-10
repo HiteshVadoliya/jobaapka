@@ -1,17 +1,17 @@
 <?php if(!defined('BASEPATH')) exit('No direct script access allowed');
 require APPPATH . '/libraries/BaseController.php';
-class Inquiry extends BaseController
+class Employer extends BaseController
 {
     public function __construct()
     {
         parent::__construct();
         $this->isLoggedIn();
-        $this->table = "inquiry";   
+        $this->table = "hwt_user";   
         $this->id = "id";  
-        $this->MainTitle = "Inquiry";
-        $this->folder = "inquiry/"; 
-        $this->Controller = "Inquiry"; 
-        $this->url = "inquiry";
+        $this->MainTitle = "Employer";
+        $this->folder = "employer/"; 
+        $this->Controller = "Employer"; 
+        $this->url = "employer";
         $this->img_path = IMG_SLIDER; 
     }
 
@@ -47,13 +47,20 @@ class Inquiry extends BaseController
     
     public function ajax_list()
     {
+        if(isset($_REQUEST['order_by']) && $_REQUEST['order_by']!='' && isset($_REQUEST['order_by_with']) && $_REQUEST['order_by_with']!='') {
+            $order_by = $_REQUEST['order_by'];
+            $order_by_with = $_REQUEST['order_by_with'];
+            $param['order_by'] = $order_by;
+            $param['order_by_with'] = $order_by_with;
+        }
+
         $post =$this->input->post();
 
         $columns = array(0=>'fname',1=>'email');
         $limit = $this->input->post('length');
         $start = $this->input->post('start');
         $param['limit'] = array($start,$limit);
-        $param['search_column'] = array("subject","title");
+        $param['search_column'] = array("fname","email");
         $draw = $post['draw'];
         $order = $columns[$this->input->post('order')[0]['column']];
         $dir = $this->input->post('order')[0]['dir'];
@@ -64,7 +71,16 @@ class Inquiry extends BaseController
         $param['shortby'] = $order;
         $param['shortorder'] = $dir;
       
-        $wh = array("isDelete"=>0);
+        $wh = array("isDelete"=>0,"type"=>"employer");
+
+        if(isset($_REQUEST['active_deactive']) && $_REQUEST['active_deactive']!='') {
+            if($_REQUEST['active_deactive']==0) {
+                $wh['plan_status'] = $_REQUEST['active_deactive'];
+            } else if($_REQUEST['active_deactive']==1) {
+                $wh['plan_status'] = $_REQUEST['active_deactive'];
+            }
+        }
+
         $totalData = $this->HWT->get_num_rows($this->table,$wh);
         
             $totalFiltered = $totalData; 
@@ -89,9 +105,13 @@ class Inquiry extends BaseController
                     $statuslbl = $post['status'] == '1' ? 'Active' : 'Deactive';
                     $statusColor = $post['status'] == '1' ? 'success' : 'danger';
                     $nestedData['title'] = $post['fname']." ".$post['lname'];
-                    $nestedData['from_email'] = $post['email'];                   
+                    $nestedData['from_email'] = $post['email'];      
+
+                    $planlbl = $post['plan_status'] == '1' ? 'Active' : 'Deactive';
+                    $planColor = $post['plan_status'] == '1' ? 'btn-primary' : 'btn-danger';             
                     
-                    $nestedData['action'] = '<button data-id='.$post[$this->id].' class="btn btn-sm btn-danger rowDelete"><i class="fa fa-trash"></i></button>&nbsp;<a href='.ADMIN_LINK.$this->url.'/view/'.$post[$this->id].' title="view" class="btn btn-sm btn-info " ><i class="fa fa-eye"></i></a>';
+                    /*<button data-id='.$post[$this->id].' class="btn btn-sm btn-danger rowDelete"><i class="fa fa-trash"></i></button>*/
+                    $nestedData['action'] = '<a href='.ADMIN_LINK.$this->url.'/view/'.$post[$this->id].' title="view" class="btn btn-sm btn-info " ><i class="fa fa-eye"></i></a>&nbsp;<a href="javascript:;" title="Plan Status" class="btn btn-sm '.$planColor.' " ><i class="fa fa-money" aria-hidden="true"></i>&nbsp;'.$planlbl.'</a>';
                     
                     $data[] = $nestedData;
 
@@ -231,13 +251,79 @@ class Inquiry extends BaseController
         if($this->isAdmin() == TRUE) { $this->loadThis(); } else
         {   
             $data['view'] = $this->HWT->get_one_row($this->table,"*",array($this->id=>$id,"isDelete"=>0));
+
             $data['MainTitle'] = $this->MainTitle;
             $data['tbl_id'] = $this->id;
             $data['url'] = $this->url; 
 
+            $param['shortby'] = "job_id";
+            $param['shortorder'] = "desc";
+            $data['view_job'] = $this->HWT->get_hwt('job',"*",array('employer_id'=>$id,"isDelete"=>0),$param);
+
+            $data['collection'] = $this->collection_data();
+            
             $this->global['pageTitle'] = ' : View '.$data['MainTitle'];
             $this->loadViews(ADMIN.$this->folder."View", $this->global, $data, NULL);
         }   
+    }
+
+    public function collection_data() {
+        $collection = array();
+        /*Job Function */
+        $job_function = $this->HWT->get_result("job_function","*",array("isDelete"=>0,"status"=>1));
+        $collection['job_function'] = $job_function;
+
+        /* Location */
+        $location = $this->HWT->get_result("location","*",array("isDelete"=>0,"status"=>1));
+        $collection['location'] = $location;
+
+        /* Education */
+        $education = $this->HWT->get_result("education","*",array("isDelete"=>0,"status"=>1));
+        $collection['education'] = $education;
+
+        /* Industry */
+        $industry = $this->HWT->get_result("industry","*",array("isDelete"=>0,"status"=>1));
+        $collection['industry'] = $industry;
+
+        /* Counrty */
+        $countries = $this->HWT->get_result("countries","*",array("1"=>"1"));
+        $collection['countries'] = $countries;
+
+        /* Designation Level */
+        $designation_level = $this->HWT->get_result("designation_level","*",array("isDelete"=>0,"status"=>1));
+        $collection['designation_level'] = $designation_level;
+
+        /* job_type */
+        $job_type = $this->HWT->get_result("job_type","*",array("isDelete"=>0,"status"=>1));
+        $collection['job_type'] = $job_type;
+
+        /* job_type */
+        $salary = $this->HWT->get_result("salary","*",array("isDelete"=>0,"status"=>1));
+        $collection['salary'] = $salary;
+
+        /* category */
+        $category = $this->HWT->get_result("category","*",array("isDelete"=>0,"status"=>1));
+        $collection['category'] = $category;
+
+        /* Experience in Year */
+        $exe = 21;
+        $exe_year = array();
+        for ($exp_i=0; $exp_i < $exe; $exp_i++) { 
+            $exe_year[] = $exp_i;
+        }
+        $collection['exp_year'] = $exe_year;
+
+        /* Experience in Month */
+        $exe_m = 12;
+        $exe_month = array();
+        for ($exp_m=0; $exp_m < $exe_m; $exp_m++) { 
+            $exe_month[] = $exp_m;
+        }
+        $collection['exp_month'] = $exe_month;
+
+        
+
+        return $collection;
     }
    
 }

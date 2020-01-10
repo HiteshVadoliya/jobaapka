@@ -55,7 +55,7 @@
          <div class="row">
          <?php } ?>
             <div class="col-lg-2 col-md-6 col-sm-6">
-               <a href="javascript:;" class="single-category-holder account_cat">
+               <a href="<?= base_url("job_list/?ind=".base64_encode($t_value['id'])); ?>" class="single-category-holder account_cat">
                   <div class="category-holder-icon">
                      <i class="fa fa-briefcase"></i>
                   </div>

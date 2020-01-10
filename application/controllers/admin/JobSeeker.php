@@ -1,17 +1,17 @@
 <?php if(!defined('BASEPATH')) exit('No direct script access allowed');
 require APPPATH . '/libraries/BaseController.php';
-class Inquiry extends BaseController
+class JobSeeker extends BaseController
 {
     public function __construct()
     {
         parent::__construct();
         $this->isLoggedIn();
-        $this->table = "inquiry";   
+        $this->table = "hwt_user";   
         $this->id = "id";  
-        $this->MainTitle = "Inquiry";
-        $this->folder = "inquiry/"; 
-        $this->Controller = "Inquiry"; 
-        $this->url = "inquiry";
+        $this->MainTitle = "JobSeeker";
+        $this->folder = "jobseeker/"; 
+        $this->Controller = "JobSeeker"; 
+        $this->url = "jobseeker";
         $this->img_path = IMG_SLIDER; 
     }
 
@@ -53,7 +53,7 @@ class Inquiry extends BaseController
         $limit = $this->input->post('length');
         $start = $this->input->post('start');
         $param['limit'] = array($start,$limit);
-        $param['search_column'] = array("subject","title");
+        $param['search_column'] = array("fname","email");
         $draw = $post['draw'];
         $order = $columns[$this->input->post('order')[0]['column']];
         $dir = $this->input->post('order')[0]['dir'];
@@ -64,7 +64,7 @@ class Inquiry extends BaseController
         $param['shortby'] = $order;
         $param['shortorder'] = $dir;
       
-        $wh = array("isDelete"=>0);
+        $wh = array("isDelete"=>0,"type"=>"jobseeker");
         $totalData = $this->HWT->get_num_rows($this->table,$wh);
         
             $totalFiltered = $totalData; 
@@ -91,7 +91,8 @@ class Inquiry extends BaseController
                     $nestedData['title'] = $post['fname']." ".$post['lname'];
                     $nestedData['from_email'] = $post['email'];                   
                     
-                    $nestedData['action'] = '<button data-id='.$post[$this->id].' class="btn btn-sm btn-danger rowDelete"><i class="fa fa-trash"></i></button>&nbsp;<a href='.ADMIN_LINK.$this->url.'/view/'.$post[$this->id].' title="view" class="btn btn-sm btn-info " ><i class="fa fa-eye"></i></a>';
+                    /*<button data-id='.$post[$this->id].' class="btn btn-sm btn-danger rowDelete"><i class="fa fa-trash"></i></button>*/
+                    $nestedData['action'] = '&nbsp;<a href='.ADMIN_LINK.$this->url.'/view/'.$post[$this->id].' title="view" class="btn btn-sm btn-info " ><i class="fa fa-eye"></i></a>';
                     
                     $data[] = $nestedData;
 
@@ -235,9 +236,72 @@ class Inquiry extends BaseController
             $data['tbl_id'] = $this->id;
             $data['url'] = $this->url; 
 
+            $data['view_skill'] = $this->HWT->get_one_row('jobseeker_skill',"*",array('jobseeker_id'=>$id,"isDelete"=>0));
+
+            $data['collection'] = $this->collection_data();
+            
             $this->global['pageTitle'] = ' : View '.$data['MainTitle'];
             $this->loadViews(ADMIN.$this->folder."View", $this->global, $data, NULL);
         }   
+    }
+
+    public function collection_data() {
+        $collection = array();
+        /*Job Function */
+        $job_function = $this->HWT->get_result("job_function","*",array("isDelete"=>0,"status"=>1));
+        $collection['job_function'] = $job_function;
+
+        /* Location */
+        $location = $this->HWT->get_result("location","*",array("isDelete"=>0,"status"=>1));
+        $collection['location'] = $location;
+
+        /* Education */
+        $education = $this->HWT->get_result("education","*",array("isDelete"=>0,"status"=>1));
+        $collection['education'] = $education;
+
+        /* Industry */
+        $industry = $this->HWT->get_result("industry","*",array("isDelete"=>0,"status"=>1));
+        $collection['industry'] = $industry;
+
+        /* Counrty */
+        $countries = $this->HWT->get_result("countries","*",array("1"=>"1"));
+        $collection['countries'] = $countries;
+
+        /* Designation Level */
+        $designation_level = $this->HWT->get_result("designation_level","*",array("isDelete"=>0,"status"=>1));
+        $collection['designation_level'] = $designation_level;
+
+        /* job_type */
+        $job_type = $this->HWT->get_result("job_type","*",array("isDelete"=>0,"status"=>1));
+        $collection['job_type'] = $job_type;
+
+        /* job_type */
+        $salary = $this->HWT->get_result("salary","*",array("isDelete"=>0,"status"=>1));
+        $collection['salary'] = $salary;
+
+        /* category */
+        $category = $this->HWT->get_result("category","*",array("isDelete"=>0,"status"=>1));
+        $collection['category'] = $category;
+
+        /* Experience in Year */
+        $exe = 21;
+        $exe_year = array();
+        for ($exp_i=0; $exp_i < $exe; $exp_i++) { 
+            $exe_year[] = $exp_i;
+        }
+        $collection['exp_year'] = $exe_year;
+
+        /* Experience in Month */
+        $exe_m = 12;
+        $exe_month = array();
+        for ($exp_m=0; $exp_m < $exe_m; $exp_m++) { 
+            $exe_month[] = $exp_m;
+        }
+        $collection['exp_month'] = $exe_month;
+
+        
+
+        return $collection;
     }
    
 }

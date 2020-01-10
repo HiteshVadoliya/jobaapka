@@ -115,6 +115,20 @@ $route[ADMIN.'user/edit/(:any)'] = ADMIN."HWT_User/showForm/$1";
 $route[ADMIN.'user/save'] = ADMIN."HWT_User/save";
 $route[ADMIN.'user/view/(:any)'] = ADMIN."HWT_User/view/$1";
 
+/*JobSeeker */
+$route[ADMIN.'jobseeker'] = ADMIN."JobSeeker";
+// $route[ADMIN.'jobseeker/add'] = ADMIN."HWT_User/showForm";
+// $route[ADMIN.'jobseeker/edit/(:any)'] = ADMIN."HWT_User/showForm/$1";
+// $route[ADMIN.'jobseeker/save'] = ADMIN."HWT_User/save";
+$route[ADMIN.'jobseeker/view/(:any)'] = ADMIN."JobSeeker/view/$1";
+
+/*Employer */
+$route[ADMIN.'employer'] = ADMIN."Employer";
+// $route[ADMIN.'jobseeker/add'] = ADMIN."HWT_User/showForm";
+// $route[ADMIN.'jobseeker/edit/(:any)'] = ADMIN."HWT_User/showForm/$1";
+// $route[ADMIN.'jobseeker/save'] = ADMIN."HWT_User/save";
+$route[ADMIN.'employer/view/(:any)'] = ADMIN."Employer/view/$1";
+
 
 /*$route[ADMIN.'home_content/(:any)'] = ADMIN."Content/content/1";
 $route[ADMIN.'home_content/(:any)/save'] = ADMIN."Content/save_content";

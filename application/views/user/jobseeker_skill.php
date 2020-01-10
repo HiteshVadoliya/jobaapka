@@ -274,10 +274,10 @@
                                  </select>
                               </div>
                            </div>
-                           <div class="single-resume-feild">
+                           <div class="single-resume-feild single-input-tag">
                               <div class="single-input">
-                                <label for="Email">Tags :</label>
-                                  <input name="jobseeker_tags" id="jobseeker_tags" class="form-control tagsinput_text" type="text" value="<?= $skill['jobseeker_tags']; ?>" data-role="tagsinput" />
+                                <label for="Email">Tag :</label>
+                                  <input name="jobseeker_tags" id="jobseeker_tags" class="form-control tagsinput_text" type="text" value="<?= $skill['jobseeker_tags']; ?>" data-role="tagsinput" style="display: none;" />
                               </div>
                             </div>
 

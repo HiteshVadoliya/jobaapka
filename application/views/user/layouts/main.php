@@ -115,7 +115,16 @@
          <script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
          <script src="<?= FRONT ?>tagsinput/bootstrap-tagsinput.min.js"></script>
 
-         
+         <script type="text/javascript">
+           $('#datepicker').datepicker({
+              weekStart: 1,
+              daysOfWeekHighlighted: "6,0",
+              autoclose: true,
+              todayHighlight: true,
+          });
+          $('#datepicker').datepicker("setDate", new Date());
+            
+         </script>
          
          <!--End of Tawk.to Script-->
       </body>
