@@ -107,7 +107,7 @@ class Employer extends BaseController
                     $nestedData['title'] = $post['fname']." ".$post['lname'];
                     $nestedData['from_email'] = $post['email'];      
 
-                    $planlbl = $post['plan_status'] == '1' ? 'Active' : 'Deactive';
+                    $planlbl = $post['plan_status'] == '1' ? 'Paid' : 'Unpaid';
                     $planColor = $post['plan_status'] == '1' ? 'btn-primary' : 'btn-danger';             
                     
                     /*<button data-id='.$post[$this->id].' class="btn btn-sm btn-danger rowDelete"><i class="fa fa-trash"></i></button>*/

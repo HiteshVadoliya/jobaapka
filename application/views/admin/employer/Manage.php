@@ -36,8 +36,8 @@
 
                     <select class="hwt_filter" name="active_deactive" id="active_deactive" style="padding: 3px;" >
                       <option value="">Sort by Plan</option>
-                      <option value="1">Active</option>
-                      <option value="0">Deactive</option>
+                      <option value="1">Paid</option>
+                      <option value="0">UnPaid</option>
                     </select>
                     <br/><br/>
                     <table class="table table-bordered table-striped" id="posts">
