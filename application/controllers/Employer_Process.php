@@ -523,6 +523,22 @@ class Employer_Process extends FrontController {
         die();
     }
 
+    public function delete_job_without_registration() {
+        $post = $this->input->post();
+        $response = array();
+        $response['result'] = 0;
+        if( !empty($post['did']) ) {
+            $DataUpdate = array(
+                "isDelete"=>1
+            );
+            $wh = array("id"=>$post['did']);
+            $res = $this->HWT->update("apply_job_without_login",$DataUpdate,$wh);
+            $response['result'] = $res;
+        }
+        echo json_encode($response);
+        die();
+    }
+
     function get_result_applicant_list( $rowno = 0 ) {
 
         $post = $this->input->post();
@@ -983,4 +999,149 @@ class Employer_Process extends FrontController {
         echo json_encode($response);
         die();
     }
+
+    /*without registration*/
+    function get_result_without_registration( $rowno = 0 ) {
+
+        $post = $this->input->post();
+
+
+        $params = array();
+        $rowperpage = LIMIT;
+        if($rowno != 0){
+            $rowno = ($rowno-1) * $rowperpage;
+        } 
+
+        $wh = array("isDelete"=>0,"status"=>1,"employer_id"=>$_SESSION[PREFIX.'id']);
+        $tbl = array("job as job","apply_job_without_login as u","hwt_user as user");
+        $join = array('job.employer_id = u.employer_id','user.id=u.employer_id');
+        $where_array = array(
+            "job.isDelete"=>0,
+            "job.status"=>1,
+            "u.isDelete"=>0,
+            "job.employer_id"=>$_SESSION[PREFIX.'id'],                
+        );
+        $params['groupby'] = "u.job_id";
+        $rows = "*,u.job_id as without_job_id ";
+        $res2 = $this->HWT->hwt_join_1(  $tbl,$join,$rows,$where_array,$params );
+        
+       /* echo $this->db->last_query();
+        echo "<pre>";
+        print_r($res2);
+        die();*/
+        
+        $this->load->library ( 'pagination' );
+        $config ['base_url'] =  base_url().'Employer_Process/get_result_without_registration/';
+        $config ['total_rows'] = count($res2);
+        $config['use_page_numbers'] = TRUE;
+        $config ['per_page'] = $rowperpage;
+        $config ['num_links'] = 3;
+        $config ['full_tag_open'] = '<nav><ul class="pagination">';
+        $config ['full_tag_close'] = '</ul></nav>';
+        $config ['first_tag_open'] = '<li class="page-item">';
+        $config ['first_link'] = '<<';
+        $config ['first_tag_close'] = '</li>';
+        $config ['prev_link'] = '<';
+        $config ['prev_tag_open'] = '<li class="page-item">';
+        $config ['prev_tag_close'] = '</li>';
+        $config ['next_link'] = '>';
+        $config ['next_tag_open'] = '<li class="page-item">';
+        $config ['next_tag_close'] = '</li>';
+        $config ['cur_tag_open'] = '<li class="active"><a href="javascript:;">';
+        $config ['cur_tag_close'] = '</a></li>';
+        $config ['num_tag_open'] = '<li>';
+        $config ['num_tag_close'] = '</li>';
+        $config ['last_tag_open'] = '<li class="page-item">';
+        $config ['last_link'] = '>>';
+        $config ['last_tag_close'] = '</li>';
+
+        $params['limit'] = array($rowno,$rowperpage); // $rowperpage;
+        $res = $this->HWT->hwt_join_1(  $tbl,$join,$rows,$where_array,$params );
+
+
+        $this->pagination->initialize($config);
+        $data['page_link'] = $this->pagination->create_links( );
+        $data['result'] = $res;
+        $data['row'] = $rowno;
+
+        $data['jobs'] = $res;
+
+        
+        //$data['searchParam'] = $search;
+        //$data['area'] = $area;
+        //$type = explode(',', $type);
+        //$data['type'] = $type;
+        //$data['findSchool'] = true;
+        $data['no_of_item'] = count($res2);       
+        
+        // echo $this->db->last_query();
+        $data['type'] = "";
+        if(isset($post['type']) && $post['type']!='') {
+            $data['type'] = "job_list";
+        }
+        $this->load->view(USER.'ajax/ajax_job_list_without_registration',$data);
+        
+    }
+
+    function get_result_jobseeker_list_without_registration( $rowno = 0 ) {
+
+        $post = $this->input->post();
+
+        $params = array();
+        $rowperpage = LIMIT;
+        if($rowno != 0){
+            $rowno = ($rowno-1) * $rowperpage;
+        } 
+
+        $wh_2 = array("isDelete"=>0,"job_id"=>$post['job_view_id'],'employer_id'=>$_SESSION[PREFIX.'id']);
+        $res2 = $this->HWT->get_hwt("apply_job_without_login", "*",$wh_2 );   
+       
+        $this->load->library ( 'pagination' );
+        $config ['base_url'] =  base_url().'Employer_Process/get_result_jobseeker_list_without_registration/';
+        $config ['total_rows'] = count($res2);
+        $config['use_page_numbers'] = TRUE;
+        $config ['per_page'] = $rowperpage;
+        $config ['num_links'] = 3;
+        $config ['full_tag_open'] = '<nav><ul class="pagination">';
+        $config ['full_tag_close'] = '</ul></nav>';
+        $config ['first_tag_open'] = '<li class="page-item">';
+        $config ['first_link'] = '<<';
+        $config ['first_tag_close'] = '</li>';
+        $config ['prev_link'] = '<';
+        $config ['prev_tag_open'] = '<li class="page-item">';
+        $config ['prev_tag_close'] = '</li>';
+        $config ['next_link'] = '>';
+        $config ['next_tag_open'] = '<li class="page-item">';
+        $config ['next_tag_close'] = '</li>';
+        $config ['cur_tag_open'] = '<li class="active"><a href="javascript:;">';
+        $config ['cur_tag_close'] = '</a></li>';
+        $config ['num_tag_open'] = '<li>';
+        $config ['num_tag_close'] = '</li>';
+        $config ['last_tag_open'] = '<li class="page-item">';
+        $config ['last_link'] = '>>';
+        $config ['last_tag_close'] = '</li>';
+
+        $params['limit'] = array($rowno,$rowperpage); // $rowperpage;
+
+        $wh_2 = array("isDelete"=>0,"job_id"=>$post['job_view_id'],'employer_id'=>$_SESSION[PREFIX.'id']);
+        $res = $this->HWT->get_hwt("apply_job_without_login", "*",$wh_2 ); 
+        
+        $this->pagination->initialize($config);
+        $data['page_link'] = $this->pagination->create_links( );
+        $data['result'] = $res;
+        $data['row'] = $rowno;
+
+        $data['users'] = $res;
+        //$data['searchParam'] = $search;
+        //$data['area'] = $area;
+        //$type = explode(',', $type);
+        //$data['type'] = $type;
+        //$data['findSchool'] = true;
+        $data['no_of_item'] = count($res2);       
+        
+        // echo $this->db->last_query();
+        $this->load->view(USER.'ajax/ajax_applicant_without_registration',$data);        
+    }
+    /*without registration*/
+
 }

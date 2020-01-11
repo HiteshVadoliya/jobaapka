@@ -162,6 +162,7 @@ class Job_Process extends FrontController {
         
         $DataUpdate = array(
             "name"          => $post['name'],
+            "job_id"        => $post['job_id'],
             "email"         => $post['email'],
             "mobile"        => $post['mobile'],
             "exp_year"      => $post['exp_year'],

@@ -53,6 +53,20 @@ class Home extends FrontController {
         $data['active_menu'] = "signup";
         $this->loadViews(USER."choose_signup", $this->global, $data, NULL,NULL);
     }
+
+    public function jobseeker_not_login() {
+        $data = array();
+        $this->global['pageTitle'] = 'jobseeker';
+        $data['active_menu'] = "jobseeker_without_login";
+        $this->loadViews(USER."jobseeker_not_login", $this->global, $data, NULL,NULL);
+    }
+    public function employer_not_login() {
+        $data = array();
+        $this->global['pageTitle'] = 'jobseeker';
+        $data['active_menu'] = "jobseeker_without_login";
+        $this->loadViews(USER."employer_not_login", $this->global, $data, NULL,NULL);
+    }
+
     public function signup( $type = 'jobseeker' ) {
         $this->check_session();
         $data = array();
@@ -308,6 +322,8 @@ class Home extends FrontController {
         $data['active_menu'] = $type;
         $data['collection'] = $this->collection_data();
         $data['jobseeker_data'] = $this->HWT->get_one_row("hwt_user","*",array("isDelete"=>0,"status"=>1,"id"=>$_SESSION[PREFIX.'id']));
+
+
         if($type=="profile") {
             $this->loadViews(USER."jobseeker_profile", $this->global, $data, NULL,NULL);
         } else if($type=="contact") {            
@@ -327,6 +343,25 @@ class Home extends FrontController {
 
             $this->loadViews(USER."jobseeker_education", $this->global, $data, NULL,NULL);
         } else if($type=="dashboard") {
+
+            $applied_job = "0";
+            if(isset($data['jobseeker_data']['applied_job']) && $data['jobseeker_data']['applied_job']!='') {
+                $applied_job_array = explode(",", $data['jobseeker_data']['applied_job']);
+                $applied_job = count($applied_job_array);
+            }
+
+            $data['applied_job'] = $applied_job;
+
+            $shortlist = "0";
+            if(isset($data['jobseeker_data']['shortlist']) && $data['jobseeker_data']['shortlist']!='') {
+                $shortlist_array = explode(",", $data['jobseeker_data']['shortlist']);
+                $shortlist = count($shortlist_array);
+            }
+
+            $data['shortlist'] = $shortlist;
+            
+
+
             $this->loadViews(USER."jobseeker_dashboard", $this->global, $data, NULL,NULL);
         } else if($type=="other") {
             $data['other'] = $this->HWT->get_one_row("jobseeker_other","*",array("jobseeker_id"=>$_SESSION[PREFIX.'id']));
@@ -374,7 +409,7 @@ class Home extends FrontController {
         } else if($type=="postjob") {
             $data['edit'] = array();
             if(isset($editid) && $editid != '' ) {
-                $job_res = $this->HWT->get_one_row("job","*",array("employer_id"=>$_SESSION[PREFIX.'id'],'isDelete'=>0, 'status'=>1 ));
+                $job_res = $this->HWT->get_one_row("job","*",array("employer_id"=>$_SESSION[PREFIX.'id'],'isDelete'=>0, 'status'=>1,'job_id'=>$editid ));
                 if( !empty($job_res) ) {
                     $data['edit'] = $job_res;
                 }
@@ -424,6 +459,12 @@ class Home extends FrontController {
         } else if($type=="view_employer_jobs") {
             $data['employer_id'] = $editid;
            $this->loadViews(USER."view_employer_jobs", $this->global, $data, NULL,NULL);
+        } else if($type=="applied_without_registration") {
+            $data['job_view_id'] = "";
+            if(isset($editid) && $editid != '' ) {
+                $data['job_view_id'] = $editid;
+            }
+            $this->loadViews(USER."applied_without_registration", $this->global, $data, NULL,NULL);
         }
     }
 
@@ -784,7 +825,7 @@ class Home extends FrontController {
         
         $data['collection'] = $this->collection_data();
         
-        $wh = array("isDelete"=>0,"status"=>1,"employer_id"=>$_SESSION[PREFIX.'id']);
+        /*$wh = array("isDelete"=>0,"status"=>1,"employer_id"=>$_SESSION[PREFIX.'id']);
         $tbl = array("job as job","hwt_user as u");
         $join = array('job.employer_id = u.id');
         $where_array = array(
@@ -794,7 +835,7 @@ class Home extends FrontController {
         );
 
 
-        $data['jobs'] = $this->HWT->hwt_join_1(  $tbl,$join,$rows="*",$where_array,$param = array() );
+        $data['jobs'] = $this->HWT->hwt_join_1(  $tbl,$join,$rows="*",$where_array,$param = array() );*/
         
         $this->loadViews(USER."job_list", $this->global, $data, NULL,NULL);
     }
@@ -817,7 +858,10 @@ class Home extends FrontController {
 
 
         /* shortlist */
-        $res_shorlist =$this->HWT->hwt_idin("hwt_user","*",array("id"=>$_SESSION[PREFIX.'id']),"shortlist",$job_id);
+        $res_shorlist = "";
+        if(isset($_SESSION[PREFIX.'id'])) {
+            $res_shorlist =$this->HWT->hwt_idin("hwt_user","*",array("id"=>$_SESSION[PREFIX.'id']),"shortlist",$job_id);
+        }
         $data['shortlist_active'] = ($res_shorlist) ? 'shortlist_active': '';
         /* shortlist */
 
@@ -840,9 +884,9 @@ class Home extends FrontController {
         $this->loadViews(USER."view_jobseeker", $this->global, $data, NULL,NULL);        
     }
 
-    public function apply_without_registration( $job_id ) {
+    public function apply_without_registration( $job_id, $without_registration_id = "" ) {
 
-         $data = array();
+        $data = array();
         $this->global['pageTitle'] = 'view_job';
         $data['active_menu'] = "view_job";
         
@@ -859,6 +903,20 @@ class Home extends FrontController {
         $result = $this->HWT->hwt_join_1(  $tbl,$join,$rows="*",$where_array,$param = array() );
         $data['jobs'] = $result[0];
         $data['job_id'] = $job_id;
+
+        if(empty($data['jobs'])) {
+            $_SESSION['FAIL'] = "Unauthorization";
+            redirect(base_url());
+        }
+        // $data['view_job_details'] = array();
+        if($without_registration_id!="") {
+            $data['view_job_details'] = $this->HWT->get_one_row("apply_job_without_login","*",array("id"=>$without_registration_id,"employer_id"=>$_SESSION[PREFIX.'id'],"job_id"=>$job_id));
+
+            if(empty($data['view_job_details'])) {
+                $_SESSION['FAIL'] = "Unauthorization";
+                redirect(base_url());
+            }
+        }
         $this->loadViews(USER."apply_job_without_registration", $this->global, $data, NULL,NULL); 
     }
 

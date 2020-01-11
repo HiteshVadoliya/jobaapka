@@ -74,7 +74,11 @@ $route['job_list/(:any)'] = 'Home/job_list/$1';
 $route['view_job/(:any)'] = 'Home/view_job/$1';
 $route['view_jobseeker/(:any)'] = 'Home/view_jobseeker/$1';
 $route['apply_without_registration/(:any)'] = 'Home/apply_without_registration/$1';
+$route['apply_without_registration/(:any)/(:any)'] = 'Home/apply_without_registration/$1/$2';
 $route['employer/employer_profile_view/(:any)'] = 'Home/employer/$1';
+$route['jobseeker_info'] = 'Home/jobseeker_not_login';
+$route['employer_info'] = 'Home/employer_not_login';
+
 
 $route['my-form'] = "MyFormController";
 // $route['my-form-upload']['post'] = "MyFormController/post";

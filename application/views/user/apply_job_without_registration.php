@@ -50,22 +50,22 @@
                   <div class="candidate-single-profile-info">
                      <form name="frm" id="frm" action="javascript:;" method="post" enctype="multipart/form-data">
                         <div class="resume-box">
-                           <h3>Apply For Job</h3>
+                           <h3><?php if(isset($view_job_details) && $view_job_details['name']!="") { echo 'View Details'; } else { echo 'Apply For Job'; } ?></h3>
                            <div class="single-resume-feild feild-flex-2">
                               <div class="single-input">
                                  <label for="Phone">Name * :</label>
-                                 <input type="text" value="" id="name" name="name">
+                                 <input type="text" value="<?php if(isset($view_job_details) && $view_job_details['name']!="") { echo $view_job_details['name']; } ?>" id="name" name="name">
                               </div>
                               <div class="single-input">
                                  <label for="Email">Current Email id * :</label>
-                                 <input type="text" value="" id="email" name="email">
+                                 <input type="text" value="<?php if(isset($view_job_details) && $view_job_details['email']!="") { echo $view_job_details['email']; } ?>" id="email" name="email">
                               </div>
                            </div>
 
                            <div class="single-resume-feild feild-flex-2">
                               <div class="single-input">
                                  <label for="Phone">Current Mobile No * :</label>
-                                 <input type="text" value="" id="mobile" name="mobile">
+                                 <input type="text" value="<?php if(isset($view_job_details) && $view_job_details['mobile']!="") { echo $view_job_details['mobile']; } ?>" id="mobile" name="mobile">
                               </div>
                               <div class="single-input">
                                  <label for="Email">Current Location * :</label>
@@ -77,7 +77,7 @@
                                       $location = $collection['location'];
                                       $selected_loc = "";
                                       foreach ($location as $l_key => $l_value) {
-                                        $selected_loc = $this->HWT->hwt_selected( $l_value['id'], $skill['location']);
+                                        $selected_loc = $this->HWT->hwt_selected( $l_value['id'], $view_job_details['location']);
                                         ?>
                                         <option value="<?= $l_value['id'] ?>" <?= $selected_loc ?> ><?= $l_value['title']; ?></option>
                                         <?php
@@ -104,7 +104,7 @@
                                 $exp_year = $collection['exp_year'];
                                 $selected_year = "";
                                 foreach ($exp_year as $e_key => $e_value) {
-                                   $selected_year = ($skill['exp_year']==$e_key) ? 'selected' : '';
+                                   $selected_year = ($view_job_details['exp_year']==$e_key) ? 'selected' : '';
                                   ?>
                                   <option value="<?= $e_key ?>" <?= $selected_year ?> ><?= $e_value; ?></option>
                                   <?php
@@ -122,7 +122,7 @@
                                  {
                                    $exp_month = $collection['exp_month'];
                                    foreach ($exp_month as $m_key => $m_value) {
-                                     $selected_month = ($skill['exp_month']==$m_key) ? 'selected' : '';
+                                     $selected_month = ($view_job_details['exp_month']==$m_key) ? 'selected' : '';
                                      ?>
                                      <option value="<?= $m_value ?>" <?= $selected_month; ?> ><?= $m_value; ?></option>
                                      <?php
@@ -136,22 +136,41 @@
 
                            <div class="single-resume-feild">
                               <div class="single-input">
-                                 <label for="Phone">Upload CV :</label>
-                                 <input type="file" id="img_src" name="img_src">
+                               
+                                  <?php if(isset($view_job_details) && $view_job_details['name']!="") { 
+                                    $img_src = "";
+                                    if($view_job_details['img_src']!="") {
+                                      if(file_exists(IMG_PROFILE.$view_job_details['img_src'])) {
+                                        $img_src = base_url().IMG_PROFILE.$view_job_details['img_src'];
+                                      } 
+                                    }
+                                    if($img_src!="") {
+                                      ?>
+                                       <label for="Phone">Download CV :</label>
+                                       <a href="<?= $img_src ?>">Download CV</a>
+                                      <?php
+                                    }                                    
+                                    ?>
+                                 <?php } else { ?>
+                                  <label for="Phone">Upload CV :</label>
+                                  <input type="file" id="img_src" name="img_src">
+                                 <?php } ?>
                               </div>
                            </div>
                            <div class="single-resume-feild ">
                               <div class="single-input">
                                  <label for="Phone">Details :</label>
-                                 <textarea name="details" id="details"></textarea>
+                                 <textarea name="details" id="details"><?php if(isset($view_job_details) && $view_job_details['details']!="") { echo $view_job_details['details']; } ?></textarea>
                               </div>
                            </div>
                         </div>
                         <input type="hidden" name="job_id" id="job_id" value="<?= $job_id ?>">
                         
+                        <?php if(!isset($view_job_details)) { ?>
                         <div class="submit-resume">
                            <button type="submit" class="custom_submit apply_job">Apply</button>
                         </div>
+                        <?php } ?>
 
                      </form>
                   </div>
@@ -254,6 +273,7 @@
             } else {
               $.notify({message: data.msg },{type: 'danger'});
             }
+            $(".custom_submit").html(btn_old_val);
             $("#frm")[0].reset();
 
             //var url = '<?php echo base_url('employer/profile'); ?>';

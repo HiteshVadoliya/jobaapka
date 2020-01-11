@@ -9,13 +9,14 @@
            <div class="top-company-list  ">
               
               <div class="company-list-details">
-                 <h3><a href="javascript:;"><?= $u_value['fname'] ?></a></h3>
+                 <h3><a href="javascript:;"><?= $u_value['name'] ?></a></h3>
                  <p class="company-state"><i class="fa fa-mobile" aria-hidden="true"></i> Number : <?= $u_value['mobile']; ?></p>
-                 <p class="open-icon"><i class="fa fa-envelope"></i>Email : <?= $u_value['email']; ?>
+                 <p class="open-icon"><i class="fa fa-envelope"></i>Email : <?= $u_value['email']; ?></p>
               </div>
               
               <div class="company-list-btn">
-                 <a title="View Full Profile" href="<?= base_url("view_jobseeker/".$u_value['id']) ?>" class="jobguru-btn"><i class="fa fa-user" ></i> </a>
+                 <a title="View Full Profile" href="<?= base_url("apply_without_registration/".$u_value['job_id'])."/".$u_value['id']; ?>" class="jobguru-btn"><i class="fa fa-user" ></i> </a>
+                 <a title="Delete" href="javascript:;" class="jobguru-btn delete_without_registration " data-jobid="<?= $u_value['id']; ?>"><i class="fa fa-trash"></i></a>
               </div>
            </div>
         </div>
@@ -39,23 +40,24 @@
 	  var pageno = $(this).attr('data-ci-pagination-page');
 	  get_data(pageno);
 	});
-$(".delete_job").on("click", function(){
+$(".delete_without_registration").on("click", function(){
 	var r = confirm("Are you sure to delete?");
 	if(!r) { return false; }
 
 	var did = $(this).attr("data-jobid");
 	$.ajax({
-        url: "<?php echo base_url()."Employer_Process/delete_job/" ?>",
+        url: "<?php echo base_url()."Employer_Process/delete_job_without_registration/" ?>",
         method: "POST",
         dataType: "json",
         data :{did:did},
         success: function(data) {
         	if(data.result) {
         		$(".job_"+did).remove();
-        		$.notify({message: 'Job Deleted Successfully.' },{type: 'success'});
+        		$.notify({message: 'Deleted Successfully.' },{type: 'success'});
         	} else {
         		$.notify({message: 'Something Went wrong..' },{type: 'danger'});
         	}
+          get_data(0);
         },
         error: function(data) {
             console.log(data);

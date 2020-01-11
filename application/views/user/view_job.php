@@ -1,4 +1,4 @@
-Single Candidate Start -->
+<!-- Single Candidate Start -->
 <section class="single-candidate-page section_70">
    <div class="container">
       <div class="row">

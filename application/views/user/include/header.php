@@ -53,7 +53,18 @@
                   <nav id="navigation">
                      <ul id="jobguru_navigation">
                         <li class="active"><a href="<?= base_url('home'); ?>">HOME</a></li>
-                        <li class="active"><a href="javascript:;">EMPLOYER</a></li>
+                        <?php
+                        if(isset($_SESSION[PREFIX.'id'])) {
+                           ?>
+                           <li><a href="javascript:;">EMPLOYER </a></li>
+                           <?php
+                        } else {
+                           ?>
+                           <li><a href="<?= base_url('employer_info'); ?>">EMPLOYER </a></li>
+                           <?php
+                        }
+                        ?>
+                        <!-- <li class="active"><a href="javascript:;">EMPLOYER</a></li> -->
                         <!-- <li ><a href="<?= base_url('employer/profile'); ?>">EMPLOYER</a></li> -->
 
                         <!-- <li class="has-children ">
@@ -70,8 +81,17 @@
                               <li><a href="<?= base_url('employer/consultin'); ?>">TECHNOLOGY CONSULTING </a></li>
                            </ul> 
                         </li> -->
-
-                        <li ><a href="javascript:;">JOBSEEKER </a></li>
+                        <?php
+                        if(isset($_SESSION[PREFIX.'id'])) {
+                           ?>
+                           <li><a href="javascript:;">JOBSEEKER </a></li>
+                           <?php
+                        } else {
+                           ?>
+                           <li><a href="<?= base_url('jobseeker_info'); ?>">JOBSEEKER </a></li>
+                           <?php
+                        }
+                        ?>
                         <!-- <li ><a href="<?= base_url('about'); ?>">ABOUT US</a></li>
                         <li ><a href="<?= base_url('whyus'); ?>">WHY US</a></li> -->
                         <li ><a href="<?= base_url('contact'); ?>">CONTACT US</a></li>
