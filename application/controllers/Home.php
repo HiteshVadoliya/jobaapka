@@ -153,8 +153,6 @@ class Home extends FrontController {
         }
         $collection['exp_month'] = $exe_month;
 
-        
-
         return $collection;
     }
 
@@ -347,7 +345,13 @@ class Home extends FrontController {
             $applied_job = "0";
             if(isset($data['jobseeker_data']['applied_job']) && $data['jobseeker_data']['applied_job']!='') {
                 $applied_job_array = explode(",", $data['jobseeker_data']['applied_job']);
-                $applied_job = count($applied_job_array);
+
+                $param['in_array'] = $applied_job_array; 
+                $param['in_array_field'] = 'job_id'; 
+                $res2 = $this->HWT->get_hwt("job","*",array("isDelete"=>0,"status"=>1,"job_expire"=>0), $param );
+
+                $applied_job = count($res2);
+                
             }
 
             $data['applied_job'] = $applied_job;
@@ -355,11 +359,19 @@ class Home extends FrontController {
             $shortlist = "0";
             if(isset($data['jobseeker_data']['shortlist']) && $data['jobseeker_data']['shortlist']!='') {
                 $shortlist_array = explode(",", $data['jobseeker_data']['shortlist']);
-                $shortlist = count($shortlist_array);
+
+                $param['in_array'] = $shortlist_array; 
+                $param['in_array_field'] = 'job_id'; 
+                $res_short = $this->HWT->get_hwt("job","*",array("isDelete"=>0,"status"=>1,"job_expire"=>0), $param );
+
+                $shortlist = count($res_short);
             }
 
             $data['shortlist'] = $shortlist;
             
+            $par_plan['shortby'] = "id";
+            $par_plan['shortorder'] = "desc";
+            $data['plan_history'] = $this->HWT->get_hwt("payments","*",array("user_id"=>$_SESSION[PREFIX.'id'],"status"=>1,"isDelete"=>0),$par_plan);
 
 
             $this->loadViews(USER."jobseeker_dashboard", $this->global, $data, NULL,NULL);
@@ -405,6 +417,9 @@ class Home extends FrontController {
         $data['collection'] = $this->collection_data();
         $data['employer'] = $this->HWT->get_one_row("hwt_user","*",array("id"=>$_SESSION[PREFIX.'id'],"isDelete"=>0,"status"=>1));
         if($type=="profile") {
+            $par_plan['shortby'] = "id";
+            $par_plan['shortorder'] = "desc";
+            $data['plan_history'] = $this->HWT->get_hwt("payments","*",array("user_id"=>$_SESSION[PREFIX.'id'],"status"=>1,"isDelete"=>0),$par_plan);
             $this->loadViews(USER."employer_profile", $this->global, $data, NULL,NULL);
         } else if($type=="postjob") {
             $data['edit'] = array();
@@ -454,6 +469,11 @@ class Home extends FrontController {
         } else if($type=="employer_profile_view") {
 
             $data['employer'] = $this->HWT->get_one_row("hwt_user","*",array("id"=>$editid,"isDelete"=>0,"status"=>1));
+
+            if(empty($data['employer'])) {
+                $_SESSION['FAIL'] = "This employer is no longer available";
+                redirect(base_url());
+            }
 
             $this->loadViews(USER."employer_profile_view", $this->global, $data, NULL,NULL);
         } else if($type=="view_employer_jobs") {
@@ -670,6 +690,7 @@ class Home extends FrontController {
                 $_SESSION[PREFIX.'name'] = $dup['fname'];
                 $_SESSION[PREFIX.'type'] = $dup['type'];
                 $_SESSION[PREFIX.'email'] = $dup['email'];
+                $_SESSION[PREFIX.'plan_status'] = $dup['plan_status'];
                 $error_messages = 'Login Successfully';
                 $return['error'] = "success";
                 $return['type'] = $dup['type'];
@@ -817,26 +838,26 @@ class Home extends FrontController {
     public function job_list( $data = "" ) {
         
         $post = $this->input->get();
-        
         $data = array();
+
+        $data['search'] = "";
+        $data['ind'] = "";
+
+        if(isset($post['ind']) && $post['ind']!="") {
+            $data['ind'] = base64_decode($post['ind']);
+        }
+        if(isset($post['q']) && $post['q']!="") {
+            $data['q'] = $post['q'];
+        }
+
+        // $post['']
         $data['search'] = $post;
+
         $this->global['pageTitle'] = 'job_list';
         $data['active_menu'] = "job_list";
         
         $data['collection'] = $this->collection_data();
-        
-        /*$wh = array("isDelete"=>0,"status"=>1,"employer_id"=>$_SESSION[PREFIX.'id']);
-        $tbl = array("job as job","hwt_user as u");
-        $join = array('job.employer_id = u.id');
-        $where_array = array(
-            "job.isDelete"=>0,
-            "job.status"=>1,
-            "job.employer_id"=>$_SESSION[PREFIX.'id'],                
-        );
-
-
-        $data['jobs'] = $this->HWT->hwt_join_1(  $tbl,$join,$rows="*",$where_array,$param = array() );*/
-        
+       
         $this->loadViews(USER."job_list", $this->global, $data, NULL,NULL);
     }
 
@@ -854,6 +875,9 @@ class Home extends FrontController {
             "job.isDelete"=>0,
             "job.status"=>1,
             "job.job_id"=>$job_id,
+            "job.job_expire"=>0,
+            "u.status"=>1,
+            "u.isDelete"=>0,
         );
 
 
@@ -870,7 +894,13 @@ class Home extends FrontController {
 
 
         $result = $this->HWT->hwt_join_1(  $tbl,$join,$rows="*",$where_array,$param = array() );
+
         $data['jobs'] = $result[0];
+        if(empty($data['jobs'])) {
+            $_SESSION['FAIL'] = "This job is no longer available";
+            redirect(base_url());
+            die();
+        }
         $this->loadViews(USER."view_job", $this->global, $data, NULL,NULL);
     }
 
@@ -886,6 +916,7 @@ class Home extends FrontController {
 
     public function apply_without_registration( $job_id, $without_registration_id = "" ) {
 
+
         $data = array();
         $this->global['pageTitle'] = 'view_job';
         $data['active_menu'] = "view_job";
@@ -898,11 +929,18 @@ class Home extends FrontController {
             "job.isDelete"=>0,
             "job.status"=>1,
             "job.job_id"=>$job_id,
+            "job.job_expire"=>0,
         );
 
         $result = $this->HWT->hwt_join_1(  $tbl,$join,$rows="*",$where_array,$param = array() );
         $data['jobs'] = $result[0];
         $data['job_id'] = $job_id;
+
+        if(empty($data['jobs'])) {
+            $_SESSION['FAIL'] = "This job is no longer available";
+            redirect(base_url());
+            die();
+        }
 
         if(empty($data['jobs'])) {
             $_SESSION['FAIL'] = "Unauthorization";
@@ -942,6 +980,54 @@ class Home extends FrontController {
         echo json_encode($response);
         die();
     } 
+
+
+    public function razorPaySuccess() { 
+
+     $data = [
+               'user_id' => $_SESSION[PREFIX.'id'],
+               'payment_id' => $this->input->post('razorpay_payment_id'),
+               'amount' => $this->input->post('totalAmount'),
+               'product_id' => $this->input->post('product_id'),
+               "plan_purchase_date" => date("Y-m-d"),
+               "plan_expiry_date" => date("Y-m-d", strtotime(date("Y-m-d"). DAY)),
+            ];
+     $insert = $this->db->insert('payments', $data);
+
+     if($insert) {
+
+        $DataUpdateUser = array(
+            "plan_purchase_date" => date("Y-m-d"),
+            "plan_expiry_date" => date("Y-m-d", strtotime(date("Y-m-d"). DAY)),
+            "plan_status" => 1,
+            "plan_id" => $insert,
+        );
+        $wh = array("id"=>$_SESSION[PREFIX.'id']);
+        $this->HWT->update("hwt_user",$DataUpdateUser,$wh);
+
+        if($_SESSION[PREFIX.'type']=="employer") {
+            $DataUpdateJob = array(
+                "created_at" => date("Y-m-d"),
+                "updated_at" => date("Y-m-d", strtotime(date("Y-m-d"). DAY)),
+                "job_expire" => 0,
+            );
+
+            $wh = array("employer_id"=>$_SESSION[PREFIX.'id']);
+            $this->HWT->update("job",$DataUpdateUser,$wh);
+        }
+
+     }
+     $arr = array('msg' => 'Payment successfully credited', 'status' => true);  
+    }
+
+    public function RazorThankYou()
+    {
+        
+        $data = array();
+        $this->global['pageTitle'] = 'RazorPayThanks';
+        $data['active_menu'] = "RazorPayThanks";
+        $this->loadViews(USER."RazorPayThanks", $this->global, $data, NULL,NULL);
+    }
 
 
 }

@@ -68,12 +68,12 @@
                                  <textarea placeholder="1000 chars max shown in placeholder" name="awards" id="awards" ><?= $other['awards']; ?></textarea>
                               </div>                              
                            </div>
-                           <div class="single-resume-feild">
+                           <!-- <div class="single-resume-feild">
                               <div class="single-input">
                                  <label for="name">Profile Completeness :</label>
                                  <span>35%</span>
                               </div>                              
-                           </div>                           
+                           </div> -->                           
                         </div>
                         
                         <div class="submit-resume">

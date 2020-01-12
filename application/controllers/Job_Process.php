@@ -7,37 +7,125 @@ class Job_Process extends FrontController {
 
         $post = $this->input->post();
 
-        $post = json_decode($post['search'],true);
-        
+       /* echo "<pre>";
+        print_r($post);
+        echo "</pre>";*/
+        // die();
 
+        
         $params = array();
         $rowperpage = LIMIT;
         if($rowno != 0){
             $rowno = ($rowno-1) * $rowperpage;
-        } 
-
-        if(isset($post) && !empty($post['q']) ) {
-            $params['search'] = $post['q'];
-            $params['search_column'] = array("job_title","company_name");
         }
 
-        if(isset($post) && !empty($post['ind']) ) {
-            $ind_id =  base64_decode($post['ind']);
-            $params['find_in_set_array'] = $ind_id;
-            $params['find_in_set_array_field'] = 'job_industry';
-            // job_industry
-        }
         
+        $this->db->select('*');
+        $this->db->from('job as job');
+        $this->db->join('hwt_user as u', 'job.employer_id = u.id');
 
-        $wh = array("isDelete"=>0,"status"=>1);
-        $tbl = array("job as job","hwt_user as u");
-        $join = array('job.employer_id = u.id');
-        $where_array = array(
-            "job.isDelete"=>0,
-            "job.status"=>1,
-        );
+        if(isset($post) && !empty($post['job_title']) ) {
+            $this->db->group_start();
+            $this->db->like("job_title", $post['job_title']);
+            $this->db->or_like("company_name", $post['job_title']);
+            $this->db->group_end();
+        }
+        if(isset($post) && !empty($post['job_industry']) ) {            
+            $this->db->group_start();
+            $find_in_set_array = $post['job_industry'];
+            $find_in_set_array_field ='job_industry';
+            foreach ($find_in_set_array as $ind_key => $ind_value) {
+                if($ind_key==0) {
+                    $this->db->where("find_in_set($ind_value, $find_in_set_array_field)");            
+                } else {
+                    $this->db->or_where("find_in_set($ind_value, $find_in_set_array_field)");            
+                }
+            }
+            $this->db->group_end();            
+        }
 
-        $res2 = $this->HWT->hwt_join_1(  $tbl,$join,$rows="*",$where_array,$params );
+        if(isset($post) && !empty($post['job_job_location']) ) {            
+            $this->db->group_start();
+            $find_in_set_array = $post['job_job_location'];
+            $find_in_set_array_field ='job_job_location';
+            foreach ($find_in_set_array as $job_key => $job_value) {
+                if($job_key==0) {
+                    $this->db->where("find_in_set($job_value, $find_in_set_array_field)");            
+                } else {
+                    $this->db->or_where("find_in_set($job_value, $find_in_set_array_field)");            
+                }
+            }
+            $this->db->group_end();            
+        }
+
+        if(isset($post) && !empty($post['job_job_function']) ) {            
+            $this->db->group_start();
+            $find_in_set_array = $post['job_job_function'];
+            $find_in_set_array_field ='job_job_function';
+            foreach ($find_in_set_array as $fun_key => $fun_value) {
+                if($fun_key==0) {
+                    $this->db->where("find_in_set($fun_value, $find_in_set_array_field)");            
+                } else {
+                    $this->db->or_where("find_in_set($fun_value, $find_in_set_array_field)");            
+                }
+            }
+            $this->db->group_end();            
+        }
+
+        if(isset($post) && !empty($post['job_education']) ) {            
+            $this->db->group_start();
+            $find_in_set_array = $post['job_education'];
+            $find_in_set_array_field ='job_education';
+            foreach ($find_in_set_array as $edu_key => $edu_value) {
+                if($edu_key==0) {
+                    $this->db->where("find_in_set($edu_value, $find_in_set_array_field)");            
+                } else {
+                    $this->db->or_where("find_in_set($edu_value, $find_in_set_array_field)");            
+                }
+            }
+            $this->db->group_end();            
+        }
+
+        if(isset($post) && !empty($post['job_exp_year']) && $post['job_exp_year']!="" ) {            
+            $this->db->group_start();
+            // $concate = $post['job_exp_year'].$post['job_exp_month'];
+            // $this->db->where("job_exp_year >=",$post['job_exp_year']); 
+            $this->db->where("job_exp_year >=",$post['job_exp_year']); 
+            // $this->db->where("job_exp_year >=",$post['job_exp_year']); 
+            // $this->db->where('`job_id` IN (SELECT `job_id` FROM `job` WHERE job_exp_month >= "'.$post['job_exp_month'].'" )', NULL, FALSE);
+            // $this->db->where('`job_id` IN (SELECT `job_id` FROM `job` WHERE job_exp_month >= "'.$post['job_exp_month'].'" )', NULL, FALSE);
+            $this->db->group_end();            
+        }
+
+        /*if(isset($post) && !empty($post['job_exp_month']) && $post['job_exp_month']!="" ) {            
+            $this->db->group_start();
+            $this->db->where("job_exp_month >=",$post['job_exp_month']); 
+            $this->db->group_end();            
+        }*/
+
+        if(isset($post) && !empty($post['job_salary']) ) {            
+            $min_salary = explode(" - ", $post['job_salary'])[0];
+            $min_salary = str_replace("$", "", $min_salary);
+            $max_salary = explode(" - ", $post['job_salary'])[1];
+            $max_salary = str_replace("$", "", $max_salary);
+            
+            $this->db->where('job_salary >=', $min_salary);
+            $this->db->where('job_salary <=', $max_salary);
+           
+        }
+
+        $this->db->where('job.isDelete', 0);
+        $this->db->where('job.status', 1);
+        $this->db->where('job.job_expire', 0);
+        $this->db->where('u.isDelete', 0);
+        $this->db->where('u.status', 1);
+        $this->db->where('u.plan_status', 1);
+
+        $query = $this->db->get();
+        $res2 = $query->result_array();
+
+
+        // $res2 = $this->HWT->hwt_join_1(  $tbl,$join,$rows="*",$where_array,$params );
         /*echo $this->db->last_query();
         die();*/
         $this->load->library ( 'pagination' );
@@ -66,7 +154,117 @@ class Job_Process extends FrontController {
         $config ['last_tag_close'] = '</li>';
 
         $params['limit'] = array($rowno,$rowperpage); // $rowperpage;
-        $res = $this->HWT->hwt_join_1(  $tbl,$join,$rows="*",$where_array,$params );
+
+        $this->db->select('*');
+        $this->db->from('job as job');
+        $this->db->join('hwt_user as u', 'job.employer_id = u.id');
+
+        if(isset($post) && !empty($post['job_title']) ) {
+            $this->db->group_start();
+            $this->db->like("job_title", $post['job_title']);
+            $this->db->or_like("company_name", $post['job_title']);
+            $this->db->group_end();
+        }
+        if(isset($post) && !empty($post['job_industry']) ) {            
+            $this->db->group_start();
+            $find_in_set_array = $post['job_industry'];
+            $find_in_set_array_field ='job_industry';
+            foreach ($find_in_set_array as $ind_key => $ind_value) {
+                if($ind_key==0) {
+                    $this->db->where("find_in_set($ind_value, $find_in_set_array_field)");            
+                } else {
+                    $this->db->or_where("find_in_set($ind_value, $find_in_set_array_field)");            
+                }
+            }
+            $this->db->group_end();            
+        }
+
+        if(isset($post) && !empty($post['job_job_location']) ) {            
+            $this->db->group_start();
+            $find_in_set_array = $post['job_job_location'];
+            $find_in_set_array_field ='job_job_location';
+            foreach ($find_in_set_array as $job_key => $job_value) {
+                if($job_key==0) {
+                    $this->db->where("find_in_set($job_value, $find_in_set_array_field)");            
+                } else {
+                    $this->db->or_where("find_in_set($job_value, $find_in_set_array_field)");            
+                }
+            }
+            $this->db->group_end();            
+        }
+
+        if(isset($post) && !empty($post['job_job_function']) ) {            
+            $this->db->group_start();
+            $find_in_set_array = $post['job_job_function'];
+            $find_in_set_array_field ='job_job_function';
+            foreach ($find_in_set_array as $fun_key => $fun_value) {
+                if($fun_key==0) {
+                    $this->db->where("find_in_set($fun_value, $find_in_set_array_field)");            
+                } else {
+                    $this->db->or_where("find_in_set($fun_value, $find_in_set_array_field)");            
+                }
+            }
+            $this->db->group_end();            
+        }
+
+        if(isset($post) && !empty($post['job_education']) ) {            
+            $this->db->group_start();
+            $find_in_set_array = $post['job_education'];
+            $find_in_set_array_field ='job_education';
+            foreach ($find_in_set_array as $edu_key => $edu_value) {
+                if($edu_key==0) {
+                    $this->db->where("find_in_set($edu_value, $find_in_set_array_field)");            
+                } else {
+                    $this->db->or_where("find_in_set($edu_value, $find_in_set_array_field)");            
+                }
+            }
+            $this->db->group_end();            
+        }
+
+        if(isset($post) && !empty($post['job_exp_year']) && $post['job_exp_year']!="" ) {            
+            $this->db->group_start();
+            // $this->db->where("job_exp_year >=",$post['job_exp_year']); 
+            $this->db->where("job_exp_year >=",$post['job_exp_year']); 
+            // $this->db->where('`job_id` IN (SELECT `job_id` FROM `job` WHERE job_exp_month >= "'.$post['job_exp_month'].'" )', NULL, FALSE);
+            // $this->db->where('`job_id` IN (SELECT `job_id` FROM `job` WHERE job_exp_month >= "'.$post['job_exp_month'].'" )', NULL, FALSE);
+            $this->db->group_end();            
+        }
+
+        /*if(isset($post) && !empty($post['job_exp_month']) && $post['job_exp_month']!="" ) {            
+            $this->db->group_start();
+            $this->db->where("job_exp_month >=",$post['job_exp_month']); 
+            $this->db->group_end();            
+        }*/
+
+        if(isset($post) && !empty($post['job_salary']) ) {            
+            $min_salary = explode(" - ", $post['job_salary'])[0];
+            $min_salary = str_replace("$", "", $min_salary);
+            $max_salary = explode(" - ", $post['job_salary'])[1];
+            $max_salary = str_replace("$", "", $max_salary);
+            
+            $this->db->where('job_salary >=', $min_salary);
+            $this->db->where('job_salary <=', $max_salary);
+           
+        }
+
+
+        $this->db->where('job.isDelete', 0);
+        $this->db->where('job.status', 1);
+        $this->db->where('job.job_expire', 0);
+        $this->db->where('u.isDelete', 0);
+        $this->db->where('u.status', 1);
+        $this->db->where('u.plan_status', 1);
+
+        $this->db->limit($rowperpage, $rowno);
+
+        $query2 = $this->db->get();
+        $res = $query2->result_array();
+
+        /*echo count($res);
+
+        echo $this->db->last_query();
+        die();*/
+        // $res = $this->HWT->hwt_join_1(  $tbl,$join,$rows="*",$where_array,$params );
 
 
         $this->pagination->initialize($config);

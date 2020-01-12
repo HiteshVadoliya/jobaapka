@@ -52,6 +52,10 @@
         
         <?php
      }
+  } else {
+    ?>
+    <h2><center>No Applicant Found</center></h2>
+    <?php
   }
   ?>                 
 </div>

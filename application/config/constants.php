@@ -137,6 +137,7 @@ define('FROM_EMAIL','hmvadoliya.iipl2013@gmail.com');
 define('SUPPORT_EMAIL','info@job.in');
 define('SITE_NAME','JobAapka');
 define('COPY_RIGHT_YEAR','2019');
+define('DAY','182 days');
 
 
 

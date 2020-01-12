@@ -212,6 +212,7 @@ class JobSeeker_Process extends FrontController {
 
     public function add_shortlist() {
         $post = $this->input->post();
+
         $response = array();
         if(isset($_SESSION[PREFIX.'type'])) {
             $final_shortlist = "";
@@ -272,8 +273,10 @@ class JobSeeker_Process extends FrontController {
        
         $param['in_array'] = $shortlist_data; 
         $param['in_array_field'] = 'job_id'; 
-        $res2 = $this->HWT->get_hwt("job","*",array("isDelete"=>0,"status"=>1), $param );
+        $res2 = $this->HWT->get_hwt("job","*",array("isDelete"=>0,"status"=>1,"job_expire"=>0), $param );
 
+      /*  echo $this->db->last_query();
+        die();*/
         $this->load->library ( 'pagination' );
         $config ['base_url'] =  base_url().'JobSeeker_Process/get_result_shortlist/';
         $config ['total_rows'] = count($res2);
@@ -300,7 +303,7 @@ class JobSeeker_Process extends FrontController {
         $config ['last_tag_close'] = '</li>';
 
         $param['limit'] = array($rowno,$rowperpage); // $rowperpage;
-        $res = $this->HWT->get_hwt("job","*",array("isDelete"=>0,"status"=>1), $param );
+        $res = $this->HWT->get_hwt("job","*",array("isDelete"=>0,"status"=>1,"job_expire"=>0), $param );
 
         $this->pagination->initialize($config);
         $data['page_link'] = $this->pagination->create_links( );
@@ -374,7 +377,7 @@ class JobSeeker_Process extends FrontController {
        
         $param['in_array'] = $applied_job_data; 
         $param['in_array_field'] = 'job_id'; 
-        $res2 = $this->HWT->get_hwt("job","*",array("isDelete"=>0,"status"=>1), $param );
+        $res2 = $this->HWT->get_hwt("job","*",array("isDelete"=>0,"status"=>1,"job_expire"=>0), $param );
 
         $this->load->library ( 'pagination' );
         $config ['base_url'] =  base_url().'JobSeeker_Process/get_result_applied_job/';
@@ -402,7 +405,7 @@ class JobSeeker_Process extends FrontController {
         $config ['last_tag_close'] = '</li>';
 
         $param['limit'] = array($rowno,$rowperpage); // $rowperpage;
-        $res = $this->HWT->get_hwt("job","*",array("isDelete"=>0,"status"=>1), $param );
+        $res = $this->HWT->get_hwt("job","*",array("isDelete"=>0,"status"=>1,"job_expire"=>0), $param );
 
         $this->pagination->initialize($config);
         $data['page_link'] = $this->pagination->create_links( );
@@ -538,6 +541,190 @@ class JobSeeker_Process extends FrontController {
 
      
         echo 'done';
+    }
+
+    function get_result_job_alert( $rowno = 0 ) {
+
+        $params = array();
+        $rowperpage = LIMIT;
+        if($rowno != 0){
+            $rowno = ($rowno-1) * $rowperpage;
+        } 
+
+        $user_data = $this->HWT->get_one_row("jobseeker_skill","*",array("jobseeker_id"=>$_SESSION[PREFIX.'id']));
+
+        /*echo "<pre>";
+        print_r($user_data);
+        echo "</pre>";*/
+
+        $job_industry           = $user_data['industry'];
+        if(isset($job_industry) && !empty($job_industry)) { }
+        
+        $where = array("isDelete"=>0,"status"=>1,"job_expire"=>0);
+        $ind_result = array();
+        if(!empty($job_industry)) {
+            $ind_array = explode(",", $job_industry);
+            foreach ($ind_array as $ind_key => $ind_value) {
+                $ind_result_hwt = $this->HWT->hwt_idin( "job", "job_id", $where, "job_industry", $ind_value );
+
+                if($ind_result_hwt) {
+                    $output_ind = $this->HWT->hwt_idin_result( "job", "*", $where, "job_industry", $ind_value );
+                    if(!empty($output_ind)) {
+                        foreach ($output_ind as $o_key => $o_value) {
+                            $ind_result[] = $o_value['job_id'];
+                        }
+                    }
+                }
+            }
+        }
+
+        $ind_result = array_unique($ind_result);
+
+        $job_job_location = $user_data['location'];
+        if(isset($job_job_location) && !empty($job_job_location)) {  }
+        $job_result = array();
+        $where = array("isDelete"=>0,"status"=>1,"job_expire"=>0);
+        if(!empty($job_job_location)) {
+            $job_array = explode(",", $job_job_location);
+            foreach ($job_array as $job_key => $job_value) {
+                $job_result_hwt = $this->HWT->hwt_idin( "job", "job_id", $where, "job_job_location", $job_value );
+                if($job_result_hwt) {
+                    $output_job = $this->HWT->hwt_idin_result( "job", "*", $where, "job_job_location", $job_value );
+                    if(!empty($output_job)) {
+                        foreach ($output_job as $j_key => $j_value) {
+                            $job_result[] = $j_value['job_id'];
+                        }
+                    }
+                }
+            }
+        }
+
+        $final_result = array_intersect($ind_result,$job_result);
+
+
+        $job_job_function = $user_data['job_function'];
+        if(isset($job_job_function) && !empty($job_job_function)) {  }
+        
+        $fun_result = array();
+        $where = array("isDelete"=>0,"status"=>1,"job_expire"=>0);
+        if(!empty($job_job_function)) {
+            $fun_array = explode(",", $job_job_function);
+            foreach ($fun_array as $fun_key => $fun_value) {
+                $fun_result_hwt = $this->HWT->hwt_idin( "job", "job_id", $where, "job_job_function", $fun_value );
+                if($fun_result_hwt) {
+                    $output_fun = $this->HWT->hwt_idin_result( "job", "*", $where, "job_job_function", $fun_value );
+                    if(!empty($output_fun)) {
+                        foreach ($output_fun as $f_key => $f_value) {
+                            $fun_result[] = $f_value['job_id'];
+                        }
+                    }
+                }
+            }
+        }
+
+        $final_result = array_intersect($final_result,$fun_result);
+
+
+        $jobseeker_tags = $user_data['jobseeker_tags'];
+        if(isset($jobseeker_tags) && !empty($jobseeker_tags)) {  }
+        
+        $tag_result = array();
+        $where = array("isDelete"=>0,"status"=>1,"job_expire"=>0);
+        if(!empty($jobseeker_tags)) {
+            $fun_array = explode(",", $jobseeker_tags);
+            foreach ($fun_array as $fun_key => $fun_value) {
+                $fun_result_hwt = $this->HWT->get_hwt("job","*",$where);
+                if($fun_result_hwt) {
+                    foreach ($fun_result_hwt as $j_key => $j_value) {
+                        $employer_tags = $j_value['employer_tags'];
+                        if($employer_tags) {
+                            $employer_tags_array = explode(",", $employer_tags);
+                            foreach ($employer_tags_array as $tag_key => $tag_value) {
+                                //echo $tag_value."=".$fun_value."=".$j_value['job_id'];
+                                if($tag_value==$fun_value) {
+                                    $tag_result[] = $j_value['job_id'];
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        $final_result = array_intersect($final_result,$tag_result);
+
+        /*echo "<pre>";
+        print_r($final_result);
+        echo "</pre>";*/
+        
+
+        if($final_result!='') {
+            $alert_job = $final_result;
+            // $alert_job = explode(",", $alert_job);            
+        } else {
+            $alert_job = array("");
+        }
+       
+        $param['in_array'] = $alert_job; 
+        $param['in_array_field'] = 'job_id'; 
+        $res2 = $this->HWT->get_hwt("job","*",array("isDelete"=>0,"status"=>1,"job_expire"=>0), $param );
+
+        
+
+        $this->load->library ( 'pagination' );
+        $config ['base_url'] =  base_url().'JobSeeker_Process/get_result_job_alert/';
+        $config ['total_rows'] = count($res2);
+        $config['use_page_numbers'] = TRUE;
+        $config ['per_page'] = $rowperpage;
+        $config ['num_links'] = 3;
+        $config ['full_tag_open'] = '<nav><ul class="pagination">';
+        $config ['full_tag_close'] = '</ul></nav>';
+        $config ['first_tag_open'] = '<li class="page-item">';
+        $config ['first_link'] = '<<';
+        $config ['first_tag_close'] = '</li>';
+        $config ['prev_link'] = '<';
+        $config ['prev_tag_open'] = '<li class="page-item">';
+        $config ['prev_tag_close'] = '</li>';
+        $config ['next_link'] = '>';
+        $config ['next_tag_open'] = '<li class="page-item">';
+        $config ['next_tag_close'] = '</li>';
+        $config ['cur_tag_open'] = '<li class="active"><a href="javascript:;">';
+        $config ['cur_tag_close'] = '</a></li>';
+        $config ['num_tag_open'] = '<li>';
+        $config ['num_tag_close'] = '</li>';
+        $config ['last_tag_open'] = '<li class="page-item">';
+        $config ['last_link'] = '>>';
+        $config ['last_tag_close'] = '</li>';
+
+        $param['limit'] = array($rowno,$rowperpage); // $rowperpage;
+        $res = $this->HWT->get_hwt("job","*",array("isDelete"=>0,"status"=>1,"job_expire"=>0), $param );
+
+        /*echo $this->db->last_query();
+        die();*/
+
+        $this->pagination->initialize($config);
+        $data['page_link'] = $this->pagination->create_links( );
+        $data['result'] = $res;
+        $data['row'] = $rowno;
+
+        $data['jobs'] = $res;
+        //$data['searchParam'] = $search;
+        //$data['area'] = $area;
+        //$type = explode(',', $type);
+        //$data['type'] = $type;
+        //$data['findSchool'] = true;
+        $data['no_of_item'] = count($res);       
+        /*echo "<pre>";
+        print_r($res);
+        die();*/
+        // echo $this->db->last_query();
+        if($final_result!='') {
+            $this->load->view(USER.'ajax/ajax_alert_job',$data);
+        } else {
+            $data['jobs'] = array();
+            $this->load->view(USER.'ajax/ajax_alert_job',$data);
+        }
+        
     }
     
 }

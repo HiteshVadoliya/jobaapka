@@ -44,7 +44,7 @@
                         <div class="new-job-submission">
                            <form name="frm" id="frm" action="javascript:;" method="post" >
                               <div class="resume-box">
-                                 <div class="single-resume-feild feild-flex-2">
+                                 <!-- <div class="single-resume-feild feild-flex-2">
                                     <div class="single-input">
                                        <label for="j_title">Date field :</label>
                                        <input  class="datepicker" type="text" id="job_date" name="job_date" value="<?= (isset($edit) && !empty($edit['job_date'])) ? $edit['job_date'] : '';  ?>" autocomplete="off">
@@ -53,7 +53,7 @@
                                        <label for="Location">Application deadline date :</label>
                                        <input class="datepicker" type="text" placeholder="max 6 months from date of posting" id="job_date_expired" name="job_date_expired" value="<?= (isset($edit) && !empty($edit['job_date_expired'])) ? $edit['job_date_expired'] : '';  ?>" autocomplete="off"   >
                                     </div>
-                                 </div>
+                                 </div> -->
 
                                  <div class="single-resume-feild ">
                                     <div class="single-input">
@@ -176,7 +176,7 @@
                                           }
                                           ?>
                                           </select>
-                                       </select>
+                                       
                                     </div>
                                     <div class="single-input">
                                        <label for="j_category">Experience Month:</label>
@@ -281,8 +281,8 @@
 
        $("#frm").validate({                       
            rules: {                
-               job_date : { required : true },
-               job_date_expired : { required : true },
+               /*job_date : { required : true },
+               job_date_expired : { required : true },*/
                job_title : { required : true },
                "job_industry[]" : { required : true },
                "job_job_location[]" : { required : true },
@@ -298,8 +298,8 @@
            },
            messages: {
               title : { required : "Please enter Title." },
-              job_date : { required : "Please select date" },
-              job_date_expired : { required : "Please select expiry date" },
+              /*job_date : { required : "Please select date" },
+              job_date_expired : { required : "Please select expiry date" },*/
               job_title : { required : "Please enter title" },
               job_industry : { required : "Please select industry" },
               job_job_location : { required : "Please select location" },
@@ -349,8 +349,9 @@
                }
               $(".custom_submit").html(btn_old_val);
 
+              $("#frm")[0].reset();
               var url = '<?php echo base_url('employer/jobslisted'); ?>';
-              //setTimeout(function(){ window.location = url; }, 3000);                  
+              setTimeout(function(){ window.location = url; }, 3000);                  
            },
            error: function (error) {}
        });

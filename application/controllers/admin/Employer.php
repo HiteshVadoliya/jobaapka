@@ -262,6 +262,9 @@ class Employer extends BaseController
 
             $data['collection'] = $this->collection_data();
             
+            $par_plan['shortby'] = "id";
+            $par_plan['shortorder'] = "desc";
+            $data['plan_history'] = $this->HWT->get_hwt("payments","*",array("user_id"=>$id,"status"=>1,"isDelete"=>0),$par_plan);
             $this->global['pageTitle'] = ' : View '.$data['MainTitle'];
             $this->loadViews(ADMIN.$this->folder."View", $this->global, $data, NULL);
         }   

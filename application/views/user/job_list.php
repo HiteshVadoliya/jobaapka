@@ -33,221 +33,188 @@
    <div class="container">
       <div class="row">
         <div class="col-md-12 col-lg-3">
+          <form name="filter_form" id="filter_form" action="javascript:;" method="post">
           <div class="job-grid-sidebar">
              <!-- Single Job Sidebar Start -->
-             <!-- <div class="single-job-sidebar sidebar-location">
-                <h3>location</h3>
+             <div class="single-job-sidebar sidebar-location">
+                <h3>Job Title</h3>
                 <div class="job-sidebar-box">
-                   <form>
-                      <p>
-                         <input type="search" placeholder="Location">
-                      </p>
-                      <p class="location-value">
-                         <input type="text" value="50">
-                      </p>
-                      <div class="dropdown">
-                         <button class="btn-dropdown dropdown-toggle" type="button" id="location" data-toggle="dropdown" aria-haspopup="true">km</button>
-                         <ul class="dropdown-menu" aria-labelledby="location">
-                            <li>km</li>
-                            <li>miles</li>
-                         </ul>
-                      </div>
-                   </form>
+                    <p>
+                       <input type="text" name="job_title" id="job_title" placeholder="Job Title" value="<?php if(isset($q) && $q!="") { echo $q; } ?>" >
+                    </p>
                 </div>
-             </div> -->
+             </div>
              <!-- Single Job Sidebar End -->
               
              <!-- Single Job Sidebar Start -->
              <div class="single-job-sidebar sidebar-keywords">
-                <h3>Keywords</h3>
+                <h3>Industry</h3>
                 <div class="job-sidebar-box">
-                   <form>
-                      <select class="sidebar-category-select" name="states[]" multiple="multiple">
-                         <option value="1">accounting</option>
-                         <option value="2">finance</option>
-                         <option value="3">automotive</option>
-                         <option value="4">construction</option>
-                         <option value="5">photoshop</option>
-                         <option value="6">graphics</option>
-                         <option value="7">After affects</option>
-                         <option value="8">poster design</option>
-                      </select>
-                   </form>
+                   
+                      <select id="job_industry" name="job_industry[]" class="selectpicker form-control" multiple data-live-search="true">
+                        <?php
+                        if(isset($collection['industry']) && !empty($collection['industry']))
+                        {
+                          $industry = $collection['industry'];
+                          $selected_ind = "";
+                          foreach ($industry as $i_key => $i_value) {
+                           if(isset( $ind ) && !empty($ind) ) {
+
+                            $selected_ind =  $this->HWT->hwt_selected( $i_value['id'], $ind);
+                           }
+                            ?>
+                            <option value="<?= $i_value['id'] ?>" <?= $selected_ind ?> ><?= $i_value['title']; ?></option>
+                            <?php
+                          }
+                        }
+                        ?> 
+                     </select>
+                   
                 </div>
              </div>
 
              <div class="single-job-sidebar sidebar-keywords">
-                <h3>Keywords</h3>
+                <h3>Location</h3>
                 <div class="job-sidebar-box">
-                   <form>
-                      <select class="sidebar-category-select" name="states[]" multiple="multiple">
-                         <option value="1">accounting</option>
-                         <option value="2">finance</option>
-                         <option value="3">automotive</option>
-                         <option value="4">construction</option>
-                         <option value="5">photoshop</option>
-                         <option value="6">graphics</option>
-                         <option value="7">After affects</option>
-                         <option value="8">poster design</option>
+                   
+                      <select id="job_job_location" name="job_job_location[]" class="selectpicker form-control" multiple data-live-search="true">                          
+                         <?php
+                         if(isset($collection['location']) && !empty($collection['location']))
+                         {
+                           $location = $collection['location'];
+                           $selected_loc = "";
+                           foreach ($location as $l_key => $l_value) {
+                            if( isset($edit) && !empty($edit['job_job_location']) ) {
+                                $selected_loc = $this->HWT->hwt_selected( $l_value['id'], $edit['job_job_location']);
+                             }
+                             ?>
+                             <option value="<?= $l_value['id'] ?>" <?= $selected_loc ?> ><?= $l_value['title']; ?></option>
+                             <?php
+                           }
+                         }
+                         ?>
                       </select>
-                   </form>
+                   
                 </div>
              </div>
 
              <div class="single-job-sidebar sidebar-keywords">
-                <h3>Keywords</h3>
+                <h3>Job Function</h3>
                 <div class="job-sidebar-box">
-                   <form>
-                      <select class="sidebar-category-select" name="states[]" multiple="multiple">
-                         <option value="1">accounting</option>
-                         <option value="2">finance</option>
-                         <option value="3">automotive</option>
-                         <option value="4">construction</option>
-                         <option value="5">photoshop</option>
-                         <option value="6">graphics</option>
-                         <option value="7">After affects</option>
-                         <option value="8">poster design</option>
-                      </select>
-                   </form>
+                   
+                      <select id="job_job_function" name="job_job_function[]" class="selectpicker form-control" multiple data-live-search="true">
+                        <?php
+                        if(isset($collection['job_function']) && !empty($collection['job_function']))
+                        {
+                          $job_function = $collection['job_function'];
+                          $selected_job = "";
+                          foreach ($job_function as $j_key => $j_value) {
+                           if(isset($edit) && !empty($edit['job_job_function'])) {
+                               $selected_job = $this->HWT->hwt_selected( $j_value['id'], $edit['job_job_function']);
+                            }
+                            ?>
+                            <option value="<?= $j_value['id'] ?>" <?= $selected_job ?> ><?= $j_value['title']; ?></option>
+                            <?php
+                          }
+                        }
+                        ?>
+                     </select>
+                   
                 </div>
              </div>
 
              <div class="single-job-sidebar sidebar-keywords">
-                <h3>Keywords</h3>
+                <h3>Education</h3>
                 <div class="job-sidebar-box">
-                   <form>
-                      <select class="sidebar-category-select" name="states[]" multiple="multiple">
-                         <option value="1">accounting</option>
-                         <option value="2">finance</option>
-                         <option value="3">automotive</option>
-                         <option value="4">construction</option>
-                         <option value="5">photoshop</option>
-                         <option value="6">graphics</option>
-                         <option value="7">After affects</option>
-                         <option value="8">poster design</option>
-                      </select>
-                   </form>
+                      <select id="job_education" name="job_education[]" class="selectpicker form-control" multiple data-live-search="true">
+                        <?php
+                        if(isset($collection['education']) && !empty($collection['education']))
+                        {
+                          $education = $collection['education'];
+                          $selected_edu = "";
+                          foreach ($education as $j_key => $j_value) {
+                           if(isset($edit) && !empty($edit['job_education'])) {
+                               $selected_edu = $this->HWT->hwt_selected( $j_value['id'], $edit['job_education']);
+                            }
+                            ?>
+                            <option value="<?= $j_value['id'] ?>" <?= $selected_edu ?> ><?= $j_value['title']; ?></option>
+                            <?php
+                          }
+                        }
+                        ?>
+                     </select>
+                   
                 </div>
              </div>
 
              <div class="single-job-sidebar sidebar-keywords">
-                <h3>Keywords</h3>
+                <h3>Experience</h3>
                 <div class="job-sidebar-box">
-                   <form>
-                      <select class="sidebar-category-select" name="states[]" multiple="multiple">
-                         <option value="1">accounting</option>
-                         <option value="2">finance</option>
-                         <option value="3">automotive</option>
-                         <option value="4">construction</option>
-                         <option value="5">photoshop</option>
-                         <option value="6">graphics</option>
-                         <option value="7">After affects</option>
-                         <option value="8">poster design</option>
-                      </select>
-                   </form>
+                   
+                      <select id="job_exp_year" name="job_exp_year" class="form-control">
+                        <option value="">Experience in years</option>
+                        <?php
+                        if(isset($collection['exp_year']) && !empty($collection['exp_year']))
+                        {
+                          $exp_year = $collection['exp_year'];
+                          $selected_year = "";
+                          foreach ($exp_year as $e_key => $e_value) {
+                           if(isset($edit) && !empty($edit['job_exp_year'])) {
+                             $selected_year = ($edit['job_exp_year']==$e_key) ? 'selected' : '';
+                          }
+                            ?>
+                            <option value="<?= $e_key ?>" <?= $selected_year ?> ><?= $e_value; ?></option>
+                            <?php
+                          }
+                        }
+                        ?>
+                        </select>
+
+                        <select id="job_exp_month" name="job_exp_month" class="form-control">
+                           <option value="0">Experience in month</option>
+                           <?php
+                           if(isset($collection['exp_month']) && !empty($collection['exp_month']))
+                           {
+                             $exp_month = $collection['exp_month'];
+                             $selected_month = "";
+                             foreach ($exp_month as $m_key => $m_value) {
+                              if(isset($edit) && !empty($edit['job_exp_month'])) {
+                               $selected_month = ($edit['job_exp_month']==$m_key) ? 'selected' : '';
+                              }
+                               ?>
+                               <option value="<?= $m_value ?>" <?= $selected_month; ?> ><?= $m_value; ?></option>
+                               <?php
+                             }
+                           }
+                           ?>
+                        </select>
+                   
                 </div>
              </div>
-
-             
-             <!-- Single Job Sidebar End -->
               
              <!-- Single Job Sidebar Start -->
-             <!-- <div class="single-job-sidebar sidebar-category">
-                <h3>Category</h3>
-                <div class="job-sidebar-box">
-                   <form>
-                      <select class="sidebar-category-select-2" name="states[]">
-                         <option value="1">any category</option>
-                         <option value="2">accounting/finance</option>
-                         <option value="3">automotive jobs</option>
-                         <option value="4">construction</option>
-                         <option value="5">design, art & multimedia</option>
-                         <option value="6">education training</option>
-                         <option value="7">restaurent/food</option>
-                         <option value="7">programming/tech</option>
-                         <option value="7">sales/marketing</option>
-                         <option value="7">data science/analysis</option>
-                      </select>
-                   </form>
-                </div>
-             </div> -->
-             <!-- Single Job Sidebar End -->
-              
-             <!-- Single Job Sidebar Start -->
-             <!-- <div class="single-job-sidebar sidebar-location">
-                <h3>Date Posted</h3>
-                <div class="date-post-job job-sidebar-box">
-                   <div class="form-group form-radio">
-                      <input id="last_hour" name="radio" type="radio">
-                      <label for="last_hour" class="inline control-label">last hour</label>
-                   </div>
-                   <div class="form-group form-radio">
-                      <input id="last_24" name="radio" type="radio">
-                      <label for="last_24" class="inline control-label">Last 24 hours</label>
-                   </div>
-                   <div class="form-group form-radio">
-                      <input id="last_7" name="radio" type="radio">
-                      <label for="last_7" class="inline control-label">Last 7 days</label>
-                   </div>
-                   <div class="form-group form-radio">
-                      <input id="last_14" name="radio" type="radio">
-                      <label for="last_14" class="inline control-label">Last 14 days</label>
-                   </div>
-                   <div class="form-group form-radio">
-                      <input id="last_30" name="radio" type="radio">
-                      <label for="last_30" class="inline control-label">Last 30 days</label>
-                   </div>
-                   <div class="form-group form-radio">
-                      <input id="last_all" name="radio" type="radio">
-                      <label for="last_all" class="inline control-label">all</label>
-                   </div>
-                </div>
-             </div> -->
-             <!-- Single Job Sidebar End -->
-              
-             <!-- Single Job Sidebar Start -->
-             <!-- <div class="single-job-sidebar sidebar-type">
-                <h3>job type</h3>
-                <div class="job-sidebar-box">
-                   <ul>
-                      <li class="checkbox">
-                         <input class="checkbox-spin" type="checkbox" id="Freelance" />
-                         <label for="Freelance"><span></span>Freelance</label>
-                      </li>
-                      <li class="checkbox">
-                         <input class="checkbox-spin" type="checkbox" id="Full_Time" />
-                         <label for="Full_Time"><span></span>Full Time</label>
-                      </li>
-                      <li class="checkbox">
-                         <input class="checkbox-spin" type="checkbox" id="Internship" />
-                         <label for="Internship"><span></span>Internship</label>
-                      </li>
-                      <li class="checkbox">
-                         <input class="checkbox-spin" type="checkbox" id="Part_Time" />
-                         <label for="Part_Time"><span></span>Part Time</label>
-                      </li>
-                      <li class="checkbox">
-                         <input class="checkbox-spin" type="checkbox" id="Temporary" />
-                         <label for="Temporary"><span></span>Temporary</label>
-                      </li>
-                   </ul>
-                </div>
-             </div> -->
-             <!-- Single Job Sidebar End -->
-              
-             <!-- Single Job Sidebar Start -->
-             <!-- <div class="single-job-sidebar sidebar-salary">
+             <div class="single-job-sidebar sidebar-salary">
                 <h3>Filter by Salary</h3>
                 <div class="job-sidebar-box">
                    <p>
-                      <input type="text" id="amount" readonly>
+                      <input type="text" id="amount" name="job_salary" readonly>
                    </p>
                    <div id="slider"></div>
                 </div>
-             </div> -->
+             </div>
              <!-- Single Job Sidebar End -->
+
+             <div class="single-job-sidebar sidebar-salary">
+                 <h3>Apply Filter</h3>
+                 <div class="job-sidebar-box">
+                    <div class="single-input submit-resume">
+                       <button type="submit" name="apply_filter" id="apply_filter" class="custom_submit">Apply Filter</button>
+                    </div>
+                 </div>
+              </div>
               
           </div>
+          </form>
        </div>
          <div class="col-md-12 col-lg-9">
             <div class="job-grid-right hwt_ajax">
@@ -259,17 +226,23 @@
 
 <script type="text/javascript">
 
+  $(".change_filter").on("change",function(){
+      get_data(0);
+  });
+
+  $("#apply_filter").on("click",function(){
+      get_data(0);
+  });
    $(document).ready(function(){
       get_data(0);
    });
    function get_data(pagno) {
-    let search = '<?php echo json_encode($search) ?>';
-    console.log(search);
+    // let search = '<?php echo json_encode($search) ?>';
       $.ajax({
         url: "<?php echo base_url()."Job_Process/get_result/" ?>" +pagno,
         method: "POST",
-        dataType: "html",
-        data :{search:search},
+        data: $("#filter_form").serialize(),
+        dataType: 'html',
         success: function(data) {
             $(".hwt_ajax").html(data);
         },

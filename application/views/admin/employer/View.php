@@ -374,41 +374,36 @@
                             <div class="row">
                                 <div class="col-md-12">                                
                                     <div class="form-group">
-                                        <table class="table">
+                                        <table class="table table-striped">
+                                          <tr>
+                                            <th>Sr.</th>
+                                            <th>Payment Id</th>
+                                            <th>Payment Date</th>
+                                            <th>Purchase Date</th>
+                                            <th>Amount</th>
+                                          </tr>
+                                          <?php
+                                          if(isset($plan_history) && !empty($plan_history)) {
+                                          foreach ($plan_history as $p_key => $p_value) { ?>
                                             <tr>
-                                                <th>Plan Status</th>
-                                                <td><?php 
-                                                if($view['plan_status']) {
-                                                    ?>
-                                                    <button class="btn btn-primary">Active</button>
-                                                    <?php
-                                                } else {
-                                                    ?>
-                                                    <button class="btn btn-danger">Deactive</button>
-                                                    <?php
-                                                }
-
-                                                ?></td>          
+                                              <td><?= $p_key+1; ?></td>
+                                              <td><?= $p_value['payment_id'] ?></td>
+                                              <td><?= $p_value['plan_purchase_date'] ?></td>
+                                              <td><?= $p_value['plan_expiry_date'] ?></td>
+                                              <td><?= CURR_SYMBOL.$p_value['amount'] ?></td>
                                             </tr>
-
+                                          <?php } 
+                                      } else { ?>
                                             <tr>
-                                                <th>Plan Activation Date</th>
-                                                <td><?php echo $view['plan_purchase_date']; ?></td>          
+                                                <td colspan="5"><center>No Plan History available</center></td>
                                             </tr>
-
-                                            <tr>
-                                                <th>Plan Expire Date</th>
-                                                <td><?php echo $view['plan_expiry_date']; ?></td>          
-                                            </tr>
-                                            
-                                        </table>
+                                          <?php } ?>
+                                      </table>
                                     </div>
                                 </div>
                             </div>
-
-                            
                         </div><!-- /.box-body -->
-    
+                
                         <div class="box-footer">
                             <input onclick="window.history.go(-1); return false;"  type="reset" class="btn btn-default" value="Back" />
                         </div>

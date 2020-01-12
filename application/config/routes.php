@@ -78,6 +78,8 @@ $route['apply_without_registration/(:any)/(:any)'] = 'Home/apply_without_registr
 $route['employer/employer_profile_view/(:any)'] = 'Home/employer/$1';
 $route['jobseeker_info'] = 'Home/jobseeker_not_login';
 $route['employer_info'] = 'Home/employer_not_login';
+$route['razorPaySuccess'] = 'Home/razorPaySuccess';
+$route['RazorThankYou'] = 'Home/RazorThankYou';
 
 
 $route['my-form'] = "MyFormController";

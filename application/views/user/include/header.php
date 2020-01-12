@@ -55,9 +55,15 @@
                         <li class="active"><a href="<?= base_url('home'); ?>">HOME</a></li>
                         <?php
                         if(isset($_SESSION[PREFIX.'id'])) {
+                           if($_SESSION[PREFIX.'type']=="employer") {
+                           ?>
+                           <li><a href="<?= base_url('employer/profile'); ?>">EMPLOYER </a></li>
+                           <?php
+                           } else { 
                            ?>
                            <li><a href="javascript:;">EMPLOYER </a></li>
                            <?php
+                           }
                         } else {
                            ?>
                            <li><a href="<?= base_url('employer_info'); ?>">EMPLOYER </a></li>
@@ -83,9 +89,16 @@
                         </li> -->
                         <?php
                         if(isset($_SESSION[PREFIX.'id'])) {
+                           if($_SESSION[PREFIX.'type']=="jobseeker") {
+                              ?>
+                              <li><a href="<?= base_url('jobseeker/dashboard
+                              '); ?>">JOBSEEKER </a></li>
+                              <?php
+                           } else {
                            ?>
                            <li><a href="javascript:;">JOBSEEKER </a></li>
                            <?php
+                           }
                         } else {
                            ?>
                            <li><a href="<?= base_url('jobseeker_info'); ?>">JOBSEEKER </a></li>

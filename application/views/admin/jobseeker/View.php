@@ -480,6 +480,51 @@
                         </div>
                     </form>
                 </div>
+
+                <div class="box box-primary">
+                    <div class="box-header">
+                        <h3 class="box-title">Plan Details</h3>
+                    </div><!-- /.box-header -->
+                    <!-- form start -->
+                        <div class="box-body">
+                            <div class="row">
+                                <div class="col-md-12">                                
+                                    <div class="form-group">
+                                        <table class="table table-striped">
+                                          <tr>
+                                            <th>Sr.</th>
+                                            <th>Payment Id</th>
+                                            <th>Payment Date</th>
+                                            <th>Purchase Date</th>
+                                            <th>Amount</th>
+                                          </tr>
+                                          <?php
+                                          if(isset($plan_history) && !empty($plan_history)) {
+                                          foreach ($plan_history as $p_key => $p_value) { ?>
+                                            <tr>
+                                              <td><?= $p_key+1; ?></td>
+                                              <td><?= $p_value['payment_id'] ?></td>
+                                              <td><?= $p_value['plan_purchase_date'] ?></td>
+                                              <td><?= $p_value['plan_expiry_date'] ?></td>
+                                              <td><?= CURR_SYMBOL.$p_value['amount'] ?></td>
+                                            </tr>
+                                          <?php } 
+                                      } else { ?>
+                                            <tr>
+                                                <td colspan="5"><center>No Plan History available</center></td>
+                                            </tr>
+                                          <?php } ?>
+                                      </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- /.box-body -->
+                
+                        <div class="box-footer">
+                            <input onclick="window.history.go(-1); return false;"  type="reset" class="btn btn-default" value="Back" />
+                        </div>
+                    </form>
+                </div>
             </div>
         
     </div>

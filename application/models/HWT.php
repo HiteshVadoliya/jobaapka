@@ -388,5 +388,10 @@ class HWT extends CI_Model
 		$query = $this->db->query( $qry ); 
     	return $query->result_array();
 	}
+
+	function plan_status() {
+		$res = $this->get_one_row("hwt_user","*",array("id"=>$_SESSION[PREFIX.'id']));
+		return $res;
+	}
     
 }

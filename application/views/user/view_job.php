@@ -21,8 +21,8 @@
                   <div class="job-details-meta">
                      <!-- <p><i class="fa fa-file-text"></i> Applications 1</p> -->
                      <!-- <p><i class="fa fa-calendar"></i> July 29, 2017</p> -->
-                     <p><i class="fa fa-calendar"></i> <?= date("M d, Y", strtotime($jobs['job_date'])); ?></p>
-                     <p><i class="fa fa-calendar"></i> <?= date("M d, Y", strtotime($jobs['job_date_expired'])); ?></p>
+                     <p title="job post date"><i class="fa fa-calendar"></i> <?= date("M d, Y", strtotime($jobs['created_at'])); ?></p>
+                     <p title="job expire date"><i class="fa fa-calendar"></i> <?= date("M d, Y", strtotime($jobs['created_at']. DAY)); ?></p>
                   </div>
                </div>
             </div>

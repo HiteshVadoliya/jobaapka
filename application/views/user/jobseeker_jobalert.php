@@ -6,7 +6,7 @@
          <div class="row">
             <div class="col-md-12">
                <div class="breadcromb-box">
-                  <h3>Dashboard</h3>
+                  <h3>Job Alert</h3>
                </div>
             </div>
          </div>
@@ -18,9 +18,8 @@
             <div class="col-md-12">
                <div class="breadcromb-box-pagin">
                   <ul>
-                     <li><a href="#">home</a></li>
-                     <li><a href="#">candidates</a></li>
-                     <li class="active-breadcromb"><a href="#">Dashboard</a></li>
+                     <li><a href="<?= base_url(); ?>">home</a></li>
+                     <li class="active-breadcromb"><a href="javascript:;">Job Alert</a></li>
                   </ul>
                </div>
             </div>
@@ -37,141 +36,31 @@
       <div class="row">
          <?php $this->load->view(USER."jobseeker_left_side.php"); ?>
          
-         <div class="col-lg-9 col-md-12">
-                           <div class="dashboard-right">
-                              <div class="manage-jobs">
-                                 <div class="manage-jobs-heading">
-                                    <h3>Job Alerts</h3>
-                                 </div>
-                                 <div class="single-manage-jobs table-responsive">
-                                    <table class="table">
-                                       <thead>
-                                          <tr>
-                                             <th>Title</th>
-                                             <th>Posted on </th>
-                                             <th>Expiring on </th>
-                                             <th>Status</th>
-                                             <th>action</th>
-                                          </tr>
-                                       </thead>
-                                       <tbody>
-                                          <tr>
-                                             <td class="manage-jobs-title"><a href="#">Frontend React Developer</a></td>
-                                             <td class="table-date">28 June, 2018</td>
-                                             <td class="table-date">10 July, 2018</td>
-                                             <td><span class="pending">Pending Approval</span></td>
-                                             <td class="action">
-                                                <button class="btn btn-info">View</button>
-                                                <!-- <a href="#" class="action-delete"><i class="fa fa-trash-o"></i></a> -->
-                                             </td>
-                                          </tr>
-                                          <tr>
-                                             <td class="manage-jobs-title"><a href="#">Full Stack PHP Developer </a></td>
-                                             <td class="table-date">28 June, 2018</td>
-                                             <td class="table-date">10 July, 2018</td>
-                                             <td><span class="expired">Expired</span></td>
-                                             <td class="action">
-                                                <button class="btn btn-info">View</button>
-                                                <!-- <a href="#" class="action-edit"><i class="fa fa-pencil-square-o"></i></a> -->
-                                                <!-- <a href="#" class="action-delete"><i class="fa fa-trash-o"></i></a> -->
-                                             </td>
-                                          </tr>
-                                          <tr>
-                                             <td class="manage-jobs-title"><a href="#">Node.js Developer</a></td>
-                                             <td class="table-date">28 June, 2018</td>
-                                             <td class="table-date">10 July, 2018</td>
-                                             <td><span class="pending">Pending Approval</span></td>
-                                             <td class="action">
-                                                <button class="btn btn-info">View</button>
-                                                <!-- <a href="#" class="action-edit"><i class="fa fa-pencil-square-o"></i></a> -->
-                                                <!-- <a href="#" class="action-delete"><i class="fa fa-trash-o"></i></a> -->
-                                             </td>
-                                          </tr>
-                                          <tr>
-                                             <td class="manage-jobs-title"><a href="#">Frontend React Developer</a></td>
-                                             <td class="table-date">28 June, 2018</td>
-                                             <td class="table-date">10 July, 2018</td>
-                                             <td><span class="pending">Pending Approval</span></td>
-                                             <td class="action">
-                                                <button class="btn btn-info">View</button>
-                                                <!-- <a href="#" class="action-edit"><i class="fa fa-pencil-square-o"></i></a> -->
-                                                <!-- <a href="#" class="action-delete"><i class="fa fa-trash-o"></i></a> -->
-                                             </td>
-                                          </tr>
-                                          <tr>
-                                             <td class="manage-jobs-title"><a href="#">Full Stack PHP Developer </a></td>
-                                             <td class="table-date">28 June, 2018</td>
-                                             <td class="table-date">10 July, 2018</td>
-                                             <td><span class="expired">Expired</span></td>
-                                             <td class="action">
-                                                <button class="btn btn-info">View</button>
-                                                <!-- <a href="#" class="action-edit"><i class="fa fa-pencil-square-o"></i></a> -->
-                                                <!-- <a href="#" class="action-delete"><i class="fa fa-trash-o"></i></a> -->
-                                             </td>
-                                          </tr>
-                                          <tr>
-                                             <td class="manage-jobs-title"><a href="#">Node.js Developer</a></td>
-                                             <td class="table-date">28 June, 2018</td>
-                                             <td class="table-date">10 July, 2018</td>
-                                             <td><span class="pending">Pending Approval</span></td>
-                                             <td class="action">
-                                                <button class="btn btn-info">View</button>
-                                                <!-- <a href="#" class="action-edit"><i class="fa fa-pencil-square-o"></i></a> -->
-                                                <!-- <a href="#" class="action-delete"><i class="fa fa-trash-o"></i></a> -->
-                                             </td>
-                                          </tr>
-                                          <tr>
-                                             <td class="manage-jobs-title"><a href="#">Frontend React Developer</a></td>
-                                             <td class="table-date">28 June, 2018</td>
-                                             <td class="table-date">10 July, 2018</td>
-                                             <td><span class="pending">Pending Approval</span></td>
-                                             <td class="action">
-                                                <button class="btn btn-info">View</button>
-                                                <!-- <a href="#" class="action-edit"><i class="fa fa-pencil-square-o"></i></a> -->
-                                                <!-- <a href="#" class="action-delete"><i class="fa fa-trash-o"></i></a> -->
-                                             </td>
-                                          </tr>
-                                          <tr>
-                                             <td class="manage-jobs-title"><a href="#">Full Stack PHP Developer </a></td>
-                                             <td class="table-date">28 June, 2018</td>
-                                             <td class="table-date">10 July, 2018</td>
-                                             <td><span class="expired">Expired</span></td>
-                                             <td class="action">
-                                                <button class="btn btn-info">View</button>
-                                                <!-- <a href="#" class="action-edit"><i class="fa fa-pencil-square-o"></i></a> -->
-                                                <!-- <a href="#" class="action-delete"><i class="fa fa-trash-o"></i></a> -->
-                                             </td>
-                                          </tr>
-                                          <tr>
-                                             <td class="manage-jobs-title"><a href="#">Node.js Developer</a></td>
-                                             <td class="table-date">28 June, 2018</td>
-                                             <td class="table-date">10 July, 2018</td>
-                                             <td><span class="pending">Pending Approval</span></td>
-                                             <td class="action">
-                                                <button class="btn btn-info">View</button>
-                                                <!-- <a href="#" class="action-edit"><i class="fa fa-pencil-square-o"></i></a> -->
-                                                <!-- <a href="#" class="action-delete"><i class="fa fa-trash-o"></i></a> -->
-                                             </td>
-                                          </tr>
-                                       </tbody>
-                                    </table>
-                                    <div class="pagination-box-row">
-                                       <p>Page 1 of 6</p>
-                                       <ul class="pagination">
-                                          <li class="active"><a href="#">1</a></li>
-                                          <li><a href="#">2</a></li>
-                                          <li><a href="#">3</a></li>
-                                          <li>...</li>
-                                          <li><a href="#">6</a></li>
-                                          <li><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
-                                       </ul>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
+         <div class="col-md-12 col-lg-9">
+            <div class="job-grid-right hwt_ajax">
+            </div>
+         </div>
       </div>
    </div>
 </section>
 <!-- Candidate Dashboard Area End -->
+<script type="text/javascript">
+   $(document).ready(function(){
+      get_data(0);
+   });
+   function get_data(pagno) {
+      $.ajax({
+        url: "<?php echo base_url()."JobSeeker_Process/get_result_job_alert/" ?>" +pagno,
+        method: "POST",
+        dataType: "html",
+        data :{},
+        success: function(data) {
+            $(".hwt_ajax").html(data);
+        },
+        error: function(data) {
+            console.log(data);
+        }
+    });
+   }
+</script>
  

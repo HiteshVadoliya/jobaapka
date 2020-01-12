@@ -53,6 +53,7 @@
                           if(isset($history) && !empty($history)) {
                             $i = 0;
                             foreach ($history as $h_key => $h_value) {
+                              if(!empty($h_value)) {
                               ?>
                                <div class="single-resume-feild ">
                                   <div class="single-input <?php if($i!='0') { echo 'control-group'; } ?>">
@@ -64,6 +65,7 @@
                                   </div>
                                </div>
                               <?php
+                              }
                               $i++;
                             }
                           } else {

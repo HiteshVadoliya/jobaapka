@@ -1,5 +1,6 @@
  <style type="text/css">
   
+      
   .panel
   {
       text-align: center;
@@ -224,8 +225,10 @@
                                                   </table>
                                               </div>
                                               <div class="panel-footer">
-                                                  <a href="javascript:;" class="btn btn-success" role="button">Buy Now</a>
-                                                  </div>
+                                                <!-- <a href="javascript:;" class="btn btn-success" role="button">Buy Now</a> -->
+                                                <a href="javascript:void(0)" class="btn btn-success btn-sm buy_now" data-amount="120" data-id="3">Buy Now</a>
+                                                <br/>
+                                                </div>
                                           </div>
                                       </div>
                                       
@@ -240,10 +243,101 @@
                      </div>
                   </div>
                </div>
+
+               <?php if(isset($plan_history) && !empty($plan_history)) { ?>
+               <div class="tab-content">
+                  <div class="tab-pane fade show active" id="company_a" role="tabpanel" aria-labelledby="company_a_tab">
+                     <div class="row">                           
+                        <div class="col-lg-12 col-md-12  moreBox">
+                           <div class="single-browse-company">                                 
+                              <div class="container">
+                                  <div class="row">
+                                      <div class="col-xs-12 col-md-12 col-md-12-offset">
+                                                  <h3 class="panel-title">
+                                                    Plan History
+                                                  </h3>
+                                          <div class="panel panel-primary">
+                                              <div class="panel-heading">
+                                              </div>
+                                              <div class="panel-body">
+                                                  <table class="table table-striped">
+                                                    <tr>
+                                                      <th>Sr.</th>
+                                                      <th>Payment Id</th>
+                                                      <th>Payment Date</th>
+                                                      <th>Purchase Date</th>
+                                                      <th>Amount</th>
+                                                    </tr>
+                                                    <?php
+                                                    foreach ($plan_history as $p_key => $p_value) { ?>
+                                                      <tr>
+                                                        <th><?= $p_key+1; ?></th>
+                                                        <th><?= $p_value['payment_id'] ?></th>
+                                                        <th><?= $p_value['plan_purchase_date'] ?></th>
+                                                        <th><?= $p_value['plan_expiry_date'] ?></th>
+                                                        <th><?= CURR_SYMBOL.$p_value['amount'] ?></th>
+                                                      </tr>
+                                                    <?php } ?>
+                                                  </table>
+                                              </div>
+                                              
+                                          </div>
+                                      </div>
+                                      
+                                  </div>
+                              </div>
+
+                           </div>
+                        </div>
+
+                        
+                                                 
+                     </div>
+                  </div>
+               </div>
+              <?php } ?>
             </div>
          </div>
       </div>
    </div>
 </section>
 <!-- Candidate Dashboard Area End -->
- 
+<!-- https://www.tutsmake.com/integrate-razorpay-with-php-codeigniter/ -->
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+ var SITEURL = "<?php echo base_url() ?>";
+ $('body').on('click', '.buy_now', function(e){
+   var totalAmount = $(this).attr("data-amount");
+   var product_id =  $(this).attr("data-id");
+   var fName = '<?php echo $_SESSION[PREFIX.'name']; ?>';
+   var options = {
+   "key": "rzp_test_GqCz63X5qjspr9",
+   "amount": (6*100), // 2000 paise = INR 20
+   "name": fName,
+   "description": "Payment",
+   "image": "https://www.tutsmake.com/wp-content/uploads/2018/12/cropped-favicon-1024-1-180x180.png",
+   "handler": function (response){
+         $.ajax({
+           url: SITEURL + 'razorPaySuccess',
+           type: 'post',
+           dataType: 'json',
+           data: {
+               razorpay_payment_id: response.razorpay_payment_id , totalAmount : totalAmount ,product_id : product_id,
+           }, 
+           success: function (msg) {
+              window.location.href = SITEURL + 'RazorThankYou';
+           }
+       });
+     
+   },
+
+   "theme": {
+       "color": "#28a745"
+   }
+ };
+ var rzp1 = new Razorpay(options);
+ rzp1.open();
+ e.preventDefault();
+ });
+
+</script>

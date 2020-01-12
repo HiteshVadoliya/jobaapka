@@ -345,12 +345,12 @@ class Employer_Process extends FrontController {
 
         if(!empty($final_result)) {
             foreach ($final_result as $fin_key => $jobseeker_id) {
-                $mail_list =  $this->HWT->get_one_row("hwt_user","email,fname",array("isDelete"=>0,"status"=>1,"id"=>$jobseeker_id));
+                $mail_list =  $this->HWT->get_one_row("hwt_user","email,fname",array("isDelete"=>0,"status"=>1,"id"=>$jobseeker_id,'id !='=>$_SESSION[PREFIX.'id']));
                 
                 if(!empty($mail_list['email'])) {
                     $mail_data['user_name'] = $mail_list['fname'];
                     $email = $mail_list['email'];
-                    echo $message = $this->load->view(USER.'mail_template/job_alert_to_jobseeker', $mail_data, TRUE);
+                    $message = $this->load->view(USER.'mail_template/job_alert_to_jobseeker', $mail_data, TRUE);
                     $mail_data_send['to_email'] = FROM_EMAIL;
                     $mail_data_send['subject'] = $subject;
                     $mail_data_send['body'] = $message;
@@ -363,8 +363,11 @@ class Employer_Process extends FrontController {
     public function post_job() {
         $post = $this->input->post();
 
-        $job_date               = date("Y-m-d",strtotime($post['job_date']));
-        $job_date_expired       = date("Y-m-d",strtotime($post['job_date_expired']));
+        /*$job_date               = date("Y-m-d",strtotime($post['job_date']));
+        $job_date_expired       = date("Y-m-d",strtotime($post['job_date_expired']));*/
+
+        $job_date               = date("Y-m-d");
+        $job_date_expired       = date("Y-m-d");
         $job_title              = $post['job_title'];
         $job_industry           = $post['job_industry'];
         if(isset($job_industry) && !empty($job_industry)) { $job_industry = implode(",", $job_industry); }
@@ -387,12 +390,18 @@ class Employer_Process extends FrontController {
         $job_additional_role    = $post['job_additional_role'];
         $employer_tags          = $post['employer_tags'];
 
+        $plan = $this->HWT->plan_status();
+        $job_expire             = 1;
+        if($plan['plan_status']=='1') {
+            $job_expire = 0;
+        }
+        
         $action = $post['action'];
 
         $AllData = array(
             "employer_id" => $_SESSION[PREFIX.'id'],
-            "job_date" => $job_date,
-            "job_date_expired" => $job_date_expired,
+            /*"job_date" => $job_date,
+            "job_date_expired" => $job_date_expired,*/
             "job_title" => $job_title,
             "job_industry" => $job_industry,
             "job_job_location" => $job_job_location,
@@ -406,6 +415,7 @@ class Employer_Process extends FrontController {
             "job_descr" => $job_descr,
             "job_additional_role" => $job_additional_role,
             "employer_tags" => $employer_tags,
+            "job_expire" => $job_expire,
         );
 
         $response = array();
@@ -675,6 +685,7 @@ class Employer_Process extends FrontController {
         $where_array = array(
             "job.isDelete"=>0,
             "job.status"=>1,
+            "job.job_expire"=>0,
         );
 
         if(!empty($employer_ids)) {
@@ -749,6 +760,7 @@ class Employer_Process extends FrontController {
             "job.isDelete"=>0,
             "job.status"=>1,
             "job.employer_id"=>$employer_id,
+            "job.job_expire"=>0,
         );
 
         $res2 = $this->HWT->hwt_join_1(  $tbl,$join,$rows="*",$where_array,$params );
@@ -864,12 +876,14 @@ class Employer_Process extends FrontController {
             $rowno = ($rowno-1) * $rowperpage;
         } 
 
-        $wh = array("isDelete"=>0,"status"=>1);
+        // $wh = array("u.isDelete"=>0,"u.status"=>1);
         $tbl = array("job as job","hwt_user as u");
         $join = array('job.employer_id = u.id');
         $where_array = array(
             "job.isDelete"=>0,
             "job.status"=>1,
+            "u.status"=>1,
+            "u.isDelete"=>0,
         );
 
         $params['in_array'] = $shortlist_data; 
@@ -877,6 +891,9 @@ class Employer_Process extends FrontController {
         $params['groupby'] = 'employer_id'; 
 
         $res2 = $this->HWT->hwt_join_1(  $tbl,$join,$rows="*",$where_array,$params );
+
+        // echo $this->db->last_query();
+        // die();
         
         
         $this->load->library ( 'pagination' );
@@ -1020,6 +1037,7 @@ class Employer_Process extends FrontController {
             "job.status"=>1,
             "u.isDelete"=>0,
             "job.employer_id"=>$_SESSION[PREFIX.'id'],                
+            "job.job_expire"=>0,                
         );
         $params['groupby'] = "u.job_id";
         $rows = "*,u.job_id as without_job_id ";
