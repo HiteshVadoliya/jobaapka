@@ -1,5 +1,3 @@
-
-  
 <!-- Breadcromb Area Start -->
 <section class="jobguru-breadcromb-area">
    <div class="breadcromb-top section_100">
@@ -54,8 +52,16 @@
                             }
                             ?>
                            <img id="image_replace" src="<?= $img_src ?>" alt="<?= $jobseeker_data['fname'] ?>" title="<?= $jobseeker_data['fname'] ?>" >
-                           
-                           
+                           <div class="resume-avatar-hover">
+                             <div class="resume-avatar-upload">
+                                <p>
+                                   <i class="fa fa-pencil"></i>
+                                   Edit
+                                </p>
+                                <input type="file" name="img_src" id="img_src">
+                                <input type="hidden" value="<?= $jobseeker_data['img_src'] ?>" name="img_src_old" id="img_src_old">
+                             </div>
+                          </div>
                         </div>
                      </div>
                   </div>
@@ -92,7 +98,7 @@
 
                
             </div>
-
+            <?php /*
             <br/><br/>
             <div class="dashboard-right">
                <div class="candidate-profile">
@@ -123,6 +129,7 @@
                 </form>
                </div>
             </div>
+            */ ?> 
          </div>
 
          
@@ -176,7 +183,7 @@
             success: function(res) {
                 if(res.response) {
                   $.notify({message: res.msg },{type: 'success'});
-                  // $("#image_replace").attr("src",res.img_src);
+                  $("#image_replace").attr("src",res.img_src);
                 }
                $(".custom_submit").html(btn_old_val);
             },

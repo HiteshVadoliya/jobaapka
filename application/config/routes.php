@@ -146,6 +146,8 @@ $route[ADMIN.'home_content/(:any)/save'] = ADMIN."Content/save_content";
 /*$route[ADMIN.'home_header/(:any)'] = ADMIN."CMS/about/1";
 $route[ADMIN.'home_header/(:any)/save'] = ADMIN."CMS/save_about";*/
 
+$route[ADMIN.'plan/'] = ADMIN."Plan/";
+
 $route[ADMIN.'whyus/(:any)'] = ADMIN."CMS/about/1";
 $route[ADMIN.'whyus/(:any)/save'] = ADMIN."CMS/save_about";
 

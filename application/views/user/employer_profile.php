@@ -159,7 +159,7 @@
                             }
                             ?>
                            <img id="image_replace" src="<?= $img_src ?>" alt="<?= $employer['company_name'] ?>" title="<?= $employer['company_name'] ?>" >
-                           <!-- <div class="resume-avatar-hover">
+                           <div class="resume-avatar-hover">
                               <div class="resume-avatar-upload">
                                  <p>
                                     <i class="fa fa-pencil"></i>
@@ -168,7 +168,7 @@
                                  <input type="file" name="img_src" id="img_src">
                                  <input type="hidden" value="<?= $employer['img_src'] ?>" name="img_src_old" id="img_src_old">
                               </div>
-                           </div> -->
+                           </div>
                         </div>
                      </div>
                   </div>
@@ -246,7 +246,10 @@
                 </form>
                </div>
                <br/><br/>
-
+               <?php
+               $plan = $this->HWT->get_one_row("plan","*",array("id"=>1))
+               ?>
+               <input type="hidden" name="org_price" id="org_price" value="<?= $plan['title'] ?>">
                <div class="tab-content" id="myTabContent">
                   <div class="tab-pane fade show active" id="company_a" role="tabpanel" aria-labelledby="company_a_tab">
                      <div class="row">                           
@@ -263,7 +266,7 @@
                                               <div class="panel-body">
                                                   <div class="the-price">
                                                       <h5>Most affordable and unique <br>
-                                                       <small>6 month plan</small></h5>
+                                                       <small><?= $plan['period'] ?> month plan</small></h5>
                                                   </div>
                                                   <table class="table">
                                                       <tr>
@@ -290,7 +293,18 @@
                                                   </table>
                                               </div>
                                               <div class="panel-footer">
-                                                  <a href="javascript:void(0)" class="btn btn-success btn-sm buy_now" data-amount="120" data-id="3">Buy Now</a>
+                                                  <?php
+                                                  if($employer['plan_status']=="1") {
+                                                    ?>
+                                                    <a href="javascript:void(0)" class="btn btn-success btn-sm " >Plan Expire on <?php echo $plan_history[0]['plan_expiry_date']; ?> </a>
+                                                    
+                                                    <?php
+                                                  } else {
+                                                    ?>
+                                                    <a href="javascript:void(0)" class="btn btn-success btn-sm buy_now" data-amount="<?= $plan['title']; ?>" data-id="3">Buy Now</a>
+                                                    <?php
+                                                  }
+                                                  ?>
                                                   </div>
                                           </div>
                                       </div>
@@ -306,7 +320,7 @@
                      </div>
                   </div>
                </div>
-
+               <?php /*
                <br/><br/>
                <div class="dashboard-right">
                   <div class="candidate-profile">
@@ -336,6 +350,7 @@
                    </form>
                   </div>
                </div>
+               */ ?>
 
                 <?php if(isset($plan_history) && !empty($plan_history)) { ?>
                 <div class="tab-content">
@@ -511,12 +526,13 @@
 <script>
  var SITEURL = "<?php echo base_url() ?>";
  $('body').on('click', '.buy_now', function(e){
-   var totalAmount = $(this).attr("data-amount");
+   // var totalAmount = $(this).attr("data-amount")*100;
+   var totalAmount = $("#org_price").val()*100;
    var product_id =  $(this).attr("data-id");
    var fName = '<?php echo $_SESSION[PREFIX.'name']; ?>';
    var options = {
    "key": "rzp_test_GqCz63X5qjspr9",
-   "amount": (6*100), // 2000 paise = INR 20
+   "amount": totalAmount, //(6*100), // 2000 paise = INR 20
    "name": fName,
    "description": "Payment",
    "image": "https://www.tutsmake.com/wp-content/uploads/2018/12/cropped-favicon-1024-1-180x180.png",

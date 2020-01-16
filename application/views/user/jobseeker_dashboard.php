@@ -183,6 +183,10 @@
                      </div>
                   </div> -->
                </div>
+               <?php
+               $plan = $this->HWT->get_one_row("plan","*",array("id"=>1))
+               ?>
+               <input type="hidden" name="org_price" id="org_price" value="<?= $plan['title'] ?>">
                <div class="tab-content" id="myTabContent">
                   <div class="tab-pane fade show active" id="company_a" role="tabpanel" aria-labelledby="company_a_tab">
                      <div class="row">                           
@@ -213,7 +217,7 @@
                                                       </tr>
                                                       <tr>
                                                           <td>
-                                                              New Job or Personal Job assistance for 6 months after you lose a job
+                                                              New Job or Personal Job assistance for <?= $plan['period'] ?> months after you lose a job
                                                           </td>
                                                       </tr>
                                                       
@@ -224,11 +228,23 @@
                                                       </tr>
                                                   </table>
                                               </div>
+
                                               <div class="panel-footer">
+                                                <?php
+                                                if($jobseeker_data['plan_status']=="1") {
+                                                  ?>
+                                                  <a href="javascript:void(0)" class="btn btn-success btn-sm " >Plan Expire on <?php echo $plan_history[0]['plan_expiry_date']; ?> </a>
+                                                  
+                                                  <?php
+                                                } else {
+                                                  ?>
+                                                  <a href="javascript:void(0)" class="btn btn-success btn-sm buy_now" data-amount="<?= $plan['title']; ?>" data-id="3">Buy Now</a>
+                                                  <?php
+                                                }
+                                                ?>
                                                 <!-- <a href="javascript:;" class="btn btn-success" role="button">Buy Now</a> -->
-                                                <a href="javascript:void(0)" class="btn btn-success btn-sm buy_now" data-amount="120" data-id="3">Buy Now</a>
                                                 <br/>
-                                                </div>
+                                                </div>                                                
                                           </div>
                                       </div>
                                       
@@ -265,7 +281,7 @@
                                                       <th>Sr.</th>
                                                       <th>Payment Id</th>
                                                       <th>Payment Date</th>
-                                                      <th>Purchase Date</th>
+                                                      <th>Expiry Date</th>
                                                       <th>Amount</th>
                                                     </tr>
                                                     <?php
@@ -307,12 +323,13 @@
 <script>
  var SITEURL = "<?php echo base_url() ?>";
  $('body').on('click', '.buy_now', function(e){
-   var totalAmount = $(this).attr("data-amount");
+   // var totalAmount = $(this).attr("data-amount")*100;;
+   var totalAmount = $("#org_price").val()*100;;
    var product_id =  $(this).attr("data-id");
    var fName = '<?php echo $_SESSION[PREFIX.'name']; ?>';
    var options = {
    "key": "rzp_test_GqCz63X5qjspr9",
-   "amount": (6*100), // 2000 paise = INR 20
+   "amount": totalAmount, //(6*100), // 2000 paise = INR 20
    "name": fName,
    "description": "Payment",
    "image": "https://www.tutsmake.com/wp-content/uploads/2018/12/cropped-favicon-1024-1-180x180.png",

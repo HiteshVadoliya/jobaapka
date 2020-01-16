@@ -51,7 +51,7 @@
                 <h3>Industry</h3>
                 <div class="job-sidebar-box">
                    
-                      <select id="job_industry" name="job_industry[]" class="selectpicker form-control" multiple data-live-search="true">
+                      <select id="job_industry" name="job_industry[]" class="selectpicker form-control" multiple data-live-search="true" title="Select Industry">
                         <?php
                         if(isset($collection['industry']) && !empty($collection['industry']))
                         {
@@ -77,7 +77,7 @@
                 <h3>Location</h3>
                 <div class="job-sidebar-box">
                    
-                      <select id="job_job_location" name="job_job_location[]" class="selectpicker form-control" multiple data-live-search="true">                          
+                      <select id="job_job_location" name="job_job_location[]" class="selectpicker form-control" multiple data-live-search="true" title="Select Location">                          
                          <?php
                          if(isset($collection['location']) && !empty($collection['location']))
                          {
@@ -102,7 +102,7 @@
                 <h3>Job Function</h3>
                 <div class="job-sidebar-box">
                    
-                      <select id="job_job_function" name="job_job_function[]" class="selectpicker form-control" multiple data-live-search="true">
+                      <select id="job_job_function" name="job_job_function[]" class="selectpicker form-control" multiple data-live-search="true" title="Select Job Function">
                         <?php
                         if(isset($collection['job_function']) && !empty($collection['job_function']))
                         {
@@ -126,7 +126,7 @@
              <div class="single-job-sidebar sidebar-keywords">
                 <h3>Education</h3>
                 <div class="job-sidebar-box">
-                      <select id="job_education" name="job_education[]" class="selectpicker form-control" multiple data-live-search="true">
+                      <select id="job_education" name="job_education[]" class="selectpicker form-control" multiple data-live-search="true" title="Select Education">
                         <?php
                         if(isset($collection['education']) && !empty($collection['education']))
                         {
@@ -151,8 +151,8 @@
                 <h3>Experience</h3>
                 <div class="job-sidebar-box">
                    
-                      <select id="job_exp_year" name="job_exp_year" class="form-control">
-                        <option value="">Experience in years</option>
+                      <select id="job_exp_year" name="job_exp_year" class="form-control" title="Select in Years">
+                        <option value="">Select in Years</option>
                         <?php
                         if(isset($collection['exp_year']) && !empty($collection['exp_year']))
                         {
@@ -170,8 +170,8 @@
                         ?>
                         </select>
 
-                        <select id="job_exp_month" name="job_exp_month" class="form-control">
-                           <option value="0">Experience in month</option>
+                        <select id="job_exp_month" name="job_exp_month" class="form-control" placeholder="Select in Month">
+                           <option value="0">Select in Month</option>
                            <?php
                            if(isset($collection['exp_month']) && !empty($collection['exp_month']))
                            {
@@ -222,9 +222,12 @@
          </div>
       </div>
    </div>
+
 </section>
 
 <script type="text/javascript">
+
+
 
   $(".change_filter").on("change",function(){
       get_data(0);

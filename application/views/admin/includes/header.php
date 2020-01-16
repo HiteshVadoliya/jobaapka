@@ -332,7 +332,8 @@
                             </a>
                             <ul class="treeview-menu">
                                 <li><a href="<?php echo ADMIN_LINK; ?>loadChangePass"><i class="fa fa-circle-o"></i>Change Password</a></li>
-                                <!-- <li><a href="<?php echo ADMIN_LINK; ?>sitesetting"><i class="fa fa-circle-o"></i>General Setting</a></li> -->
+                                <li><a href="<?php echo ADMIN_LINK."plan"; ?>"><i class="fa fa-circle-o"></i> <span>plan</span></a></li>
+
                             </ul>
                         </li>
                         

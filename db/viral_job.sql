@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 12, 2020 at 11:35 PM
+-- Generation Time: Jan 16, 2020 at 04:06 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -604,9 +604,9 @@ CREATE TABLE `hwt_user` (
 --
 
 INSERT INTO `hwt_user` (`id`, `type`, `fname`, `lname`, `img_src`, `email`, `password`, `pass_txt`, `company_name`, `job_function`, `industry`, `job_location`, `exp_year`, `exp_month`, `username`, `mobile`, `phone`, `home_town`, `city`, `gender`, `status`, `isDelete`, `created_at`, `updated_at`, `created_timestamp`, `updated_timestamp`, `address`, `state`, `zip`, `verify_string`, `fbid`, `gid`, `country_id`, `shortlist`, `applied_job`, `shortlist_employer`, `history`, `plan_id`, `plan_purchase_date`, `plan_expiry_date`, `plan_status`) VALUES
-(13, 'employer', 'Dhiru', '', 'Dhiru_13.png', 'dhiru@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '123456', 'Reliance', '2', '6', '', '', '', '', '9898989898', 0, '', '', 'M', 1, 0, '2020-01-12 15:42:13', '0000-00-00 00:00:00', 0, 0, '', '', '', '', '', '', 0, '12', '', '14', '', 1, '2020-01-12', '2020-07-12', 1),
+(13, 'employer', 'Dhiru', '', 'download.jpg', 'dhiru@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '123456', 'Reliance', '2', '6', '1', '', '', '', '9898989898', 0, '', '', 'M', 1, 0, '2020-01-12 15:42:13', '0000-00-00 00:00:00', 0, 0, '', '', '', '', '', '', 0, '12', '', '14', '', 1, '2020-01-15', '2020-07-15', 1),
 (14, 'employer', 'TATA', '', 'TATA_14.png', 'tata@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '123456', 'tata', '1', '4', '', '', '', '', '963963963', 0, '', '', 'M', 1, 0, '2020-01-12 16:34:48', '0000-00-00 00:00:00', 0, 0, '', '', '', '', '', '', 0, '', '', '', '', 0, '0000-00-00', '0000-00-00', 0),
-(15, 'jobseeker', 'Hitesh', '', 'Hitesh_15.png', 'hit@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '123456', '', '', '', '1', '14', '8', '', '96396396', 0, '', 'rajkot', 'M', 1, 0, '2020-01-12 16:54:49', '0000-00-00 00:00:00', 0, 0, 'gandhigram', '', '360007', '475808', '', '', 100, '12,14,,13', '12,14', '', '[\"Khadi Bhavan\\r\\n\\r\\nLorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum \\r\\n\\r\\nLorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum \",\"test\"]', 1, '2020-01-12', '2020-07-12', 1);
+(15, 'jobseeker', 'Hitesh', '', 'download.jpg', 'hit@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '123456', '', '', '', '1', '14', '8', '', '96396396', 0, '', 'rajkot', 'M', 1, 0, '2020-01-12 16:54:49', '0000-00-00 00:00:00', 0, 0, 'gandhigram', '', '360007', '475808', '', '', 100, '12,14,,13', '12,14', '', '[\"Khadi Bhavan\\r\\n\\r\\nLorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum \\r\\n\\r\\nLorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum \",\"test\"]', 1, '2020-01-15', '2020-07-15', 1);
 
 -- --------------------------------------------------------
 
@@ -735,7 +735,7 @@ CREATE TABLE `job` (
 --
 
 INSERT INTO `job` (`job_id`, `employer_id`, `job_date`, `job_date_expired`, `job_title`, `slug`, `job_industry`, `job_job_location`, `job_job_function`, `job_education`, `job_exp_year`, `job_exp_month`, `job_salary`, `job_skill`, `job_additional_skill`, `job_descr`, `job_additional_role`, `employer_tags`, `status`, `pay_info`, `isDelete`, `job_expire`, `created_at`, `updated_at`) VALUES
-(12, 13, '0000-00-00', '0000-00-00', 'php developer', '', '2,4,6', '2,4,7', '1,3', '4,6', 2, 1, 5000, 'test', 'test', 'test', 'test', '1,2,3,php', 1, 1, 0, 0, '2020-01-12 16:02:58', '2020-01-13 03:28:05'),
+(12, 13, '0000-00-00', '0000-00-00', 'php developer', '', '2,4,6', '2,4,7', '1,3', '4,6', 2, 1, 5000, 'test', 'test', 'test', 'test', '1,as,1223', 1, 1, 0, 0, '2020-01-12 16:02:58', '2020-01-15 22:44:07'),
 (13, 13, '0000-00-00', '0000-00-00', 'laravel developer', '', '1,4,6', '2,4,3', '1,3', '2,6', 2, 4, 1000, 'test', 'et', 'test', 'test', 'laravel', 1, 1, 0, 0, '2020-01-12 16:03:35', '2020-01-13 03:21:00'),
 (14, 14, '0000-00-00', '0000-00-00', 'tata job', '', '1,4,6', '1,3', '1,4', '1,3', 2, 1, 10000, 'test', 'test', 'test', 'test', 't,as,df,sf', 1, 1, 0, 0, '2020-01-12 16:36:49', '2020-01-12 19:37:44');
 
@@ -825,7 +825,7 @@ CREATE TABLE `jobseeker_skill` (
 --
 
 INSERT INTO `jobseeker_skill` (`id`, `jobseeker_id`, `title`, `skill`, `exp_year`, `exp_month`, `designation`, `job_type`, `salary`, `job_function`, `location`, `industry`, `category`, `jobseeker_tags`, `img_src`, `status`, `isDelete`, `created_at`, `updated_at`) VALUES
-(3, 15, 'Wordpress Developer', 'my skill', 1, 3, '1,2,3,4', '1,2,3,4', '1,2,3', '1', '1,3,5', '2,5,8,4', '2,3', 'php,laravel', 'resume_hitesh9.docx', 0, 0, '2020-01-12 16:58:52', '0000-00-00 00:00:00');
+(3, 15, 'Wordpress Developer', 'my skill', 1, 3, '1,2,3,4', '1,2,3,4', '1,2,3', '1', '1,3,5', '2,4,5,8', '2,3', 'php,laravel,asdf', 'resume_hitesh9.docx', 0, 0, '2020-01-12 16:58:52', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -1100,12 +1100,33 @@ CREATE TABLE `payments` (
 --
 
 INSERT INTO `payments` (`id`, `user_id`, `product_id`, `payment_id`, `amount`, `plan_purchase_date`, `plan_expiry_date`, `created_at`, `status`, `isDelete`) VALUES
-(1, '1', '3', 'pay_E3bwF8DtAiFNtN', '120', '0000-00-00', '0000-00-00', '2020-01-12 21:00:10', 1, 0),
-(2, '1', '3', 'pay_E3bxl2GvEwHsZF', '120', '0000-00-00', '0000-00-00', '2020-01-12 21:00:10', 1, 0),
-(3, '15', '3', 'pay_E3cFFDvU0nnRcD', '120', '0000-00-00', '0000-00-00', '2020-01-12 21:05:28', 1, 0),
-(4, '15', '3', 'pay_E3dDqErZrOf1V6', '120', '0000-00-00', '0000-00-00', '2020-01-12 22:02:51', 1, 0),
-(5, '15', '3', 'pay_E3daUAU8DenRga', '120', '2020-01-12', '2020-07-12', '2020-01-12 22:24:16', 1, 0),
-(6, '13', '3', 'pay_E3eDHqZzrWov8v', '120', '2020-01-12', '2020-07-12', '2020-01-12 23:01:02', 1, 0);
+(1, '15', '3', 'pay_E4rRJaURTxcNSl', '2000', '2020-01-15', '2020-07-15', '2020-01-16 00:36:12', 1, 0),
+(2, '15', '3', 'pay_E4rUDkYEaiVcPs', '2000', '2020-01-15', '2020-07-15', '2020-01-16 00:38:57', 1, 0),
+(3, '15', '3', 'pay_E4rWfg6fjgDUF8', '2000', '2020-01-15', '2020-07-15', '2020-01-16 00:41:16', 1, 0),
+(4, '15', '3', 'pay_E4rZE0zZdPyPml', '2000', '2020-01-15', '2020-07-15', '2020-01-16 00:43:43', 1, 0),
+(5, '15', '3', 'pay_E4rfQyTvjVZVon', '2000', '2020-01-15', '2020-07-15', '2020-01-16 00:49:38', 1, 0),
+(6, '13', '3', 'pay_E4rgWULNmWLdwr', '2000', '2020-01-15', '2020-07-15', '2020-01-16 00:50:36', 1, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `plan`
+--
+
+CREATE TABLE `plan` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `descr` longtext NOT NULL,
+  `period` varchar(255) NOT NULL,
+  `meta_descr` varchar(500) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `plan`
+--
+
+INSERT INTO `plan` (`id`, `title`, `descr`, `period`, `meta_descr`) VALUES
+(1, '20', '', '8', '');
 
 -- --------------------------------------------------------
 
@@ -1461,7 +1482,8 @@ INSERT INTO `tbl_last_login` (`id`, `userId`, `sessionData`, `machineIp`, `userA
 (97, 11, '{\"role\":\"1\",\"roleText\":\"System Administrator\",\"name\":\"Admin\"}', '::1', 'Chrome 79.0.3945.117', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36', 'Windows 8.1', '2020-01-10 06:28:46'),
 (98, 11, '{\"role\":\"1\",\"roleText\":\"System Administrator\",\"name\":\"Admin\"}', '::1', 'Chrome 79.0.3945.117', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36', 'Windows 8.1', '2020-01-10 06:38:00'),
 (99, 11, '{\"role\":\"1\",\"roleText\":\"System Administrator\",\"name\":\"Admin\"}', '::1', 'Chrome 79.0.3945.117', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36', 'Windows 8.1', '2020-01-10 22:48:51'),
-(100, 11, '{\"role\":\"1\",\"roleText\":\"System Administrator\",\"name\":\"Admin\"}', '::1', 'Chrome 79.0.3945.117', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36', 'Windows 8.1', '2020-01-12 23:01:51');
+(100, 11, '{\"role\":\"1\",\"roleText\":\"System Administrator\",\"name\":\"Admin\"}', '::1', 'Chrome 79.0.3945.117', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36', 'Windows 8.1', '2020-01-12 23:01:51'),
+(101, 11, '{\"role\":\"1\",\"roleText\":\"System Administrator\",\"name\":\"Admin\"}', '::1', 'Chrome 79.0.3945.117', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36', 'Windows 8.1', '2020-01-15 23:32:59');
 
 -- --------------------------------------------------------
 
@@ -1775,6 +1797,12 @@ ALTER TABLE `payments`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `plan`
+--
+ALTER TABLE `plan`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `portfolio`
 --
 ALTER TABLE `portfolio`
@@ -1866,7 +1894,7 @@ ALTER TABLE `workshop_slider`
 -- AUTO_INCREMENT for table `about`
 --
 ALTER TABLE `about`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `apply_job_without_login`
 --
@@ -1988,6 +2016,11 @@ ALTER TABLE `our_clients`
 ALTER TABLE `payments`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
+-- AUTO_INCREMENT for table `plan`
+--
+ALTER TABLE `plan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
 -- AUTO_INCREMENT for table `portfolio`
 --
 ALTER TABLE `portfolio`
@@ -2026,7 +2059,7 @@ ALTER TABLE `slider`
 -- AUTO_INCREMENT for table `tbl_last_login`
 --
 ALTER TABLE `tbl_last_login`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
 --
 -- AUTO_INCREMENT for table `tbl_reset_password`
 --

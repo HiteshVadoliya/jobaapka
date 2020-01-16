@@ -757,8 +757,7 @@ class Home extends FrontController {
             $mail_data['email'] = $email;
             $mail_data['url'] = base_url('set-new-password/').base64_encode($email).'/'.$rand;
             $subject = "Reset Password";
-            echo $message = $this->load->view(USER.'mail_template/forgot_mail', $mail_data, TRUE);
-            die();
+            $message = $this->load->view(USER.'mail_template/forgot_mail', $mail_data, TRUE);
             $mail_data_send['to_email'] = $email;
             $mail_data_send['subject'] = $subject;
             $mail_data_send['body'] = $message;
@@ -993,8 +992,8 @@ class Home extends FrontController {
                "plan_expiry_date" => date("Y-m-d", strtotime(date("Y-m-d"). DAY)),
             ];
      $insert = $this->db->insert('payments', $data);
-
-     if($insert) {
+     $this->db->insert_id();
+     // if($insert) {
 
         $DataUpdateUser = array(
             "plan_purchase_date" => date("Y-m-d"),
@@ -1016,8 +1015,8 @@ class Home extends FrontController {
             $this->HWT->update("job",$DataUpdateUser,$wh);
         }
 
-     }
-     $arr = array('msg' => 'Payment successfully credited', 'status' => true);  
+     // }
+     //$arr = array('msg' => 'Payment successfully credited', 'status' => true);  
     }
 
     public function RazorThankYou()

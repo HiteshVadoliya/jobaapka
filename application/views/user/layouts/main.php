@@ -123,6 +123,18 @@
               todayHighlight: true,
           });
           $('#datepicker').datepicker("setDate", new Date());
+
+          $(document).ready(function() {
+            setTimeout(function() {
+               $('.bootstrap-tagsinput input').keydown(function( event ) {
+                   if ( event.which == 13 ) {
+                       $(this).blur();
+                       $(this).focus();
+                       return false;
+                   }
+               });
+            }, 3000);
+          });
             
          </script>
          

@@ -9,7 +9,10 @@
 	      <li class="<?php if($active_menu=="consultin") { echo "active"; } ?> " ><a href="javascript:;"><i class="fa fa-address-book-o" aria-hidden="true"></i></i>SEARCH JOBSEEKERS</a></li>
 	      <li class="<?php if($active_menu=="applicants") { echo "active"; } ?> " ><a href="<?= base_url('employer/applicants'); ?>"><i class="fa fa-user" aria-hidden="true"></i>JOB APPLICANTS</a></li>
 	      <li class="<?php if($active_menu=="alertlist") { echo "active"; } ?> " ><a href="<?= base_url('employer/alertlist'); ?>"><i class="fa fa-user" aria-hidden="true"></i>JOBSEEKER PROFILE ALERTS</a></li>
+
+	      <?php if($employer['plan_status']=='1') { ?>
 	      <li class="<?php if($active_menu=="consultin") { echo "active"; } ?> " ><a href="<?= base_url('employer/consultin'); ?>"><i class="fa fa-info" aria-hidden="true"></i>TECHNOLOGY CONSULTING</a></li>
+	  	<?php } ?>
 	      <li class="<?php if($active_menu=="applied_without_registration") { echo "active"; } ?> " ><a href="<?= base_url('employer/applied_without_registration'); ?>"><i class="fa fa-info" aria-hidden="true"></i>APPLIED WITHOUT REGISTRATION</a></li>
 	      
 	      <li class="<?php if($active_menu=="change_password") { echo "active"; } ?> "><a href="<?= base_url("employer/change_password") ?>"><i class="fa fa-lock"></i>CHANGE PASSWORD</a></li>

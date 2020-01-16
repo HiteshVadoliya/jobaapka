@@ -249,7 +249,7 @@
                                  <div class="single-resume-feild ">
                                     <div class="single-input single-input-tag">
                                        <label for="j_title">tag:</label>
-                                       <input name="employer_tags" id="employer_tags" class=" tagsinput_text_ tags" type="text" value="<?= (isset($edit) && !empty($edit['employer_tags'])) ? $edit['employer_tags'] : '';  ?>" data-role="tagsinput" style="display: none;" />
+                                       <input name="employer_tags" id="employer_tags" class=" tagsinput_text_ tags" type="text" value="<?= (isset($edit) && !empty($edit['employer_tags'])) ? $edit['employer_tags'] : '';  ?>" data-role="tagsinput" style="display: none;" onkeypress="return runScript(event)"/>
                                     </div>
                                  </div>
 
@@ -329,6 +329,7 @@
            }
        });
    });
+
    
 
    $("#frm").on('submit',function(){
