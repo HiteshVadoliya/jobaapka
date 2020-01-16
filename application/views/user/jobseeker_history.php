@@ -145,7 +145,7 @@
         $(".close").trigger("click");
         var btn_old_val = $(".custom_submit").html();
         $(".custom_submit").html(btn_old_val+'...');
-        
+        $(".custom_submit").attr("disabled", true);
         $.ajax({
             type: "POST",            
             url: "<?php echo base_url('JobSeeker_Process/history') ?>",
@@ -161,6 +161,7 @@
                   $.notify({message: res.msg },{type: 'success'});
                 }
                $(".custom_submit").html(btn_old_val);
+               $(".custom_submit").attr("disabled", false);
             },
             error: function (error) {}
         });

@@ -58,12 +58,14 @@ class Home extends FrontController {
         $data = array();
         $this->global['pageTitle'] = 'jobseeker';
         $data['active_menu'] = "jobseeker_without_login";
+        $data['plan'] = $this->HWT->get_one_row("plan","*",array("id"=>1));
         $this->loadViews(USER."jobseeker_not_login", $this->global, $data, NULL,NULL);
     }
     public function employer_not_login() {
         $data = array();
         $this->global['pageTitle'] = 'jobseeker';
         $data['active_menu'] = "jobseeker_without_login";
+        $data['plan'] = $this->HWT->get_one_row("plan","*",array("id"=>1));
         $this->loadViews(USER."employer_not_login", $this->global, $data, NULL,NULL);
     }
 

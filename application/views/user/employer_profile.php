@@ -1,109 +1,28 @@
 <style type="text/css">
   
-  .panel
-  {
-      text-align: center;
-      box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4), 0 1px 5px rgba(130, 130, 130, 0.35);
-  }
-  .panel:hover { box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4), 0 1px 5px rgba(130, 130, 130, 0.35); }
-  .panel-body
-  {
-      padding: 0px;
-      text-align: center;
-  }
-
-  .the-price
-  {
-      background-color: rgba(220,220,220,.17);
-      box-shadow: 0 1px 0 #dcdcdc, inset 0 1px 0 #fff;
-      padding: 20px;
-      margin: 0;
-  }
-
-  .the-price h1
-  {
-      line-height: 1em;
-      padding: 0;
-      margin: 0;
-  }
-
-  .subscript
-  {
-      font-size: 25px;
-  }
-
-  /* CSS-only ribbon styles    */
-  .cnrflash
-  {
-      /*Position correctly within container*/
-      position: absolute;
-      top: -9px;
-      right: 4px;
-      z-index: 1; /*Set overflow to hidden, to mask inner square*/
-      overflow: hidden; /*Set size and add subtle rounding      to soften edges*/
-      width: 100px;
-      height: 100px;
-      border-radius: 3px 5px 3px 0;
-  }
-  .cnrflash-inner
-  {
-      /*Set position, make larger then      container and rotate 45 degrees*/
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      width: 145px;
-      height: 145px;
-      -ms-transform: rotate(45deg); /* IE 9 */
-      -o-transform: rotate(45deg); /* Opera */
-      -moz-transform: rotate(45deg); /* Firefox */
-      -webkit-transform: rotate(45deg); /* Safari and Chrome */
-      -webkit-transform-origin: 100% 100%; /*Purely decorative effects to add texture and stuff*/ /* Safari and Chrome */
-      -ms-transform-origin: 100% 100%;  /* IE 9 */
-      -o-transform-origin: 100% 100%; /* Opera */
-      -moz-transform-origin: 100% 100%; /* Firefox */
-      background-image: linear-gradient(90deg, transparent 50%, rgba(255,255,255,.1) 50%), linear-gradient(0deg, transparent 0%, rgba(1,1,1,.2) 50%);
-      background-size: 4px,auto, auto,auto;
-      background-color: #aa0101;
-      box-shadow: 0 3px 3px 0 rgba(1,1,1,.5), 0 1px 0 0 rgba(1,1,1,.5), inset 0 -1px 8px 0 rgba(255,255,255,.3), inset 0 -1px 0 0 rgba(255,255,255,.2);
-  }
-  .cnrflash-inner:before, .cnrflash-inner:after
-  {
-      /*Use the border triangle trick to make         it look like the ribbon wraps round it's        container*/
-      content: " ";
-      display: block;
-      position: absolute;
-      bottom: -16px;
-      width: 0;
-      height: 0;
-      border: 8px solid #800000;
-  }
-  .cnrflash-inner:before
-  {
-      left: 1px;
-      border-bottom-color: transparent;
-      border-right-color: transparent;
-  }
-  .cnrflash-inner:after
-  {
-      right: 0;
-      border-bottom-color: transparent;
-      border-left-color: transparent;
-  }
-  .cnrflash-label
-  {
-      /*Make the label look nice*/
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      display: block;
-      width: 100%;
-      padding-bottom: 5px;
-      color: #fff;
-      text-shadow: 0 1px 1px rgba(1,1,1,.8);
-      font-size: 0.95em;
-      font-weight: bold;
-      text-align: center;
-  }
+.input-container {
+  display: flex;
+  width: 100%;
+  margin-bottom: 15px;
+}
+.icon {
+  padding: 10px;
+  background: dodgerblue;
+  color: white;
+  min-width: 50px;
+  text-align: center;
+}
+.input-field {
+  width: 100%;
+  padding: 10px;
+  outline: none;
+}
+.input-field:focus {
+  border: 2px solid dodgerblue;
+}
+.input-container .fa {
+  font-size: 22px;
+}
 
 </style>
 <!-- Breadcromb Area Start -->
@@ -191,7 +110,11 @@
                            <div class="single-resume-feild feild-flex-2">
                               <div class="single-input">
                                  <label for="Start">OFFICIAL EMAIL ID :</label>
-                                 <input type="text" value="<?= $employer['email']; ?>" id="email" name="email" readonly>
+                                 <div class="input-container">
+                                   <i class="fa fa-check icon"></i>
+                                   <input class="input-field" type="text" value="<?= $employer['email']; ?>" id="email" name="email" readonly>
+                                 </div>
+                                 <!-- <input type="text" value="<?= $employer['email']; ?>" id="email" name="email" readonly> -->
                               </div>
                               <div class="single-input">
                                  <label for="member">YOUR COMPANY NAME :</label>
@@ -250,65 +173,57 @@
                $plan = $this->HWT->get_one_row("plan","*",array("id"=>1))
                ?>
                <input type="hidden" name="org_price" id="org_price" value="<?= $plan['title'] ?>">
-               <div class="tab-content" id="myTabContent">
+               <div class="tab-content " id="myTabContent">
                   <div class="tab-pane fade show active" id="company_a" role="tabpanel" aria-labelledby="company_a_tab">
                      <div class="row">                           
-                        <div class="col-lg-12 col-md-12  companyBox moreBox">
-                           <div class="single-browse-company">                                 
-                              <div class="container">
-                                  <div class="row">
-                                      <div class="col-xs-12 col-md-4 col-md-4-offset">
-                                          <div class="panel panel-primary">
-                                              <div class="panel-heading">
-                                                  <h3 class="panel-title">
-                                                      </h3>
-                                              </div>
-                                              <div class="panel-body">
-                                                  <div class="the-price">
-                                                      <h5>Most affordable and unique <br>
-                                                       <small><?= $plan['period'] ?> month plan</small></h5>
+                        <div class="col-lg-12 col-md-12 ">
+                           <div class="single-browse-company" style="background: #08c85f;">                                 
+                              <div class="container ">
+                                  <div class="modal-body plan-modal-body">
+                                    <div class="container">
+                                        
+                                            <?php
+                                            if(!$employer['plan_status']=="1") {
+                                              ?>
+                                              <div class="pricingTable">
+                                                    <div class="pricingTable-signup">
+                                                        <a href="javascript:void(0)" class="btn btn-success " >Plan Expire on <?php echo $plan_history[0]['plan_expiry_date']; ?> </a>
+                                                    </div>
                                                   </div>
-                                                  <table class="table">
-                                                      <tr>
-                                                          <td>
-                                                              Unlimited CV <br/>Download/Access
-                                                          </td>
-                                                      </tr>
-                                                      <tr class="active">
-                                                          <td>
-                                                              Post unlimited jobs
-                                                          </td>
-                                                      </tr>
-                                                      <tr>
-                                                          <td>
-                                                              One Free technology consulting<br/> for your business issues
-                                                          </td>
-                                                      </tr>
-                                                      
-                                                      <tr class="active">
-                                                          <td>
-                                                              
-                                                          </td>
-                                                      </tr>
-                                                  </table>
-                                              </div>
-                                              <div class="panel-footer">
-                                                  <?php
-                                                  if($employer['plan_status']=="1") {
-                                                    ?>
-                                                    <a href="javascript:void(0)" class="btn btn-success btn-sm " >Plan Expire on <?php echo $plan_history[0]['plan_expiry_date']; ?> </a>
-                                                    
-                                                    <?php
-                                                  } else {
-                                                    ?>
-                                                    <a href="javascript:void(0)" class="btn btn-success btn-sm buy_now" data-amount="<?= $plan['title']; ?>" data-id="3">Buy Now</a>
-                                                    <?php
-                                                  }
-                                                  ?>
+                                              <?php
+                                            } else {
+                                              ?>
+                                              <div class="col-md-6 ">
+                                                  <div class="pricingTable">
+                                                      <div class="pricing-content">
+                                                          <div class="pricingTable-header">
+                                                              <h3 class="title">Most affordable and unique <br/><small><?= $plan['period']; ?> month plan</small></h3>
+                                                          </div>
+                                                          <div class="inner-content">
+                                                              <div class="price-value">
+                                                                  <span class="currency"><?= CURR_SYMBOL; ?></span>
+                                                                  <span class="amount"><?= $plan['title']; ?></span>
+                                                                  <span class="duration">Per Month</span>
+                                                              </div>
+                                                              <ul>
+                                                                  <li>Unlimited CV <br/>Download/Access</li>
+                                                                  <li>Post unlimited jobs</li>
+                                                                  <li>One Free technology <br/>consulting for your business issues</li>
+                                                              </ul>
+                                                          </div>
+                                                      </div>
+                                                      <div class="pricingTable-signup">
+                                                          <a href="javascript:void(0)" class="btn btn-success btn-sm buy_now" data-amount="<?= $plan['title']; ?>" data-id="3">Buy Now</a>
+                                                      </div>
                                                   </div>
-                                          </div>
-                                      </div>
-                                      
+                                              </div>
+
+                                              <?php
+                                            }
+                                            ?>
+                                                                                        
+                                        
+                                    </div>
                                   </div>
                               </div>
 
@@ -447,6 +362,7 @@
         $(".close").trigger("click");
         var btn_old_val = $(".custom_submit").html();
         $(".custom_submit").html(btn_old_val+'...');
+        $(".custom_submit").attr("disabled", true);
         
         $.ajax({
             type: "POST",            
@@ -464,6 +380,7 @@
                   $("#image_replace").attr("src",res.img_src);
                 }
                $(".custom_submit").html(btn_old_val);
+               $(".custom_submit").attr("disabled", false);
             },
             error: function (error) {}
         });

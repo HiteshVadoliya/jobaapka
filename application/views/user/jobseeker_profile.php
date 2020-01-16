@@ -169,7 +169,7 @@
         $(".close").trigger("click");
         var btn_old_val = $(".custom_submit").html();
         $(".custom_submit").html(btn_old_val+'...');
-        
+        $(".custom_submit").attr("disabled", true);
         $.ajax({
             type: "POST",            
             url: "<?php echo base_url('JobSeeker_Process/profile') ?>",
@@ -186,6 +186,7 @@
                   $("#image_replace").attr("src",res.img_src);
                 }
                $(".custom_submit").html(btn_old_val);
+               $(".custom_submit").attr("disabled", false);
             },
             error: function (error) {}
         });

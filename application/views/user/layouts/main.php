@@ -68,7 +68,7 @@
 
     </div> 
 
-   
+    
    <!--Jquery js-->
          
          <!--Popper js-->
@@ -133,7 +133,7 @@
                        return false;
                    }
                });
-            }, 3000);
+            }, 2000);
           });
             
          </script>

@@ -105,9 +105,9 @@ class Job_Process extends FrontController {
 
         if(isset($post) && !empty($post['job_salary']) ) {            
             $min_salary = explode(" - ", $post['job_salary'])[0];
-            $min_salary = str_replace("$", "", $min_salary);
+            $min_salary = str_replace("Rs.", "", $min_salary);
             $max_salary = explode(" - ", $post['job_salary'])[1];
-            $max_salary = str_replace("$", "", $max_salary);
+            $max_salary = str_replace("Rs.", "", $max_salary);
             
             $this->db->where('job_salary >=', $min_salary);
             $this->db->where('job_salary <=', $max_salary);

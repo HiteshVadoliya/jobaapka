@@ -1,112 +1,3 @@
- <style type="text/css">
-  
-      
-  .panel
-  {
-      text-align: center;
-      box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4), 0 1px 5px rgba(130, 130, 130, 0.35);
-  }
-  .panel:hover { box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4), 0 1px 5px rgba(130, 130, 130, 0.35); }
-  .panel-body
-  {
-      padding: 0px;
-      text-align: center;
-  }
-
-  .the-price
-  {
-      background-color: rgba(220,220,220,.17);
-      box-shadow: 0 1px 0 #dcdcdc, inset 0 1px 0 #fff;
-      padding: 20px;
-      margin: 0;
-  }
-
-  .the-price h1
-  {
-      line-height: 1em;
-      padding: 0;
-      margin: 0;
-  }
-
-  .subscript
-  {
-      font-size: 25px;
-  }
-
-  /* CSS-only ribbon styles    */
-  .cnrflash
-  {
-      /*Position correctly within container*/
-      position: absolute;
-      top: -9px;
-      right: 4px;
-      z-index: 1; /*Set overflow to hidden, to mask inner square*/
-      overflow: hidden; /*Set size and add subtle rounding      to soften edges*/
-      width: 100px;
-      height: 100px;
-      border-radius: 3px 5px 3px 0;
-  }
-  .cnrflash-inner
-  {
-      /*Set position, make larger then      container and rotate 45 degrees*/
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      width: 145px;
-      height: 145px;
-      -ms-transform: rotate(45deg); /* IE 9 */
-      -o-transform: rotate(45deg); /* Opera */
-      -moz-transform: rotate(45deg); /* Firefox */
-      -webkit-transform: rotate(45deg); /* Safari and Chrome */
-      -webkit-transform-origin: 100% 100%; /*Purely decorative effects to add texture and stuff*/ /* Safari and Chrome */
-      -ms-transform-origin: 100% 100%;  /* IE 9 */
-      -o-transform-origin: 100% 100%; /* Opera */
-      -moz-transform-origin: 100% 100%; /* Firefox */
-      background-image: linear-gradient(90deg, transparent 50%, rgba(255,255,255,.1) 50%), linear-gradient(0deg, transparent 0%, rgba(1,1,1,.2) 50%);
-      background-size: 4px,auto, auto,auto;
-      background-color: #aa0101;
-      box-shadow: 0 3px 3px 0 rgba(1,1,1,.5), 0 1px 0 0 rgba(1,1,1,.5), inset 0 -1px 8px 0 rgba(255,255,255,.3), inset 0 -1px 0 0 rgba(255,255,255,.2);
-  }
-  .cnrflash-inner:before, .cnrflash-inner:after
-  {
-      /*Use the border triangle trick to make         it look like the ribbon wraps round it's        container*/
-      content: " ";
-      display: block;
-      position: absolute;
-      bottom: -16px;
-      width: 0;
-      height: 0;
-      border: 8px solid #800000;
-  }
-  .cnrflash-inner:before
-  {
-      left: 1px;
-      border-bottom-color: transparent;
-      border-right-color: transparent;
-  }
-  .cnrflash-inner:after
-  {
-      right: 0;
-      border-bottom-color: transparent;
-      border-left-color: transparent;
-  }
-  .cnrflash-label
-  {
-      /*Make the label look nice*/
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      display: block;
-      width: 100%;
-      padding-bottom: 5px;
-      color: #fff;
-      text-shadow: 0 1px 1px rgba(1,1,1,.8);
-      font-size: 0.95em;
-      font-weight: bold;
-      text-align: center;
-  }
-
-</style>
 <!-- Breadcromb Area Start -->
 <section class="jobguru-breadcromb-area">
    <div class="breadcromb-top section_100">
@@ -184,78 +75,60 @@
                   </div> -->
                </div>
                <?php
-               $plan = $this->HWT->get_one_row("plan","*",array("id"=>1))
+               $plan = $this->HWT->get_one_row("plan","*",array("id"=>1));
                ?>
                <input type="hidden" name="org_price" id="org_price" value="<?= $plan['title'] ?>">
                <div class="tab-content" id="myTabContent">
                   <div class="tab-pane fade show active" id="company_a" role="tabpanel" aria-labelledby="company_a_tab">
                      <div class="row">                           
                         <div class="col-lg-12 col-md-12  companyBox moreBox">
-                           <div class="single-browse-company">                                 
-                              <div class="container">
-                                  <div class="row">
-                                      <div class="col-xs-12 col-md-4 col-md-4-offset">
-                                          <div class="panel panel-primary">
-                                              <div class="panel-heading">
-                                                  <h3 class="panel-title">
-                                                      </h3>
-                                              </div>
-                                              <div class="panel-body">
-                                                  <div class="the-price">
-                                                      <h5>Complete job care plan</h5>
-                                                  </div>
-                                                  <table class="table">
-                                                      <tr>
-                                                          <td>
-                                                              CV Writing
-                                                          </td>
-                                                      </tr>
-                                                      <tr class="active">
-                                                          <td>
-                                                              Interview Preparation
-                                                          </td>
-                                                      </tr>
-                                                      <tr>
-                                                          <td>
-                                                              New Job or Personal Job assistance for <?= $plan['period'] ?> months after you lose a job
-                                                          </td>
-                                                      </tr>
-                                                      
-                                                      <tr class="active">
-                                                          <td>
-                                                              
-                                                          </td>
-                                                      </tr>
-                                                  </table>
-                                              </div>
-
-                                              <div class="panel-footer">
-                                                <?php
-                                                if($jobseeker_data['plan_status']=="1") {
-                                                  ?>
-                                                  <a href="javascript:void(0)" class="btn btn-success btn-sm " >Plan Expire on <?php echo $plan_history[0]['plan_expiry_date']; ?> </a>
-                                                  
-                                                  <?php
-                                                } else {
-                                                  ?>
-                                                  <a href="javascript:void(0)" class="btn btn-success btn-sm buy_now" data-amount="<?= $plan['title']; ?>" data-id="3">Buy Now</a>
-                                                  <?php
-                                                }
-                                                ?>
-                                                <!-- <a href="javascript:;" class="btn btn-success" role="button">Buy Now</a> -->
-                                                <br/>
-                                                </div>                                                
-                                          </div>
-                                      </div>
+                           <div class="single-browse-company" style="background: #08c85f;">                                 
+                              <div class="modal-body plan-modal-body">
+                                <div class="container">
+                                    <?php
+                                    if($jobseeker_data['plan_status']=="1") {
+                                      ?>
+                                      <div class="pricingTable">
+                                      <div class="pricingTable-signup">
+                                        <a href="javascript:void(0)" class="btn btn-success btn-sm " >Plan Expire on <?php echo $plan_history[0]['plan_expiry_date']; ?> </a>
+                                      </div>                    
+                                      </div>                  
+                                      <?php
+                                    } else {
+                                      ?>
                                       
-                                  </div>
+                                        <div class="col-md-6">
+                                          <div class="pricingTable">
+                                              <div class="pricing-content">
+                                                  <div class="pricingTable-header">
+                                                      <h3 class="title">Complete job care plan</h3>
+                                                  </div>
+                                                  <div class="inner-content">
+                                                      <div class="price-value">
+                                                          <span class="currency"><?= CURR_SYMBOL; ?></span>
+                                                          <span class="amount"><?= $plan['title']; ?></span>
+                                                          <span class="duration">Per Month</span>
+                                                      </div>
+                                                      <ul>
+                                                          <li>CV Writing</li>
+                                                          <li>Interview Preparation</li>
+                                                          <li>New Job or Personal Job <br>assistance for <?= $plan['period']; ?> months <br>after you lose a job</li>
+                                                      </ul>
+                                                  </div>
+                                              </div>
+                                              <div class="pricingTable-signup">
+                                                  <a href="javascript:void(0)" class="btn btn-success btn-sm buy_now" data-amount="<?= $plan['title']; ?>" data-id="3">Buy Now</a>
+                                                  <!-- <a href="javascript:;">Buy Now</a> -->
+                                              </div>
+                                          </div>
+                                        </div>
+                                      <?php
+                                    }
+                                    ?>
+                                </div>
                               </div>
-
                            </div>
-                        </div>
-
-                        
-                                                 
+                        </div>                                                 
                      </div>
                   </div>
                </div>

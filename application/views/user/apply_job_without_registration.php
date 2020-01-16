@@ -257,6 +257,7 @@
     $(".close").trigger("click");    
     var btn_old_val = $(".custom_submit").html();
     $(".custom_submit").html(btn_old_val+'...');
+    $(".custom_submit").attr("disabled", true);
 
     $.ajax({
           url: "<?php echo base_url()."Job_Process/apply_job_without_registration/" ?>",
@@ -275,6 +276,7 @@
             }
             $(".custom_submit").html(btn_old_val);
             $("#frm")[0].reset();
+            $(".custom_submit").attr("disabled", false);
 
             //var url = '<?php echo base_url('employer/profile'); ?>';
             //setTimeout(function(){ window.location = url; }, 2000);

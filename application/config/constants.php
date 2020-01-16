@@ -131,7 +131,7 @@ define('DECRYPTED','5');
 define('PREFIX','HWT_');
 define('MSG_AUTH_FAIL','Authentication Token Fail');
 define('LIMIT','10');
-define('CURR_SYMBOL','');
+define('CURR_SYMBOL','Rs.');
 define('ALPHA_DEV','Y');
 define('FROM_EMAIL','hmvadoliya.iipl2013@gmail.com');
 define('SUPPORT_EMAIL','info@job.in');

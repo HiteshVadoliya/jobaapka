@@ -149,6 +149,7 @@
     $(".close").trigger("click");    
     var btn_old_val = $(".custom_submit").html();
     $(".custom_submit").html(btn_old_val+'...');
+    $(".custom_submit").attr("disabled", true);
 
     $.ajax({
           url: "<?php echo base_url()."Home/subscription/" ?>",
@@ -167,6 +168,8 @@
               $.notify({message: data.message },{type: 'danger'});
             }
             $("#news_frm")[0].reset();
+            $(".custom_submit").html(btn_old_val);
+            $(".custom_submit").attr("disabled", false);
 
             
 

@@ -104,7 +104,8 @@
         if(!val_form) { return false; }
         $(".close").trigger("click");
         var btn_old_val = $(".custom_submit").html();
-        $(".custom_submit").html(btn_old_val+'...');        
+        $(".custom_submit").html(btn_old_val+'...');
+        $(".custom_submit").attr("disabled", true);        
         $.ajax({
             type: "POST",            
             url: "<?php echo base_url('Employer_Process/password') ?>",
@@ -116,6 +117,7 @@
                   $("#frm")[0].reset();
                 }
                $(".custom_submit").html(btn_old_val);
+               $(".custom_submit").attr("disabled", false);
             },
             error: function (error) {}
         });
