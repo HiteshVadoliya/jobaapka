@@ -73,7 +73,7 @@ class JobSeeker_Process extends FrontController {
         }
         $config['allowed_types'] = '*';  
         $this->load->library('upload', $config); 
-        $img_src = $post['img_src_old']; 
+        $img_src = (isset($post['img_src_old']) && !empty($post['img_src_old'])) ? $post['img_src_old'] : '';
         
         if($_FILES['img_src']['name']!='') {
             if(!$this->upload->do_upload('img_src'))  

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 16, 2020 at 04:06 AM
+-- Generation Time: Jan 19, 2020 at 10:07 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -596,17 +596,20 @@ CREATE TABLE `hwt_user` (
   `plan_id` int(11) NOT NULL,
   `plan_purchase_date` date NOT NULL,
   `plan_expiry_date` date NOT NULL,
-  `plan_status` tinyint(1) NOT NULL
+  `plan_status` tinyint(1) NOT NULL,
+  `oauth_provider` varchar(255) NOT NULL,
+  `oauth_uid` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `hwt_user`
 --
 
-INSERT INTO `hwt_user` (`id`, `type`, `fname`, `lname`, `img_src`, `email`, `password`, `pass_txt`, `company_name`, `job_function`, `industry`, `job_location`, `exp_year`, `exp_month`, `username`, `mobile`, `phone`, `home_town`, `city`, `gender`, `status`, `isDelete`, `created_at`, `updated_at`, `created_timestamp`, `updated_timestamp`, `address`, `state`, `zip`, `verify_string`, `fbid`, `gid`, `country_id`, `shortlist`, `applied_job`, `shortlist_employer`, `history`, `plan_id`, `plan_purchase_date`, `plan_expiry_date`, `plan_status`) VALUES
-(13, 'employer', 'Dhiru', '', 'download.jpg', 'dhiru@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '123456', 'Reliance', '2', '6', '1', '', '', '', '9898989898', 0, '', '', 'M', 1, 0, '2020-01-12 15:42:13', '0000-00-00 00:00:00', 0, 0, '', '', '', '', '', '', 0, '12', '', '14', '', 1, '2020-01-15', '2020-07-15', 1),
-(14, 'employer', 'TATA', '', 'TATA_14.png', 'tata@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '123456', 'tata', '1', '4', '', '', '', '', '963963963', 0, '', '', 'M', 1, 0, '2020-01-12 16:34:48', '0000-00-00 00:00:00', 0, 0, '', '', '', '', '', '', 0, '', '', '', '', 0, '0000-00-00', '0000-00-00', 0),
-(15, 'jobseeker', 'Hitesh', '', 'download.jpg', 'hit@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '123456', '', '', '', '1', '14', '8', '', '96396396', 0, '', 'rajkot', 'M', 1, 0, '2020-01-12 16:54:49', '0000-00-00 00:00:00', 0, 0, 'gandhigram', '', '360007', '475808', '', '', 100, '12,14,,13', '12,14', '', '[\"Khadi Bhavan\\r\\n\\r\\nLorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum \\r\\n\\r\\nLorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum \",\"test\"]', 1, '2020-01-15', '2020-07-15', 1);
+INSERT INTO `hwt_user` (`id`, `type`, `fname`, `lname`, `img_src`, `email`, `password`, `pass_txt`, `company_name`, `job_function`, `industry`, `job_location`, `exp_year`, `exp_month`, `username`, `mobile`, `phone`, `home_town`, `city`, `gender`, `status`, `isDelete`, `created_at`, `updated_at`, `created_timestamp`, `updated_timestamp`, `address`, `state`, `zip`, `verify_string`, `fbid`, `gid`, `country_id`, `shortlist`, `applied_job`, `shortlist_employer`, `history`, `plan_id`, `plan_purchase_date`, `plan_expiry_date`, `plan_status`, `oauth_provider`, `oauth_uid`) VALUES
+(13, 'employer', 'Dhiru', '', 'download.jpg', 'dhiru@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '123456', 'Reliance', '2', '6', '1', '', '', '', '9898989898', 0, '', '', 'M', 1, 0, '2020-01-12 15:42:13', '0000-00-00 00:00:00', 0, 0, '', '', '', '', '', '', 0, '12', '', '14', '', 1, '2020-01-15', '2020-07-15', 1, '', ''),
+(14, 'employer', 'TATA', '', 'TATA_14.png', 'tata@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '123456', 'tata', '1', '4', '', '', '', '', '963963963', 0, '', '', 'M', 1, 0, '2020-01-12 16:34:48', '0000-00-00 00:00:00', 0, 0, '', '', '', '', '', '', 0, '', '', '', '', 0, '0000-00-00', '0000-00-00', 0, '', ''),
+(15, 'jobseeker', 'Hitesh', '', 'download.jpg', 'hit@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '123456', '', '', '', '1', '14', '8', '', '96396396', 0, '', 'rajkot', 'M', 1, 0, '2020-01-12 16:54:49', '0000-00-00 00:00:00', 0, 0, 'gandhigram', '', '360007', '475808', '', '', 100, '12,14,,13', '12,14', '', '[\"Khadi Bhavan\\r\\n\\r\\nLorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum \\r\\n\\r\\nLorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum Lorei lipsum \",\"test\"]', 1, '2020-01-15', '2020-07-15', 1, '', ''),
+(20, 'jobseeker', 'Hitesh', '', '', 'hmvadoliya.iipl2013@gmail.com', '', '', '', '', '', '', '', '', '', '', 0, '', '', 'M', 1, 0, '2020-01-19 13:21:02', '0000-00-00 00:00:00', 0, 0, '', '', '', '', '', '', 0, '', '', '', '', 0, '0000-00-00', '0000-00-00', 0, 'linkedin', 'goSa0pnvc_');
 
 -- --------------------------------------------------------
 
@@ -825,7 +828,7 @@ CREATE TABLE `jobseeker_skill` (
 --
 
 INSERT INTO `jobseeker_skill` (`id`, `jobseeker_id`, `title`, `skill`, `exp_year`, `exp_month`, `designation`, `job_type`, `salary`, `job_function`, `location`, `industry`, `category`, `jobseeker_tags`, `img_src`, `status`, `isDelete`, `created_at`, `updated_at`) VALUES
-(3, 15, 'Wordpress Developer', 'my skill', 1, 3, '1,2,3,4', '1,2,3,4', '1,2,3', '1', '1,3,5', '2,4,5,8', '2,3', 'php,laravel,asdf', 'resume_hitesh9.docx', 0, 0, '2020-01-12 16:58:52', '0000-00-00 00:00:00');
+(3, 15, 'Wordpress Developer', 'my skill', 1, 3, '1,2,3,4', '1,2,3,4', '1,2,3', '1', '1,3,5', '2,4,5,8', '2,3', 'php,laravel,asdf,asdfasd', 'resume_hitesh9.docx', 0, 0, '2020-01-12 16:58:52', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -1894,7 +1897,7 @@ ALTER TABLE `workshop_slider`
 -- AUTO_INCREMENT for table `about`
 --
 ALTER TABLE `about`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `apply_job_without_login`
 --
@@ -1944,7 +1947,7 @@ ALTER TABLE `gallery`
 -- AUTO_INCREMENT for table `hwt_user`
 --
 ALTER TABLE `hwt_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT for table `industry`
 --
@@ -1974,7 +1977,7 @@ ALTER TABLE `jobseeker_other`
 -- AUTO_INCREMENT for table `jobseeker_skill`
 --
 ALTER TABLE `jobseeker_skill`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `job_function`
 --

@@ -62,12 +62,13 @@
                </div>
                <div class="single-candidate-widget clearfix">
                   <h3>share this post</h3>
-                  <ul class="share-job">
+                  <div class="sharethis-inline-share-buttons"></div>
+                  <!-- <ul class="share-job">
                      <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                      <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                      <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
                      <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                  </ul>
+                  </ul> -->
                </div>
             </div>
          </div>
@@ -150,6 +151,7 @@
                </div> -->
             </div>
          </div>
+
       </div>
    </div>
 </section>
@@ -212,3 +214,4 @@
     $.notify({message: "Please login to apply this job." },{type: 'danger'});
   });
 </script>
+<script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=5e240fff780fac0012bbe242&product=inline-share-buttons" async="async"></script>

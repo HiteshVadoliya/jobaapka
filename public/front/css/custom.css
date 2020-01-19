@@ -508,5 +508,8 @@
     border-radius: 10px;
     box-shadow: 5px 5px #e1e1e1;
 }
+.popup_popup, .app_gdpr {
+    display:none !important;
+}
 /*http://buttonoptimizer.com/*/
 /* plan css */
