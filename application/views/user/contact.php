@@ -51,8 +51,8 @@
                            <ul>
                               <li><a href="<?= $site_fb ?>"><i class="fa fa-facebook"></i></a></li>
                               <li><a href="<?= $site_twitter ?>"><i class="fa fa-twitter"></i></a></li>
-                              <!-- <li><a href="#"><i class="fa fa-linkedin"></i></a></li> -->
-                              <li><a href="<?= $site_instagram ?>"><i class="fa fa-google-plus"></i></a></li>
+                              <li><a href="<?= $site_instagram ?>"><i class="fa fa-linkedin"></i></a></li>
+                              <!-- <li><a href=""><i class="fa fa-google-plus"></i></a></li> -->
                            </ul>
                         </div>
                      </div>
@@ -76,9 +76,14 @@
                            </div>
                         </div>
                         <div class="row">
-                           <div class="col-md-12">
+                           <div class="col-md-6">
                               <div class="single-contact-field">
                                  <input type="text" id="subject" name="subject" placeholder="Subject">
+                              </div>
+                           </div>
+                           <div class="col-md-6">
+                              <div class="single-contact-field">
+                                 <input type="text" id="contact" name="contact" placeholder="Contact">
                               </div>
                            </div>
                         </div>
@@ -101,9 +106,15 @@
                </div>
                <br/>
                <br/>
-               <div class="col-md-12">
-                  <div style="width: 100%"><iframe width="100%" height="600" zoom="9" src="https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;q=A-403%2C%204th%20flr.%2C%20%20Krishna%20Plaza%2C%20%20%20Opp.%20CKP%20Bank%2C%20%20Above%20Krishna%20Sweets%2C%20%20%20Near%20Thane%20Railway%20Station%2C%20%20Thane%20(West)%2CMaharashtra%20%20%20Pin%20%E2%80%93%20400601%20+(Job%20Aapka)&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=A&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.maps.ie/coordinates.html">latitude longitude finder</a></iframe></div><br />
+               <div class="container">
+                  <div class="row">
+                     <div class="col-md-12">
+                        <div style="width: 100%"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3768.0741941275664!2d72.97511531744382!3d19.191961500000012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b9269ecc48bb%3A0x16219b996c6cc5a1!2sKrishna%20Plaza%2C%20Near%20Thane%20Railway%20Station%2C%20Naupada%20Thane!5e0!3m2!1sen!2sin!4v1579637378244!5m2!1sen!2sin" width="100%" height="600" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+                  </div>
+                     </div>
+                  </div>
                </div>
+               
             </div>
          </div>
       </section>

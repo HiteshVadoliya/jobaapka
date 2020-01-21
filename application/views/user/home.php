@@ -24,10 +24,10 @@
       <div class="container">
          <div class="row">
             <div class="col-md-12">
-               <div class="banner-search">
+               <div class="banner-search home_search">
                   <h2>Search Job.</h2>
 
-                  <h4>We have 1542 job offers for you! </h4>
+                  <h4>We are about to brings lots of jobs for you!! </h4>
                   <form name="search" id="search" method="get" action="<?= base_url("job_list/"); ?>">
                      <div class="banner-form-box">
                         <div class="banner-form-input">
@@ -61,21 +61,33 @@
              </div>
           </div>
        </div> */ ?>
-          <div class="col-md-12 home_image ">
+        <div class="col-md-12 home_image ">
             <div class="row">
             
                <div class="col-md-4">
-                  <a href="https://www.ideators.tech/our-partners-jobaapka" target="_blank"><img src="<?= IMG_HOME ?>/job_1.png" style="border-radius: 1%;" /></a>
+                  <a href="https://www.ideators.tech/our-partners-jobaapka" target="_blank"><img src="<?= IMG_HOME ?>/job_1.png" style="border-radius: 1%;" /><br>
+                  <span class="home_page_logo_title">ideators</span></a>
+                  
                </div>
                <div class="col-md-4">
-                  <a href="https://skillshop.exceedlms.com/student/award/33034979" target="_blank"><img src="<?= IMG_HOME ?>/job_2.png" style="border-radius: 1%;" /></a>
+                  <a href="https://skillshop.exceedlms.com/student/award/33034979" target="_blank"><img src="<?= IMG_HOME ?>/job_2.png" style="border-radius: 1%;" /><br>
+                  <span class="home_page_logo_title">skillshop</span></a>
                </div>
                <div class="col-md-4">
-                  <a href="http://www.burgerkingindia.in/" target="_blank"><img src="<?= IMG_HOME ?>/job_3.png" style="border-radius: 1%;" /></a>
+                  <a href="http://www.burgerkingindia.in/" target="_blank"><img src="<?= IMG_HOME ?>/job_3.png" style="border-radius: 1%;" /><br>
+                  <span class="home_page_logo_title">burgerkingindia</span></a>
                </div>
                
           </div>
        </div>
+       <div class="col-md-12 home_image ">
+            <div class="row">
+              <div class="col-md-12 center_text">
+                <center><h3>Job Aapka,A new venture, From Ideators,a Google ads certified and Burger King, BI developer Company</h3></center>
+              </div>
+            </div>
+        </div>
+       
     </div>
  </section>
  
@@ -85,8 +97,8 @@
       <div class="row">
          <div class="col-md-12">
             <div class="site-heading">
-               <h2>BROWSE JOBS BY INDUSTRY <span></span></h2>
-               <p>EMPLOYERS/RECRUITERS HAVE STARTED JOINING US</p>
+               <h2>EMPLOYERS/RECRUITERS HAVE STARTED JOINING US <span></span></h2>
+               <p>BROWSE JOBS BY INDUSTRY</p>
             </div>
          </div>
       </div>
@@ -146,7 +158,7 @@
 <!-- Categories Area End -->
  
  <!-- Inner Hire Area Start -->
-<section class="jobguru-inner-hire-area section_100">
+<section class="jobguru-inner-hire-area section_100" id="ideators_div">
    <div class="hire_circle"></div>
    <div class="container">
       <div class="row">
@@ -164,51 +176,7 @@
 
 
 
-<!-- Happy Freelancer Start -->
-<section class="jobguru-happy-freelancer-area section_70">
-   <div class="container">
-      <div class="row">
-         <div class="col-md-12">
-            <div class="site-heading">
-               <h2>Testimonial </h2>
-               <!-- <p>A better career is out there. We'll help you find it. We're your first step to becoming everything you want to be.</p> -->
-            </div>
-         </div>
-      </div>
-      <div class="row">
-         <div class="col-md-12">
-            <div class="happy-freelancer-slider owl-carousel">
-               <?php
-               if(isset($hwt_testimonial) && !empty($hwt_testimonial)) {
-                  foreach ($hwt_testimonial as $t_key => $t_value) {
-                     if(file_exists(IMG_TESTIMONIAL.'Thumb/'.$t_value['img_src'])) {
-                       $t_img = base_url().IMG_TESTIMONIAL.'Thumb/'.$t_value['img_src'];
-                       ?>
-                       <div class="single-happy-freelancer">
-                          <div class="happy-freelancer-img">
-                             <img src="<?= $t_img ?>" alt="<?= $t_value['post'] ?>" />
-                          </div>
-                          <div class="happy-freelancer-text">
-                             <p><?= $t_value['descr'] ?></p>
-                             <div class="happy-freelancer-info">
-                                <h4><?= $t_value['company_name'] ?></h4>
-                                <p><?= $t_value['post'] ?></p>
-                             </div>
-                          </div>
-                       </div>
-                       <?php
-                     }
-                  }
-               }
-               ?>
-              
-            </div>
-         </div>
-      </div>
-   </div>
-</section>
-<!-- Happy Freelancer End -->
- 
+
 
  
  
@@ -218,7 +186,7 @@
       <div class="row">
          <div class="col-md-12">
             <div class="site-heading">
-               <h2>Companies & <span>job offers</span></h2>
+               <h2>Popular <span>Jobs.</span></h2>
                <p>It's easy. Simply post a job you need completed and receive competitive bids from freelancers within minutes</p>
             </div>
          </div>
@@ -228,10 +196,10 @@
             <div class=" job-tab">
                <ul class="nav nav-pills job-tab-switch" id="pills-tab" role="tablist">
                   <li class="nav-item">
-                     <a class="nav-link active" id="pills-companies-tab" data-toggle="pill" href="#pills-companies" role="tab" aria-controls="pills-companies" aria-selected="true">top Companies</a>
+                     <a class="nav-link active" id="pills-companies-tab" data-toggle="pill" href="#pills-companies" role="tab" aria-controls="pills-companies" aria-selected="true">Hiring Companies</a>
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link" id="pills-job-tab" data-toggle="pill" href="#pills-job" role="tab" aria-controls="pills-job" aria-selected="false">job openning</a>
+                     <a class="nav-link" id="pills-job-tab" data-toggle="pill" href="#pills-job" role="tab" aria-controls="pills-job" aria-selected="false">Job Opening</a>
                   </li>
                </ul>
             </div>
@@ -332,6 +300,50 @@
 </section>
 <!-- Job Tab Area End -->
  
+ <!-- Happy Freelancer Start -->
+<section class="jobguru-happy-freelancer-area section_70">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-12">
+            <div class="site-heading">
+               <h2>Testimonial </h2>
+               <!-- <p>A better career is out there. We'll help you find it. We're your first step to becoming everything you want to be.</p> -->
+            </div>
+         </div>
+      </div>
+      <div class="row">
+         <div class="col-md-12">
+            <div class="happy-freelancer-slider owl-carousel">
+               <?php
+               if(isset($hwt_testimonial) && !empty($hwt_testimonial)) {
+                  foreach ($hwt_testimonial as $t_key => $t_value) {
+                     if(file_exists(IMG_TESTIMONIAL.'Thumb/'.$t_value['img_src'])) {
+                       $t_img = base_url().IMG_TESTIMONIAL.'Thumb/'.$t_value['img_src'];
+                       ?>
+                       <div class="single-happy-freelancer">
+                          <div class="happy-freelancer-img">
+                             <img src="<?= $t_img ?>" alt="<?= $t_value['post'] ?>" />
+                          </div>
+                          <div class="happy-freelancer-text">
+                             <p><?= $t_value['descr'] ?></p>
+                             <div class="happy-freelancer-info">
+                                <h4><?= $t_value['company_name'] ?></h4>
+                                <p><?= $t_value['post'] ?></p>
+                             </div>
+                          </div>
+                       </div>
+                       <?php
+                     }
+                  }
+               }
+               ?>
+              
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<!-- Happy Freelancer End -->
  
 
  

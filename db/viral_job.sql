@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 19, 2020 at 10:07 AM
+-- Generation Time: Jan 21, 2020 at 09:16 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -39,8 +39,8 @@ CREATE TABLE `about` (
 --
 
 INSERT INTO `about` (`id`, `title`, `descr`, `meta_title`, `meta_descr`) VALUES
-(1, 'Why Us', '<p>There is no doubt that thousands of other websites provide job services.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Its very logical question to ask that what difference we will make and what really we can do for you which others cannot?</p>\r\n\r\n<p>Before starting our new venture Jobaapka.com, this is what Ideators Technologies has achieved that makes us stand out from the big crowd of job websites and give us strong edge over our competitors.</p>\r\n\r\n<p><strong>1) CLUTCH,USA CERTIFIED</strong>&nbsp;-&nbsp;<a href=\"https://clutch.co/profile/ideators-technologies\" style=\"box-sizing: border-box; color: rgb(107, 115, 156); text-decoration-line: none; background-color: transparent; transition: all 0.4s ease 0s;\">https://clutch.co/profile/ideators-technologies</a></p>\r\n\r\n<p>Clutch is an independent platform that collects objective feedback from clients about each company registered on the site. They perform in-depth interviews with clients and customers about the quality of their interaction with each Clutch-registered company. Based on the data gathered, the service formulates a fair rating of all the firms. Clutch categorises companies by their geographic location,a field of their expertise and the focus on proven skills</p>\r\n\r\n<p><a href=\"https://clutch.co/\" style=\"box-sizing: border-box; color: rgb(107, 115, 156); text-decoration-line: none; background-color: transparent; transition: all 0.4s ease 0s;\">Read more here - https://clutch.co/</a></p>\r\n\r\n<p><a href=\"https://clutch.co/\" style=\"box-sizing: border-box; color: rgb(107, 115, 156); text-decoration-line: none; background-color: transparent; transition: all 0.4s ease 0s;\"><strong>2) GOOGLE SEARCH ADS CERTIFIED</strong>&nbsp;-&nbsp;</a><a href=\"https://academy.exceedlms.com/student/award/33034979\" style=\"box-sizing: border-box; color: rgb(107, 115, 156); text-decoration-line: none; background-color: transparent; transition: all 0.4s ease 0s;\">https://academy.exceedlms.com/student/award/33034979</a></p>\r\n\r\n<p>Every second, there are 2.3 million searches performed on Google, and the majority of search results pages include Google ads.Whenever you look for a product or service online, Google (or any other search-engine provider) displays a results page consisting of both organic and sponsored results.</p>\r\n\r\n<p><a href=\"https://support.google.com/google-ads/answer/9029201\" style=\"box-sizing: border-box; color: rgb(107, 115, 156); text-decoration-line: none; background-color: transparent; transition: all 0.4s ease 0s;\">Read more here - https://support.google.com/google-ads/answer/9029201</a></p>\r\n\r\n<p><a href=\"https://support.google.com/google-ads/answer/9029201\" style=\"box-sizing: border-box; color: rgb(107, 115, 156); text-decoration-line: none; background-color: transparent; transition: all 0.4s ease 0s;\"><strong>3) PREVIOUS DOMAIN RESELLER FOR GODADDY</strong>&nbsp;-&nbsp;</a><a href=\"https://in.godaddy.com/reseller-program/hosting\" style=\"box-sizing: border-box; color: rgb(107, 115, 156); text-decoration-line: none; background-color: transparent; transition: all 0.4s ease 0s;\">https://in.godaddy.com/reseller-program/hosting</a></p>\r\n\r\n<p><strong>4) OUR SERVICES</strong>&nbsp;- We provide you all the requisite services at the most lowest cost for both Employers and Jobseekers. Learn more about that in Our plan</p>', 'Why Us', 'Why Us'),
-(2, 'About Us', '<p>AFTER SUCCESSFUL WORKING OF IDEATORS, A TECHNOLOGY DEVELOPMENT AS WELL AS DIGITAL MARKETING AND BIG DATA TRAINING COMPANY BASED OUT OF THANE,THIS IS OUR NEW INITIATIVE AND VENTURE, JOBAAPKA.COM</p>\r\n\r\n<p>OUR OBJECTIVE IS NOT JUST TO MAKE THE CANDIDATES/JOBSEEKERS FIND THE SUITABLE AND THE RIGHT JOB BUT MAKE THEM SKILLED,EFFICIENT AND PRODUCTIVE IN THEIR JOB HUNT THROUGH OUR OPTIONAL SERVICES.</p>\r\n\r\n<p>WE AIM TO MAKE THE EMPLOYERS GROW NOT ONLY IN TERMS OF HIRING RIGHT PEOPLE BUT ALSO EMPOWERING THEM WITH THE MOST EFFECTIVE AND HIGHLY WORKABLE TECHNOLOGY WHICH WILL ADDRESS THEIR BUSINESS ISSUES.</p>\r\n\r\n<p>THIS PORTAL PROVIDES THE MOST UNIQUE SERVICE IN TERMS OF HIRING/RECRUITMENT AND TECHNOLOGY CONSULTING FOR THE EMPLOYERS AS WELL AS INTERVIEW PREPARATION,CV WRITING AND JOB ASSISTANCE SERVICE FOR THE JOBSEEKERS.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<h3><strong>BELOW POINTS EXPLAIN YOU HOW</strong> -</h3>\r\n\r\n<p><strong>A SINGLE PLAN SOLUTION</strong> &ndash;</p>\r\n\r\n<p>Hassle free and only one simple plan for your Hiring as well as Technology needs at a very low price which you would have never got or thought before.</p>\r\n\r\n<p><strong>A WIN WIN SCENARIO FOR BOTH EMPLOYERS AND JOBSEEKERS -</strong></p>\r\n\r\n<p>Our working style and systematic process makes this a favourable situation for both the parties as we give you ample time to resolve your issues.Know more about that in Our plan</p>\r\n\r\n<p><strong>TECHNOLOGY CONSULTING AS PER YOUR BUSINESS PROBLEMS -</strong></p>\r\n\r\n<p>We understand your business not only in terms of your manpower requirement but also in form of a highly affordable technology that you can decide through our free technology consulting session.</p>\r\n\r\n<p><strong>PERSONAL JOB ASSISTANCE FOR JOBSEEKERS -</strong></p>\r\n\r\n<p>We help candidates who have subscribed for our plan with CV writing,Interview preparation as well as second job or 6 months of support ,whatever comes first after losing out on their previous job.</p>\r\n\r\n<p><strong>100% CREDIBLE AND TRUSTWORTHY -</strong></p>\r\n\r\n<p>With all our credentials and reputation we have gained,you can easily rely on us and be certainly assured of 100% quality and perfect services from us.</p>', 'About Us', 'About Us'),
+(1, 'Why Us', '<p>There is no doubt that thousands of other websites provide job services.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Its very logical question to ask that what difference we will make and what really we can do for you which others cannot?</p>\r\n\r\n<p>Before starting our new venture Jobaapka.com, this is what Ideators Technologies has achieved that makes us stand out from the big crowd of job websites and give us strong edge over our competitors.</p>\r\n\r\n<p><strong>1) CLUTCH,USA CERTIFIED</strong>&nbsp;-&nbsp;<a href=\"https://clutch.co/profile/ideators-technologies\" style=\"box-sizing: border-box; color: rgb(107, 115, 156); text-decoration-line: none; background-color: transparent; transition: all 0.4s ease 0s;\" target=\"_blank\">https://clutch.co/profile/ideators-technologies</a></p>\r\n\r\n<p>Clutch is an independent platform that collects objective feedback from clients about each company registered on the site. They perform in-depth interviews with clients and customers about the quality of their interaction with each Clutch-registered company. Based on the data gathered, the service formulates a fair rating of all the firms. Clutch categorises companies by their geographic location,a field of their expertise and the focus on proven skills</p>\r\n\r\n<p><a href=\"https://clutch.co/\" style=\"box-sizing: border-box; color: rgb(107, 115, 156); text-decoration-line: none; background-color: transparent; transition: all 0.4s ease 0s;\" target=\"_blank\">Read more here - https://clutch.co/</a></p>\r\n\r\n<p><a href=\"https://clutch.co/\" style=\"box-sizing: border-box; color: rgb(107, 115, 156); text-decoration-line: none; background-color: transparent; transition: all 0.4s ease 0s;\"><strong>2) GOOGLE SEARCH ADS CERTIFIED</strong>&nbsp;-&nbsp;</a><a href=\"https://academy.exceedlms.com/student/award/33034979\" style=\"box-sizing: border-box; color: rgb(107, 115, 156); text-decoration-line: none; background-color: transparent; transition: all 0.4s ease 0s;\" target=\"_blank\">https://academy.exceedlms.com/student/award/33034979</a></p>\r\n\r\n<p>Every second, there are 2.3 million searches performed on Google, and the majority of search results pages include Google ads.Whenever you look for a product or service online, Google (or any other search-engine provider) displays a results page consisting of both organic and sponsored results.</p>\r\n\r\n<p><a href=\"https://support.google.com/google-ads/answer/9029201\" style=\"box-sizing: border-box; color: rgb(107, 115, 156); text-decoration-line: none; background-color: transparent; transition: all 0.4s ease 0s;\" target=\"_blank\">Read more here - https://support.google.com/google-ads/answer/9029201</a></p>\r\n\r\n<p><a href=\"https://support.google.com/google-ads/answer/9029201\" style=\"box-sizing: border-box; color: rgb(107, 115, 156); text-decoration-line: none; background-color: transparent; transition: all 0.4s ease 0s;\"><strong>3) PREVIOUS DOMAIN RESELLER FOR GODADDY</strong>&nbsp;-&nbsp;</a><a href=\"https://in.godaddy.com/reseller-program/hosting\" style=\"box-sizing: border-box; color: rgb(107, 115, 156); text-decoration-line: none; background-color: transparent; transition: all 0.4s ease 0s;\" target=\"_blank\">https://in.godaddy.com/reseller-program/hosting</a></p>\r\n\r\n<p><strong>4) OUR SERVICES</strong>&nbsp;- We provide you all the requisite services at the most lowest cost for both Employers and Jobseekers. Learn more about that in Our plan</p>', 'Why Us', 'Why Us'),
+(2, 'About Us', '<p>AFTER SUCCESSFUL WORKING OF IDEATORS, A TECHNOLOGY DEVELOPMENT AS WELL AS DIGITAL MARKETING AND BIG DATA TRAINING COMPANY BASED OUT OF THANE,THIS IS OUR NEW INITIATIVE AND VENTURE, JOBAAPKA.COM</p>\r\n\r\n<p>OUR OBJECTIVE IS NOT JUST TO MAKE THE CANDIDATES/JOBSEEKERS FIND THE SUITABLE AND THE RIGHT JOB BUT MAKE THEM SKILLED,EFFICIENT AND PRODUCTIVE IN THEIR JOB HUNT THROUGH OUR SERVICES.</p>\r\n\r\n<p>WE AIM TO MAKE THE EMPLOYERS GROW NOT ONLY IN TERMS OF HIRING RIGHT PEOPLE BUT ALSO EMPOWERING THEM WITH THE MOST EFFECTIVE AND HIGHLY WORKABLE TECHNOLOGY WHICH WILL ADDRESS THEIR BUSINESS ISSUES.</p>\r\n\r\n<p>THIS PORTAL PROVIDES THE MOST UNIQUE SERVICE IN TERMS OF HIRING/RECRUITMENT AND TECHNOLOGY CONSULTING FOR THE EMPLOYERS AS WELL AS INTERVIEW PREPARATION,CV WRITING AND JOB ASSISTANCE SERVICE FOR THE JOBSEEKERS.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<h3><strong>BELOW POINTS EXPLAIN YOU HOW</strong> -</h3>\r\n\r\n<p><strong>A SINGLE PLAN SOLUTION</strong> &ndash;</p>\r\n\r\n<p>Hassle free and only one simple plan for your Hiring as well as Technology needs at a very low price which you would have never got or thought before.</p>\r\n\r\n<p><strong>A WIN WIN SCENARIO FOR BOTH EMPLOYERS AND JOBSEEKERS -</strong></p>\r\n\r\n<p>Our working style and systematic process makes this a favourable situation for both the parties as we give you ample time to resolve your issues.Know more about that in Our plan</p>\r\n\r\n<p><strong>TECHNOLOGY CONSULTING AS PER YOUR BUSINESS PROBLEMS -</strong></p>\r\n\r\n<p>We understand your business not only in terms of your manpower requirement but also in form of a highly affordable technology that you can decide through our free technology consulting session.</p>\r\n\r\n<p><strong>PERSONAL JOB ASSISTANCE FOR JOBSEEKERS -</strong></p>\r\n\r\n<p>We help candidates who have subscribed for our plan with CV writing,Interview preparation as well as second job or 6 months of support ,whatever comes first after losing out on their previous job.</p>\r\n\r\n<p><strong>100% CREDIBLE AND TRUSTWORTHY -</strong></p>\r\n\r\n<p>With all our credentials and reputation we have gained,you can easily rely on us and be certainly assured of 100% quality and perfect services from us.</p>', 'About Us', 'About Us'),
 (3, 'Privacy Policy', '<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer</p>\r\n\r\n<p>took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>', 'Privacy Policy', 'Privacy Policy'),
 (4, 'Terms & Condition', '<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer</p>\r\n\r\n<p>took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>', 'Terms & Condition', 'Terms & Condition');
 
@@ -523,6 +523,37 @@ INSERT INTO `education` (`id`, `title`, `slug`, `seq`, `status`, `isDelete`, `cr
 (5, 'Civil Engineering', 'civil-engineering', 1, 1, 0, '2019-12-14 11:21:34', '2020-01-06 06:31:48'),
 (6, 'Computer Science', 'computer-science', 1, 1, 0, '2020-01-06 06:32:04', '0000-00-00 00:00:00'),
 (7, 'Criminal Justice (AS)', 'criminal-justice-as', 1, 1, 0, '2020-01-06 06:32:16', '0000-00-00 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `faq`
+--
+
+CREATE TABLE `faq` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `descr` text NOT NULL,
+  `img_src` varchar(255) NOT NULL,
+  `status` tinyint(1) NOT NULL COMMENT '0-no 1-yes',
+  `isDelete` tinyint(1) NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `faq`
+--
+
+INSERT INTO `faq` (`id`, `title`, `descr`, `img_src`, `status`, `isDelete`, `created_at`, `updated_at`) VALUES
+(1, 'question 1', '<p>Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum Lorie lipsum Lorie lipsum&nbsp;Lorie lipsum Lorie lipsum&nbsp;Lorie lipsum Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum Lorie lipsum Lorie lipsum Lorie lipsum Lorie lipsum Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum&nbsp;</p>', '', 1, 0, '2020-01-21 17:45:02', '2020-01-21 17:45:09'),
+(2, 'question 2', '<p>Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum Lorie lipsum Lorie lipsum&nbsp;Lorie lipsum Lorie lipsum&nbsp;Lorie lipsum Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum Lorie lipsum Lorie lipsum Lorie lipsum Lorie lipsum Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum&nbsp;</p>', '', 1, 0, '2020-01-21 17:45:02', '2020-01-21 17:45:09'),
+(3, 'question 3', '<p>Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum Lorie lipsum Lorie lipsum&nbsp;Lorie lipsum Lorie lipsum&nbsp;Lorie lipsum Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum Lorie lipsum Lorie lipsum Lorie lipsum Lorie lipsum Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum&nbsp;</p>', '', 1, 0, '2020-01-21 17:45:02', '2020-01-21 17:45:09'),
+(4, 'question 4', '<p>Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum Lorie lipsum Lorie lipsum&nbsp;Lorie lipsum Lorie lipsum&nbsp;Lorie lipsum Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum Lorie lipsum Lorie lipsum Lorie lipsum Lorie lipsum Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum&nbsp;</p>', '', 1, 0, '2020-01-21 17:45:02', '2020-01-21 17:45:09'),
+(5, 'question 5', '<p>Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum Lorie lipsum Lorie lipsum&nbsp;Lorie lipsum Lorie lipsum&nbsp;Lorie lipsum Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum Lorie lipsum Lorie lipsum Lorie lipsum Lorie lipsum Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum&nbsp;</p>', '', 1, 0, '2020-01-21 17:45:02', '2020-01-21 17:45:09'),
+(6, 'question 6', '<p>Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum Lorie lipsum Lorie lipsum&nbsp;Lorie lipsum Lorie lipsum&nbsp;Lorie lipsum Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum Lorie lipsum Lorie lipsum Lorie lipsum Lorie lipsum Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum&nbsp;</p>', '', 1, 0, '2020-01-21 17:45:02', '2020-01-21 17:45:09'),
+(7, 'question 7', '<p>Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum Lorie lipsum Lorie lipsum&nbsp;Lorie lipsum Lorie lipsum&nbsp;Lorie lipsum Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum Lorie lipsum Lorie lipsum Lorie lipsum Lorie lipsum Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum&nbsp;</p>', '', 1, 0, '2020-01-21 17:45:02', '2020-01-21 17:45:09'),
+(8, 'question 8', '<p>Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum Lorie lipsum Lorie lipsum&nbsp;Lorie lipsum Lorie lipsum&nbsp;Lorie lipsum Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum Lorie lipsum Lorie lipsum Lorie lipsum Lorie lipsum Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum&nbsp;Lorie lipsum&nbsp;</p>', '', 1, 0, '2020-01-21 17:45:02', '2020-01-21 17:45:09');
 
 -- --------------------------------------------------------
 
@@ -1334,7 +1365,7 @@ CREATE TABLE `site_settings` (
 --
 
 INSERT INTO `site_settings` (`id`, `site_name`, `site_title`, `site_logo`, `site_favicon`, `meta_tag`, `meta_keyword`, `meta_description`, `fb_link`, `instagram_link`, `twitter_link`, `map_embeded`, `latitude`, `longitude`, `address`, `email`, `phone`, `paypal_username`, `paypal_password`, `paypal_sign`, `updated_at`) VALUES
-(1, 'JobAapka', 'JobAapka', 'jobaapka.png', 'jobaapka1.png', 'JobAapka', 'JobAapka', 'JobAapka', 'https://www.facebook.com/JobAapka', 'https://www.google.com/JobAapka', 'https://twitter.com/JobAapka', '', '-33.8498426', '', 'Address : A-403, 4th flr.,\r\nKrishna Plaza, \r\nOpp. CKP Bank,\r\nAbove Krishna Sweets, \r\nNear Thane Railway Station,\r\nThane (West),Maharashtra \r\nPin – 400601 ', 'info@jobaapka.com', 'Mo : +91 8657430699', '', '', '', '2019-12-06 19:04:22');
+(1, 'JobAapka', 'JobAapka', 'jobaapka.png', 'jobaapka1.png', 'JobAapka', 'JobAapka', 'JobAapka', 'https://www.facebook.com/JobAapka', 'https://www.linkedin.com/company/job-aapka/', 'https://twitter.com/jobaapka', '', '-33.8498426', '', 'A-403, 4th flr.,\r\nKrishna Plaza, \r\nOpp. CKP Bank,\r\nAbove Krishna Sweets, \r\nNear Thane Railway Station,\r\nThane (West),Maharashtra \r\nPin – 400601 ', 'info@jobaapka.com', 'Mo : +91 8657430699', '', '', '', '2020-01-21 21:07:40');
 
 -- --------------------------------------------------------
 
@@ -1486,7 +1517,9 @@ INSERT INTO `tbl_last_login` (`id`, `userId`, `sessionData`, `machineIp`, `userA
 (98, 11, '{\"role\":\"1\",\"roleText\":\"System Administrator\",\"name\":\"Admin\"}', '::1', 'Chrome 79.0.3945.117', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36', 'Windows 8.1', '2020-01-10 06:38:00'),
 (99, 11, '{\"role\":\"1\",\"roleText\":\"System Administrator\",\"name\":\"Admin\"}', '::1', 'Chrome 79.0.3945.117', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36', 'Windows 8.1', '2020-01-10 22:48:51'),
 (100, 11, '{\"role\":\"1\",\"roleText\":\"System Administrator\",\"name\":\"Admin\"}', '::1', 'Chrome 79.0.3945.117', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36', 'Windows 8.1', '2020-01-12 23:01:51'),
-(101, 11, '{\"role\":\"1\",\"roleText\":\"System Administrator\",\"name\":\"Admin\"}', '::1', 'Chrome 79.0.3945.117', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36', 'Windows 8.1', '2020-01-15 23:32:59');
+(101, 11, '{\"role\":\"1\",\"roleText\":\"System Administrator\",\"name\":\"Admin\"}', '::1', 'Chrome 79.0.3945.117', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36', 'Windows 8.1', '2020-01-15 23:32:59'),
+(102, 11, '{\"role\":\"1\",\"roleText\":\"System Administrator\",\"name\":\"Admin\"}', '::1', 'Chrome 79.0.3945.130', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36', 'Windows 8.1', '2020-01-21 19:52:58'),
+(103, 11, '{\"role\":\"1\",\"roleText\":\"System Administrator\",\"name\":\"Admin\"}', '::1', 'Chrome 79.0.3945.130', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36', 'Windows 8.1', '2020-01-22 01:37:29');
 
 -- --------------------------------------------------------
 
@@ -1578,9 +1611,9 @@ CREATE TABLE `testimonial` (
 --
 
 INSERT INTO `testimonial` (`id`, `title`, `post`, `company_name`, `descr`, `img_src`, `status`, `isDelete`, `created_at`, `updated_at`) VALUES
-(1, '', 'Developer', 'Reliance', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus molestie, justo nec convallis sollicitudin, sapien lorem dictum lacus, non consequat odio ipsum nec est.</p>\r\n', '5df274baf118d_testimonial-1.jpg', 1, 0, '2019-12-12 18:12:50', '2019-12-14 05:31:01'),
-(2, '', 'CEO', 'Essar', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus molestie, justo nec convallis sollicitudin, sapien lorem dictum lacus, non consequat odio ipsum nec est.</p>\r\n', '5df2758a03ea9_testimonial-2.jpg', 1, 0, '2019-12-12 18:14:51', '2019-12-12 18:20:14'),
-(3, '', 'Marketer', 'TATA', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus molestie, justo nec convallis sollicitudin, sapien lorem dictum lacus, non consequat odio ipsum nec est.</p>\r\n', '5df275a05a5fa_testimonial-3.jpg', 1, 0, '2019-12-12 18:15:13', '2019-12-12 18:20:19');
+(1, '', 'Director - Dieu Consultancy Pvt.Ltd.', 'DIVYESH JAIN', '<p>&quot;AN INNOVATIVE CONCEPT THAT PREPARES CANDIDATES FOR THE INTERVIEW AND ASSISTS THEM WITH A NEW JOB AS WELL&quot;</p>\r\n', '5e2756aaa13ff_image18.png', 1, 0, '2019-12-12 18:12:50', '2020-01-21 20:55:36'),
+(2, '', 'Co Founder, Shop-a-Joy', 'AMARJEET DHANJAL', '<p>&quot;A PROMISING VENTURE THAT HAS CREDENTIALS TO ADDRESS ALL THA EMPLOYMENT AND GROWTH ISSUES FACED BY SMALL AND MEDIUM SCALE COMPANIES&quot;</p>\r\n', '5e2756b31df9f_image16.png', 1, 0, '2019-12-12 18:14:51', '2020-01-21 20:57:30'),
+(3, '', 'Marketer', 'TATA', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus molestie, justo nec convallis sollicitudin, sapien lorem dictum lacus, non consequat odio ipsum nec est.</p>\r\n', '5df275a05a5fa_testimonial-3.jpg', 0, 0, '2019-12-12 18:15:13', '2020-01-22 01:23:33');
 
 -- --------------------------------------------------------
 
@@ -1701,6 +1734,12 @@ ALTER TABLE `designation_level`
 -- Indexes for table `education`
 --
 ALTER TABLE `education`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `faq`
+--
+ALTER TABLE `faq`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -1939,6 +1978,11 @@ ALTER TABLE `designation_level`
 ALTER TABLE `education`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
+-- AUTO_INCREMENT for table `faq`
+--
+ALTER TABLE `faq`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+--
 -- AUTO_INCREMENT for table `gallery`
 --
 ALTER TABLE `gallery`
@@ -2062,7 +2106,7 @@ ALTER TABLE `slider`
 -- AUTO_INCREMENT for table `tbl_last_login`
 --
 ALTER TABLE `tbl_last_login`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=104;
 --
 -- AUTO_INCREMENT for table `tbl_reset_password`
 --

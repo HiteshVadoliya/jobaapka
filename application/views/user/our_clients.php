@@ -27,6 +27,9 @@
                }
                ?>
             </div>
+            <a href="<?= base_url('whyus'); ?>">Why us</a><br>
+            <a href="javascript:;">Jobseeker learn here what we have in store for you</a><br>
+            <a href="javascript:;">Employer know here what we have to offer you</a>
          </div>
       </div>
    </div>

@@ -1761,7 +1761,7 @@ ul.footer-social li a>i {
 }
 
 .single-footer-widget>h3 {
-	color: #b3b3b3;
+	color: #fff;
 	;
 	display: inline-block;
 	font-family: "Montserrat", sans-serif;
@@ -1822,7 +1822,7 @@ ul.footer-social li a>i {
 
 .single-footer-widget a {
 	text-transform: capitalize;
-	color: #999
+	color: #fff;
 }
 
 .single-footer-widget a i {
@@ -1850,7 +1850,8 @@ ul.footer-social li a>i {
 	background: #121212 none repeat scroll 0 0;
 	border-top: 1px solid #262626;
 	color: #8d8e92;
-	padding: 30px 0;
+	/*padding: 30px 0;*/
+	padding: 10px 0;
 }
 
 .copyright-left {
@@ -1860,12 +1861,14 @@ ul.footer-social li a>i {
 .copyright-left>p {
 	text-transform: capitalize;
 }
-
+.copyright-left a {
+    color: #fff;
+}
 .copyright-left>p {
 	font-family: "Montserrat", sans-serif;
 	font-weight: 500;
 	text-transform: capitalize;
-	color: #4c4c4c;
+	color: #fff;
 }
 
 .copyright-left p i {
@@ -5505,6 +5508,37 @@ ul.company-desc-list li i {
 
 .contact-right form .row:last-child .single-contact-field {
 	margin-bottom: 0
+}
+
+.social-icons-footer li {
+	display: inline;
+	float: left;
+	margin-right: 4px;
+	text-align: left
+}
+
+.social-icons-footer li a {
+	width: 25px;
+	height: 24px;
+	display: inline-block;
+	/*background-color: #f2f2f2;*/
+	border-radius: 50%;
+	-webkit-transition: all .3s ease-in-out;
+	-moz-transition: all .3s ease-in-out;
+	-o-transition: all .3s ease-in-out;
+	-ms-transition: all .3s ease-in-out;
+	transition: all .3s ease-in-out;
+	position: relative;
+	overflow: hidden
+}
+
+.social-icons-footer li {
+	transform: scale(1.15);
+	-webkit-transform: scale(1.15);
+	-moz-transform: scale(1.15);
+	-o-transform: scale(1.15);
+	margin-right: 9px;
+	margin-top: 9px
 }
 
 

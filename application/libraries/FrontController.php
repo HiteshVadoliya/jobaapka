@@ -14,8 +14,7 @@ class FrontController extends CI_Controller {
 		//$this->output->cache(20);
         
         $sitesetting = $this->SiteSetting_model->getSiteSetting();	
-       
-		$headerInfo['navTab'] = "home";
+        $headerInfo['navTab'] = "home";
 		$headerInfo['site_title'] = $sitesetting[0]->site_title; 
         $headerInfo['site_logo'] = $sitesetting[0]->site_logo; 
 		$headerInfo['site_favicon'] = $sitesetting[0]->site_favicon; 
@@ -28,7 +27,7 @@ class FrontController extends CI_Controller {
         $headerInfo['pageTitle'] = $sitesetting[0]->site_name .' '. $headerInfo['pageTitle'];
 		// header Detail 
         $footerInfo['all_category'] = $this->SiteSetting_model->getCategory();  
-
+        
 		if(!empty($extra)){
 			$result = $this->pageHeader_model->getPageHeadersById($extra["id"]);
 			$headerDetail["headerDetail"] = $result[0];

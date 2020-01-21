@@ -26,12 +26,13 @@
                <div class="single-footer-widget">
                   <h3>main links</h3>
                   <ul>
-                     <li><a href="#"><i class="fa fa-angle-double-right "></i> HOME</a></li>
+                     <li><a href="<?= base_url(); ?>"><i class="fa fa-angle-double-right "></i> HOME</a></li>
                      <li><a href="<?= base_url('about'); ?>"><i class="fa fa-angle-double-right "></i> ABOUT US</a></li>
                      <li><a href="<?= base_url('whyus'); ?>"><i class="fa fa-angle-double-right "></i> WHY US </a></li>
                      <li><a href="<?= base_url('choose_signup') ?>"><i class="fa fa-angle-double-right "></i> REGISTER </a></li>
                      <li><a href="<?= base_url('login') ?>"><i class="fa fa-angle-double-right "></i> LOGIN</a></li>
-                     <li><a href="#"><i class="fa fa-angle-double-right "></i> FAQS </a></li>
+                     <li><a href="<?= base_url('faq') ?>"><i class="fa fa-angle-double-right "></i> FAQS </a></li>
+                     <li><a href="#"><i class="fa fa-angle-double-right "></i> BUSINESS NEWS </a></li>
                      <li><a href="<?= base_url('contact'); ?>"><i class="fa fa-angle-double-right "></i> CONTACT US</a></li>
                   </ul>
                </div>
@@ -39,12 +40,12 @@
 
             <div class="col-lg-3 col-md-6">
                <div class="single-footer-widget">
-                  <h3>EMPLOYER</h3>
+                  <h3><a target="_blank" href="https://www.ideators.tech/our-partners-jobaapka" class="ideators_">ABOUT IDEATORS</a></h3>
                   <ul>
-                     <li><a href="#"><i class="fa fa-angle-double-right "></i> EMPLOYER</a></li>
-                     <li><a href="#"><i class="fa fa-angle-double-right "></i> EMPLOYER PLAN </a></li>
-                     <li><a href="#"><i class="fa fa-angle-double-right "></i> JOBSEEKER </a></li>
-                     <li><a href="#"><i class="fa fa-angle-double-right "></i> PLAN Address  </a></li>
+                     <li><a href="<?= base_url('employer_info') ?>"><i class="fa fa-angle-double-right "></i> EMPLOYER</a></li>
+                     <li><a href="<?= base_url('employer_info') ?>"><i class="fa fa-angle-double-right "></i> EMPLOYER PLAN </a></li>
+                     <li><a href="<?= base_url('jobseeker_info') ?>"><i class="fa fa-angle-double-right "></i> JOBSEEKER </a></li>
+                     <li><a href="<?= base_url('jobseeker_info') ?>"><i class="fa fa-angle-double-right "></i> JOBSEEKER PLAN  </a></li>
                      <li><a href="<?= base_url('terms') ?>"><i class="fa fa-angle-double-right "></i> TERMS AND CONDITIONS </a></li>
                      <li><a href="<?= base_url('policy') ?>"><i class="fa fa-angle-double-right "></i> PRIVACY POLICY </a></li>
                   </ul>
@@ -81,25 +82,41 @@
                   <br/>
                   <a href="javascript:;"><i class="fa fa-map-marker"></i> <?= nl2br($site_address) ?> </a>
                   <br/>
-                  <a href="tel:<?= $site_phone ?>"><i class="fa fa-phone"></i> <?= $site_phone ?></a>
-                  <br/>
-                  <a href="mailto:<?= $site_email ?>"><i class="fa fa-envelope-o"></i> <?= $site_email ?></a>
+                  <ul class="social-icons- social-icons-footer">
+
+                      <li><a class="facebook" href="<?= $site_fb; ?>"><i class="fa fa-facebook"  style="margin-left: 5px;"></i></a></li>
+                      <li><a class="twitter" href="<?= $site_twitter; ?>"><i class="fa fa-twitter"  style="margin-left: 5px;"></i></a></li>
+                      <!-- <li><a class="gplus" href="#"><i class="fa fa-google-plus" style="margin-left: 5px;"></i></a></li> -->
+                      <!-- <li><a class="gplus" href="mailto:<?= $site_email; ?>"><i class="fa fa-envelope" style="margin-left: 5px;"></i></a></li> -->
+                      <li><a class="linkedin" href="<?= $site_instagram; ?>"><i class="fa fa-linkedin" style="margin-left: 5px;"></i></a></li>
+                      <?php /*<li><a class="skype" href="#"><i class="fa fa-skype"></i></a></li>*/ ?>
+                   </ul>
                </div>
             </div>
 
             <div class="col-lg-3 col-md-6">
                <div class="single-footer-widget">
-                  <h3>BUSINESS NEWS</h3>
+                  <h3>NEWSLETTER</h3>
                   <form name="news_frm" id="news_frm" action="javascript:;" method="post">
                      <div class="row">
                         <div class="col-md-12">
                            <div class="single-contact-field">
-                              <input name="news_email" id="news_email" type="text" style="width: 80%;" placeholder="Enter your email ID to stay tuned with the latest corporate news">
+                              <input name="news_email" id="news_email" type="text" style="width: 80%;" placeholder="Enter your email ID">
+                              <!-- Enter your email ID to stay tuned with the latest corporate news -->
                            </div>
                            <input type="submit" class="custom_submit jobguru-btn-2" name="send" value="send">
                         </div>
                      </div>
                   </form>
+                  <br/>
+                  <h3>ALERT</h3>
+                     <div class="row">
+                        <div class="col-md-12">
+                           <div class="single-contact-field">
+                              <i class="fa fa-bell alert_bell"></i>
+                           </div>
+                        </div>
+                     </div>
                </div>
             </div>
 
@@ -111,7 +128,9 @@
          <div class="row">
             <div class="col-lg-12">
                <div class="copyright-left">
-                  <p>2020 <i class="fa fa-trademark"></i> ALL RIGHTS RESERVED <img src="<?= FRONT_IMG."logo/".$site_logo; ?>">
+                  <a href="tel:<?= $site_phone ?>"><i class="fa fa-phone"></i> <?= $site_phone ?></a>&nbsp;&nbsp;
+                  <a href="mailto:<?= $site_email ?>"><i class="fa fa-envelope-o"></i> <?= $site_email ?></a>
+                  <p>2020 <i class="fa fa-trademark"></i> ALL RIGHTS RESERVED <img src="<?= FRONT_IMG."logo/footer_logo.png"; ?>">
 
                      <!-- Copyright &copy; <?= date('Y'); ?> <?= $site_title ?>. All Rights Reserved</p> -->
                </div>
@@ -123,6 +142,11 @@
 
 <script type="text/javascript">
   
+  $(".ideators").click(function() {
+      $([document.documentElement, document.body]).animate({
+          scrollTop: $("#ideators_div").offset().top
+      }, 2000);
+  });
   $(function(){
       $("#news_frm").validate({                       
           rules: {                

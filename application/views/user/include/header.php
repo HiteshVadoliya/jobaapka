@@ -1,5 +1,11 @@
 <!-- Header Area Start -->
-<div class="col-md-12 custom_row_1">
+<?php
+$bg_nav = "";
+if(FILE_NAME!="index.php" && FILE_NAME!="contact" && FILE_NAME!="home") {
+   $bg_nav = "#9bc4e1";
+}
+?>
+<div class="col-md-12 custom_row_1" style="background: <?= $bg_nav; ?>;">
    <div class="row">
 
    <div class="col-lg-4">
@@ -13,10 +19,11 @@
    <div class="col-lg-4 footer-bottom">
       <ul class="social-icons" style="float: right;">
 
-                  <li><a class="facebook" href="#"><i class="fa fa-facebook"  style="margin-left: 5px;"></i></a></li>
-                  <li><a class="twitter" href="#"><i class="fa fa-twitter"  style="margin-left: 5px;"></i></a></li>
-                  <li><a class="gplus" href="#"><i class="fa fa-google-plus" style="margin-left: 5px;"></i></a></li>
-                  <li><a class="linkedin" href="#"><i class="fa fa-linkedin" style="margin-left: 5px;"></i></a></li>
+                  <li><a class="facebook" href="<?= $site_fb; ?>"><i class="fa fa-facebook"  style="margin-left: 5px;"></i></a></li>
+                  <li><a class="twitter" href="<?= $site_twitter; ?>"><i class="fa fa-twitter"  style="margin-left: 5px;"></i></a></li>
+                  <!-- <li><a class="gplus" href="#"><i class="fa fa-google-plus" style="margin-left: 5px;"></i></a></li> -->
+                  <li><a class="gplus" href="mailto:<?= $site_email; ?>"><i class="fa fa-envelope" style="margin-left: 5px;"></i></a></li>
+                  <li><a class="linkedin" href="<?= $site_instagram; ?>"><i class="fa fa-linkedin" style="margin-left: 5px;"></i></a></li>
                   <?php /*<li><a class="skype" href="#"><i class="fa fa-skype"></i></a></li>*/ ?>
                </ul>
    </div>

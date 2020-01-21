@@ -15,7 +15,7 @@ class Home extends FrontController {
         $data['hwt_industry'] = $this->HWT->get_hwt("industry","*",$wh,$params);
         $data['hwt_testimonial'] = $this->HWT->get_result("testimonial","*",$wh);
 
-        $params['limit'] = array("0","4");
+        $params['limit'] = array("0","5");
         $params['shortby'] = 'id';
         $params['shortorder'] = 'DESC';
         $wh['type'] = 'employer';
@@ -607,12 +607,16 @@ class Home extends FrontController {
 		//$this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
         $this->form_validation->set_rules('descr', 'Description ', 'trim|required');
 
+        
+        $contact = (isset($post['contact']) && $post['contact']!="") ? $post['contact'] : '';
+        
         if ($this->form_validation->run()) {
 
         	$Data = array(
         		"fname" => $post['fname'],
                 "subject" => $post['subject'],
         		"email" => $post['email'],
+                "contact" => $contact,
         		"descr" => $post['descr'],
         	);
         	$this->HWT->insert("inquiry",$Data);
@@ -1121,6 +1125,15 @@ class Home extends FrontController {
         $this->global['pageTitle'] = 'RazorPayThanks';
         $data['active_menu'] = "RazorPayThanks";
         $this->loadViews(USER."RazorPayThanks", $this->global, $data, NULL,NULL);
+    }
+
+    public function faq(){
+        $data = array();
+        $wh = array("isDelete"=>0,"status"=>1);
+        $data['hwt_faq'] = $this->HWT->get_hwt("faq","*",$wh);
+        $this->global['pageTitle'] = 'faq';
+        $data['active_menu'] = "faq";
+        $this->loadViews(USER."faq", $this->global, $data, NULL,NULL);
     }
 
 

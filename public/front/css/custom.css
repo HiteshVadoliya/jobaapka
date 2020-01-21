@@ -13,7 +13,9 @@
     padding-right: 4%;
     vertical-align: middle;
     font-weight: 700;
+    font-size: 16px;
 }
+
 .top_nav span {
     color: #2a734a;
     font-size: 20px;
@@ -510,6 +512,25 @@
 }
 .popup_popup, .app_gdpr {
     display:none !important;
+}
+.alert_bell {
+    font-size: 60px;
+    color: #25ad60;
+    text-shadow: 2px 2px 2px #fff;
+}
+.choose_signup .post-jobs {
+    width: 46%;
+    margin: 0 auto;
+    border-radius: 8px;
+}
+.home_search .fa-search {
+    font-size: 30px;
+}
+.home_page_logo_title {
+    font-size: 20px;
+}
+.home_image .center_text {
+    padding: 20px 0;
 }
 /*http://buttonoptimizer.com/*/
 /* plan css */

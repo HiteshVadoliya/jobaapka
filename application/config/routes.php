@@ -80,6 +80,7 @@ $route['jobseeker_info'] = 'Home/jobseeker_not_login';
 $route['employer_info'] = 'Home/employer_not_login';
 $route['razorPaySuccess'] = 'Home/razorPaySuccess';
 $route['RazorThankYou'] = 'Home/RazorThankYou';
+$route['faq'] = 'Home/faq';
 
 
 $route['my-form'] = "MyFormController";
@@ -184,6 +185,12 @@ $route[ADMIN.'testimonial'] = ADMIN."Testimonial";
 $route[ADMIN.'testimonial/add'] = ADMIN."Testimonial/showForm";
 $route[ADMIN.'testimonial/edit/(:any)'] = ADMIN."Testimonial/showForm/$1";
 $route[ADMIN.'testimonial/save'] = ADMIN."Testimonial/save";
+
+/*FAQ */
+$route[ADMIN.'faq'] = ADMIN."Faq";
+$route[ADMIN.'faq/add'] = ADMIN."Faq/showForm";
+$route[ADMIN.'faq/edit/(:any)'] = ADMIN."Faq/showForm/$1";
+$route[ADMIN.'faq/save'] = ADMIN."Faq/save";
 
 /*Job Function */
 $route[ADMIN.'job_function'] = ADMIN."Job_Function";
