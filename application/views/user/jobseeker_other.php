@@ -11,6 +11,21 @@
          </div>
       </div>
    </div>
+   <div class="breadcromb-box-pagin my_breadcum2">
+      <ul>
+         <li>INSTANT ACCOUNT CREATION WITH ONLY MINIMUM INFO</li>
+         <li>&nbsp;</li>
+         <li>FREE REGISTRATION TO SEARCH RIGHT JOBS</li>
+      </ul>
+   </div>
+   <br><br>
+   <div class="breadcromb-box-pagin my_breadcum3">
+      <ul>
+         <li></li>
+         <li>LOWEST PRICE SERVICES</li>
+         <li></li>
+      </ul>
+   </div>
    <div class="breadcromb-bottom">
       <div class="container">
          <div class="row">

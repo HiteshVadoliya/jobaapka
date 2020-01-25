@@ -139,6 +139,11 @@
          </script>
 
 <script async src="https://platform-api.sharethis.com/js/sharethis.js#property=5e27109146492a001309b6a4&product=sticky-share-buttons"></script>
+<script type="text/javascript">
+  $(".not_login_plan").on("click",function(){
+    $.notify({message: "Please login to purchase plan." },{type: 'danger'});
+  }); 
+</script>
         <!--  -->         
          <!--End of Tawk.to Script-->
       </body>

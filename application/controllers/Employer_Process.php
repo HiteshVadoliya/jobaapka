@@ -1162,4 +1162,109 @@ class Employer_Process extends FrontController {
     }
     /*without registration*/
 
+    public function employer_demo() {
+        $post = $this->input->post();
+
+
+        $demo_date = date("Y-m-d", strtotime($post['demo_date']));
+        
+        $DataUpdate = array(
+            'organization_name' => $post['organization_name'],
+            'fname' => $post['fname'],
+            'demo_email' => $post['demo_email'],
+            'demo_contact' => $post['demo_contact'],
+            'demo_date' => $demo_date,
+            'demo_time' => $post['demo_time'],
+            'type' => 'employer'
+        );
+        $this->HWT->insert("request_demo",$DataUpdate);
+
+        $mail_data = array();
+        $sitesetting = $this->SiteSetting_model->getSiteSetting();
+        $mail_data['site_logo'] = $sitesetting[0]->site_logo;
+        $mail_data['site_name'] = $sitesetting[0]->site_name;
+        $mail_data['address'] = $sitesetting[0]->address;
+        $from_email = FROM_EMAIL;
+        
+        $subject = 'Request a demo';
+
+        $inner_html = '<table border="1" class="email-footer" align="center" width="570" cellpadding="0" cellspacing="0" style="box-sizing: border-box; font-family: Arial, sans-serif; margin: 0 auto; padding: 0; text-align: center; width: 570px;">';
+        $inner_html .= '<tr>            
+            <td class="content-cell" align="left" style="box-sizing: border-box; font-family: Arial, sans-serif; padding: 5px; word-break: break-word;">
+              Organization Name
+            </td>
+             <td class="content-cell" align="left" style="box-sizing: border-box; font-family: Arial, sans-serif; padding: 5px; word-break: break-word;">
+              '.$post['organization_name'].'
+            </td>
+          </tr>
+          <tr>            
+            <td class="content-cell" align="left" style="box-sizing: border-box; font-family: Arial, sans-serif; padding: 5px; word-break: break-word;">
+              Name
+            </td>
+             <td class="content-cell" align="left" style="box-sizing: border-box; font-family: Arial, sans-serif; padding: 5px; word-break: break-word;">
+              '.$post['fname'].'
+            </td>
+          </tr>
+          <tr>            
+            <td class="content-cell" align="left" style="box-sizing: border-box; font-family: Arial, sans-serif; padding: 5px; word-break: break-word;">
+              email
+            </td>
+             <td class="content-cell" align="left" style="box-sizing: border-box; font-family: Arial, sans-serif; padding: 5px; word-break: break-word;">
+              '.$post['demo_email'].'
+            </td>
+          </tr>
+          <tr>            
+            <td class="content-cell" align="left" style="box-sizing: border-box; font-family: Arial, sans-serif; padding: 5px; word-break: break-word;">
+              Contact
+            </td>
+             <td class="content-cell" align="left" style="box-sizing: border-box; font-family: Arial, sans-serif; padding: 5px; word-break: break-word;">
+              '.$post['demo_contact'].'
+            </td>
+          </tr>
+          <tr>            
+            <td class="content-cell" align="left" style="box-sizing: border-box; font-family: Arial, sans-serif; padding: 5px; word-break: break-word;">
+              Date
+            </td>
+             <td class="content-cell" align="left" style="box-sizing: border-box; font-family: Arial, sans-serif; padding: 5px; word-break: break-word;">
+              '.$demo_date.'
+            </td>
+          </tr>
+          <tr>            
+            <td class="content-cell" align="left" style="box-sizing: border-box; font-family: Arial, sans-serif; padding: 5px; word-break: break-word;">
+              Time
+            </td>
+             <td class="content-cell" align="left" style="box-sizing: border-box; font-family: Arial, sans-serif; padding: 5px; word-break: break-word;">
+              '.$post['demo_time'].'
+            </td>
+          </tr>
+          ';
+        $inner_html .= '</table><br/>';
+
+        $mail_data['inner_html'] = $inner_html;
+
+        
+        $mail_data['user_name'] = $post['fname'];
+        $email = $post['demo_email'];
+        $message = $this->load->view(USER.'mail_template/request_demo', $mail_data, TRUE);
+        $mail_data_send['to_email'] = FROM_EMAIL;
+        $mail_data['bcc'] = array("0"=>"info@jobaapka.com","1"=>"pratikpm99@gmail.com","2"=>"hmvadoliya.iipl2013@gmail.com");
+        $mail_data_send['subject'] = $subject;
+        $mail_data_send['body'] = $message;
+        $mail_result = $this->HWT->hwt_send_mail($mail_data_send);
+
+        /*$mail_data_send['to_email'] = FROM_EMAIL;
+        $mail_data_send['subject'] = $subject;
+        $mail_data_send['body'] = $message;
+        $mail_result = $this->HWT->hwt_send_mail($mail_data_send);*/
+
+
+        
+        $response = array();
+
+        $response['msg'] = "Send Successfully";
+        $response['response'] = 1;
+        echo json_encode($response);
+        die();
+    }
+
 }

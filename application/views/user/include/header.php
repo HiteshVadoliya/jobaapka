@@ -64,11 +64,11 @@ if(FILE_NAME!="index.php" && FILE_NAME!="contact" && FILE_NAME!="home") {
                         if(isset($_SESSION[PREFIX.'id'])) {
                            if($_SESSION[PREFIX.'type']=="employer") {
                            ?>
-                           <li><a href="<?= base_url('employer/profile'); ?>">EMPLOYER </a></li>
+                           <li><a href="<?= base_url('employer_info'); ?>">EMPLOYER </a></li>
                            <?php
                            } else { 
                            ?>
-                           <li><a href="javascript:;">EMPLOYER </a></li>
+                           <li><a href="<?= base_url('employer_info'); ?>">EMPLOYER </a></li>
                            <?php
                            }
                         } else {
@@ -98,12 +98,11 @@ if(FILE_NAME!="index.php" && FILE_NAME!="contact" && FILE_NAME!="home") {
                         if(isset($_SESSION[PREFIX.'id'])) {
                            if($_SESSION[PREFIX.'type']=="jobseeker") {
                               ?>
-                              <li><a href="<?= base_url('jobseeker/dashboard
-                              '); ?>">JOBSEEKER </a></li>
+                              <li><a href="<?= base_url('jobseeker_info'); ?>">JOBSEEKER </a></li>
                               <?php
                            } else {
                            ?>
-                           <li><a href="javascript:;">JOBSEEKER </a></li>
+                           <li><a href="<?= base_url('jobseeker_info'); ?>">JOBSEEKER </a></li>
                            <?php
                            }
                         } else {
@@ -129,7 +128,13 @@ if(FILE_NAME!="index.php" && FILE_NAME!="contact" && FILE_NAME!="home") {
                         } else {
                            ?>
                            <li ><a href="<?= base_url('choose_signup'); ?>">JOIN US</a></li>
-                           <li ><a href="<?= base_url('login'); ?>">SIGN IN</a></li>
+                           <!-- <li ><a href="<?= base_url('login'); ?>">SIGN IN</a></li> -->
+                           <li class="has-children " ><a href="javascript:;">SIGN IN</a>
+                               <ul>
+                                 <li><a href="<?= base_url('login/employer'); ?>">EMPLOYER</a></li>
+                                 <li><a href="<?= base_url('login/jobseeker'); ?>">JOBSEEKER</a></li>
+                              </ul> 
+                           </li>
                            <?php
                         }
                         ?>

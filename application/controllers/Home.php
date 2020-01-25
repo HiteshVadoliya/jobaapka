@@ -69,6 +69,22 @@ class Home extends FrontController {
         $this->loadViews(USER."employer_not_login", $this->global, $data, NULL,NULL);
     }
 
+    public function employer_plan() {
+        $data = array();
+        $this->global['pageTitle'] = 'employer_plan';
+        $data['active_menu'] = "employer_plan";
+        $data['plan'] = $this->HWT->get_one_row("plan","*",array("id"=>1));
+        $this->loadViews(USER."employer_plan", $this->global, $data, NULL,NULL);
+    }
+
+    public function jobseeker_plan() {
+        $data = array();
+        $this->global['pageTitle'] = 'jobseeker_plan';
+        $data['active_menu'] = "jobseeker_plan";
+        $data['plan'] = $this->HWT->get_one_row("plan","*",array("id"=>1));
+        $this->loadViews(USER."jobseeker_plan", $this->global, $data, NULL,NULL);
+    }
+
     public function signup( $type = 'jobseeker' ) {
         $this->check_session();
         $data = array();
@@ -175,7 +191,7 @@ class Home extends FrontController {
         $this->loadViews(USER."terms", $this->global, $data, NULL,NULL);
     }
 
-    public function login() {
+    public function login( $type = 'jobseeker' ) {
 
        /* echo "<pre>";
         print_r($_SESSION);
@@ -208,6 +224,7 @@ class Home extends FrontController {
       
       $this->global['pageTitle'] = 'login';
       $data['active_menu'] = "login";
+      $data['type'] = $type;
       $this->loadViews(USER."login", $this->global, $data, NULL,NULL);
     }
 

@@ -11,6 +11,21 @@
          </div>
       </div>
    </div>
+   <div class="breadcromb-box-pagin my_breadcum2">
+      <ul>
+         <li>INSTANT ACCOUNT CREATION WITH ONLY MINIMUM INFO</li>
+         <li>&nbsp;</li>
+         <li>FREE REGISTRATION TO SEARCH RIGHT JOBS</li>
+      </ul>
+   </div>
+   <br><br>
+   <div class="breadcromb-box-pagin my_breadcum3">
+      <ul>
+         <li></li>
+         <li>LOWEST PRICE SERVICES</li>
+         <li></li>
+      </ul>
+   </div>
    <div class="breadcromb-bottom">
       <div class="container">
          <div class="row">
@@ -82,49 +97,37 @@
                   <div class="tab-pane fade show active" id="company_a" role="tabpanel" aria-labelledby="company_a_tab">
                      <div class="row">                           
                         <div class="col-lg-12 col-md-12  companyBox moreBox">
-                           <div class="single-browse-company" style="background: #08c85f;">                                 
-                              <div class="modal-body plan-modal-body">
+                           <div class="single-browse-company" >                                 
+                              <div class="modal-body ">
                                 <div class="container">
-                                    <?php
-                                    if($jobseeker_data['plan_status']=="1") {
-                                      ?>
-                                      <div class="pricingTable">
-                                      <div class="pricingTable-signup">
-                                        <a href="javascript:void(0)" class="btn btn-success btn-sm " >Plan Expire on <?php echo $plan_history[0]['plan_expiry_date']; ?> </a>
-                                      </div>                    
-                                      </div>                  
-                                      <?php
-                                    } else {
-                                      ?>
-                                      
-                                        <div class="col-md-6">
-                                          <div class="pricingTable">
-                                              <div class="pricing-content">
-                                                  <div class="pricingTable-header">
-                                                      <h3 class="title">Complete job care plan</h3>
-                                                  </div>
-                                                  <div class="inner-content">
-                                                      <div class="price-value">
-                                                          <span class="currency"><?= CURR_SYMBOL; ?></span>
-                                                          <span class="amount"><?= $plan['title']; ?></span>
-                                                          <span class="duration">Per Month</span>
-                                                      </div>
-                                                      <ul>
-                                                          <li>CV Writing</li>
-                                                          <li>Interview Preparation</li>
-                                                          <li>New Job or Personal Job <br>assistance for <?= $plan['period']; ?> months <br>after you lose a job</li>
-                                                      </ul>
-                                                  </div>
-                                              </div>
-                                              <div class="pricingTable-signup">
-                                                  <a href="javascript:void(0)" class="btn btn-success btn-sm buy_now" data-amount="<?= $plan['title']; ?>" data-id="3">Buy Now</a>
-                                                  <!-- <a href="javascript:;">Buy Now</a> -->
-                                              </div>
-                                          </div>
-                                        </div>
-                                      <?php
-                                    }
-                                    ?>
+                                    <table class="table table-responsive plan_table_1">
+                                        <tr>
+                                          <td><h4>Complete job care plan <br><?= $plan['title']; ?> Per Month</h4></td>
+                                          <td></td>
+                                        </tr>
+                                        <tr>
+                                          <td class="plan_1_text">CV Writing</td>
+                                          <td><i class="fa fa-check icon"></i></td>
+                                        </tr>
+                                        <tr>
+                                          <td class="plan_1_text">Interview Preparation</td>
+                                          <td><i class="fa fa-check icon"></i></td>
+                                        </tr>
+                                        <tr>
+                                          <td class="plan_1_text">New Job or Personal Job <br>assistance for <?= $plan['period']; ?> months <br>after you lose a job</td>
+                                          <td><i class="fa fa-check icon"></i></td>
+                                        </tr>
+                                        <tr>
+                                           
+                                         <td class="single-login-field">
+                                          <a href="<?= base_url('jobseeker_plan'); ?>" class="btn btn-success btn-sm " >Buy Now</a>
+                                         </td>
+                                             
+                                          
+                                        </tr>
+                                    </table>
+
+                                    
                                 </div>
                               </div>
                            </div>

@@ -12,6 +12,13 @@
          </div>
       </div>
    </div>
+   <div class="breadcromb-box-pagin my_breadcum">
+        <ul>
+           <li>QUICK ACCOUNT CREATION WITH LITTLE INFO</li>
+           <li>MOST AFFORDABLE</li>
+           <li>MORE THAN JUST HIRING SERVICES</li>
+        </ul>
+     </div>
    <div class="breadcromb-bottom">
       <div class="container">
          <div class="row">

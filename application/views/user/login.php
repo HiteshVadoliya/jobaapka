@@ -30,10 +30,10 @@
        
        
       <!-- Login Area Start -->
-      <section class="jobguru-login-area section_70">
+      <section class="jobguru-login-area section_70 login_section ">
          <div class="container">
             <div class="row">
-               <div class="col-md-12">
+               <div class="col-md-6">
                   <div class="login-box" id="signup">
                      <div class="login-title">
                         <h3>Sign in</h3>
@@ -71,10 +71,79 @@
                         </div>
                      </form>
                      <div class="dont_have">
-                        <a href="<?= base_url('signup/jobseeker') ?>">Don't have an account?</a>
+                        <a href="<?= base_url('signup/'.$type) ?>">Don't have an account?</a>
                      </div>
                      
                   </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="login-box" id="signup">
+                     <?php if($type=="employer") { ?>
+                     <table class="table table-responsive plan_table_1">
+                          <tr>
+                            <td><h4>Most affordable and unique <br><?= $plan['period']; ?> month plan</h4></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td class="plan_1_text">Unlimited CV Download/Access</td>
+                            <td><i class="fa fa-check icon"></i></td>
+                          </tr>
+                          <tr>
+                            <td class="plan_1_text">Post unlimited jobs</td>
+                            <td><i class="fa fa-check icon"></i></td>
+                          </tr>
+                          <tr>
+                            <td class="plan_1_text">One Free technology consulting for your business issues</td>
+                            <td><i class="fa fa-check icon"></i></td>
+                          </tr>
+                          <tr>
+                            <td class="single-login-field">
+                              <a href="<?= base_url('employer_plan'); ?>" class="plan_know_more" type="button" name="" value="know more">know more</a>
+                              </td>
+                            <td></td>
+                          </tr>
+                     </table>
+                    <?php } else { ?>
+                      <table class="table table-responsive plan_table_1">
+                          <tr>
+                            <td><h4>Complete job care plan <br><?= $plan['title']; ?> Per Month</h4></td>
+                            <td>&nbsp;</td>
+                          </tr>
+                          <tr>
+                            <td class="plan_1_text">CV Writing</td>
+                            <td><i class="fa fa-check icon"></i></td>
+                          </tr>
+                          <tr>
+                            <td class="plan_1_text">Interview Preparation</td>
+                            <td><i class="fa fa-check icon"></i></td>
+                          </tr>
+                          <tr>
+                            <td class="plan_1_text">New Job or Personal Job <br>assistance for <?= $plan['period']; ?> months <br>after you lose a job</td>
+                            <td><i class="fa fa-check icon"></i></td>
+                          </tr>
+                          <tr>
+                             <?php
+                             if(isset($_SESSION) &&  $_SESSION[PREFIX.'id']!="") {
+                               ?>
+                               <td class="single-login-field">
+                                <a href="javascript:void(0)" class="btn btn-success btn-sm buy_now" data-amount="<?= $plan['title']; ?>" data-id="3">Buy Now</a>
+                               </td>
+                               <?php
+                             } else {
+                               ?>
+                               <td class="single-login-field not_login_plan_">
+                                <a href="<?= base_url("jobseeker_info") ?>" class="btn btn-success btn-sm " >Buy Now</a>
+                               </td>
+                               <?php
+                             }
+                             ?>
+                            
+                          </tr>
+                      </table>
+                    <?php } ?>
+                     
+                  </div>
+                    
                </div>
             </div>
          </div>

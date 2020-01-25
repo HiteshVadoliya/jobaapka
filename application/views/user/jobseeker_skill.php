@@ -1,4 +1,3 @@
- 
 <!-- Breadcromb Area Start -->
 <section class="jobguru-breadcromb-area">
    <div class="breadcromb-top section_100">
@@ -11,6 +10,21 @@
             </div>
          </div>
       </div>
+   </div>
+   <div class="breadcromb-box-pagin my_breadcum2">
+      <ul>
+         <li>INSTANT ACCOUNT CREATION WITH ONLY MINIMUM INFO</li>
+         <li>&nbsp;</li>
+         <li>FREE REGISTRATION TO SEARCH RIGHT JOBS</li>
+      </ul>
+   </div>
+   <br><br>
+   <div class="breadcromb-box-pagin my_breadcum3">
+      <ul>
+         <li></li>
+         <li>LOWEST PRICE SERVICES</li>
+         <li></li>
+      </ul>
    </div>
    <div class="breadcromb-bottom">
       <div class="container">
@@ -47,16 +61,24 @@
                            <h3>CV, PROFILE AND SKILLS</h3>
                            <div class="single-resume-feild feild-flex-2">
                               <div class="single-input">
-                                 <label for="Phone">Upload CV * :</label>
+                                <?php
+                                $img_src = "";
+                                if($skill['img_src']!="") {
+                                  if(file_exists(IMG_PROFILE.$skill['img_src'])) {
+                                    $img_src = base_url().IMG_PROFILE.$skill['img_src'];
+                                  } 
+                                }
+                                if($img_src!="") {
+
+                                 ?><label for="Phone">Update CV * :</label><?php
+                                } else {
+                                 ?><label for="Phone">Upload CV * :</label><?php
+
+                                }
+                                ?>
                                  <input type="file" id="img_src" name="img_src">
                                  <input type="hidden" value="<?= $skill['img_src']; ?>" name="img_src_old" id="img_src_old">
                                  <?php
-                                 $img_src = "";
-                                 if($skill['img_src']!="") {
-                                   if(file_exists(IMG_PROFILE.$skill['img_src'])) {
-                                     $img_src = base_url().IMG_PROFILE.$skill['img_src'];
-                                   } 
-                                 }
                                  if($img_src!="") {
                                   ?>
                                     <a href="<?= $img_src ?>">View CV</a>

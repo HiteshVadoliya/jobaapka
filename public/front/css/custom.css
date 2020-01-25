@@ -486,7 +486,8 @@
 }
 
 .without_login {
-  background: #38de7f none repeat scroll 0 0
+  /* background: #38de7f none repeat scroll 0 0*/
+  background: #fff none repeat scroll 0 0;
 }
 .single-browse-company-custom {
   border-radius: 10px !important;
@@ -546,6 +547,35 @@
 .my_breadcum ul li {
     padding: 0 40px;
 }
+
+.my_breadcum2 ul {
+    color: #38de7f;
+    margin-top: -68px !important;
+    padding: 0 20px;
+    font-weight: bold;
+}
+.my_breadcum2 ul>li+li:before {
+    content: " ";
+    padding: 0 5px;
+    color: #ccc;
+}
+.my_breadcum2 ul li {
+    padding: 0 40px;
+}
+.my_breadcum3 ul {
+    color: #38de7f;
+    margin-top: -34px !important;
+    padding: 0 20px;
+    font-weight: bold;
+}
+.my_breadcum3 ul>li+li:before {
+    content: " ";
+    padding: 0 5px;
+    color: #ccc;
+}
+.my_breadcum3 ul li {
+    padding: 0 40px;
+}
 .plan_table_1 {
     margin-top: 10%;
     border: 6px solid #38de7f;
@@ -565,6 +595,11 @@
 }
 .plan_table_1 .table td {
     border: none !important;
+}
+.plan_table_1 .icon {
+    padding: 10px;
+    background: none;
+    color: white;
 }
 .table_3_row_first {
     width: 10px;
@@ -587,6 +622,9 @@ cursor: pointer;
 }
 #section_2_click, #section_1_click {
     display: none;
+}
+.signup_section .login-box, .login_section .login-box {
+    width: 100%;
 }
 /*http://buttonoptimizer.com/*/
 /* plan css */
