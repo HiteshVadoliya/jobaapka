@@ -11,7 +11,7 @@ class Home extends FrontController {
         $wh = array("isDelete"=>0,"status"=>1);
         $data['hwt_slider'] = $this->HWT->get_result("slider","*",$wh);
         $data['hwt_industry'] = $this->HWT->get_result("industry","*",$wh);
-        $params['limit'] = array("0","18");
+        $params['limit'] = array("0","12");
         $data['hwt_industry'] = $this->HWT->get_hwt("industry","*",$wh,$params);
         $data['hwt_testimonial'] = $this->HWT->get_result("testimonial","*",$wh);
 
@@ -52,6 +52,13 @@ class Home extends FrontController {
         $this->global['pageTitle'] = 'choose_signup';
         $data['active_menu'] = "signup";
         $this->loadViews(USER."choose_signup", $this->global, $data, NULL,NULL);
+    }
+    public function choose_login() {
+        $this->check_session();
+        $data = array();
+        $this->global['pageTitle'] = 'choose_login';
+        $data['active_menu'] = "choose_login";
+        $this->loadViews(USER."choose_login", $this->global, $data, NULL,NULL);
     }
 
     public function jobseeker_not_login() {
@@ -1151,6 +1158,29 @@ class Home extends FrontController {
         $this->global['pageTitle'] = 'faq';
         $data['active_menu'] = "faq";
         $this->loadViews(USER."faq", $this->global, $data, NULL,NULL);
+    }
+
+    public function business_news(){
+        $data = array();
+        $this->global['pageTitle'] = 'business_news';
+        $data['active_menu'] = "business_news";
+        $this->loadViews(USER."business_news", $this->global, $data, NULL,NULL);
+    }
+
+    public function get_industry($page) {
+
+        
+          $params = array();          
+          $wh = array("isDelete"=>0,"status"=>1);
+          $params['limit'] = array("13","12"); 
+          $data['hwt_industry'] = $this->HWT->get_hwt("industry","*",$wh,$params);
+
+          // echo $this->db->last_query();
+          $params['limit'] = array("13","13"); 
+          $data['hwt_industry2'] = $this->HWT->get_hwt("industry","*",$wh,$params);
+          $data['count'] = count($data['hwt_industry2']);
+          $data['jobs'] = array();
+          $this->load->view(USER.'ajax/ajax_industry',$data);
     }
 
 

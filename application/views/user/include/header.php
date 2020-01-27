@@ -127,9 +127,9 @@ if(FILE_NAME!="index.php" && FILE_NAME!="contact" && FILE_NAME!="home") {
                            <?php
                         } else {
                            ?>
-                           <li ><a href="<?= base_url('choose_signup'); ?>">JOIN US</a></li>
+                           <li ><a href="<?= base_url('choose_login'); ?>">JOIN US</a></li>
                            <!-- <li ><a href="<?= base_url('login'); ?>">SIGN IN</a></li> -->
-                           <li class="has-children " ><a href="javascript:;">SIGN IN</a>
+                           <li class="has-children " ><a href="<?= base_url('choose_login'); ?>">SIGN IN</a>
                                <ul>
                                  <li><a href="<?= base_url('login/employer'); ?>">EMPLOYER</a></li>
                                  <li><a href="<?= base_url('login/jobseeker'); ?>">JOBSEEKER</a></li>

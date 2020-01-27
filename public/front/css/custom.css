@@ -628,3 +628,16 @@ cursor: pointer;
 }
 /*http://buttonoptimizer.com/*/
 /* plan css */
+.business_service .main-comment {
+    font-size: 14px;
+    padding: 27px 0 0 29px;
+    position: relative;
+}
+.business_service .candidate-image img {
+    border-radius: 0%;
+    display: block;
+    width: 186px;
+}
+.business_service .candidate-text {
+    margin-left: 110px;
+}

@@ -116,7 +116,7 @@
             $ind_img = DEFAULT_IMG;
          }
          if(($ii%$per_page)==0) { ?>
-         <div class="row">
+         <div class="row hwt_ajax_industry ">
          <?php } ?>
             <div class="col-lg-2 col-md-6 col-sm-6">
                <a href="<?= base_url("job_list/?ind=".base64_encode($t_value['id'])); ?>" class="single-category-holder account_cat">
@@ -144,12 +144,19 @@
          $ii++;
          } 
          ?>
+       <!-- <div class="row">
+          <div class="col-md-12">
+             <div class="load-more">
+                <a href="javascript:;" class="load_more_industry" data-pg="24">Load More...</a>
+             </div>
+          </div>
+       </div> -->
       
 
       <div class="row">
          <div class="col-md-12">
             <div class="load-more">
-               <a href="<?= base_url("industry"); ?>" class="jobguru-btn">browse all INDUSTRY</a>
+               <a href="<?= base_url("industry"); ?>" class="jobguru-btn">BROWSE ALL INDUSTRY</a>
             </div>
          </div>
       </div>
@@ -166,7 +173,7 @@
             <div class="inner-hire-left">
                <h3>Hire an employee</h3>
                <p>placerat congue dui rhoncus sem et blandit .et consectetur Fusce nec nunc lobortis lorem ultrices facilisis. Ut dapibus placerat blandit nunc.congue dui rhoncus sem et blandit .et consectetur Fusce nec nunc lobortis lorem ultrices facilisis. Ut dapibus placerat blandi </p>
-               <a href="#" class="jobguru-btn-3">sign up as company</a>
+               <a data-toggle="modal" data-target="#home_popup" href="javascript:;" class="jobguru-btn-3">Find out Now</a>
             </div>
          </div>
       </div>
@@ -344,14 +351,77 @@
    </div>
 </section>
 <!-- Happy Freelancer End -->
- 
+<script type="text/javascript">
+   /*$(document).ready(function(){
+      get_data(0);
+   });*/
+   $(".load_more_industry").on("click",function(){
+    var data_pg = $(this).attr("data-pg");
+      // $(".hwt_ajax_industry").html("");
+      get_data_industry(data_pg);
+   });
+   
+   function get_data_industry(pagno) {
+      $.ajax({
+        url: "<?php echo base_url()."Home/get_industry/" ?>" +pagno,
+        method: "POST",
+        dataType: "html",
+        data :{},
+        success: function(data) {
+            // $(".hwt_ajax_industry").html("");
+            // $(".hwt_ajax_industry").after(data);
+            $(data).insertAfter(".hwt_ajax_industry");
+        },
+        error: function(data) {
+            console.log(data);
+        }
+    });
+   }
+</script>
 
- 
-
- 
-
- 
- 
-
- 
+<div class="modal fade" id="home_popup" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog " role="document">
+    <form name="frm_demo" id="frm_demo" method="post" action="javascript:;">
+    <div class="modal-content ">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body ">
+        <div class="container">
+            <div class="row section_2" >
+              <center>
+                <?php if($_SESSION[PREFIX.'type']=="employer") {
+                  ?>
+                  <a href="<?= base_url("employer/profile"); ?>" class="btn btn-primary">you are a employer</a>
+                  <?php
+                } else {
+                  ?>
+                  <a href="<?= base_url("employer_info"); ?>" class="btn btn-primary">you are a employer</a>
+                  <?php
+                }
+                ?>
+                <?php if($_SESSION[PREFIX.'type']=="jobseeker") {
+                  ?>
+                  <a href="<?= base_url("jobseeker/dashboard"); ?>" class="btn btn-primary  ">you are a jobseeker</a>
+                  <?php
+                } else {
+                  ?>
+                  <a href="<?= base_url("jobseeker_info"); ?>" class="btn btn-primary  ">you are a jobseeker</a>
+                  <?php
+                }
+                ?>
+                
+              </center>
+            </div>
+        </div>
+      </div>
+        
+    </div>
+    </form>
+  </div>
+  
+</div>
  

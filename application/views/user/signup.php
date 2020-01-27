@@ -1,3 +1,11 @@
+<style type="text/css">
+  #frmCheckPassword {border-top:#F0F0F0 2px solid;background:#FAF8F8;padding:10px;}
+  .demoInputBox{padding:7px; border:#F0F0F0 1px solid; border-radius:4px;}
+  #password-strength-status {padding: 5px 10px;color: #FFFFFF; border-radius:4px;margin-top:5px;}
+  .medium-password{background-color: #E4DB11;border:#BBB418 1px solid;}
+  .weak-password{background-color: #FF6600;border:#AA4502 1px solid;}
+  .strong-password{background-color: #12CC1A;border:#0FA015 1px solid;}
+</style>
 <!-- //https://codepen.io/samsurysites/pen/vKsaL -->
 <!--Breadcromb Area Start -->
 <section class="jobguru-breadcromb-area">
@@ -62,7 +70,8 @@
                           </div>
                           <div class="single-login-field inner-addon left-addon">
                              <i class="fa fa-lock inner-text" aria-hidden="true"></i>
-                             <input type="password" name="password" id="password" placeholder="Choose Password" class="signup_class">
+                             <input type="password" name="password" id="password" placeholder="Choose Password" class="signup_class" onKeyUp="checkPasswordStrength();">
+                            <div id="password-strength-status"></div>
                           </div>
                           <div class="single-login-field inner-addon left-addon">
                              <i class="fa fa-lock inner-text" aria-hidden="true"></i>
@@ -213,7 +222,8 @@
                             </div>
                             <div class="single-login-field inner-addon left-addon">
                                <i class="fa fa-lock inner-text" aria-hidden="true"></i>
-                               <input type="password" name="password" id="password" placeholder="Choose Password" class="signup_class">
+                               <input type="password" name="password" id="password" placeholder="Choose Password" class="signup_class"onKeyUp="checkPasswordStrength();">
+                            <div id="password-strength-status"></div>
                             </div>
                             <div class="single-login-field inner-addon left-addon">
                                <i class="fa fa-lock inner-text" aria-hidden="true"></i>
@@ -447,6 +457,26 @@
         });
         return false;
     });
+</script>
+<script type="text/javascript">
+  function checkPasswordStrength() {
+  var number = /([0-9])/;
+  var alphabets = /([a-zA-Z])/;
+  var special_characters = /([~,!,@,#,$,%,^,&,*,-,_,+,=,?,>,<])/;
+  if($('#password').val().length<6) {
+  $('#password-strength-status').removeClass();
+  $('#password-strength-status').addClass('weak-password');
+  $('#password-strength-status').html("Weak (should be atleast 6 characters.)");
+  } else {    
+  if($('#password').val().match(number) && $('#password').val().match(alphabets) && $('#password').val().match(special_characters)) {            
+  $('#password-strength-status').removeClass();
+  $('#password-strength-status').addClass('strong-password');
+  $('#password-strength-status').html("Strong");
+  } else {
+  $('#password-strength-status').removeClass();
+  $('#password-strength-status').addClass('medium-password');
+  $('#password-strength-status').html("Medium (should include alphabets, numbers and special characters.)");
+  }}}
 </script>
       <!-- Login Area End
 

@@ -30,9 +30,9 @@
                      <li><a href="<?= base_url('about'); ?>"><i class="fa fa-angle-double-right "></i> ABOUT US</a></li>
                      <li><a href="<?= base_url('whyus'); ?>"><i class="fa fa-angle-double-right "></i> WHY US </a></li>
                      <li><a href="<?= base_url('choose_signup') ?>"><i class="fa fa-angle-double-right "></i> REGISTER </a></li>
-                     <li><a href="<?= base_url('login') ?>"><i class="fa fa-angle-double-right "></i> LOGIN</a></li>
+                     <li><a href="<?= base_url('choose_login') ?>"><i class="fa fa-angle-double-right "></i> LOGIN</a></li>
                      <li><a href="<?= base_url('faq') ?>"><i class="fa fa-angle-double-right "></i> FAQS </a></li>
-                     <li><a href="#"><i class="fa fa-angle-double-right "></i> BUSINESS NEWS </a></li>
+                     <li><a href="<?= base_url('business_news'); ?>"><i class="fa fa-angle-double-right "></i> BUSINESS NEWS </a></li>
                      <li><a href="<?= base_url('contact'); ?>"><i class="fa fa-angle-double-right "></i> CONTACT US</a></li>
                   </ul>
                </div>
