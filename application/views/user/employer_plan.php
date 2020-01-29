@@ -79,10 +79,10 @@
             <div class="tab-content">
                <div class="tab-pane fade show active" id="company_a" role="tabpanel" aria-labelledby="company_a_tab">
                   <div class="row">                           
-                     <div class="col-md-6 col-md-offset-3 companyBox moreBox">
+                     <div class="col-md-12 col-md-offset-3 companyBox moreBox">
                         
                                 <div class="row">                           
-                                   <div class="col-md-12 companyBox moreBox" style="margin: 0 auto;">
+                                   <div class="col-md-8 companyBox moreBox" style="margin: 0 auto;">
                                       <div class="single-browse-company single-browse-company-custom">
                                           <p><strong>Employer Package</strong></p>
                                           <p><strong>Single Plan for all Employer/Recruiters/Consultants</strong></p>
@@ -124,6 +124,7 @@
                                           }
                                           ?>
                                           <div>
+                                            <center>
                                             <table>
                                               <tr>
                                                 <td style="text-align: left;">CALL BACK FOR ANY CLARIFICATION</td>
@@ -134,6 +135,7 @@
                                                 <td><a style="background: blue;" href="mailTo:info@jobaapka.com" class="btn btn-success btn-sm " >Email Us : info@jobaapka.com</a></td>
                                               </tr>
                                             </table>
+                                            </center>
                                           </div>
                                       </div>
                                    </div>
@@ -150,8 +152,8 @@
                                       </div>
                                    </div>
                                 </div> -->
-                                 <div class="row">                           
-                                    <div class="col-md-12 companyBox moreBox" style="margin: 0 auto;">
+                                 <div class="row " style="display: none;">                           
+                                    <div class="col-md-6 companyBox moreBox" style="margin: 0 auto;">
                                        <div class="single-browse-company single-browse-company-custom">
                                          <table class="table table-responsive plan_table_1">
                                              <tr>

@@ -144,6 +144,117 @@
          $ii++;
          } 
          ?>
+
+       <?php if(count($hwt_industry2) > 0) { ?>
+        <div class="row">
+          <div class="col-md-12">
+             <div class="load-more">
+                <a href="javascript:;" class="open_section_2" >Load More...</a>
+             </div>
+          </div>
+        </div>
+      <?php } ?>
+        
+           
+         <!-- 222222222222222222222222222222222 -->
+         <div class="section_industry_2" style="display: none;">
+         <?php
+         $ii = 0;
+         $j = 0;
+         $total_team = count($hwt_industry2);
+         $per_page = 6;
+         
+         foreach ($hwt_industry2 as $t_key => $t_value) {
+            if($t_value['img_src']!='' && file_exists(IMG_INDUSTRY.$t_value['img_src'])) {
+               $ind_img = base_url().IMG_INDUSTRY.$t_value['img_src'];
+            } else {
+               $ind_img = DEFAULT_IMG;
+            }
+            if(($ii%$per_page)==0) { ?>
+            <div class="row hwt_ajax_industry " >
+            <?php } ?>
+               <div class="col-lg-2 col-md-6 col-sm-6">
+                  <a href="<?= base_url("job_list/?ind=".base64_encode($t_value['id'])); ?>" class="single-category-holder account_cat">
+                     <div class="category-holder-icon">
+                        <i class="fa fa-briefcase"></i>
+                     </div>
+                     <div class="category-holder-text">
+                        <h3><?= $t_value['title']; ?></h3>
+                     </div>
+                     <img src="<?= $ind_img ?>" alt="<?= $t_value['title']; ?>" />
+                  </a>
+               </div>
+            <?php
+            if($j==$per_page-1 || $ii==$total_team-1) {
+               ?>
+               </div>
+               <?php
+               $j=0;
+            } else {
+
+            $j++;
+            }
+            ?>
+            <?php
+            $ii++;
+            } 
+            ?>
+         </div>
+         <!-- 222222222222222222222222222222222 -->
+
+         <div class="section_industry_3" style="display: none;">
+         <?php
+         $ii = 0;
+         $j = 0;
+         $total_team = count($hwt_industry3);
+         $per_page = 6;
+         
+         foreach ($hwt_industry3 as $t_key => $t_value) {
+            if($t_value['img_src']!='' && file_exists(IMG_INDUSTRY.$t_value['img_src'])) {
+               $ind_img = base_url().IMG_INDUSTRY.$t_value['img_src'];
+            } else {
+               $ind_img = DEFAULT_IMG;
+            }
+            if(($ii%$per_page)==0) { ?>
+            <div class="row hwt_ajax_industry " >
+            <?php } ?>
+               <div class="col-lg-2 col-md-6 col-sm-6">
+                  <a href="<?= base_url("job_list/?ind=".base64_encode($t_value['id'])); ?>" class="single-category-holder account_cat">
+                     <div class="category-holder-icon">
+                        <i class="fa fa-briefcase"></i>
+                     </div>
+                     <div class="category-holder-text">
+                        <h3><?= $t_value['title']; ?></h3>
+                     </div>
+                     <img src="<?= $ind_img ?>" alt="<?= $t_value['title']; ?>" />
+                  </a>
+               </div>
+            <?php
+            if($j==$per_page-1 || $ii==$total_team-1) {
+               ?>
+               </div>
+               <?php
+               $j=0;
+            } else {
+
+            $j++;
+            }
+            ?>
+            <?php
+            $ii++;
+            } 
+            ?>
+          </div>
+
+          <?php if(count($hwt_industry3) > 0) { ?> 
+          <div class="row">
+            <div class="col-md-12">
+               <div class="load-more">
+                  <a href="javascript:;" class="open_section_3" style="display: none;" >Load More...</a>
+               </div>
+            </div>
+          </div>
+          <?php } ?>
        <!-- <div class="row">
           <div class="col-md-12">
              <div class="load-more">
@@ -358,7 +469,7 @@
    $(".load_more_industry").on("click",function(){
     var data_pg = $(this).attr("data-pg");
       // $(".hwt_ajax_industry").html("");
-      get_data_industry(data_pg);
+      // get_data_industry(data_pg);
    });
    
    function get_data_industry(pagno) {
@@ -425,3 +536,15 @@
   
 </div>
  
+<script type="text/javascript">
+  $(".open_section_2").on("click",function(){
+    $(".open_section_2").css("display","none");
+    $(".section_industry_2").css("display","block");
+    $(".open_section_3").css("display","block");
+  });
+
+  $(".open_section_3").on("click",function(){
+    $(".open_section_3").css("display","none");
+    $(".section_industry_3").css("display","block");
+  });
+</script>

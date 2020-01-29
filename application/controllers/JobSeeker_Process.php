@@ -495,6 +495,142 @@ class JobSeeker_Process extends FrontController {
     }
 
     public function history() {
+
+        $post = $this->input->post();
+
+        $history_update_id = $post['history_update_id'];
+        $action = "insert";
+        if($history_update_id) {
+            $action = "update";
+        }
+        
+        $title = $post['title_history'];
+        $descr = $post['descr_history'];
+        
+        
+        $DataUpdate = array(
+           'title' => $title,
+           'descr' => $descr,
+        );
+        if($action=="insert") {
+            $DataUpdate['jobseeker_id'] = $_SESSION[PREFIX.'id'];
+            $this->HWT->insert("jobseeker_history",$DataUpdate);
+            $response = array();
+            $response['msg'] = "Insert Successfully";
+        } else {
+            $wh = array("id"=>$history_update_id);
+            $this->HWT->update("jobseeker_history",$DataUpdate,$wh);
+            $response = array();
+            $response['msg'] = "Update Successfully";
+        }
+        
+        $response['response'] = 1;
+        echo json_encode($response);
+        die();
+        
+    }
+
+    public function delete_history() {
+        $post = $this->input->post();
+        $response = array();
+        $response['result'] = 0;
+        if( !empty($post['jobid']) ) {
+
+            $DataUpdate = array(
+                "isDelete"=>'1',
+            );
+            $wh = array("id"=>$post['jobid']);
+            $res = $this->HWT->update("jobseeker_history",$DataUpdate,$wh);
+            $response['result'] = $res;
+        }
+        echo json_encode($response);
+        die();
+    }
+
+    public function get_history() {
+        $post = $this->input->post();
+        $eid = $post['eid'];
+        $res = $this->HWT->get_one_row("jobseeker_history","*",array("isDelete"=>0,"id"=>$eid));
+
+        $response = array();
+
+        $response['title'] = $res['title'];
+        $response['descr'] = $res['descr'];
+        $response['id'] = $res['id'];
+        
+        echo json_encode($response);
+        die();
+    }
+
+    public function history_edu() {
+
+        $post = $this->input->post();
+
+        $history_update_id = $post['history_update_id'];
+        $action = "insert";
+        if($history_update_id) {
+            $action = "update";
+        }
+        
+        $title = $post['title_history'];
+        $descr = $post['descr_history'];
+        
+        
+        $DataUpdate = array(
+           'title' => $title,
+           'descr' => $descr,
+        );
+        if($action=="insert") {
+            $DataUpdate['jobseeker_id'] = $_SESSION[PREFIX.'id'];
+            $this->HWT->insert("jobseeker_education",$DataUpdate);
+            $response = array();
+            $response['msg'] = "Insert Successfully";
+        } else {
+            $wh = array("id"=>$history_update_id);
+            $this->HWT->update("jobseeker_education",$DataUpdate,$wh);
+            $response = array();
+            $response['msg'] = "Update Successfully";
+        }
+        
+        $response['response'] = 1;
+        echo json_encode($response);
+        die();
+        
+    }
+
+    public function delete_history_edu() {
+        $post = $this->input->post();
+        $response = array();
+        $response['result'] = 0;
+        if( !empty($post['jobid']) ) {
+
+            $DataUpdate = array(
+                "isDelete"=>'1',
+            );
+            $wh = array("id"=>$post['jobid']);
+            $res = $this->HWT->update("jobseeker_education",$DataUpdate,$wh);
+            $response['result'] = $res;
+        }
+        echo json_encode($response);
+        die();
+    }
+
+    public function get_history_edu() {
+        $post = $this->input->post();
+        $eid = $post['eid'];
+        $res = $this->HWT->get_one_row("jobseeker_education","*",array("isDelete"=>0,"id"=>$eid));
+
+        $response = array();
+
+        $response['title'] = $res['title'];
+        $response['descr'] = $res['descr'];
+        $response['id'] = $res['id'];
+        
+        echo json_encode($response);
+        die();
+    }
+
+    public function history_() {
         $post = $this->input->post();
 
 

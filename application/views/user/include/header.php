@@ -8,15 +8,18 @@ if(FILE_NAME!="index.php" && FILE_NAME!="contact" && FILE_NAME!="home") {
 <div class="col-md-12 custom_row_1" style="background: <?= $bg_nav; ?>;">
    <div class="row">
 
-   <div class="col-lg-4">
+   <div class="col-lg-3">
       <p style="margin-top: 9px;"><a href="tel:<?= $site_phone ?>"  style="color: #777;" ><i class="fa fa-phone"></i> <?= $site_phone ?></p></a>
    </div>
 
-   <div class="col-lg-4">
+   <div class="col-lg-3">
       <p style="margin-top: 9px;" title="<?= $site_address ?>"> <i class="fa fa-map-marker"></i> Thane (West), Maharashtra Pin – 400601</p>
    </div>
+   <div class="col-lg-3">
+      <p style="margin-top: 9px;" title="<?= $site_address ?>"> <a class="gplus" href="mailto:<?= $site_email; ?>"><i class="fa fa-envelope" style="margin-left: 90px;"></i> <?= $site_email; ?></a></p>
+   </div>
 
-   <div class="col-lg-4 footer-bottom">
+   <div class="col-lg-3 footer-bottom">
       <ul class="social-icons" style="float: right;">
 
                   <li><a class="facebook" href="<?= $site_fb; ?>"><i class="fa fa-facebook"  style="margin-left: 5px;"></i></a></li>

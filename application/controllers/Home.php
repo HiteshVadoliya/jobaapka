@@ -13,6 +13,13 @@ class Home extends FrontController {
         $data['hwt_industry'] = $this->HWT->get_result("industry","*",$wh);
         $params['limit'] = array("0","12");
         $data['hwt_industry'] = $this->HWT->get_hwt("industry","*",$wh,$params);
+
+        $params['limit'] = array("13","12");
+        $data['hwt_industry2'] = $this->HWT->get_hwt("industry","*",$wh,$params);
+
+        $params['limit'] = array("25","12");
+        $data['hwt_industry3'] = $this->HWT->get_hwt("industry","*",$wh,$params);
+
         $data['hwt_testimonial'] = $this->HWT->get_result("testimonial","*",$wh);
 
         $params['limit'] = array("0","5");
@@ -456,7 +463,10 @@ class Home extends FrontController {
             $this->loadViews(USER."jobseeker_shortlisted", $this->global, $data, NULL,NULL);
         } else if($type=="education") {
 
-            $data['edu'] = $this->HWT->get_one_row("jobseeker_edu","*",array("jobseeker_id"=>$_SESSION[PREFIX.'id']));
+            //$data['edu'] = $this->HWT->get_one_row("jobseeker_edu","*",array("jobseeker_id"=>$_SESSION[PREFIX.'id']));
+
+            $data['history_data'] = $this->HWT->get_result("jobseeker_education","*",array("isDelete"=>0,"jobseeker_id"=>$_SESSION[PREFIX.'id']));
+            
 
             $this->loadViews(USER."jobseeker_education", $this->global, $data, NULL,NULL);
         } else if($type=="dashboard") {
@@ -500,6 +510,9 @@ class Home extends FrontController {
         } else if($type=="change_password") {
             $this->loadViews(USER."jobseeker_password", $this->global, $data, NULL,NULL);
         } else if($type=="history") {
+
+            $data['history_data'] = $this->HWT->get_result("jobseeker_history","*",array("isDelete"=>0,"jobseeker_id"=>$_SESSION[PREFIX.'id']));
+            
             $this->loadViews(USER."jobseeker_history", $this->global, $data, NULL,NULL);
         } 
     }

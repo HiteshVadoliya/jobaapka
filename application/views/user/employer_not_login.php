@@ -176,7 +176,7 @@
                             <tr><td class="plan_1_text">GET COMBO OFFER <br>ATTENDANCE TRACKING <br> + <br>BILLING TOOL</td></tr>
                             <tr>
                             <td class="single-login-field">
-                              <button class="plan_know_more plan_3_action" type="button" name="" value="know more" data-toggle="modal" data-target="#plan_first_popup">GET A FREE DEMO</button>
+                              <button class="plan_know_more plan_3_action" type="button" name="" value="know more" data-toggle="modal" data-target="#plan_first_popup">GET A FREE DEMO FOR BOTH</button>
                             </td>
                           </tr>
                           </table>

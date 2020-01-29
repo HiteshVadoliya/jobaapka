@@ -110,6 +110,7 @@ define('IMG_SLIDER','public/uploads/slider/');
 define('IMG_CLIENT','public/uploads/client/');
 define('IMG_INDUSTRY','public/uploads/industry/');
 define('IMG_BUSINESS','public/uploads/business/');
+define('IMG_ABOUT','public/uploads/about/');
 define('IMG_COMPANY_LOGO','public/uploads/company_logo/');
 define('IMG_PROFILE','public/uploads/profile/');
 
