@@ -59,6 +59,7 @@ $route['choose_login'] = 'Home/choose_login';
 $route['login'] = 'Home/login';
 $route['about'] = 'Home/about';
 $route['whyus'] = 'Home/whyus';
+$route['sitemap'] = 'Home/sitemap';
 $route['industry'] = 'Home/industry';
 $route['jobseeker/(:any)'] = 'Home/jobseeker/$1';
 $route['employer/(:any)'] = 'Home/employer/$1';
@@ -83,6 +84,7 @@ $route['employer_info'] = 'Home/employer_not_login';
 $route['employer_plan'] = 'Home/employer_plan';
 $route['jobseeker_plan'] = 'Home/jobseeker_plan';
 $route['business_news'] = 'Home/business_news';
+$route['business_details/(:any)'] = 'Home/business_details/$1';
 $route['razorPaySuccess'] = 'Home/razorPaySuccess';
 $route['RazorThankYou'] = 'Home/RazorThankYou';
 $route['faq'] = 'Home/faq';
@@ -238,6 +240,12 @@ $route[ADMIN.'category'] = ADMIN."Category";
 $route[ADMIN.'category/add'] = ADMIN."Category/showForm";
 $route[ADMIN.'category/edit/(:any)'] = ADMIN."Category/showForm/$1";
 $route[ADMIN.'category/save'] = ADMIN."Category/save";
+
+/*Article */
+$route[ADMIN.'article'] = ADMIN."Article";
+$route[ADMIN.'article/add'] = ADMIN."Article/showForm";
+$route[ADMIN.'article/edit/(:any)'] = ADMIN."Article/showForm/$1";
+$route[ADMIN.'article/save'] = ADMIN."Article/save";
 
 /*Newsletter */
 $route[ADMIN.'neewsletter'] = ADMIN."Newsletter";

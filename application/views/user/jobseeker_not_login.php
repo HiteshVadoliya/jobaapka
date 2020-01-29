@@ -64,7 +64,7 @@
                   </div>
                </div>
             </div>
-            
+            <?php if($_SESSION[PREFIX.'type']!='jobseeker') { ?>
             <div class="tab-content">
                <div class="tab-pane fade show active" id="company_a" role="tabpanel" aria-labelledby="company_a_tab">
                   <div class="row">                           
@@ -87,6 +87,7 @@
                   </div>
                </div>
             </div>
+            <?php } ?>
 
             <div class="tab-content" id="myTabContent">
                <div class="tab-pane fade show active" id="company_a" role="tabpanel" aria-labelledby="company_a_tab">
@@ -94,8 +95,6 @@
                      <div class="col-lg-12 col-md-12">
                         <div class="single-browse-company single-browse-company-custom" style="background: none;">                                 
                            <h3>
-                           <!-- <a href="<?= base_url('signup/jobseeker'); ?>" class="post-jobs">CHECK OUT OUR PREMIUM FEATURES</a> -->
-                           <!-- <a class="button plan_button " href="javascript:;" data-toggle="modal" data-target="#jobseeker_plan_modal">CHECK OUT OUR PREMIUM FEATURES</a> -->
                            <a class="button plan_button section_1_click" href="javascript:;" >CHECK OUT OUR PREMIUM FEATURES</a>
                            </h3>
                         </div>
@@ -152,7 +151,11 @@
       </div>
    </div>
 </section>
-
+<script type="text/javascript">
+  $(".section_1_click").on("click",function(){
+    $("#section_1_click").fadeToggle( "slow", "linear" );;
+  });
+</script>
 <?php /*
 <div class="modal fade" id="jobseeker_plan_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">

@@ -56,7 +56,7 @@
                   </div>
                </div>
             </div>
-            
+            <?php if($_SESSION[PREFIX.'type']!='employer') { ?>
             <div class="tab-content">
                <div class="tab-pane fade show active" id="company_a" role="tabpanel" aria-labelledby="company_a_tab">
                   <div class="row">                           
@@ -77,6 +77,7 @@
                   </div>
                </div>
             </div>
+            <?php } ?>
 
             <div class="tab-content" id="myTabContent">
                <div class="tab-pane fade show active" id="company_a" role="tabpanel" aria-labelledby="company_a_tab">
@@ -84,8 +85,7 @@
                      <div class="col-lg-12 col-md-12">
                         <div class="single-browse-company single-browse-company-custom" style="background: none;">                                 
                            <h3>
-                           <!-- <a class="button plan_button " href="javascript:;" data-toggle="modal" data-target="#jobseeker_plan_modal">GROW YOUR BUSINESS WITH US</a> -->
-                           <a class="button plan_button section_1_click" href="javascript:;">GROW YOUR BUSINESS WITH US</a>
+                            <a class="button plan_button section_1_click" href="javascript:;">GROW YOUR BUSINESS WITH US</a>
                            <a class="button plan_button section_2_click" href="javascript:;">MANAGE YOUR BUSINESS EASILY</a>
                            </h3>
                         </div>

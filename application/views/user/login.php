@@ -57,7 +57,7 @@
                            <input type="password" id="password" name="password" placeholder="Enter Password" class="signup_class">
                         </div>
                         
-                        <div class="remember-row single-login-field clearfix">
+                        <div class="remember-row  clearfix">
                            <!-- <p class="checkbox remember">
                               <input class="checkbox-spin" type="checkbox" id="Freelance">
                               <label for="Freelance"><span></span>Keep Me Signed In</label>
@@ -79,30 +79,32 @@
                 <div class="col-md-6">
                   <div class="login-box" id="signup">
                      <?php if($type=="employer") { ?>
-                     <table class="table table-responsive plan_table_1">
+                        <table class="table table-responsive plan_table_1">
                           <tr>
-                            <td><h4>Most affordable and unique <br><?= $plan['period']; ?> month plan</h4></td>
-                            <td></td>
-                          </tr>
-                          <tr>
-                            <td class="plan_1_text">Unlimited CV Download/Access</td>
-                            <td><i class="fa fa-check icon"></i></td>
-                          </tr>
-                          <tr>
-                            <td class="plan_1_text">Post unlimited jobs</td>
-                            <td><i class="fa fa-check icon"></i></td>
-                          </tr>
-                          <tr>
-                            <td class="plan_1_text">One Free technology consulting for your business issues</td>
-                            <td><i class="fa fa-check icon"></i></td>
-                          </tr>
-                          <tr>
-                            <td class="single-login-field">
-                              <a href="<?= base_url('employer_plan'); ?>" class="plan_know_more" type="button" name="" value="know more">know more</a>
+                              <td colspan="3">
+                                  <h4>Most affordable and unique <br><?= $plan['period']; ?> month plan</h4>
                               </td>
-                            <td></td>
+                              <td></td>
                           </tr>
-                     </table>
+                          <tr>
+                              <td class="plan_1_text" colspan="3">Unlimited CV Download/Access</td>
+                              <td><i class="fa fa-check icon"></i></td>
+                          </tr>
+                          <tr>
+                              <td class="plan_1_text" colspan="3">Post unlimited jobs</td>
+                              <td><i class="fa fa-check icon"></i></td>
+                          </tr>
+                          <tr>
+                              <td class="plan_1_text" colspan="3">One Free technology consulting for your business issues</td>
+                              <td><i class="fa fa-check icon"></i></td>
+                          </tr>
+                          <tr>
+                              <td class="single-login-field" colspan="3">
+                                  <a href="<?= base_url('employer_plan'); ?>" class="plan_know_more" type="button" name="" value="know more">know more</a>
+                              </td>
+                              <td></td>
+                          </tr>
+                      </table>
                     <?php } else { ?>
                       <table class="table table-responsive plan_table_1">
                           <tr>

@@ -48,6 +48,7 @@
                      <li><a href="<?= base_url('jobseeker_info') ?>"><i class="fa fa-angle-double-right "></i> JOBSEEKER PLAN  </a></li>
                      <li><a href="<?= base_url('terms') ?>"><i class="fa fa-angle-double-right "></i> TERMS AND CONDITIONS </a></li>
                      <li><a href="<?= base_url('policy') ?>"><i class="fa fa-angle-double-right "></i> PRIVACY POLICY </a></li>
+                     <li><a href="<?= base_url('sitemap') ?>"><i class="fa fa-angle-double-right "></i> SITEMAP </a></li>
                   </ul>
                </div>
             </div>

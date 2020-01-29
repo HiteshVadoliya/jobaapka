@@ -226,6 +226,8 @@ class HWT extends CI_Model
 		return implode(" ", array_splice($words, 0, $word_limit));
 	}
 
+	
+
 	public function hwt_send_mail($mail_data) {
 	    $config = array();
 	    $config['smtp_port']= "465";
